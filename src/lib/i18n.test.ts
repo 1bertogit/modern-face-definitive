@@ -62,7 +62,8 @@ describe('i18n constants', () => {
   });
 
   it('should have HTML lang mappings', () => {
-    expect(htmlLang['pt']).toBe('pt');
+    // Note: PT uses 'pt-BR' per project standards for SEO compliance
+    expect(htmlLang['pt']).toBe('pt-BR');
     expect(htmlLang['en']).toBe('en');
     expect(htmlLang['es']).toBe('es');
   });
