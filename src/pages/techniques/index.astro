@@ -1,0 +1,267 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Modern Face surgical techniques',
+  'Endomidface direct vision',
+  'Deep Neck facelift',
+  'Evolutionary Browlift',
+  'facial surgery methods',
+  'Dr Robério Brandão techniques',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Modern Face® Surgical Techniques',
+  description:
+    'The techniques that comprise the Modern Face® methodology: Endomidface by Direct Vision, Deep Neck, and Evolutionary Browlift.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const mainTechniques = [
+  {
+    href: '/techniques/endomidface',
+    name: 'Endomidface by Direct Vision',
+    subtitle: 'Midface Region',
+    description:
+      'Midface rejuvenation without endoscope. Direct vision, simultaneous tactile feedback, maximum safety in faces with biostimulators.',
+    highlight: '212 cases • 0% nerve injury',
+    tag: 'Main Technique',
+  },
+  {
+    href: '/techniques/deep-neck',
+    name: 'Modern Face Deep Neck',
+    subtitle: 'Neck and Cervical Region',
+    description:
+      'Complete neck treatment WITHOUT submandibular gland removal. Platysma plication, digastric shaving, lateral Crevassi.',
+    highlight: 'Total gland preservation',
+    tag: 'Main Technique',
+  },
+  {
+    href: '/techniques/browlift',
+    name: 'Evolutionary Browlift',
+    subtitle: 'Upper Third and Eyebrows',
+    description:
+      'Frontoplasty by direct vision with intracapillary access. Safe portal to the Endomidface. Vertical vector, natural result.',
+    highlight: '100% hidden incision',
+    tag: 'Main Technique',
+  },
+];
+
+const complementaryTechniques = [
+  {
+    href: '/techniques/blepharoplasty',
+    name: 'Conservative Blepharoplasty',
+    description: 'Preservation of orbicularis muscle and orbital fat.',
+  },
+  {
+    href: '/techniques/canthopexy',
+    name: 'Canthopexy',
+    description: 'Lateral canthal support and repositioning.',
+  },
+  {
+    href: '/techniques/fibrotic-face',
+    name: 'Fibrotic Face',
+    description: 'Protocols for faces with prior biostimulators.',
+  },
+  {
+    href: '/techniques/revisions-and-complications',
+    name: 'Revisions & Complications',
+    description: 'Management of secondary cases and complications.',
+  },
+  {
+    href: '/techniques/surgical-combinations',
+    name: 'Surgical Combinations',
+    description: 'Sequence and integration of multiple procedures.',
+  },
+];
+
+const comparison = [
+  {
+    aspect: 'Invasiveness Level',
+    emf: 'Minimally Invasive',
+    ponytail: 'Moderately Invasive',
+    deepPlane: 'Highly Invasive',
+  },
+  {
+    aspect: 'Safety in Injected Faces',
+    emf: 'Safe',
+    ponytail: 'Special Care Needed',
+    deepPlane: 'Contraindicated',
+  },
+  { aspect: 'Surgical Time', emf: '90-120 min', ponytail: '120-180 min', deepPlane: '180-240 min' },
+  { aspect: 'Recovery', emf: '7-10 days', ponytail: '14-21 days', deepPlane: '21-30 days' },
+  { aspect: 'Learning Curve', emf: 'Moderate', ponytail: 'Moderate', deepPlane: 'Steep' },
+  { aspect: 'Complication Rate', emf: '<3%', ponytail: '5-8%', deepPlane: '8-12%' },
+];
+---
+
+<BaseLayout
+  title="Surgical Techniques"
+  description="The techniques that comprise the Modern Face® methodology: Endomidface by Direct Vision, Deep Neck, and Evolutionary Browlift."
+  keywords={keywords}
+  schema={schema}
+  lang="en"
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Modern Face®</p>
+      <h1 class="heading-1-white text-5xl md:text-6xl">Surgical Techniques</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Three main techniques integrated into one cohesive methodology. Each solves specific
+        problems, all share the same principles: maximum safety, natural results, optimized
+        recovery.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Techniques -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Main Techniques</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        The core of Modern Face®. Three techniques that can be applied alone or combined according
+        to patient needs.
+      </p>
+
+      <div class="space-y-8">
+        {
+          mainTechniques.map((technique, index) => (
+            <a
+              href={technique.href}
+              class="group block bg-white border border-gray-100 hover:border-accent-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div class="grid grid-cols-12 gap-0">
+                <div class="col-span-12 md:col-span-2 bg-primary-900 p-8 flex items-center justify-center">
+                  <span class="text-6xl font-serif text-white/20 group-hover:text-accent-500 transition-colors">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <div class="col-span-12 md:col-span-10 p-8">
+                  <div class="flex items-start justify-between mb-4">
+                    <span class="label-eyebrow">{technique.tag}</span>
+                    <span class="text-sm text-accent-600 font-medium">{technique.highlight}</span>
+                  </div>
+
+                  <h3 class="heading-3 mb-2 group-hover:text-accent-600 transition-colors">
+                    {technique.name}
+                  </h3>
+                  <p class="text-sm text-accent-600 mb-4">{technique.subtitle}</p>
+                  <p class="body-small">{technique.description}</p>
+
+                  <span class="inline-block mt-6 text-sm text-accent-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Explore technique →
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Technical Comparison</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        How Endomidface by Direct Vision compares to other deep plane facelift approaches.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 pr-4 font-medium text-primary-900">Aspect</th>
+              <th class="text-left py-4 px-4 font-medium text-accent-600">EMF Direct Vision</th>
+              <th class="text-left py-4 px-4 font-medium text-softGray">Ponytail Facelift</th>
+              <th class="text-left py-4 pl-4 font-medium text-softGray">Traditional Deep Plane</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparison.map((item) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 pr-4 font-medium text-primary-900">{item.aspect}</td>
+                  <td class="py-4 px-4 text-accent-600 font-medium">{item.emf}</td>
+                  <td class="py-4 px-4 text-warmGray">{item.ponytail}</td>
+                  <td class="py-4 pl-4 text-warmGray">{item.deepPlane}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-xs text-softGray mt-6 text-center">
+        * Data based on 212 consecutive documented cases and comparative scientific literature.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <blockquote>
+        <p class="heading-2-white italic mb-8">
+          "The right technique is the one that delivers the best result with maximum safety — not
+          the one that looks most impressive."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Complementary Techniques -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Complementary Techniques</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        Procedures that integrate with main techniques for complete and personalized results.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          complementaryTechniques.map((technique) => (
+            <a
+              href={technique.href}
+              class="group block p-6 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <h3 class="heading-4 mb-2 group-hover:text-accent-600 transition-colors">
+                {technique.name}
+              </h3>
+              <p class="body-small">{technique.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-white">
+    <div class="prose-base">
+      <div class="p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Learn the Techniques</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          Structured programs to master each technique with safety and consistency.
+        </p>
+        <a
+          href="/training"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          View Training Programs
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

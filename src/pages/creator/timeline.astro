@@ -1,0 +1,330 @@
+---
+/**
+ * CLUSTER A - Autoria & Provas
+ * Página: /en/creator/timeline/
+ * Prioridade: P0
+ * Intenção: Prova cronológica de autoria
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Creator', url: '/creator' },
+  { name: 'Timeline', url: '/creator/timeline' },
+];
+
+const keywords = [
+  'ENDOMIDFACE history',
+  'Direct Vision surgery timeline',
+  'Dr Robério Brandão career',
+  'facial surgery development 2006',
+  'ENDOMIDFACE origin',
+  'Modern Face history',
+];
+
+const timelineEvents = [
+  {
+    year: '2006',
+    title: 'The Beginning: First Concepts',
+    description:
+      'Dr. Robério Brandão begins developing the foundational concepts for what would become ENDOMIDFACE. Working in Natal, RN, Brazil, without access to expensive endoscopic equipment, he starts exploring direct vision approaches to midface surgery.',
+    milestone: true,
+  },
+  {
+    year: '2007',
+    title: 'Pioneer in Facial Videoendoscopy',
+    description:
+      'Becomes the first surgeon to perform facial videoendoscopy in Rio Grande do Norte. This experience with endoscopic surgery paradoxically reveals the limitations of camera-based approaches and validates the potential of direct vision techniques.',
+    milestone: true,
+  },
+  {
+    year: '2008-2010',
+    title: 'Technique Refinement',
+    description:
+      'Systematic refinement of incision placement, vector mathematics, and anatomical approach. Development of the vertical lift logic that distinguishes ENDOMIDFACE from traditional lateral-vector techniques.',
+  },
+  {
+    year: '2011-2013',
+    title: 'Case Volume Growth',
+    description:
+      'Consistent case volume allows for statistical analysis of outcomes. Safety protocols established. First documentation of zero permanent neural injury record across initial case series.',
+  },
+  {
+    year: '2014-2015',
+    title: 'Deep Neck Integration',
+    description:
+      'Development of the complementary Deep Neck technique without gland removal. Recognition that comprehensive facial rejuvenation requires addressing both midface and cervical anatomy with consistent philosophical approach.',
+    milestone: true,
+  },
+  {
+    year: '2016-2017',
+    title: 'Modern Face Philosophy Crystallizes',
+    description:
+      'The emergence of ubiquitous facial fillers and bioestimulators creates the "Modern Face" patient population. Dr. Brandão articulates the philosophy: surgery designed for faces that have been previously treated, not virgin tissue.',
+  },
+  {
+    year: '2018',
+    title: 'First Training Programs',
+    description:
+      "Beginning of formal teaching programs. First international surgeons trained in the Direct Vision methodology. Validation of the technique's teachability and reproducibility.",
+    milestone: true,
+  },
+  {
+    year: '2019',
+    title: '1,000 Case Milestone',
+    description:
+      'Reaching 1,000 facial surgeries using Direct Vision techniques. Comprehensive safety data confirms zero permanent motor nerve injuries. Publication of internal case series analysis.',
+  },
+  {
+    year: '2020-2021',
+    title: 'Online Mentorship Launch',
+    description:
+      'Adaptation to global circumstances leads to structured online mentorship programs. Surprisingly, the format proves highly effective for surgical training, enabling detailed case analysis and long-term mentoring relationships.',
+    milestone: true,
+  },
+  {
+    year: '2022',
+    title: 'ENDOMIDFACE® Trademark Registration',
+    description:
+      'Formal trademark registration of ENDOMIDFACE® to protect intellectual property and prevent technique name appropriation. Legal framework for authorship protection established.',
+  },
+  {
+    year: '2023',
+    title: 'SBCP National Congress — Invited Speaker',
+    description:
+      "Invited lecture at the Brazilian Society of Plastic Surgery National Congress. Peer recognition of the technique's validity and Dr. Brandão's contribution to the field.",
+    milestone: true,
+  },
+  {
+    year: '2024',
+    title: 'Full Face Global Summit',
+    description:
+      'International presentation of the Modern Face philosophy and ENDOMIDFACE technique at the Full Face Global Summit. Training programs now include surgeons from 7+ countries.',
+    milestone: true,
+  },
+  {
+    year: '2024',
+    title: '1,500+ Cases Documented',
+    description:
+      'Surpassing 1,500 facial surgeries with maintained zero permanent neural injury record. 130+ surgeons trained internationally. Modern Face Institute established as the training hub.',
+    milestone: true,
+  },
+];
+---
+
+<BaseLayout
+  title="Timeline: 2006 → 2024 — The Development of ENDOMIDFACE® by Direct Vision"
+  description="Chronological proof of ENDOMIDFACE® development from 2006 to 2024. See the documented timeline of Dr. Robério Brandão's innovation in facial surgery using Direct Vision techniques."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="Timeline: 2006 → 2024 — The Development of ENDOMIDFACE®"
+    description="Complete chronological history of ENDOMIDFACE by Direct Vision technique development"
+    section="History"
+    keywords={keywords}
+    articleType="Article"
+  />
+
+  <!-- Hero -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+        Documented History
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Timeline: 2006 → 2024</h1>
+      <p class="text-xl text-primary-200 mb-6">
+        The chronological development of <strong class="text-white"
+          >ENDOMIDFACE® by Direct Vision</strong
+        > — from initial concept to international recognition.
+      </p>
+      <p class="text-primary-300">
+        This timeline documents the evolution of the technique, providing verifiable proof of
+        authorship and continuous development over 18 years.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why Timeline Matters -->
+  <section class="py-12 bg-ivory border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="flex items-start gap-4">
+        <div
+          class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0"
+        >
+          <span class="material-symbols-outlined text-accent-600 text-2xl">info</span>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-primary-900 mb-2">Why This Timeline Matters</h2>
+          <p class="text-warmGray">
+            In medical education, <strong>provenance matters</strong>. Techniques are sometimes
+            taught without proper attribution, names get borrowed, and origins become obscured. This
+            timeline serves as a public, verifiable record of ENDOMIDFACE® development — not for
+            ego, but for <em>accuracy</em>. When you learn this technique, you should know who
+            created it, when, and why.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="relative">
+        <!-- Timeline Line -->
+        <div
+          class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-1/2"
+        >
+        </div>
+
+        <!-- Events -->
+        {
+          timelineEvents.map((event, index) => (
+            <div
+              class={`relative mb-12 ${index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'}`}
+            >
+              {/* Year Badge */}
+              <div
+                class={`absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1 ${event.milestone ? 'bg-accent-500' : 'bg-primary-600'} text-white text-sm font-bold px-3 py-1 rounded-full`}
+              >
+                {event.year}
+              </div>
+
+              {/* Content Card */}
+              <div class={`ml-20 md:ml-0 ${index % 2 === 0 ? 'md:mr-12' : 'md:ml-12'}`}>
+                <div
+                  class={`p-6 rounded-xl ${event.milestone ? 'bg-accent-50 border-2 border-accent-200' : 'bg-gray-50'}`}
+                >
+                  <h3
+                    class={`text-xl font-bold mb-2 ${event.milestone ? 'text-accent-700' : 'text-primary-900'}`}
+                  >
+                    {event.title}
+                    {event.milestone && (
+                      <span class="ml-2 text-xs bg-accent-200 text-accent-700 px-2 py-0.5 rounded-full align-middle">
+                        Milestone
+                      </span>
+                    )}
+                  </h3>
+                  <p class="text-warmGray text-left">{event.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Section -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">18 Years of Documented Development</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          This timeline represents 18 years of systematic technique development, clinical
+          application, and teaching. The progression from initial concept (2006) through pioneer
+          status (2007), technique refinement (2008-2015), philosophical crystallization
+          (2016-2017), and international recognition (2023-2024) demonstrates the organic evolution
+          of ENDOMIDFACE® by Direct Vision.
+        </p>
+
+        <p>Key facts that this timeline establishes:</p>
+
+        <ul class="space-y-2">
+          <li>
+            <strong>Origin Date:</strong> Development began in 2006, in Natal, Rio Grande do Norte, Brazil
+          </li>
+          <li><strong>Creator:</strong> Dr. Robério Brandão, continuously from 2006 to present</li>
+          <li>
+            <strong>Evolution:</strong> Organic development responding to clinical needs, not academic
+            theory
+          </li>
+          <li>
+            <strong>Validation:</strong> Peer recognition through SBCP 2023 and Full Face Global 2024
+          </li>
+          <li><strong>Scale:</strong> 1,500+ surgeries, 130+ surgeons trained, 7+ countries</li>
+          <li><strong>Protection:</strong> ENDOMIDFACE® trademark registered 2022</li>
+        </ul>
+
+        <p>
+          For surgeons considering training in this technique, this timeline provides confidence
+          that you're learning from the <a
+            href="/creator"
+            class="text-accent-600 hover:text-accent-700 underline">original source</a
+          > — not a derivative or imitation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Links -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Continue Reading</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a
+          href="/creator/case-series-safety"
+          class="group block p-6 bg-ivory rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Safety Record: 1,500+ Cases
+          </h3>
+          <p class="text-warmGray text-sm">
+            Zero permanent neural injuries documented over 18 years.
+          </p>
+        </a>
+        <a
+          href="/creator/invited-lectures"
+          class="group block p-6 bg-ivory rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Invited Lectures & Recognition
+          </h3>
+          <p class="text-warmGray text-sm">
+            SBCP 2023, Full Face Global 2024, and peer validation.
+          </p>
+        </a>
+        <a
+          href="/creator/trademark-endomidface"
+          class="group block p-6 bg-ivory rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            ENDOMIDFACE® Trademark
+          </h3>
+          <p class="text-warmGray text-sm">Legal protection and authorship documentation.</p>
+        </a>
+        <a
+          href="/methods/endomidface-direct-vision"
+          class="group block p-6 bg-ivory rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            The Technique: ENDOMIDFACE®
+          </h3>
+          <p class="text-warmGray text-sm">Technical overview of the Direct Vision approach.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Learn From the Original Source</h2>
+      <p class="text-xl text-primary-200 mb-8">
+        Training programs directly with Dr. Robério Brandão ensure you're learning the authentic
+        technique with proper mentorship.
+      </p>
+      <a
+        href="/training"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+      >
+        View Training Programs
+      </a>
+    </div>
+  </section>
+</BaseLayout>

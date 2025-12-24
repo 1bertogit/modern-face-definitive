@@ -1,0 +1,705 @@
+---
+import type { Locale } from '@lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'pt' } = Astro.props;
+
+// Hero-specific translations
+const heroContent: Record<
+  Locale,
+  {
+    eyebrow: string;
+    headlineMain: string;
+    headlineAccent: string;
+    leadText: string;
+    ctaPrimary: string;
+    ctaPrimaryHref: string;
+    ctaSecondary: string;
+    ctaSecondaryHref: string;
+    statNumber: string;
+    statLabel: string;
+  }
+> = {
+  'pt': {
+    eyebrow: 'A FILOSOFIA',
+    headlineMain: 'A Anatomia Mudou.',
+    headlineAccent: 'A Cirurgia Precisava Mudar.',
+    leadText:
+      'Dr. Robério Brandão criou uma nova escola em cirurgia facial. Uma filosofia baseada em Navegação Tátil e Visão Direta, que redefine segurança, previsibilidade e tomada de decisão no rejuvenescimento contemporâneo.',
+    ctaPrimary: 'Conhecer o Método',
+    ctaPrimaryHref: '/pt/face-moderna',
+    ctaSecondary: 'Sobre o Criador',
+    ctaSecondaryHref: '/pt/sobre',
+    statNumber: '0%',
+    statLabel: 'Lesão Nervosa',
+  },
+  en: {
+    eyebrow: 'THE PHILOSOPHY',
+    headlineMain: 'Anatomy Changed.',
+    headlineAccent: 'Surgery Had to Follow.',
+    leadText:
+      'Dr. Robério Brandão created a new school of facial surgery. A philosophy based on Tactile Navigation and Direct Vision, that redefines safety, predictability and decision-making in contemporary rejuvenation.',
+    ctaPrimary: 'Learn the Method',
+    ctaPrimaryHref: '/modern-face',
+    ctaSecondary: 'About the Creator',
+    ctaSecondaryHref: '/about',
+    statNumber: '0%',
+    statLabel: 'Nerve Damage',
+  },
+  es: {
+    eyebrow: 'LA FILOSOFÍA',
+    headlineMain: 'La Anatomía Cambió.',
+    headlineAccent: 'La Cirugía Tenía Que Cambiar.',
+    leadText:
+      'Dr. Robério Brandão creó una nueva escuela de cirugía facial. Una filosofía basada en Navegación Táctil y Visión Directa, que redefine seguridad, previsibilidad y toma de decisiones en el rejuvenecimiento contemporáneo.',
+    ctaPrimary: 'Conocer el Método',
+    ctaPrimaryHref: '/es/face-moderna',
+    ctaSecondary: 'Sobre el Creador',
+    ctaSecondaryHref: '/es/sobre',
+    statNumber: '0%',
+    statLabel: 'Daño Nervioso',
+  },
+};
+
+const content = heroContent[locale];
+---
+
+<style>
+  :root {
+    /* Design System Variables - mapped to Tailwind tokens */
+    --color-gold: #b8956c; /* = accent-600 */
+    --color-gold-light: #d4b896; /* = accent-300 */
+    --color-petrol: #1e293b; /* = primary-900 */
+    --color-petrol-dark: #102a43; /* = primary-950 */
+    --color-ivory: #fafaf8; /* = ivory */
+    --color-grey-warm: #8a8a88; /* = softGray */
+    --color-white: #ffffff;
+    --color-black: #000000;
+  }
+
+  .editorial-hero {
+    position: relative;
+    min-height: 95vh; /* Slightly taller for grandeur */
+    background-color: var(--color-petrol);
+    color: var(--color-white);
+    font-family: 'Inter', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Left Column: Content */
+  .hero-content {
+    padding: 8rem 4rem 6rem 8rem; /* Generous left padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    min-height: 0; /* Prevent grid overflow */
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: visible; /* Allow visual-ornament to overlap */
+  }
+
+  /* Artistic Background Element */
+  .hero-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(184, 149, 108, 0.15), transparent 60%);
+    z-index: -1;
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.2s forwards;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-gold);
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+    font-weight: 400; /* Regular weight for elegance */
+    color: var(--color-ivory);
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.4s forwards;
+  }
+
+  .italic-accent.headline {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    line-height: 1.05;
+    font-style: italic;
+    color: var(--color-gold-light);
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.5s forwards;
+  }
+
+  .lead-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-grey-warm);
+    max-width: 480px;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.6s forwards;
+  }
+
+  .cta-container {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    opacity: 0;
+    animation: slideUp 1s ease-out 0.8s forwards;
+  }
+
+  /* Gold CTA - Solid */
+  .cta-btn-primary {
+    background-color: var(--color-gold);
+    color: white;
+    padding: 1.1rem 2.8rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-weight: 500;
+    border: 1px solid var(--color-gold);
+  }
+
+  .cta-btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-gold);
+  }
+
+  /* Secondary Link */
+  .cta-btn-secondary {
+    text-decoration: none;
+    color: var(--color-ivory);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .cta-btn-secondary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+
+  .cta-btn-secondary:hover {
+    color: var(--color-gold);
+  }
+
+  .cta-btn-secondary:hover::after {
+    width: 100%;
+  }
+
+  /* Right Column: Image */
+  .hero-visual {
+    position: relative;
+    height: 100%;
+    min-height: 0; /* Fix for grid item overflow */
+    background-color: var(--color-black);
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    display: block; /* Remove inline gap */
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Moody, cinematic look */
+    filter: grayscale(100%) contrast(110%) brightness(0.8);
+    transition:
+      transform 2s ease,
+      filter 1s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 0.2s forwards;
+  }
+
+  .hero-visual:hover .hero-img {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(100%) brightness(1); /* Color reveal on hover */
+  }
+
+  /* Floating Stats Badge */
+  .visual-ornament {
+    position: absolute;
+    bottom: 6rem;
+    right: -6rem; /* Overlaps into the visual column */
+    background: rgba(17, 26, 39, 0.95);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid var(--color-gold);
+    color: var(--color-ivory);
+    padding: 2.5rem 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 30;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+    box-sizing: border-box;
+    max-width: 280px;
+    overflow: visible;
+  }
+
+  .edition-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    display: block;
+    color: var(--color-white);
+  }
+
+  .edition-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: 0.75rem;
+    display: block;
+    color: var(--color-gold);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media (max-width: 640px) {
+    .editorial-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: 100%;
+      height: 60vh;
+      min-height: 400px;
+      max-height: 500px;
+      order: -1;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-content {
+      padding: 2.5rem 1.5rem 3rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .headline {
+      font-size: 2.25rem;
+      line-height: 1.1;
+    }
+
+    .italic-accent.headline {
+      font-size: 2.25rem;
+      line-height: 1.1;
+    }
+
+    .lead-text {
+      font-size: 0.95rem;
+      max-width: 100%;
+      line-height: 1.6;
+    }
+
+    .cta-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    .cta-btn-primary {
+      width: 100%;
+      text-align: center;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+
+    .visual-ornament {
+      position: absolute;
+      bottom: auto;
+      top: -90px;
+      left: 1.5rem;
+      right: auto;
+      padding: 1.25rem 1.5rem;
+      margin: 0;
+      height: auto;
+      max-width: calc(100% - 3rem);
+      z-index: 30;
+    }
+
+    .edition-number {
+      font-size: 1.75rem;
+    }
+
+    .edition-label {
+      font-size: 0.65rem;
+    }
+  }
+
+  /* Responsive - Small Tablet (641px-767px) */
+  @media (min-width: 641px) and (max-width: 767px) {
+    .editorial-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: 100%;
+      height: 55vh;
+      min-height: 450px;
+      max-height: 600px;
+      order: -1;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center 3%; /* Foca na parte superior para não cortar a cabeça */
+    }
+
+    .hero-content {
+      padding: 3rem 2rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .headline {
+      font-size: 2.75rem;
+      line-height: 1.1;
+    }
+
+    .italic-accent.headline {
+      font-size: 2.75rem;
+      line-height: 1.1;
+    }
+
+    .lead-text {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+
+    .cta-container {
+      gap: 1.5rem;
+    }
+
+    .visual-ornament {
+      position: absolute;
+      bottom: auto;
+      top: -90px;
+      left: 2rem;
+      right: auto;
+      padding: 1.5rem 1.75rem;
+      margin: 0;
+      height: auto;
+      max-width: calc(100% - 4rem);
+      z-index: 30;
+    }
+
+    .edition-number {
+      font-size: 2rem;
+    }
+
+    .edition-label {
+      font-size: 0.65rem;
+    }
+  }
+
+  /* Responsive - iPad Portrait / Large Tablet (768px-1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .editorial-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    .hero-visual {
+      width: 100%;
+      max-width: 100%;
+      height: 65vh;
+      min-height: 550px;
+      max-height: 700px;
+      order: -1;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center 3%; /* Foca na parte superior para não cortar a cabeça */
+    }
+
+    .hero-content {
+      padding: 4rem 3rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .headline {
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+
+    .italic-accent.headline {
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+
+    .lead-text {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-container {
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .visual-ornament {
+      position: absolute;
+      bottom: auto;
+      top: -90px;
+      left: 3rem;
+      right: auto;
+      padding: 2rem 2.5rem;
+      margin: 0;
+      height: auto;
+      max-width: calc(100% - 6rem);
+      z-index: 30;
+    }
+
+    .edition-number {
+      font-size: 2.5rem;
+    }
+
+    .edition-label {
+      font-size: 0.7rem;
+    }
+  }
+
+  /* Responsive - Tablet Landscape / Small Desktop (1025px-1280px) */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .editorial-hero {
+      grid-template-columns: 1fr 1fr;
+      min-height: 85vh;
+    }
+
+    .hero-content {
+      padding: 6rem 3rem 5rem 5rem;
+    }
+
+    .headline {
+      font-size: 4.5rem;
+    }
+
+    .italic-accent.headline {
+      font-size: 4.5rem;
+    }
+
+    .lead-text {
+      font-size: 1.05rem;
+      max-width: 420px;
+    }
+
+    .hero-visual {
+      min-height: 85vh;
+    }
+
+    .visual-ornament {
+      bottom: 5rem;
+      right: -5rem;
+      padding: 2rem 2.5rem;
+      max-width: 260px;
+    }
+
+    .edition-number {
+      font-size: 3rem;
+    }
+  }
+
+  /* Responsive - Desktop Large (1281px+) */
+  @media (min-width: 1281px) {
+    .editorial-hero {
+      grid-template-columns: 1fr 1fr;
+      min-height: 95vh;
+    }
+
+    .hero-visual {
+      min-height: 95vh;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .hero-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-content {
+      min-height: 0; /* Prevent grid overflow */
+      padding: 8rem 4rem 6rem 8rem;
+      position: relative;
+      overflow: visible;
+    }
+
+    .headline {
+      font-size: 60px;
+    }
+
+    .italic-accent.headline {
+      font-size: 60px;
+    }
+
+    .visual-ornament {
+      bottom: 6rem;
+      right: -6rem;
+      padding: 2.5rem 3rem;
+      max-width: 280px;
+    }
+  }
+</style>
+
+<section class="editorial-hero">
+  <div class="hero-content">
+    <span class="eyebrow">{content.eyebrow.toUpperCase()}</span>
+
+    <h1 class="headline">
+      {content.headlineMain}
+    </h1>
+    <span class="italic-accent headline">{content.headlineAccent}</span>
+
+    <p class="lead-text">
+      {content.leadText}
+    </p>
+
+    <div class="cta-container">
+      <a href={content.ctaPrimaryHref} class="cta-btn-primary">{content.ctaPrimary}</a>
+      <a href={content.ctaSecondaryHref} class="cta-btn-secondary">{content.ctaSecondary}</a>
+    </div>
+
+    <div class="visual-ornament">
+      <span class="edition-number">{content.statNumber}</span>
+      <span class="edition-label">{content.statLabel}</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img
+      src="/images/hero/dr-roberio-824w.webp"
+      srcset="/images/hero/dr-roberio-412w.webp 412w,
+              /images/hero/dr-roberio-824w.webp 824w,
+              /images/hero/dr-roberio-1200w.webp 1200w"
+      sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 50vw"
+      alt="Dr. Robério Brandão"
+      class="hero-img"
+      width="824"
+      height="1440"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </div>
+</section>

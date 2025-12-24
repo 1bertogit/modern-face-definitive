@@ -1,0 +1,163 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const motorNerves = [
+  {
+    name: 'Temporal/Frontal Branch',
+    function: 'Frontalis, superior orbicularis',
+    risk: 'High',
+    zone: 'Zygomatic arch',
+  },
+  {
+    name: 'Zygomatic Branch',
+    function: 'Orbicularis oculi',
+    risk: 'Medium',
+    zone: 'Protected by SMAS',
+  },
+  {
+    name: 'Buccal Branch',
+    function: 'Lip elevators, zygomaticus',
+    risk: 'High',
+    zone: 'Midface - highest attention',
+  },
+  {
+    name: 'Marginal Branch',
+    function: 'Lip depressors',
+    risk: 'Very High',
+    zone: 'Mandibular border',
+  },
+  { name: 'Cervical Branch', function: 'Platysma', risk: 'Low', zone: 'Neck' },
+];
+
+const sensoryNerves = [
+  { name: 'Supraorbital', origin: 'V1', area: 'Forehead and anterior scalp' },
+  { name: 'Supratrochlear', origin: 'V1', area: 'Glabella and medial forehead' },
+  { name: 'Infraorbital', origin: 'V2', area: 'Lower eyelid, lateral nose, upper lip' },
+  { name: 'Mental', origin: 'V3', area: 'Lower lip and chin' },
+];
+---
+
+<BaseLayout
+  title="Facial Nerves | Surgical Anatomy"
+  description="Motor and sensory facial nerves. What to protect at all costs in facial surgery."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Facial Nerves</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Maximum Safety
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Facial Nerves</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        What to protect at all costs. Nerve injury is the most feared complication in facial
+        surgery.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-red-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "You cannot protect what you don't know. And you cannot know what you don't see."
+      </p>
+      <p class="text-white/80 text-sm mt-2">— Direct Vision Principle</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Facial Nerve (VII) — Motor Branches
+      </h2>
+      <p class="text-warmGray text-center mb-12">Facial movement — injury causes paralysis</p>
+
+      <div class="space-y-4">
+        {
+          motorNerves.map((n) => (
+            <div class="flex flex-col md:flex-row md:items-center gap-4 p-6 bg-ivory border border-gray-100">
+              <div class="flex-1">
+                <h3 class="font-serif text-primary-900 mb-1">{n.name}</h3>
+                <p class="text-sm text-warmGray">Function: {n.function}</p>
+                <p class="text-xs text-softGray">Critical zone: {n.zone}</p>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 self-start md:self-center text-white ${n.risk === 'Very High' ? 'bg-red-700' : n.risk === 'High' ? 'bg-red-600' : n.risk === 'Medium' ? 'bg-amber-600' : 'bg-green-600'}`}
+              >
+                {n.risk} Risk
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ The Marginal Branch</h2>
+      <div class="bg-white p-8 border border-red-200">
+        <p class="text-warmGray mb-4">
+          The marginal mandibular branch is responsible for <strong class="text-primary-900"
+            >most complications</strong
+          >
+          in facial surgery. Its injury causes lip asymmetry — the "crooked smile" that identifies surgical
+          complication.
+        </p>
+        <ul class="space-y-2 text-sm text-warmGray">
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span>Crosses mandible at variable position</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span
+              >In 20% of cases, passes below inferior mandibular border</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span
+              >Direct vision allows identification before injury</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Trigeminal (V) — Sensory Branches
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          sensoryNerves.map((n) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif text-primary-900">{n.name}</h3>
+                <span class="text-xs px-2 py-1 bg-accent-100 text-accent-800">{n.origin}</span>
+              </div>
+              <p class="text-sm text-warmGray">Area: {n.area}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/retaining-ligaments" class="text-sm text-accent-600"
+        >← Retaining Ligaments</a
+      >
+      <a href="/applied-anatomy" class="text-sm text-accent-600">Back to Index →</a>
+    </div>
+  </section>
+</BaseLayout>

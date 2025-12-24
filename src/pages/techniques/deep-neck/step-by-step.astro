@@ -1,0 +1,132 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck surgical protocol',
+  'neck rejuvenation step by step',
+  'platysmorraphy technique',
+  'digastric shaving procedure',
+  'pre-hyoid fasciotomy',
+  'submental incision surgery',
+];
+
+const steps = [
+  {
+    n: '01',
+    t: 'Marking & Infiltration',
+    tm: '10min',
+    d: 'Submental marking, tumescent infiltration',
+  },
+  { n: '02', t: 'Submental Incision', tm: '5min', d: '~3-4cm incision in submental crease' },
+  {
+    n: '03',
+    t: 'Subcutaneous Dissection',
+    tm: '10min',
+    d: 'Dissection until platysma visualization',
+  },
+  { n: '04', t: 'Platysma Opening', tm: '5min', d: 'Midline incision for deep plane access' },
+  {
+    n: '05',
+    t: 'Deep Fat Removal',
+    tm: '15min',
+    d: 'Inter and subplatysmal fat cleaning until digastric visible',
+  },
+  {
+    n: '06',
+    t: 'Digastric Shaving',
+    tm: '10min',
+    d: '50-60% reduction of anterior belly if hypertrophied',
+  },
+  { n: '07', t: 'Pre-hyoid Fasciotomy', tm: '5min', d: 'Horizontal section of fascia above hyoid' },
+  { n: '08', t: 'Platysmorraphy', tm: '10min', d: 'Medial platysma suture from mandible to hyoid' },
+  { n: '09', t: 'Lateral Crevassi', tm: '10min', d: 'Platysma fixation to SCM fascia bilaterally' },
+  { n: '10', t: 'Closure', tm: '10min', d: 'Layered suture, drain if needed' },
+];
+---
+
+<BaseLayout
+  title="Deep Neck Step by Step"
+  description="Complete Deep Neck surgical protocol in 10 steps."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Surgical Protocol
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Step by Step</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Complete protocol in 10 steps. Average time: 90-120 minutes.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">90-120</p><p class="text-xs uppercase">Minutes</p>
+        </div><div>
+          <p class="text-3xl font-serif">10</p><p class="text-xs uppercase">Steps</p>
+        </div><div>
+          <p class="text-3xl font-serif">Local</p><p class="text-xs uppercase">+ Sedation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-6">
+        {
+          steps.map((s) => (
+            <div class="bg-white p-6 border border-gray-100 flex items-start gap-6">
+              <>
+                <div class="flex-shrink-0">
+                  <>
+                    <span class="text-3xl font-serif text-accent-600/30">{s.n}</span>
+                    <p class="text-xs text-accent-600">{s.tm}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-2">{s.t}</h3>
+                    <p class="text-sm text-warmGray">{s.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Critical Tips</h2><div
+        class="space-y-4"
+      >
+        <div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Fat limit:</strong> Remove from hyoid upward. Preserve below hyoid.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Shaving:</strong> 50-60% of belly. Never plicate digastric tendon.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Fasciotomy:</strong> Mandatory in 100% of heavy neck cases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck/indications" class="text-sm text-accent-600">← Indications</a
+      ><a href="/techniques/deep-neck/common-errors" class="text-sm text-accent-600"
+        >Common Errors →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

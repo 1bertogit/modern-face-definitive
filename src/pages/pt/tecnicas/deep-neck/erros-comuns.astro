@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'erros comuns Deep Neck',
+  'complicações lifting cervical',
+  'armadilhas cirurgia pescoço',
+  'glândula submandibular preservar',
+  'segurança Deep Neck',
+  'plicatura digástrico evitar',
+];
+
+const erros = [
+  {
+    e: 'Remover glândula submandibular',
+    c: 'Complicações graves (sangramento, lesão nervosa, sialocele)',
+    s: 'NUNCA remover — princípio inegociável',
+    g: 'alta',
+  },
+  {
+    e: 'Plicar tendão do digástrico',
+    c: 'Anteriorização da glândula, deixando-a MAIS visível',
+    s: 'Não plicar — fazer shaving do ventre',
+    g: 'alta',
+  },
+  {
+    e: 'Platismorrafia com tensão excessiva',
+    c: 'Afasta platisma lateral do ECOM, sabota contorno',
+    s: 'Tensão moderada, apenas da mandíbula ao hioide',
+    g: 'media',
+  },
+  {
+    e: 'Pular a fasciotomia pré-hioideia',
+    c: 'Pescoço não alonga, resultado limitado',
+    s: 'Fasciotomia obrigatória em 100% dos casos',
+    g: 'media',
+  },
+  {
+    e: 'Deep Neck em pescoço magro',
+    c: 'Resultado esqueletizado, antinatural',
+    s: 'Pescoço magro = platismorrafia + Crevassi apenas',
+    g: 'media',
+  },
+  {
+    e: 'Descolamento profundo muito proximal',
+    c: 'Lesão do nervo marginal da mandíbula',
+    s: 'Manter distância segura da borda mandibular',
+    g: 'alta',
+  },
+  {
+    e: 'Não respeitar assimetrias do digástrico',
+    c: 'Assimetria residual no pescoço',
+    s: 'Tratar mais o lado maior, respeitar anatomia',
+    g: 'baixa',
+  },
+];
+---
+
+<BaseLayout
+  title="Erros Comuns no Deep Neck"
+  description="Os erros mais frequentes no Deep Neck e como evitá-los."
+  keywords={keywords}
+  lang="pt"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Prevenção
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Erros Comuns</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Conhecer as armadilhas é o primeiro passo para evitá-las.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-4">
+        {
+          erros.map((er) => (
+            <div
+              class={`p-6 border-l-4 ${er.g === 'alta' ? 'border-red-500 bg-red-50' : er.g === 'media' ? 'border-orange-500 bg-orange-50' : 'border-yellow-500 bg-yellow-50'}`}
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <>
+                  <div>
+                    <>
+                      <p
+                        class={`text-xs font-bold uppercase mb-1 ${er.g === 'alta' ? 'text-red-600' : er.g === 'media' ? 'text-orange-600' : 'text-yellow-600'}`}
+                      >
+                        Erro
+                      </p>
+                      <p class="text-primary-900 font-medium">{er.e}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-1">Consequência</p>
+                      <p class="text-sm text-warmGray">{er.c}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-1">Solução</p>
+                      <p class="text-sm text-warmGray">{er.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Regras Inegociáveis</h2><div
+        class="space-y-4 text-white"
+      >
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NUNCA remover a glândula submandibular</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NUNCA plicar o tendão do digástrico</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>
+            NUNCA pular a fasciotomia em pescoço pesado
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/pt/tecnicas/deep-neck/passo-a-passo" class="text-sm text-accent-600"
+        >← Passo a Passo</a
+      ><a href="/pt/tecnicas/deep-neck/resultados" class="text-sm text-accent-600">Resultados →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,272 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Knowledge Sharing',
+  description:
+    'Why excellence in facial surgery cannot be a secret of the few. The Modern Face® mission to democratize knowledge.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const problems = [
+  {
+    title: 'Concentrated Knowledge',
+    description:
+      'The best techniques remain restricted to a few centers of excellence, creating a surgical elite while most operate with limitations.',
+    impact: 'Patients in regions without access to these centers receive inferior treatment.',
+  },
+  {
+    title: 'Cruel Learning Curve',
+    description:
+      "Without a structured method, each surgeon needs to 'reinvent the wheel'. 50-100 cases for minimum safety. How many avoidable complications?",
+    impact: 'Talented surgeons give up on deep plane out of fear.',
+  },
+  {
+    title: 'Learning by Observation',
+    description:
+      "The traditional model is watching surgeries and 'absorbing'. No structured didactics, no clear protocol, no systematic feedback.",
+    impact: 'Inconsistent learning, dependent on the luck of having good mentors.',
+  },
+];
+
+const principles = [
+  {
+    number: '01',
+    title: 'Document Everything',
+    description:
+      "Every technical step recorded. Every decision justified. What's in the master's head needs to be on paper.",
+  },
+  {
+    number: '02',
+    title: 'Teach the Why',
+    description:
+      "It's not enough to show how to do it. The student needs to understand why we do it this way. Only then can they adapt and evolve.",
+  },
+  {
+    number: '03',
+    title: 'Accelerate Without Shortcuts',
+    description:
+      "Reducing the learning curve doesn't mean skipping steps. It means eliminating wasted time on unnecessary trial and error.",
+  },
+  {
+    number: '04',
+    title: 'Train Multipliers',
+    description:
+      "The goal is not to create dependency on the master. It's to train surgeons who can teach others. Knowledge that propagates.",
+  },
+];
+
+const numbers = [
+  { value: '500+', label: 'Trained Surgeons' },
+  { value: '7', label: 'Countries Reached' },
+  { value: '15-30', label: 'Cases to Safety' },
+  { value: '0%', label: 'Permanent Nerve Injury' },
+];
+---
+
+<BaseLayout
+  title="Knowledge Sharing"
+  description="Why excellence in facial surgery cannot be a secret of the few. The Modern Face® mission to democratize knowledge."
+  schema={schema}
+  lang="en"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Knowledge Sharing</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Mission</p>
+        <h1 class="heading-1">Knowledge Sharing</h1>
+        <p class="body-large">
+          Surgical excellence should not be a secret guarded by a few. Our mission is to share it.
+        </p>
+      </header>
+
+      <!-- Introduction -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          There's an unwritten tradition in medicine: valuable knowledge is guarded. Protected.
+          Passed in droplets to a chosen few. "I did a fellowship with so-and-so" becomes currency.
+          "I learned directly from the master" becomes a credential.
+        </p>
+
+        <p>
+          I understand the logic. Knowledge is power. Exclusivity generates value. If everyone
+          knows, my competitive advantage disappears.
+        </p>
+
+        <p>But this logic has a cost. And the patients pay it.</p>
+      </div>
+
+      <!-- The Problem -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12">The Problem with Closed Knowledge</h2>
+        <div class="space-y-8">
+          {
+            problems.map((prob) => (
+              <div class="bg-white p-8 border-l-4 border-accent-600">
+                <h3 class="heading-4 mb-3">{prob.title}</h3>
+                <p class="body-base mb-4">{prob.description}</p>
+                <p class="body-small text-accent-700">
+                  <span class="font-medium">Impact:</span> {prob.impact}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Continuation -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">The Decision</h2>
+
+        <p>
+          At some point in my journey, I had to choose. I could guard what I learned. Protect my
+          "competitive advantage." Be the only one in the region to operate safely in the deep
+          plane.
+        </p>
+
+        <p>Or I could document. Systematize. Teach. Multiply.</p>
+
+        <p>
+          The choice was easy when I looked at reality: I am one. I operate, at most, a few hundred
+          patients per year. If I train 50 surgeons who operate with the same safety, the impact
+          multiplies exponentially.
+        </p>
+
+        <p>
+          <strong class="text-primary-900"
+            >Guarded knowledge dies with you. Shared knowledge lives forever.</strong
+          >
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "My goal is for each student to surpass me. To take the technique forward, adapt,
+            improve. To train others. Only then does knowledge evolve."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- Principles -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12">Principles of Sharing</h2>
+        <div class="space-y-12">
+          {
+            principles.map((p) => (
+              <div class="flex gap-8 items-start">
+                <span class="text-5xl font-serif text-accent-600/30 flex-shrink-0">{p.number}</span>
+                <div>
+                  <h3 class="heading-4 mb-2">{p.title}</h3>
+                  <p class="body-base">{p.description}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Numbers -->
+      <div class="my-20 section-md bg-primary-900">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {
+            numbers.map((num) => (
+              <div>
+                <p class="text-4xl font-serif text-white mb-2">{num.value}</p>
+                <p class="text-xs text-primary-400 uppercase tracking-[0.15em]">{num.label}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Continuation -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">What This Means in Practice</h2>
+
+        <p>
+          Sharing knowledge isn't doing a weekend course and releasing the student into the world.
+          It's creating a continuous learning ecosystem:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Structured training:</strong>
+            From basic to advanced, with clear and measurable stages.
+          </li>
+          <li>
+            <strong class="text-primary-900">Ongoing mentorship:</strong>
+            Post-course follow-up. Case discussions. Real support.
+          </li>
+          <li>
+            <strong class="text-primary-900">Community of practice:</strong>
+            Connected surgeons, exchanging experiences, evolving together.
+          </li>
+          <li>
+            <strong class="text-primary-900">Constant updates:</strong>
+            Technique evolves. Training too. Those who learned 5 years ago continue receiving updates.
+          </li>
+        </ul>
+
+        <h2 class="heading-3">The Invitation</h2>
+
+        <p>
+          If you're a surgeon and feel you can do more — that there's a next level of safety and
+          results you haven't yet achieved — consider this an invitation.
+        </p>
+
+        <p>
+          Not to follow a guru. Not to blindly replicate a technique. But to learn a method,
+          understand the principles, and then make your own evolution.
+        </p>
+
+        <p>Knowledge doesn't diminish when shared. It multiplies.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-white border border-gray-100 text-center">
+        <h3 class="heading-2 mb-4">Discover the Training Programs</h3>
+        <p class="body-base mb-8 max-w-lg mx-auto">
+          From beginner to advanced. From one-time course to long-term mentorship.
+        </p>
+        <a
+          href="/training/endomidface-course"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          View Educational Programs
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/modern-face/evolution-of-facial-surgery"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← Evolution of Facial Surgery
+          </a>
+          <a href="/techniques/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+            Explore Techniques →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

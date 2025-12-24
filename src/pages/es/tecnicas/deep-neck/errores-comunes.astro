@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'errores comunes Deep Neck',
+  'complicaciones cirugía cuello',
+  'remoción glándula submandibular riesgo',
+  'prevención errores quirúrgicos',
+  'reglas innegociables Deep Neck',
+  'lesión nervio marginal evitar',
+];
+
+const errores = [
+  {
+    e: 'Remover glándula submandibular',
+    c: 'Complicaciones graves (sangrado, lesión nerviosa, sialocele)',
+    s: 'NUNCA remover — principio innegociable',
+    g: 'high',
+  },
+  {
+    e: 'Plicar tendón del digástrico',
+    c: 'Anteriorización de la glándula, haciéndola MÁS visible',
+    s: 'No plicar — hacer shaving del vientre',
+    g: 'high',
+  },
+  {
+    e: 'Plastismorrafia con tensión excesiva',
+    c: 'Aleja platisma lateral del ECOM, sabotea contorno',
+    s: 'Tensión moderada, solo de mandíbula a hioides',
+    g: 'medium',
+  },
+  {
+    e: 'Saltar la fasciotomía pre-hioidea',
+    c: 'Cuello no alarga, resultado limitado',
+    s: 'Fasciotomía obligatoria en 100% de casos',
+    g: 'medium',
+  },
+  {
+    e: 'Deep Neck en cuello delgado',
+    c: 'Resultado esqueletizado, antinatural',
+    s: 'Cuello delgado = plastismorrafia + Crevassi solamente',
+    g: 'medium',
+  },
+  {
+    e: 'Disección proximal muy profunda',
+    c: 'Lesión del nervio marginal de la mandíbula',
+    s: 'Mantener distancia segura del borde mandibular',
+    g: 'high',
+  },
+];
+---
+
+<BaseLayout
+  title="Errores Comunes en Deep Neck"
+  description="Los errores más frecuentes en Deep Neck y cómo evitarlos."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Prevención
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Errores Comunes</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Conocer las trampas es el primer paso para evitarlas.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-4">
+        {
+          errores.map((er) => (
+            <div
+              class={`p-6 border-l-4 ${er.g === 'high' ? 'border-red-500 bg-red-50' : 'border-orange-500 bg-orange-50'}`}
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <>
+                  <div>
+                    <>
+                      <p
+                        class={`text-xs font-bold uppercase mb-1 ${er.g === 'high' ? 'text-red-600' : 'text-orange-600'}`}
+                      >
+                        Error
+                      </p>
+                      <p class="text-primary-900 font-medium">{er.e}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-1">Consecuencia</p>
+                      <p class="text-sm text-warmGray">{er.c}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-1">Solución</p>
+                      <p class="text-sm text-warmGray">{er.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Reglas Innegociables</h2><div
+        class="space-y-4 text-white"
+      >
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NUNCA remover la glándula submandibular</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NUNCA plicar el tendón del digástrico</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>
+            NUNCA saltar la fasciotomía en cuello pesado
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/deep-neck/paso-a-paso" class="text-sm text-accent-600">← Paso a Paso</a
+      ><a href="/es/tecnicas/deep-neck/resultados" class="text-sm text-accent-600">Resultados →</a>
+    </div>
+  </section>
+</BaseLayout>

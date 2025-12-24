@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía tercio superior facial',
+  'región frontal y temporal',
+  'nervio supraorbitario cirugía',
+  'capas frente anatomía',
+  'ramo frontal facial',
+  'anatomía Browlift',
+];
+
+const capas = [
+  { num: '1', capa: 'Piel', desc: 'Más gruesa en glabela, fina en sien' },
+  { num: '2', capa: 'Subcutáneo', desc: 'Contiene vasos superficiales' },
+  { num: '3', capa: 'Galea/FTS', desc: 'Galea central, Fascia Temporal Superficial lateral' },
+  { num: '4', capa: 'Espacio Subgaleal', desc: 'Plano avascular de disección' },
+  { num: '5', capa: 'Periostio', desc: 'Adherido firmemente al hueso' },
+];
+
+const estructuras = [
+  {
+    nombre: 'Nervio Supraorbitario',
+    desc: 'Emerge del foramen supraorbitario. Sensitivo para frente.',
+    proteccion: 'Identificar posición antes de disección',
+  },
+  {
+    nombre: 'Nervio Supratroclear',
+    desc: 'Medial al supraorbitario. Sensitivo para glabela.',
+    proteccion: 'Preservar durante acceso temporal',
+  },
+  {
+    nombre: 'Ramo Frontal del Facial',
+    desc: 'Motor para frontalis. Cruza arco cigomático.',
+    proteccion: 'Disección subperióstica en el arco',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomía del Tercio Superior | Frente y Sien"
+  description="Anatomía aplicada del tercio superior facial. Región frontal, temporal y periorbitaria para Browlift."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Tercio Superior</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Frente & Sien
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Tercio Superior Facial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La región frontal y temporal. Base anatómica para Browlift y acceso al midface.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Capas Anatómicas</h2>
+      <div class="space-y-4">
+        {
+          capas.map((c) => (
+            <div class="flex items-center gap-6 p-4 bg-ivory border border-gray-100">
+              <span class="w-10 h-10 bg-accent-600 text-white flex items-center justify-center font-serif text-lg flex-shrink-0">
+                {c.num}
+              </span>
+              <div>
+                <h3 class="font-medium text-primary-900">{c.capa}</h3>
+                <p class="text-sm text-warmGray">{c.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Estructuras Críticas</h2>
+      <div class="space-y-6">
+        {
+          estructuras.map((e) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{e.nombre}</h3>
+              <p class="text-warmGray mb-4">{e.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Protección:</span>{' '}
+                <span class="text-warmGray">{e.proteccion}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia" class="text-sm text-accent-600">← Anatomía Index</a>
+      <a href="/es/tecnicas/anatomia/tercio-medio" class="text-sm text-accent-600">Tercio Medio →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

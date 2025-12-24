@@ -1,0 +1,186 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const tendencias = [
+  {
+    titulo: 'Faces Modificadas',
+    desc: '90% das faces que operamos hoje já tiveram procedimentos não-cirúrgicos. A anatomia mudou. As técnicas precisam acompanhar.',
+    impacto: 'Técnicas adaptadas para faces com bioestimuladores e preenchimentos',
+  },
+  {
+    titulo: 'Menos Invasividade',
+    desc: 'Pacientes buscam resultados com menos downtime. A tendência é procedimentos que respeitam tecidos e aceleram recuperação.',
+    impacto: 'Desenvolvimento de abordagens que preservam mais estruturas',
+  },
+  {
+    titulo: 'Resultados Naturais',
+    desc: "O 'look operado' está fora de moda. A demanda é por rejuvenescimento que não denuncia a cirurgia.",
+    impacto: 'Foco em vetores e fixações que respeitam a harmonia natural',
+  },
+  {
+    titulo: 'Tecnologia Integrada',
+    desc: 'IA e software médico podem auxiliar no planejamento e documentação, liberando o cirurgião para o que realmente importa.',
+    impacto: 'Desenvolvimento de ferramentas como o FaceOS e AI Copilot',
+  },
+];
+
+const visao = [
+  {
+    horizonte: 'Curto Prazo (1-2 anos)',
+    objetivos: [
+      'Consolidar programas de formação em português',
+      'Lançar versões em inglês e espanhol',
+      'Desenvolver tecnologia clínica (FaceOS)',
+      'Ampliar comunidade de cirurgiões formados',
+    ],
+  },
+  {
+    horizonte: 'Médio Prazo (3-5 anos)',
+    objetivos: [
+      'Estabelecer presença em congressos internacionais',
+      'Publicações científicas com resultados documentados',
+      'Certificação reconhecida de formação',
+      'Parcerias com instituições de ensino',
+    ],
+  },
+  {
+    horizonte: 'Longo Prazo (5+ anos)',
+    objetivos: [
+      'Tornar a Face Moderna® referência global',
+      'Centro de treinamento hands-on',
+      'Contribuição para diretrizes da especialidade',
+      'Formação de novos educadores',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Visão de Futuro | Para Onde Vamos"
+  description="A visão estratégica do Modern Face Institute: tendências da cirurgia facial e nosso papel na evolução da especialidade."
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/sobre" class="hover:text-white">Sobre</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Visão de Futuro</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">O Caminho Adiante</p>
+      <h1 class="heading-1-white">Visão de Futuro</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Para onde caminha a cirurgia facial e qual o nosso papel nessa evolução
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large-light font-serif italic">
+        "O futuro da cirurgia facial não será definido por quem opera mais, mas por quem ensina
+        melhor."
+      </p>
+    </div>
+  </section>
+
+  <!-- Tendências -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-4 text-center">Tendências que Observamos</h2>
+      <p class="body-base text-center mb-12">O contexto que molda nossa direção</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          tendencias.map((t) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <h3 class="heading-4 mb-3">{t.titulo}</h3>
+              <p class="body-small mb-4">{t.desc}</p>
+              <div class="pt-4 border-t border-gray-100">
+                <p class="body-small text-accent-700">
+                  <span class="font-medium">Nossa resposta:</span> {t.impacto}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Visão por horizonte -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 mb-12 text-center">Nossos Horizontes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          visao.map((v, i) => (
+            <div
+              class={`p-6 border ${i === 0 ? 'bg-accent-600 border-accent-600 text-white' : 'bg-ivory border-gray-100'}`}
+            >
+              <h3 class={`font-serif mb-4 ${i === 0 ? 'text-white' : 'text-primary-900'}`}>
+                {v.horizonte}
+              </h3>
+              <ul class="space-y-2">
+                {v.objetivos.map((o) => (
+                  <li
+                    class={`flex items-start gap-2 text-sm ${i === 0 ? 'text-white/80' : 'text-warmGray'}`}
+                  >
+                    <span
+                      class={`material-symbols-outlined text-sm flex-shrink-0 ${i === 0 ? 'text-white/60' : 'text-accent-600'}`}
+                    >
+                      arrow_right
+                    </span>
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Missão central -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2-white mb-8">A Missão que Nos Move</h2>
+      <p class="body-base-light mb-8">
+        Nosso objetivo não é ser o maior instituto de cirurgia facial do mundo. É ser o mais
+        impactante. Queremos formar cirurgiões que, por sua vez, formarão outros. Queremos criar um
+        ciclo virtuoso de conhecimento que beneficie pacientes em todos os lugares.
+      </p>
+      <p class="text-xl font-serif text-accent-400 italic">
+        "Um cirurgião bem formado impacta milhares de vidas.<br />
+        Um educador bem formado impacta gerações."
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2 mb-6">Faça Parte Desta Visão</h2>
+      <p class="body-base mb-8">
+        Se você compartilha destes valores e quer contribuir para o futuro da cirurgia facial,
+        conheça nossos programas de formação.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/sobre/principios-eticos" class="text-sm text-accent-600">← Princípios Éticos</a>
+      <a href="/pt/sobre" class="text-sm text-accent-600">Sobre →</a>
+    </div>
+  </section>
+</BaseLayout>

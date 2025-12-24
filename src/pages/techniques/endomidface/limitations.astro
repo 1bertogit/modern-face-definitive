@@ -1,0 +1,156 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface limitations',
+  'what Endomidface cannot correct',
+  'jowls treatment alternatives',
+  'combined facelift techniques',
+  'midface surgery limitations',
+  'cervical excess correction',
+];
+
+const notCorrect = [
+  {
+    p: 'Jowls (Bulldog)',
+    d: 'Mandibular line laxity is not treated by Endomidface. Traction acts on upper midface, up to mouth region.',
+    s: 'Deep Neck + pre-auricular incision with plication and skin resection',
+  },
+  {
+    p: 'Significant Cervical Excess',
+    d: "Flaccid neck with multiple folds or significant skin excess doesn't respond to isolated Endomidface.",
+    s: 'Complete Deep Neck (fat + digastric + fasciotomy + platysmorraphy)',
+  },
+  {
+    p: 'Severe Mandibular Ptosis',
+    d: 'Marked tissue descent below mandible requires broader approach.',
+    s: 'Lifting with pre-auricular incision, mandibular ramus dissection',
+  },
+  {
+    p: 'Severe Skin Redundancy',
+    d: "Patients >70 years with very redundant SMAS don't achieve adequate results with Endomidface.",
+    s: 'Traditional Deep Plane with skin resection',
+  },
+];
+const combine = [
+  {
+    c: 'Face + Flaccid Neck',
+    comb: 'Endomidface + Deep Neck + retroauricular incisions (if needed)',
+    b: 'Complete rejuvenation of middle and lower thirds',
+  },
+  {
+    c: 'Upper + Middle Third',
+    comb: 'Browlift + Endomidface (same temporal portal)',
+    b: 'Modern Face gold standard, single scar',
+  },
+  {
+    c: 'Long Lower Eyelid + Bags',
+    comb: "Endomidface + 'No Touch' Blepharoplasty",
+    b: 'Midface elevation naturally repositions bags',
+  },
+  {
+    c: 'Jowls + Midface',
+    comb: 'Endomidface + Plications + Skin Resection',
+    b: 'Equivalent result to Deep Plane with less morbidity',
+  },
+];
+---
+
+<BaseLayout
+  title="Endomidface Limitations"
+  description="What Endomidface doesn't correct and when to combine with other techniques. Jowls, cervical excess."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Technical Honesty
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Technique Limitations</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Transparency about what the technique can and cannot do is fundamental for aligned
+        expectations and satisfactory results.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg drop-cap">
+        Endomidface is a powerful technique for midface rejuvenation, but it's not universal.
+        Recognizing its limitations is as important as mastering its execution. Clear communication
+        of these restrictions to the patient is an essential part of the process.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        What Endomidface Does NOT Correct
+      </h2><div class="space-y-6">
+        {
+          notCorrect.map((n) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-red-600 uppercase mb-2">Doesn't Correct</p>
+                      <h3 class="font-serif text-primary-900">{n.p}</h3>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-2">Why</p>
+                      <p class="text-sm text-warmGray">{n.d}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-2">Alternative</p>
+                      <p class="text-sm text-warmGray">{n.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "In cases of greater midface laxity and jowls, Deep Plane achieves better results. This is
+        an objective limitation for cases of extreme laxity, especially in the lower third."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        When to Combine Techniques
+      </h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          combine.map((c) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <>
+                <h3 class="font-serif text-primary-900 mb-3">{c.c}</h3>
+                <p class="text-sm text-accent-600 mb-4">{c.comb}</p>
+                <p class="text-sm text-warmGray">{c.b}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/common-errors" class="text-sm text-accent-600"
+        >← Common Errors</a
+      ><a href="/techniques/endomidface/results" class="text-sm text-accent-600">Results →</a>
+    </div>
+  </section>
+</BaseLayout>

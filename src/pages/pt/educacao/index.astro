@@ -1,0 +1,208 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'formação cirurgia facial',
+  'curso ENDOMIDFACE',
+  'curso Deep Neck',
+  'mentoria cirurgião plástico',
+  'Face Moderna curso',
+  'treinamento lifting facial',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'Modern Face Institute - Educação',
+  description:
+    'Formação em cirurgia facial avançada. Programas de capacitação na metodologia Face Moderna.',
+};
+
+const programas = [
+  {
+    destaque: true,
+    titulo: 'Formação Avançada',
+    subtitulo: 'Programa de Domínio da Face Moderna®',
+    desc: 'ENDOMIDFACE® + Deep Neck + 6 meses de Mentoria. Formação completa para domínio integral.',
+    preco: 'R$ 30.000',
+    precoOriginal: 'R$ 56.000',
+    economia: 'R$ 26.000',
+    href: '/pt/educacao/formacao-avancada',
+    badge: 'RECOMENDADO',
+  },
+  {
+    titulo: 'ENDOMIDFACE® por Visão Direta',
+    subtitulo: 'Curso Online + 2 meses de Mentoria',
+    desc: 'Domínio técnico do terço médio da face. Elimina dependência do endoscópio.',
+    preco: 'R$ 10.000',
+    precoOriginal: 'R$ 20.000',
+    economia: 'R$ 10.000',
+    href: '/pt/educacao/programas-nucleo/endomidface-visao-direta',
+  },
+  {
+    titulo: 'Deep Neck Mastery',
+    subtitulo: 'Curso Online + 2 meses de Mentoria',
+    desc: 'Especialização em contorno cervical e mandibular. Casos complexos com segurança.',
+    preco: 'R$ 9.000',
+    precoOriginal: 'R$ 18.000',
+    economia: 'R$ 9.000',
+    href: '/pt/educacao/programas-nucleo/deep-neck-mastery',
+  },
+];
+
+const diferenciais = [
+  {
+    icone: 'visibility',
+    titulo: 'Visão Direta',
+    desc: 'Metodologia que elimina a dependência do endoscópio',
+  },
+  {
+    icone: 'groups',
+    titulo: 'Mentoria Real',
+    desc: 'Acompanhamento estruturado com análise de casos',
+  },
+  {
+    icone: 'verified',
+    titulo: '212+ Casos',
+    desc: 'Técnica validada sem lesões nervosas permanentes',
+  },
+  {
+    icone: 'school',
+    titulo: 'Formação Completa',
+    desc: 'Do conceito à execução, do básico ao avançado',
+  },
+];
+---
+
+<BaseLayout
+  title="Educação | Formação em Cirurgia Facial"
+  description="Programas de formação em cirurgia facial avançada. ENDOMIDFACE®, Deep Neck e Formação Avançada com mentoria."
+  keywords={keywords}
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Modern Face Institute</p>
+      <h1 class="heading-1-white">Formação em Cirurgia Facial</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Programas estruturados para cirurgiões que buscam domínio técnico, segurança e resultados
+        consistentes na metodologia Face Moderna®.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large font-serif text-white italic">
+        "Não ensinamos apenas técnica. Formamos cirurgiões que pensam, planejam e decidem."
+      </p>
+      <p class="body-small-light mt-2">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Programas Principais -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Programas de Formação</h2>
+      <p class="body-base text-center mb-12">Escolha o programa adequado ao seu momento</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {
+          programas.map((prog) => (
+            <a
+              href={prog.href}
+              class={`group block p-8 border transition-all ${prog.destaque ? 'bg-primary-900 border-primary-900 text-white' : 'bg-white border-gray-100 hover:border-accent-600'}`}
+            >
+              {prog.badge && (
+                <span class="inline-block px-3 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-4">
+                  {prog.badge}
+                </span>
+              )}
+              <h3
+                class={`heading-3 mb-1 ${prog.destaque ? 'text-white' : 'group-hover:text-accent-600'} transition-colors`}
+              >
+                {prog.titulo}
+              </h3>
+              <p class={`text-sm mb-4 ${prog.destaque ? 'text-primary-300' : 'text-accent-600'}`}>
+                {prog.subtitulo}
+              </p>
+              <p class={`body-small mb-6 ${prog.destaque ? 'text-primary-300' : ''}`}>
+                {prog.desc}
+              </p>
+
+              <div class={`pt-4 border-t ${prog.destaque ? 'border-white/20' : 'border-gray-100'}`}>
+                <p
+                  class={`text-2xl font-serif ${prog.destaque ? 'text-accent-400' : 'text-primary-900'}`}
+                >
+                  {prog.preco}
+                </p>
+                <p class={`text-xs ${prog.destaque ? 'text-primary-400' : 'text-softGray'}`}>
+                  <span class="line-through">{prog.precoOriginal}</span>
+                  <span class="ml-2 text-green-500">Economia: {prog.economia}</span>
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Por que Estudar Conosco</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          diferenciais.map((dif) => (
+            <div class="text-center p-6">
+              <span class="material-symbols-outlined text-accent-600 text-3xl mb-4 block">
+                {dif.icone}
+              </span>
+              <h3 class="heading-4 mb-2">{dif.titulo}</h3>
+              <p class="body-small">{dif.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Cursos Satélites -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <h2 class="heading-2 text-center mb-8">Cursos Satélites</h2>
+      <p class="body-base text-center mb-8">
+        Módulos complementares para aprofundamento em áreas específicas
+      </p>
+      <div class="text-center">
+        <a
+          href="/pt/educacao/cursos-satelites"
+          class="inline-block px-8 py-4 border-2 border-primary-900 text-primary-900 text-sm uppercase tracking-[0.15em] hover:bg-primary-900 hover:text-white transition-colors"
+        >
+          Ver Todos os Cursos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-6">Pronto para Começar?</h2>
+      <p class="body-large-light mb-8">
+        Entre em contato para discutir qual programa é mais adequado para seu momento profissional.
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Falar com a Equipe
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bgGradStudent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <linearGradient id="successGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#bgGradStudent2)"/>
+  <rect x="30" y="30" width="540" height="540" rx="4" fill="#ffffff" stroke="#f0efe8" stroke-width="1"/>
+
+  <!-- Badge -->
+  <g transform="translate(50, 50)">
+    <rect width="130" height="28" rx="14" fill="#1e293b"/>
+    <text x="65" y="18" font-family="'Inter', Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">CASO ALUNO</text>
+  </g>
+
+  <!-- Success indicator circle -->
+  <circle cx="290" cy="280" r="115" fill="url(#successGrad2)"/>
+  <circle cx="290" cy="280" r="115" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.3"/>
+
+  <!-- Face illustration - 3/4 view -->
+  <g transform="translate(290, 280)">
+    <!-- Face outline 3/4 -->
+    <path d="M -85,10 Q -95,25 -95,50 Q -95,85 -88,105 Q -78,128 -45,135 Q -10,142 25,130 Q 48,118 55,85 Q 58,50 48,18 Q 35,-10 5,-18 Q -30,-22 -65,0 Z" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Eyes 3/4 -->
+    <ellipse cx="-30" cy="15" rx="14" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+    <ellipse cx="15" cy="10" rx="11" ry="7" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Brows -->
+    <path d="M -50,2 Q -35,-5 -18,-2" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+    <path d="M 8,-5 Q 22,-8 35,-2" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+
+    <!-- Nose 3/4 -->
+    <path d="M 0,-5 L 5,30" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Improved cheek contour -->
+    <path d="M -70,50 Q -75,70 -72,90" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+
+    <!-- Softened nasolabial -->
+    <path d="M 5,30 Q 0,50 -5,68" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Mouth -->
+    <path d="M -25,75 Q -5,80 15,75" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Improved jawline -->
+    <path d="M -45,135 Q -30,142 -10,145" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Success checkmark -->
+  <g transform="translate(450, 100)">
+    <circle r="22" fill="#16a34a" opacity="0.9"/>
+    <path d="M -8,0 L -3,6 L 9,-6" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="300" y="485" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="600" fill="#b8956c" text-anchor="middle" letter-spacing="2">TÉCNICA REPRODUZIDA</text>
+
+  <!-- Decorative line -->
+  <line x1="180" y1="500" x2="420" y2="500" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(540, 540)">
+    <circle r="16" fill="#b8956c" opacity="0.8"/>
+    <rect x="-6" y="-2" width="12" height="4" fill="#ffffff"/>
+    <rect x="-2" y="-6" width="4" height="12" fill="#ffffff"/>
+  </g>
+</svg>

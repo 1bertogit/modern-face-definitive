@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const infographics = [
+  { title: 'Middle Third Facial Anatomy', category: 'Anatomy', access: 'Public', featured: true },
+  { title: 'Facial Anatomical Spaces', category: 'Anatomy', access: 'Students', featured: false },
+  { title: 'Facial Retaining Ligaments', category: 'Anatomy', access: 'Students', featured: false },
+  { title: 'SPE-M System in 4 Steps', category: 'Assessment', access: 'Public', featured: true },
+  {
+    title: 'Traction Vectors by Region',
+    category: 'Technique',
+    access: 'Students',
+    featured: false,
+  },
+  {
+    title: 'Comparison: Direct Vision vs Endoscopy',
+    category: 'Technique',
+    access: 'Public',
+    featured: false,
+  },
+  { title: 'Facial Surgical Planes', category: 'Technique', access: 'Students', featured: false },
+  {
+    title: 'Endomidface Operative Sequence',
+    category: 'Protocol',
+    access: 'Students',
+    featured: true,
+  },
+  {
+    title: 'Visual Pre-Operative Checklist',
+    category: 'Protocol',
+    access: 'Students',
+    featured: false,
+  },
+  { title: 'Recovery Timeline', category: 'Post-Op', access: 'Public', featured: false },
+  { title: 'Post-Operative Care', category: 'Post-Op', access: 'Students', featured: false },
+  {
+    title: 'Modern Face Philosophy in 5 Pillars',
+    category: 'Philosophy',
+    access: 'Public',
+    featured: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Infographics | Library"
+  description="Educational visualizations of anatomy, techniques and protocols for facial surgery."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li><li><span>/</span></li><li>
+            <a href="/library" class="hover:text-white">Library</a>
+          </li><li><span>/</span></li><li class="text-white">Infographics</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Infographics</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Educational visualizations of anatomy, techniques and protocols
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex justify-center gap-12">
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">12</p><p class="text-sm text-white/80">
+          materials
+        </p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">6</p><p class="text-sm text-white/80">
+          categories
+        </p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">5</p><p class="text-sm text-white/80">public</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          infographics.map((i) => (
+            <div
+              class={`p-4 bg-white border ${i.featured ? 'border-accent-600' : 'border-gray-100'}`}
+            >
+              <div class="flex items-start justify-between mb-2">
+                <span class="text-xs px-2 py-1 bg-gray-100 text-softGray">{i.category}</span>
+                <span
+                  class={`text-xs px-2 py-1 ${i.access === 'Public' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+                >
+                  {i.access}
+                </span>
+              </div>
+              <h3 class="font-medium text-primary-900 text-sm">{i.title}</h3>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Full Access</h2>
+      <p class="text-primary-300 mb-8">All high-resolution infographics for program students.</p>
+      <a
+        href="/education"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >View Programs</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/library/clinical-studies" class="text-sm text-accent-600">← Clinical Studies</a>
+      <a href="/library/practical-guides" class="text-sm text-accent-600">Practical Guides →</a>
+    </div>
+  </section>
+</BaseLayout>

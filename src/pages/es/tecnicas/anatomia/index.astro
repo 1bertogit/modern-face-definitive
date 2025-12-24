@@ -1,0 +1,187 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía facial quirúrgica',
+  'anatomía aplicada cirugía',
+  'espacios quirúrgicos cara',
+  'nervios faciales protección',
+  'ligamentos retentores lifting',
+  'anatomía Face Moderna',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Anatomía Aplicada a la Cirugía Facial',
+  description:
+    'Anatomía facial aplicada a la práctica quirúrgica. Espacios, ligamentos, nervios y estructuras esenciales.',
+};
+
+const regiones = [
+  {
+    titulo: 'Tercio Superior',
+    subtitulo: 'Frente y Sien',
+    descripcion: 'Anatomía de la frente, sien y región periorbitaria. Base para Browlift.',
+    topicos: ['Nervio supraorbital', 'Fascia temporal', 'Línea temporal', 'Reborde orbitario'],
+    href: '/es/tecnicas/anatomia/tercio-superior',
+  },
+  {
+    titulo: 'Tercio Medio',
+    subtitulo: 'Midface y Región Malar',
+    descripcion: 'Espacios, ligamentos retentores y nervios críticos del midface.',
+    topicos: ['Espacio pre-cigomático', 'Ligamento cigomático', 'Nervio facial', 'SOOF'],
+    href: '/es/tecnicas/anatomia/tercio-medio',
+  },
+  {
+    titulo: 'Tercio Inferior',
+    subtitulo: 'Región Mandibular',
+    descripcion: 'Anatomía de la mandíbula, jowl y transición cervicofacial.',
+    topicos: ['Ligamento mandibular', 'Jowl fat', 'Nervio marginal', 'Platisma'],
+    href: '/es/tecnicas/anatomia/tercio-inferior',
+  },
+  {
+    titulo: 'Región Cervical',
+    subtitulo: 'Cuello',
+    descripcion: 'Anatomía cervical profunda para Deep Neck seguro.',
+    topicos: ['Platisma', 'Digástrico', 'Glándula submandibular', 'Fascia cervical'],
+    href: '/es/tecnicas/anatomia/region-cervical',
+  },
+];
+
+const conceptos = [
+  {
+    titulo: 'Espacios Quirúrgicos',
+    descripcion: 'Planos de disección seguros',
+    href: '/es/tecnicas/anatomia/espacios-quirurgicos',
+  },
+  {
+    titulo: 'Ligamentos Retentores',
+    descripcion: 'Los anclajes de la cara',
+    href: '/es/tecnicas/anatomia/ligamentos-retentores',
+  },
+  {
+    titulo: 'Nervios Faciales',
+    descripcion: 'Lo que proteger a toda costa',
+    href: '/es/tecnicas/anatomia/nervios-faciales',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomía Aplicada a la Cirugía Facial"
+  description="Anatomía facial aplicada a la práctica quirúrgica. Espacios, ligamentos, nervios y estructuras esenciales para Face Moderna."
+  keywords={keywords}
+  schema={schema}
+  lang="es"
+>
+  <!-- Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Anatomía Aplicada</li>
+        </ol>
+      </nav>
+
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Fundamentos
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Anatomía Aplicada
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La anatomía es la verdad absoluta. Dominar las estructuras faciales es prerequisito para
+        seguridad y excelencia quirúrgica.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "No puedes proteger lo que no conoces. Anatomía no es memorización — es supervivencia
+        quirúrgica."
+      </p>
+    </div>
+  </section>
+
+  <!-- Regiones -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Por Región Anatómica</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          regiones.map((region, i) => (
+            <a
+              href={region.href}
+              class="group block p-8 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="text-5xl font-serif text-accent-600/20 group-hover:text-accent-600/40 transition-colors block mb-4">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p class="text-xs text-accent-600 uppercase tracking-[0.15em] mb-1">
+                {region.subtitulo}
+              </p>
+              <h3 class="text-xl font-serif text-primary-900 mb-3 group-hover:text-accent-600 transition-colors">
+                {region.titulo}
+              </h3>
+              <p class="text-warmGray text-sm mb-6">{region.descripcion}</p>
+
+              <div class="flex flex-wrap gap-2">
+                {region.topicos.map((topico) => (
+                  <span class="text-xs px-2 py-1 bg-ivory text-softGray">{topico}</span>
+                ))}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Conceptos Transversales -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Conceptos Transversales</h2>
+      <p class="text-warmGray text-center mb-12">Estructuras que atraviesan múltiples regiones</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          conceptos.map((concepto) => (
+            <a
+              href={concepto.href}
+              class="group block p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all text-center"
+            >
+              <h3 class="font-serif text-primary-900 text-lg mb-2 group-hover:text-accent-600 transition-colors">
+                {concepto.titulo}
+              </h3>
+              <p class="text-sm text-warmGray">{concepto.descripcion}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Anatomía en la Práctica</h2>
+      <p class="text-warmGray mb-8">
+        En los cursos del Instituto, la anatomía se enseña de forma aplicada — siempre conectada a
+        la técnica quirúrgica y las decisiones intraoperatorias.
+      </p>
+      <a
+        href="/es/formacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Conocer los Cursos
+      </a>
+    </div>
+  </section>
+</BaseLayout>

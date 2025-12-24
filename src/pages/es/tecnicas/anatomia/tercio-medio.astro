@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía tercio medio facial',
+  'espacio pre-cigomático cirugía',
+  'ligamentos midface lifting',
+  'nervio bucal facial',
+  'anatomía Endomidface',
+  'espacios quirúrgicos midface',
+];
+
+const espacios = [
+  {
+    nombre: 'Espacio Pre-Cigomático',
+    desc: 'Entre SMAS y periostio cigomático. Portal principal del Endomidface.',
+    seguro: true,
+  },
+  {
+    nombre: 'Espacio Pre-Masetérico',
+    desc: 'Lateral al cigomático mayor. Acceso a ligamentos laterales.',
+    seguro: true,
+  },
+  {
+    nombre: 'Espacio Bucal',
+    desc: 'Contiene bola de Bichat. Área de transición al tercio inferior.',
+    seguro: false,
+  },
+];
+
+const ligamentos = [
+  {
+    nombre: 'Ligamento Cigomático',
+    desc: 'Inserción ósea en cuerpo del cigoma. Ancla principal del midface.',
+    release: 'Parcial',
+  },
+  {
+    nombre: 'Ligamento Cigomático-Cutáneo',
+    desc: 'Extensiones del ligamento principal a la piel.',
+    release: 'Total',
+  },
+  {
+    nombre: 'Ligamento Masetérico',
+    desc: 'Inserciones en borde anterior del masetero.',
+    release: 'Selectivo',
+  },
+];
+
+const nervios = [
+  {
+    nombre: 'Ramo Cigomático',
+    desc: 'Ramos para orbicular del ojo. Protegido por SMAS.',
+    riesgo: 'Medio',
+  },
+  {
+    nombre: 'Ramo Bucal',
+    desc: 'Motor para elevadores del labio. Zona de mayor atención.',
+    riesgo: 'Alto',
+  },
+  {
+    nombre: 'Nervio Infraorbitario',
+    desc: 'Sensitivo. Emerge del foramen infraorbitario.',
+    riesgo: 'Bajo',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomía del Tercio Medio | Midface"
+  description="Anatomía aplicada del tercio medio facial. Espacios quirúrgicos, ligamentos retentores y nervios críticos para Endomidface."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Tercio Medio</li>
+        </ol>
+      </nav>
+
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Midface</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Tercio Medio Facial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La región más compleja de la cara. Dominar su anatomía es prerequisito para Endomidface
+        seguro.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          El tercio medio facial — del reborde orbitario inferior al surco nasolabial — es la región
+          más afectada por el envejecimiento gravitacional. También es la más compleja
+          anatómicamente, con múltiples espacios, ligamentos y estructuras nerviosas en proximidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Espacios Quirúrgicos</h2>
+      <div class="space-y-6">
+        {
+          espacios.map((espacio) => (
+            <div
+              class={`p-6 border ${espacio.seguro ? 'bg-green-50 border-green-200' : 'bg-amber-50 border-amber-200'}`}
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-serif text-primary-900 text-lg mb-2">{espacio.nombre}</h3>
+                  <p class="text-warmGray text-sm">{espacio.desc}</p>
+                </div>
+                <span
+                  class={`text-xs px-2 py-1 flex-shrink-0 ${espacio.seguro ? 'bg-green-600 text-white' : 'bg-amber-600 text-white'}`}
+                >
+                  {espacio.seguro ? 'Seguro' : 'Atención'}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Ligamentos Retentores</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Ligamento</th>
+              <th class="text-left py-4 px-4">Descripción</th>
+              <th class="text-left py-4 px-4">Release</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ligamentos.map((lig) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{lig.nombre}</td>
+                  <td class="py-4 px-4 text-warmGray">{lig.desc}</td>
+                  <td class="py-4 px-4">
+                    <span
+                      class={`text-xs px-2 py-1 ${lig.release === 'Total' ? 'bg-accent-600 text-white' : 'bg-primary-700 text-white'}`}
+                    >
+                      {lig.release}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Nervios Críticos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          nervios.map((nervio) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-primary-900">{nervio.nombre}</h3>
+                <span
+                  class={`text-xs px-2 py-1 ${nervio.riesgo === 'Alto' ? 'bg-red-600' : nervio.riesgo === 'Medio' ? 'bg-amber-600' : 'bg-green-600'} text-white`}
+                >
+                  Riesgo {nervio.riesgo}
+                </span>
+              </div>
+              <p class="text-sm text-warmGray">{nervio.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/tercio-superior" class="text-sm text-accent-600"
+        >← Tercio Superior</a
+      >
+      <a href="/es/tecnicas/anatomia/tercio-inferior" class="text-sm text-accent-600"
+        >Tercio Inferior →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,123 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import TimelineInteractive from '@components/islands/TimelineInteractive';
+import { LocalizedErrorBoundary } from '@components/islands/ErrorBoundary';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Linha do Tempo da Cirurgia Facial',
+  description:
+    'Da primeira rinoplastia reconstrutiva à Face Moderna®: 2.600 anos de evolução da cirurgia plástica facial.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+---
+
+<BaseLayout
+  title="Linha do Tempo da Cirurgia Facial | Modern Face Institute"
+  description="Infográfico interativo: do primeiro retalho facial (~600 a.C.) ao conceito de Face Moderna®. Explore 2.600 anos de evolução técnica."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-wide">
+      <p class="label-eyebrow-white">Evolução Histórica</p>
+      <h1 class="heading-1-white">
+        Linha do Tempo da<br />Cirurgia Plástica Facial
+      </h1>
+      <p class="body-large-light max-w-3xl">
+        Do "primeiro retalho" ao <strong class="text-white">Rosto Moderno</strong>: explore os
+        marcos que transformaram a cirurgia facial ao longo de 2.600 anos. Clique em cada evento
+        para expandir detalhes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-ivory border-b border-gray-100">
+    <div class="prose-wide py-3">
+      <ol class="flex items-center gap-2 label-caption">
+        <li><a href="/pt" class="hover:text-accent-600 transition-colors">Home</a></li>
+        <li class="text-primary-300">/</li>
+        <li>
+          <a href="/pt/face-moderna" class="hover:text-accent-600 transition-colors"
+            >Face Moderna®</a
+          >
+        </li>
+        <li class="text-primary-300">/</li>
+        <li class="text-primary-900">Linha do Tempo</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Timeline Interactive -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <LocalizedErrorBoundary locale = 'pt' client:load>
+        <TimelineInteractive />
+      </LocalizedErrorBoundary>
+    </div>
+  </section>
+
+  <!-- Context Section -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 mb-6">Por que estudar a história?</h2>
+      <div class="prose prose-lg text-warmGray">
+        <p>
+          Compreender a evolução da cirurgia facial não é exercício de erudição — é ferramenta de
+          formação. Cada técnica que usamos hoje carrega em si as soluções (e os erros) de gerações
+          anteriores.
+        </p>
+        <p>
+          O trajeto do <em>skin-only</em> ao SMAS, do SMAS ao deep-plane, do deep-plane ao reconhecimento
+          do midface como território autônomo — cada etapa respondeu a limitações percebidas e trouxe
+          novos desafios.
+        </p>
+        <p>
+          A <strong>Face Moderna®</strong> não surge do vácuo: é resultado lógico dessa trajetória, propondo
+          uma organização por territórios (terço médio, pescoço) com estratégias de acesso específicas
+          e ênfase em resultados não-estigmatizantes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2-white mb-4">Quer dominar o próximo capítulo?</h2>
+      <p class="body-base-light mb-8">
+        Conheça os programas de formação em Endomidface e Deep Neck.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <nav class="py-8 bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a
+        href="/pt/face-moderna/evolucao-da-cirurgia-facial"
+        class="text-sm text-warmGray hover:text-accent-600 transition-colors"
+      >
+        ← Evolução da Cirurgia Facial
+      </a>
+      <a
+        href="/pt/face-moderna/filosofia"
+        class="text-sm text-accent-600 hover:text-accent-700 transition-colors"
+      >
+        Filosofia →
+      </a>
+    </div>
+  </nav>
+</BaseLayout>

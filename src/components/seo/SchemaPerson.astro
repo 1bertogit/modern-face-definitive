@@ -1,0 +1,120 @@
+---
+/**
+ * SchemaPerson - Autoria e Knowledge Graph para Dr. Robério Brandão
+ * CRÍTICO para SEO de autoria e anti-sequestro
+ */
+
+interface Props {
+  extended?: boolean;
+}
+
+const { extended = false } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${siteUrl}/#person-dr-roberio`,
+  name: 'Dr. Robério Brandão',
+  givenName: 'Robério',
+  familyName: 'Brandão',
+  honorificPrefix: 'Dr.',
+  jobTitle: 'Facial Plastic Surgeon',
+  description:
+    'Creator of ENDOMIDFACE® by Direct Vision technique and founder of the Modern Face® surgical philosophy. Pioneer in facial videoendoscopy in Rio Grande do Norte, Brazil (2007). Over 1,500 facial surgeries performed with zero permanent neural injuries documented.',
+  image: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/dr-roberio-brandao.webp`,
+    width: 800,
+    height: 800,
+  },
+  url: `${siteUrl}/creator/`,
+  nationality: {
+    '@type': 'Country',
+    name: 'Brazil',
+  },
+  affiliation: {
+    '@type': 'MedicalOrganization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Modern Face Institute',
+  },
+  alumniOf: [
+    {
+      '@type': 'EducationalOrganization',
+      name: 'SBCP - Sociedade Brasileira de Cirurgia Plástica',
+    },
+  ],
+  knowsAbout: [
+    'ENDOMIDFACE by Direct Vision',
+    'Deep Neck Surgery without Gland Removal',
+    'Midface Lift',
+    'Facial Rejuvenation',
+    'Modern Face Philosophy',
+    'Facial Anatomy',
+    'Vertical Vector Lifting',
+    'Bioestimulator-affected tissue surgery',
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Medical Specialty',
+      name: 'Plastic Surgery Specialist',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'SBCP - Sociedade Brasileira de Cirurgia Plástica',
+      },
+    },
+  ],
+  award: [
+    'Invited Speaker - SBCP National Congress 2023',
+    'Invited Speaker - Full Face Global Summit 2024',
+    'Pioneer in Facial Videoendoscopy in RN (2007)',
+  ],
+  sameAs: [
+    'https://www.instagram.com/drroberiobrandao',
+    'https://www.youtube.com/@drroberiobrandao',
+    'https://www.linkedin.com/in/drroberiobrandao',
+  ],
+  ...(extended && {
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Facial Plastic Surgeon',
+      occupationLocation: {
+        '@type': 'Country',
+        name: 'Brazil',
+      },
+      description: 'Specialized in advanced facial rejuvenation using Direct Vision techniques',
+      skills: [
+        'ENDOMIDFACE® by Direct Vision',
+        'Deep Neck without gland removal',
+        'Facial videoendoscopy',
+        'Midface vertical lifting',
+      ],
+    },
+    performerIn: [
+      {
+        '@type': 'Event',
+        name: 'SBCP National Congress 2023',
+        description: 'Invited lecture on ENDOMIDFACE technique',
+      },
+      {
+        '@type': 'Event',
+        name: 'Full Face Global Summit 2024',
+        description: 'Presentation on Modern Face philosophy',
+      },
+    ],
+    teaches: {
+      '@type': 'Course',
+      name: 'ENDOMIDFACE® Mentorship Program',
+      description: 'Training surgeons worldwide in Direct Vision facial surgery',
+      provider: {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+      },
+    },
+  }),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

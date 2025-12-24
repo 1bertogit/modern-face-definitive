@@ -1,0 +1,395 @@
+---
+/**
+ * CLUSTER F - Treinamentos + Conversão
+ * Página: /en/training/endomidface-mentorship/
+ * Prioridade: P0
+ * Intenção: Money page - curso principal
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaCourse from '@components/seo/SchemaCourse.astro';
+import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Training', url: '/education' },
+  { name: 'ENDOMIDFACE® Mentorship', url: '/education/core-programs/endomidface-direct-vision' },
+];
+
+const keywords = [
+  'ENDOMIDFACE course',
+  'midface lift training',
+  'facial surgery course online',
+  'Dr Robério Brandão course',
+  'Direct Vision technique training',
+  'facelift mentorship',
+];
+
+const modules = [
+  {
+    number: '01',
+    title: 'Foundations: Modern Face Philosophy',
+    topics: [
+      'The Modern Face patient profile',
+      'Why classic techniques need adaptation',
+      'Safety-first approach principles',
+      'Direct Vision fundamentals',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Applied Anatomy',
+    topics: [
+      'Midface anatomical landmarks',
+      'Facial nerve course and protection',
+      'Subperiosteal plane navigation',
+      'Danger zones and safe corridors',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Technique Step-by-Step',
+    topics: [
+      'Incision planning and markings',
+      'Dissection sequence',
+      'Vector mathematics and fixation',
+      'Closure techniques',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Case Selection & Planning',
+    topics: [
+      'Ideal patient profiles',
+      'When NOT to use ENDOMIDFACE',
+      'Combining with other procedures',
+      'Setting realistic expectations',
+    ],
+  },
+  {
+    number: '05',
+    title: 'Complications & Management',
+    topics: [
+      'Prevention protocols',
+      'Early recognition',
+      'Management strategies',
+      'Documentation practices',
+    ],
+  },
+  {
+    number: '06',
+    title: 'Live Case Analysis',
+    topics: [
+      'Real patient case reviews',
+      'Pre-op to post-op walkthrough',
+      'Q&A with Dr. Brandão',
+      'Peer discussion',
+    ],
+  },
+];
+
+const faqItems = [
+  {
+    question: 'What are the prerequisites for this program?',
+    answer:
+      "You should be a licensed surgeon with basic facial surgery experience. ENDOMIDFACE is an advanced technique, so familiarity with facial anatomy and previous experience with procedures like blepharoplasty or basic facelifts is helpful, though not strictly required. During application, we'll discuss your background to ensure the program is appropriate for your level.",
+  },
+  {
+    question: 'How much time should I dedicate weekly?',
+    answer:
+      'Plan for approximately 3-5 hours per week: 1-2 hours for video modules and materials review, plus 1-2 hours for live sessions (typically 2-3 per month). The pace is designed for working surgeons who are maintaining active practices.',
+  },
+  {
+    question: 'Is this online only? Can I observe live surgery?',
+    answer:
+      "The core mentorship is online, which allows participation from anywhere in the world. However, for surgeons seeking in-person observation, we can discuss opportunities to observe Dr. Brandão's surgeries in Natal, Brazil (additional arrangement required, not included in base price).",
+  },
+  {
+    question: 'What if I need help after the 2 months ends?',
+    answer:
+      "You retain access to the private mentorship community indefinitely. Graduates regularly post cases for feedback and discussion. Dr. Brandão participates in these discussions and is accessible for questions. The learning relationship doesn't end with the formal program.",
+  },
+  {
+    question: 'Can I pay in installments?',
+    answer:
+      'Yes. Contact us to discuss payment plan options. We understand that training investment should be manageable alongside practice expenses.',
+  },
+];
+---
+
+<BaseLayout
+  title="ENDOMIDFACE® Mentorship (2 months) — $3,350 | Modern Face Institute"
+  description="Master ENDOMIDFACE® by Direct Vision in this 2-month mentorship with Dr. Robério Brandão. Complete technique training, live case discussions, private community access. Learn the midface lift technique with 1,500+ case safety record."
+  keywords={keywords}
+>
+  <SchemaCourse
+    name="ENDOMIDFACE® Mentorship Program"
+    description="2-month intensive mentorship program for mastering ENDOMIDFACE by Direct Vision technique with Dr. Robério Brandão"
+    duration="P2M"
+    price={3350}
+    currency="USD"
+    skillLevel="Advanced"
+  />
+  <SchemaFAQ items={faqItems} />
+
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+            Core Training Program
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-white mb-4">ENDOMIDFACE® Mentorship</h1>
+          <p class="text-2xl text-primary-200 mb-6">
+            2 Months • <span class="text-accent-400 font-bold">$3,350</span>
+          </p>
+          <p class="text-xl text-primary-300 mb-8">
+            Master the <strong class="text-white">Direct Vision approach</strong> to midface lifting directly
+            from <a href="/creator" class="text-accent-400 hover:text-accent-300 underline"
+              >Dr. Robério Brandão</a
+            > — the technique's creator.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/training/application"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+            >
+              Apply Now
+            </a>
+            <a
+              href="#curriculum"
+              class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+            >
+              View Curriculum
+            </a>
+          </div>
+        </div>
+
+        <!-- Key Benefits -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+          <h3 class="text-white font-bold text-lg mb-6">Program Includes:</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Complete video curriculum (6 modules)</span>
+            </li>
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Live sessions with Dr. Brandão (2-3x monthly)</span>
+            </li>
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Private mentorship community (lifetime access)</span>
+            </li>
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Case review and personalized feedback</span>
+            </li>
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Written protocols and checklists</span>
+            </li>
+            <li class="flex items-start gap-3 text-primary-200">
+              <span class="material-symbols-outlined text-accent-400 flex-shrink-0"
+                >check_circle</span
+              >
+              <span>Certificate of completion</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">What You'll Learn</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl mb-6">
+          This program takes you from understanding the <a
+            href="/philosophy"
+            class="text-accent-600 hover:text-accent-700 underline">Modern Face® philosophy</a
+          > to confidently performing <a
+            href="/methods/endomidface-direct-vision"
+            class="text-accent-600 hover:text-accent-700 underline">ENDOMIDFACE® by Direct Vision</a
+          > in your own practice.
+        </p>
+
+        <p class="mb-6">By the end of the mentorship, you will:</p>
+
+        <ul class="space-y-3 mb-6">
+          <li>
+            <strong>Understand the anatomical basis</strong> for Direct Vision midface surgery — why it
+            works and why endoscopic equipment isn't necessary
+          </li>
+          <li>
+            <strong>Master the technical steps</strong> from incision planning through closure, with clear
+            protocols for each stage
+          </li>
+          <li>
+            <strong>Select appropriate patients</strong> — knowing who benefits most from ENDOMIDFACE
+            and when other approaches are preferable
+          </li>
+          <li>
+            <strong>Prevent and manage complications</strong> with documented protocols from 1,500+ cases
+          </li>
+          <li>
+            <strong>Join a community</strong> of surgeons using the same methodology, with ongoing case
+            discussion and support
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section id="curriculum" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-12 text-center">Curriculum Overview</h2>
+
+      <div class="space-y-6">
+        {
+          modules.map((module) => (
+            <div class="p-6 bg-ivory rounded-xl border border-gray-200">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <span class="inline-flex items-center justify-center w-12 h-12 bg-accent-100 text-accent-700 font-bold rounded-lg text-lg">
+                    {module.number}
+                  </span>
+                </div>
+                <div class="flex-grow">
+                  <h3 class="text-xl font-bold text-primary-900 mb-3">{module.title}</h3>
+                  <ul class="grid md:grid-cols-2 gap-2">
+                    {module.topics.map((topic) => (
+                      <li class="flex items-center gap-2 text-warmGray">
+                        <span class="w-1.5 h-1.5 bg-accent-500 rounded-full flex-shrink-0" />
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructor -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8 text-center">Your Instructor</h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-8 p-8 bg-white rounded-2xl">
+        <div
+          class="w-32 h-32 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0"
+        >
+          <span class="material-symbols-outlined text-5xl text-primary-400">person</span>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-primary-900 mb-2">Dr. Robério Brandão</h3>
+          <p class="text-accent-600 mb-4">Creator of ENDOMIDFACE® by Direct Vision</p>
+          <p class="text-warmGray mb-4">
+            18+ years of facial surgery experience. 1,500+ surgeries performed. Creator of the
+            Modern Face® philosophy. Pioneer in facial videoendoscopy in Rio Grande do Norte (2007).
+            Invited speaker at SBCP 2023 and Full Face Global 2024.
+          </p>
+          <a
+            href="/creator"
+            class="inline-flex items-center text-accent-600 font-medium hover:text-accent-700"
+          >
+            Full profile
+            <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8 text-center">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-4">
+        {
+          faqItems.map((item) => (
+            <div class="bg-ivory rounded-xl overflow-hidden">
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-primary-900 mb-2">{item.question}</h3>
+                <p class="text-warmGray">{item.answer}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">ENDOMIDFACE® Mentorship</h2>
+      <p class="text-5xl font-bold text-accent-400 mb-4">$3,350</p>
+      <p class="text-xl text-primary-200 mb-8">
+        2 months of intensive training • Lifetime community access
+      </p>
+
+      <a
+        href="/training/application"
+        class="inline-flex items-center gap-2 px-10 py-5 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-xl"
+      >
+        Apply Now
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+
+      <p class="text-primary-300 mt-6 text-sm">
+        Questions? <a href="/contact" class="text-accent-400 hover:text-accent-300 underline"
+          >Contact us</a
+        > before applying.
+      </p>
+    </div>
+  </section>
+
+  <!-- Other Programs -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="text-xl font-serif text-primary-900 mb-6">
+        Interested in More Comprehensive Training?
+      </h3>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training/deep-neck-mentorship"
+          class="px-6 py-3 border border-primary-900 text-primary-900 rounded-lg hover:bg-primary-50 transition-colors"
+        >
+          Deep Neck Mentorship — $3,100
+        </a>
+        <a
+          href="/training/combo-legacy"
+          class="px-6 py-3 bg-primary-900 text-white rounded-lg hover:bg-primary-800 transition-colors"
+        >
+          Combo Legacy (Both) — $5,997
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

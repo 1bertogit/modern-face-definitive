@@ -1,0 +1,124 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const ligaments = [
+  {
+    name: 'Orbital Ligament',
+    region: 'Periorbital',
+    origin: 'Orbital rim',
+    function: 'Supports periorbital tissues',
+    release: 'Partial',
+  },
+  {
+    name: 'Zygomatic Ligament',
+    region: 'Midface',
+    origin: 'Zygoma body',
+    function: 'Main midface anchor',
+    release: 'Total',
+  },
+  {
+    name: 'Zygomatic-Cutaneous Ligament',
+    region: 'Midface',
+    origin: 'Zygomatic extension',
+    function: 'Connects to cutaneous tissue',
+    release: 'Total',
+  },
+  {
+    name: 'Masseteric Ligament',
+    region: 'Lateral Face',
+    origin: 'Masseter border',
+    function: 'Supports tissues over masseter',
+    release: 'Selective',
+  },
+  {
+    name: 'Mandibular Ligament',
+    region: 'Mandible',
+    origin: 'Inferior mandibular border',
+    function: 'Main cause of jowl',
+    release: 'Total',
+  },
+  {
+    name: 'Platysma-Auricular Ligament',
+    region: 'Neck',
+    origin: 'Auricular region',
+    function: 'Anchors platysma laterally',
+    release: 'Partial',
+  },
+];
+---
+
+<BaseLayout
+  title="Facial Retaining Ligaments"
+  description="The ligaments that support the face and need release in lifting."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Retaining Ligaments</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Facial Anchors
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Retaining Ligaments
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The anchors holding face to skeleton. They weaken with aging. Released in lifting.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Ligament Map</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Ligament</th>
+              <th class="text-left py-4 px-4">Region</th>
+              <th class="text-left py-4 px-4">Origin</th>
+              <th class="text-left py-4 px-4">Function</th>
+              <th class="text-center py-4 px-4">Release</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ligaments.map((l) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{l.name}</td>
+                  <td class="py-4 px-4 text-accent-600">{l.region}</td>
+                  <td class="py-4 px-4 text-warmGray">{l.origin}</td>
+                  <td class="py-4 px-4 text-warmGray">{l.function}</td>
+                  <td class="py-4 px-4 text-center">
+                    <span
+                      class={`text-xs px-2 py-1 text-white ${l.release === 'Total' ? 'bg-green-600' : l.release === 'Partial' ? 'bg-amber-600' : 'bg-primary-700'}`}
+                    >
+                      {l.release}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/surgical-spaces" class="text-sm text-accent-600"
+        >← Surgical Spaces</a
+      >
+      <a href="/applied-anatomy/facial-nerves" class="text-sm text-accent-600">Facial Nerves →</a>
+    </div>
+  </section>
+</BaseLayout>

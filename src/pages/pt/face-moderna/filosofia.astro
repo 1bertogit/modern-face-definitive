@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'A Filosofia da Face Moderna®',
+  description:
+    'Os princípios fundamentais que guiam a cirurgia facial moderna: segurança, elegância e socialização do conhecimento.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+---
+
+<BaseLayout
+  title="Filosofia"
+  description="Os princípios fundamentais que guiam a Face Moderna®: segurança inegociável, elegância nos resultados e socialização do conhecimento cirúrgico."
+  schema={schema}
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/pt" class="hover:text-primary-900">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Filosofia</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Face Moderna®</p>
+        <h1 class="heading-1">A Filosofia da Face Moderna</h1>
+        <p class="body-large">Não é uma técnica. É uma forma de pensar cirurgia facial.</p>
+      </header>
+
+      <!-- Conteúdo -->
+      <div class="prose prose-lg max-w-none">
+        <p class="drop-cap">
+          A Face Moderna® nasceu de uma pergunta incômoda: por que a excelência em cirurgia facial
+          precisa ser um segredo guardado por poucos? Por que técnicas seguras e eficazes permanecem
+          inacessíveis para a maioria dos cirurgiões?
+        </p>
+
+        <p>
+          Durante quase duas décadas operando faces, observei um padrão perturbador. Cirurgiões
+          talentosos, dedicados, éticos — travados pelo medo do plano profundo. Não por falta de
+          capacidade. Por falta de método.
+        </p>
+
+        <h2 class="heading-3">O Problema da Cirurgia Facial Tradicional</h2>
+
+        <p>
+          A formação tradicional em cirurgia facial segue um modelo que eu chamo de
+          <strong>"aprendizado por sobrevivência"</strong>: você opera, erra, aprende com o erro,
+          repete. Em 10, 15 anos, talvez domine a técnica. Talvez.
+        </p>
+
+        <p>
+          Esse modelo funcionou por décadas. Mas ele cobra um preço alto — do cirurgião e do
+          paciente. Complicações evitáveis. Resultados inconsistentes. Carreiras inteiras limitadas
+          pelo medo de estruturas nobres.
+        </p>
+
+        <h2 class="heading-3">Os Três Pilares</h2>
+
+        <p>A Face Moderna® se sustenta em três princípios inegociáveis:</p>
+
+        <h3 class="heading-4">1. Segurança Inegociável</h3>
+
+        <p>
+          Não existe resultado estético que justifique risco desnecessário. Cada decisão técnica —
+          cada vetor, cada plano, cada ponto — passa pelo filtro da segurança. Se aumenta o risco
+          sem benefício proporcional, está fora.
+        </p>
+
+        <p>
+          Resultado prático: 0% de lesão nervosa permanente em 212 casos consecutivos de
+          Endomidface.
+        </p>
+
+        <h3 class="heading-4">2. Elegância na Simplicidade</h3>
+
+        <p>
+          Complexidade não é sinônimo de sofisticação. A verdadeira maestria está em resolver
+          problemas complexos com soluções elegantes. Menos dissecção desnecessária. Menos tempo
+          cirúrgico. Menos trauma tecidual.
+        </p>
+
+        <p>
+          A visão direta é um exemplo: eliminamos a dependência de torres de vídeo caras, não por
+          economia, mas porque o contato direto com o tecido oferece feedback tátil superior.
+        </p>
+
+        <h3 class="heading-4">3. Socialização do Conhecimento</h3>
+
+        <p>
+          Conhecimento guardado é conhecimento morto. A Face Moderna® existe para multiplicar
+          cirurgiões capazes — não para criar dependência de um guru.
+        </p>
+
+        <p>
+          O objetivo é que cada aluno supere o mestre. Que leve a técnica adiante, adapte, melhore.
+          Que forme outros.
+        </p>
+
+        <h2 class="heading-3">Para Quem é a Face Moderna®</h2>
+
+        <p>
+          Para o cirurgião que sente que pode mais. Que olha para seus resultados e sabe que existe
+          um próximo nível — mas não encontra o caminho.
+        </p>
+
+        <p>
+          Para quem está cansado de cursos que mostram o que fazer, mas não ensinam como fazer com
+          segurança.
+        </p>
+
+        <p>Para quem entende que maestria não é talento nato — é método.</p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12">
+          <p class="text-xl font-serif italic text-primary-900">
+            "Excelência em cirurgia facial não deveria ser um segredo guardado por poucos. Nossa
+            missão é socializá-la."
+          </p>
+          <p class="text-sm text-softGray mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- Navegação -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/pt/face-moderna" class="text-sm text-accent-600 hover:text-accent-700">
+            ← Voltar para Face Moderna®
+          </a>
+          <a
+            href="/pt/face-moderna/principios"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Os Princípios Técnicos →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradBefore3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f0"/>
+      <stop offset="100%" style="stop-color:#ebe9e2"/>
+    </linearGradient>
+    <linearGradient id="bgGradAfter3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <clipPath id="leftClip3">
+      <rect x="0" y="0" width="400" height="600"/>
+    </clipPath>
+    <clipPath id="rightClip3">
+      <rect x="400" y="0" width="400" height="600"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background Split -->
+  <rect fill="url(#bgGradBefore3)" x="0" y="0" width="400" height="600"/>
+  <rect fill="url(#bgGradAfter3)" x="400" y="0" width="400" height="600"/>
+
+  <!-- Title Bar -->
+  <rect fill="#1e293b" x="0" y="0" width="800" height="50"/>
+  <text x="400" y="32" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" fill="#b8956c" letter-spacing="0.1em">NECKLIFT</text>
+
+  <!-- Center Divider with VS -->
+  <rect fill="#b8956c" x="396" y="50" width="8" height="550"/>
+  <circle cx="400" cy="300" r="28" fill="#1e293b"/>
+  <text x="400" y="308" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#b8956c">VS</text>
+
+  <!-- Before Face (Left) - Profile view -->
+  <g clip-path="url(#leftClip3)">
+    <g transform="translate(220, 200)">
+      <!-- Head profile outline -->
+      <path d="M 5,-50 Q 15,-60 30,-60 Q 55,-55 72,-35 Q 85,-10 88,20 Q 90,50 85,75 Q 78,100 60,120 Q 42,135 20,140 Q 0,142 -12,138" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Forehead -->
+      <path d="M 30,-60 Q 45,-65 60,-55" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose profile -->
+      <path d="M 72,-35 L 95,-8 Q 98,5 92,12 L 82,12" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eye socket -->
+      <ellipse cx="60" cy="-20" rx="10" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+      <!-- Problem - Jowl -->
+      <path d="M 20,140 Q 15,155 8,165 Q 0,175 -8,178 Q -15,180 -20,175" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <!-- Problem - Submental fullness -->
+      <path d="M -20,175 Q -25,168 -28,155 Q -30,140 -25,125" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <!-- Problem - Turkey neck -->
+      <path d="M -28,155 Q -35,145 -40,130" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+      <path d="M -32,160 Q -40,150 -45,135" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+      <!-- Problem - Lack of angle -->
+      <path d="M 20,140 Q 5,150 -5,160" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- After Face (Right) - Profile view lifted -->
+  <g clip-path="url(#rightClip3)">
+    <g transform="translate(620, 200)">
+      <!-- Head profile outline - same -->
+      <path d="M 5,-50 Q 15,-60 30,-60 Q 55,-55 72,-35 Q 85,-10 88,20 Q 90,50 85,75 Q 78,100 60,118 Q 42,130 22,134 Q 5,136 -8,132" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Forehead -->
+      <path d="M 30,-60 Q 45,-65 60,-55" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose profile -->
+      <path d="M 72,-35 L 95,-8 Q 98,5 92,12 L 82,12" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eye socket -->
+      <ellipse cx="60" cy="-20" rx="10" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+      <!-- Improvement - Clean jawline -->
+      <path d="M 22,134 Q 12,142 5,148 Q -2,152 -8,152 Q -15,150 -18,145" fill="none" stroke="#16a34a" stroke-width="2.5" opacity="0.7"/>
+      <!-- Improvement - Defined cervicomental angle -->
+      <path d="M -18,145 Q -22,138 -22,128 Q -20,115 -15,105" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <!-- Improvement - Smooth neck contour -->
+      <path d="M -22,128 Q -28,118 -30,105" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+      <!-- Improvement - Sharp angle indicator -->
+      <path d="M 5,148 L -8,152 L -18,145" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <!-- Angle indicator arc -->
+      <path d="M 0,145 Q -5,148 -10,148" fill="none" stroke="#16a34a" stroke-width="1" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <text x="200" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">ANTES</text>
+  <text x="600" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">DEPOIS</text>
+
+  <!-- Decorative Lines -->
+  <line x1="100" y1="495" x2="300" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+  <line x1="500" y1="495" x2="700" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Subtle indicator legend -->
+  <g transform="translate(200, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#dc2626" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Papada</text>
+  </g>
+  <g transform="translate(600, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#16a34a" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Definição</text>
+  </g>
+</svg>

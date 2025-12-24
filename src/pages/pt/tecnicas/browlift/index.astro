@@ -1,0 +1,365 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Browlift',
+  'frontoplastia',
+  'lifting de sobrancelha',
+  'cirurgia terço superior face',
+  'levantamento de testa',
+  'browlift evolutivo',
+  'lifting frontal',
+  'Dr Robério Brandão browlift',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Browlift Evolutivo Face Moderna',
+  description:
+    'Frontoplastia por visão direta com incisão intracapilar. Portal seguro para o Endomidface. Vetor vertical, resultado natural.',
+  procedureType: 'Surgical',
+  bodyLocation: 'Face - Upper Third',
+};
+
+const modalidades = [
+  {
+    tipo: 'Browlift Isolado',
+    indicacao: 'Quando apenas o terço superior precisa de tratamento',
+    caracteristicas: [
+      'Acesso apenas pelo portal lateral (temporal)',
+      "Não mexe na glabela — evita pálpebra 'longa'",
+      'Miotomias seletivas (orbicular, frontal)',
+      'Ideal para queda de sobrancelha com terço médio bem posicionado',
+    ],
+  },
+  {
+    tipo: 'Browlift Combinado',
+    indicacao: 'Portal de acesso para o Endomidface',
+    caracteristicas: [
+      'Incisão única intracapilar (~5cm)',
+      'Faz a Frontoplastia e acessa o terço médio',
+      'Padrão-ouro da Face Moderna',
+      'Rejuvenescimento dos terços superior e médio simultaneamente',
+    ],
+  },
+];
+
+const beneficios = [
+  {
+    titulo: 'Incisão 100% Oculta',
+    descricao: 'Totalmente intracapilar, invisível mesmo com cabelo curto ou preso.',
+    icone: 'visibility_off',
+  },
+  {
+    titulo: 'Vetor Vertical Real',
+    descricao:
+      "Elevação contra a gravidade, não tração lateral. Resultado natural, sem 'cara de susto'.",
+    icone: 'arrow_upward',
+  },
+  {
+    titulo: 'Portal Multiuso',
+    descricao:
+      'A mesma incisão serve para Browlift + Endomidface. Dois procedimentos, uma cicatriz.',
+    icone: 'hub',
+  },
+  {
+    titulo: 'Recuperação Rápida',
+    descricao: 'Micropore por 3 dias na testa. Alta em poucas horas. Retorno social em 7-10 dias.',
+    icone: 'schedule',
+  },
+];
+
+const errosComuns = [
+  {
+    erro: 'Elevar demais a glabela',
+    consequencia: "Pálpebra superior parece 'longa', olhar feminizado em homens",
+    solucao: 'Acesso lateral seletivo, sem portal central quando desnecessário',
+  },
+  {
+    erro: 'Vetor lateral em vez de vertical',
+    consequencia: "Olhar 'puxado', antinatural, curta duração",
+    solucao: 'Fixação na fáscia temporal profunda com vetor superior',
+  },
+  {
+    erro: 'Fixação fraca ou mal posicionada',
+    consequencia: 'Recidiva precoce, perda do resultado',
+    solucao: 'Vicryl 2-0, pontos o mais posterior e superior possível',
+  },
+  {
+    erro: 'Não liberar completamente o rebordo orbitário',
+    consequencia: 'Elevação limitada, assimetrias persistentes',
+    solucao: 'Liberação agressiva lateral, superior e medial',
+  },
+];
+---
+
+<BaseLayout
+  title="Browlift Evolutivo"
+  description="Frontoplastia por visão direta com incisão intracapilar. Portal seguro para o Endomidface. Vetor vertical, resultado natural."
+  schema={schema}
+  keywords={keywords}
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Browlift</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Técnica Principal • Terço Superior
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Browlift Evolutivo
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Frontoplastia por visão direta. Incisão intracapilar. Vetor vertical. Portal seguro para o
+          Endomidface. O terço superior como nunca foi tratado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O Browlift da Face Moderna não é apenas uma técnica de elevação de sobrancelhas — é a
+          porta de entrada para o rejuvenescimento facial completo. Através de uma incisão
+          intracapilar de apenas 5cm, acessamos tanto o terço superior quanto o terço médio da face,
+          permitindo tratamento integrado com cicatriz única e oculta.
+        </p>
+
+        <p>
+          A técnica pode ser usada de forma isolada, quando apenas o terço superior precisa de
+          tratamento, ou combinada com o Endomidface, que é o cenário mais comum na prática clínica.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalidades -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Duas Modalidades, Uma Filosofia
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          modalidades.map((mod, index) => (
+            <div class="p-8 bg-ivory border border-gray-100">
+              <span class="text-5xl font-serif text-accent-600/20 block mb-4">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 class="text-xl font-serif text-primary-900 mb-2">{mod.tipo}</h3>
+              <p class="text-sm text-accent-600 mb-6">{mod.indicacao}</p>
+              <ul class="space-y-3">
+                {mod.caracteristicas.map((caract) => (
+                  <li class="flex items-start gap-3 text-sm text-warmGray">
+                    <span class="text-accent-600 mt-1">→</span>
+                    {caract}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefícios -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Por Que o Browlift Face Moderna
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          beneficios.map((item) => (
+            <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-2xl text-accent-600 flex-shrink-0">
+                {item.icone}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-2">{item.titulo}</h3>
+                <p class="text-sm text-warmGray">{item.descricao}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Técnica -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Visão Geral da Técnica</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h3 class="font-serif text-primary-900">Planos de Descolamento</h3>
+        <ul class="space-y-2">
+          <li><strong class="text-primary-900">Fronte:</strong> subperiostal</li>
+          <li>
+            <strong class="text-primary-900">Têmpora:</strong> sobre a fáscia temporal profunda
+          </li>
+          <li>
+            <strong class="text-primary-900">Transição para terço médio:</strong> plano sub-SMAS
+          </li>
+        </ul>
+
+        <h3 class="font-serif text-primary-900">Liberações</h3>
+        <ul class="space-y-2">
+          <li>Rebordo orbitário: lateral, superior e medial</li>
+          <li>Desinserção de próceros e corrugadores</li>
+          <li>Liberação das aderências orbitárias</li>
+        </ul>
+
+        <h3 class="font-serif text-primary-900">Fixação</h3>
+        <ul class="space-y-2">
+          <li>Vicryl 2-0 na fáscia temporal profunda e periósteo frontal</li>
+          <li>Pontos o mais posterior e superior possível</li>
+          <li>Objetivo: proteger o ramo frontal do facial</li>
+        </ul>
+
+        <h3 class="font-serif text-primary-900">Fechamento</h3>
+        <ul class="space-y-2">
+          <li>Ressecção de faixa controlada de pele/couro</li>
+          <li>Compensação do excesso do meio para as laterais</li>
+          <li>Sutura intradérmica ou grampos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Erros Comuns -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Erros Comuns e Como Evitá-los
+      </h2>
+
+      <div class="space-y-6">
+        {
+          errosComuns.map((item) => (
+            <div class="bg-white p-6 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <p class="text-xs font-bold text-red-600 uppercase tracking-[0.1em] mb-2">Erro</p>
+                  <p class="text-primary-900 font-medium">{item.erro}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-orange-600 uppercase tracking-[0.1em] mb-2">
+                    Consequência
+                  </p>
+                  <p class="text-warmGray text-sm">{item.consequencia}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-green-600 uppercase tracking-[0.1em] mb-2">
+                    Solução
+                  </p>
+                  <p class="text-warmGray text-sm">{item.solucao}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Integração -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">O Portal para a Face Completa</h2>
+      <p class="text-primary-300 mb-8 leading-relaxed">
+        Na maioria dos casos, o Browlift não é feito isoladamente. Ele serve como portal de acesso
+        para o Endomidface, permitindo rejuvenescimento dos terços superior e médio através de uma
+        única incisão intracapilar.
+      </p>
+      <a
+        href="/pt/tecnicas/endomidface"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+      >
+        Conhecer o Endomidface
+      </a>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-primary-900 leading-relaxed mb-6">
+          "O Browlift é a ferramenta principal para tratar olhar pesado e corrigir assimetria de
+          supercílios. Mas seu maior poder está em abrir o caminho seguro para o Endomidface."
+        </p>
+        <footer class="text-sm text-softGray uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-10 bg-ivory border border-gray-100">
+          <h3 class="text-xl font-serif text-primary-900 mb-4">Curso Browlift & Endomidface</h3>
+          <p class="text-warmGray mb-6">
+            Formação integrada nas duas técnicas que formam o padrão-ouro da Face Moderna para
+            rejuvenescimento facial.
+          </p>
+          <a
+            href="/pt/educacao"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Ver programa →
+          </a>
+        </div>
+
+        <div class="p-10 bg-ivory border border-gray-100">
+          <h3 class="text-xl font-serif text-primary-900 mb-4">Casos Clínicos</h3>
+          <p class="text-warmGray mb-6">
+            Veja resultados reais de Browlift isolado e combinado com Endomidface em diferentes
+            perfis de pacientes.
+          </p>
+          <a
+            href="/pt/tecnicas/endomidface/resultados"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Ver casos →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/pt/tecnicas/deep-neck" class="text-sm text-accent-600 hover:text-accent-700">
+          ← Deep Neck
+        </a>
+        <a href="/pt/tecnicas" class="text-sm text-accent-600 hover:text-accent-700">
+          Todas as Técnicas →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

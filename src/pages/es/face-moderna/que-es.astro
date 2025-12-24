@@ -1,0 +1,246 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '¿Qué es Face Moderna®?',
+  description:
+    'Face Moderna® es una metodología integrada de cirugía facial que combina técnicas avanzadas con una filosofía de máxima seguridad y resultados naturales.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const pilares = [
+  {
+    icono: 'shield',
+    titulo: 'Seguridad Innegociable',
+    descripcion:
+      '0% de lesión nerviosa permanente en 212 casos consecutivos. Cada decisión técnica pasa por el filtro de seguridad.',
+  },
+  {
+    icono: 'auto_awesome',
+    titulo: 'Elegancia en los Resultados',
+    descripcion:
+      "Resultados naturales, sin el aspecto 'operado'. El rostro rejuvenecido, no transformado.",
+  },
+  {
+    icono: 'speed',
+    titulo: 'Recuperación Optimizada',
+    descripcion: 'Técnica refinada significa menos trauma. Retorno social en 7-10 días, no 30.',
+  },
+  {
+    icono: 'school',
+    titulo: 'Conocimiento Socializado',
+    descripcion:
+      'La excelencia quirúrgica no debe ser secreto. Método documentado, reproducible, enseñable.',
+  },
+];
+
+const tecnicas = [
+  {
+    nombre: 'Endomidface por Visión Directa',
+    area: 'Tercio medio del rostro',
+    diferencial: 'Sin endoscopio, con seguridad superior',
+  },
+  {
+    nombre: 'Deep Neck Face Moderna',
+    area: 'Cuello y región cervical',
+    diferencial: 'Sin remoción de la glándula submandibular',
+  },
+  {
+    nombre: 'Browlift Evolutivo',
+    area: 'Tercio superior y cejas',
+    diferencial: "Natural, sin aspecto de 'sorpresa'",
+  },
+];
+---
+
+<BaseLayout
+  title="¿Qué es Face Moderna®?"
+  description="Face Moderna® es una metodología integrada de cirugía facial que combina técnicas avanzadas con una filosofía de máxima seguridad y resultados naturales."
+  schema={schema}
+  lang="es"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/es" class="hover:text-primary-900">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Qué Es</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Definición</p>
+        <h1 class="heading-1">¿Qué es Face Moderna®?</h1>
+        <p class="body-large">
+          Más que técnica. Una forma de pensar — y practicar — cirugía facial.
+        </p>
+      </header>
+
+      <!-- Contenido Principal -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Face Moderna® no es una técnica aislada. Es una metodología integrada de rejuvenecimiento
+          facial desarrollada a lo largo de 18 años y más de 1.500 cirugías. Combina técnicas
+          avanzadas de plano profundo con una filosofía clara: máxima seguridad, resultados
+          naturales, recuperación optimizada.
+        </p>
+
+        <p>
+          El nombre "Face Moderna" refleja dos aspectos fundamentales. Primero, la adaptación
+          técnica para la realidad actual — donde el 90% de los rostros ya tienen bioestimuladores y
+          rellenos que alteran los planos anatómicos tradicionales. Segundo, la democratización del
+          conocimiento — sacando la excelencia quirúrgica del dominio de pocos y haciéndola
+          accesible a cirujanos comprometidos.
+        </p>
+
+        <h2 class="heading-3">El Problema que Resolvemos</h2>
+
+        <p>La cirugía facial tradicional enfrenta tres desafíos críticos:</p>
+
+        <ol class="space-y-4">
+          <li>
+            <strong class="text-primary-900">Curva de aprendizaje brutal:</strong>
+            Las técnicas de plano profundo exigen 50-100 casos para seguridad mínima. ¿Cuántos pacientes
+            sufren en el camino?
+          </li>
+          <li>
+            <strong class="text-primary-900">Rostros modernos, técnicas antiguas:</strong>
+            Pacientes con bioestimuladores tienen anatomía alterada. Técnicas desarrolladas hace 30 años
+            no consideran esta realidad.
+          </li>
+          <li>
+            <strong class="text-primary-900">Conocimiento concentrado:</strong>
+            Las mejores técnicas permanecen restringidas a pocos centros, creando una élite quirúrgica
+            mientras la mayoría opera con limitaciones.
+          </li>
+        </ol>
+
+        <p>Face Moderna® nació para resolver estos tres problemas simultáneamente.</p>
+      </div>
+
+      <!-- Pilares -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12 text-center">Los Cuatro Pilares</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {
+            pilares.map((pilar) => (
+              <div class="bg-white p-8 border border-gray-100">
+                <span class="material-symbols-outlined text-3xl text-accent-600 mb-4 block">
+                  {pilar.icono}
+                </span>
+                <h3 class="heading-4 mb-3">{pilar.titulo}</h3>
+                <p class="body-small">{pilar.descripcion}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Técnicas -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-8">Las Técnicas de Face Moderna®</h2>
+        <div class="space-y-6">
+          {
+            tecnicas.map((tec) => (
+              <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+                <div class="w-1 h-full bg-accent-600 flex-shrink-0" />
+                <div>
+                  <h3 class="heading-4 mb-1">{tec.nombre}</h3>
+                  <p class="body-small text-accent-700 mb-2">{tec.area}</p>
+                  <p class="body-small">{tec.diferencial}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-8 text-center">
+          <a
+            href="/es/tecnicas"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Explorar todas las técnicas →
+          </a>
+        </div>
+      </div>
+
+      <!-- Continuación del contenido -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="font-serif text-primary-900">¿Para Quién es Face Moderna®?</h2>
+
+        <p>
+          <strong class="text-primary-900">Para cirujanos</strong> que sienten que pueden más. Que dominan
+          lo básico pero quieren seguridad en el plano profundo. Que buscan resultados consistentes, no
+          ocasionales.
+        </p>
+
+        <p>
+          <strong class="text-primary-900">Para pacientes</strong> que valoran la naturalidad sobre la
+          transformación radical. Que quieren rejuvenecer, no parecer "operados". Que priorizan seguridad
+          y recuperación rápida.
+        </p>
+
+        <h2 class="font-serif text-primary-900">Lo Que Face Moderna® No Es</h2>
+
+        <ul class="space-y-3">
+          <li>No es una técnica mágica que sustituye estudio y práctica</li>
+          <li>No es un curso de fin de semana que transforma principiantes en especialistas</li>
+          <li>No es una promesa de resultados sin esfuerzo</li>
+          <li>No es una franquicia o método rígido</li>
+        </ul>
+
+        <p>
+          Es un camino. Un método. Una forma de pensar la cirugía facial que prioriza lo que
+          realmente importa: seguridad del paciente, calidad del resultado, evolución constante del
+          cirujano.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "Face Moderna® es lo que sucede cuando dejas de preguntar '¿qué técnica usar?' y
+            empiezas a preguntar '¿cuál es el mejor resultado posible con máxima seguridad?'"
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Conozca la Filosofía Completa</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          Entienda los principios que guían cada decisión técnica de Face Moderna®.
+        </p>
+        <a
+          href="/es/face-moderna/filosofia"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Leer sobre la Filosofía
+        </a>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/es/face-moderna" class="text-sm text-accent-600 hover:text-accent-700">
+            ← Volver a Face Moderna®
+          </a>
+          <a
+            href="/es/face-moderna/filosofia"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            La Filosofía →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+// sitemap-blog.xml - Blog and Articles (English - Default)
+const siteUrl = 'https://drroberiobrandao.com';
+const lastmod = new Date().toISOString().split('T')[0];
+
+const blogPages = [
+  // Blog index
+  { url: '/blog', priority: 0.8, changefreq: 'weekly' },
+  
+  // Main articles - Bio and Institutional
+  { url: '/blog/dr-roberio-brandao-endomidface-creator', priority: 0.9, changefreq: 'monthly' },
+  { url: '/blog/modern-face-concept-philosophy', priority: 0.9, changefreq: 'monthly' },
+  { url: '/blog/modern-face-institute-about', priority: 0.8, changefreq: 'monthly' },
+  
+  // Complete Guides (Pillars)
+  { url: '/blog/endomidface-complete-guide', priority: 0.9, changefreq: 'monthly' },
+  { url: '/blog/deep-neck-complete-guide', priority: 0.9, changefreq: 'monthly' },
+  { url: '/blog/browlift-frontoplasty-complete-guide', priority: 0.9, changefreq: 'monthly' },
+  
+  // Comparisons (Battle Pages)
+  { url: '/blog/endomidface-vs-deep-plane', priority: 0.9, changefreq: 'monthly' },
+  { url: '/blog/endomidface-vs-endoscopic', priority: 0.8, changefreq: 'monthly' },
+  { url: '/blog/modern-face-vs-traditional', priority: 0.8, changefreq: 'monthly' },
+  { url: '/blog/deep-neck-vs-cervical-lift', priority: 0.8, changefreq: 'monthly' },
+  { url: '/blog/browlift-vs-blepharoplasty', priority: 0.8, changefreq: 'monthly' },
+  
+  // Anatomy
+  { url: '/blog/prezygomatic-space-anatomy', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/facial-retaining-ligaments', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/facial-nerve-surgical-anatomy', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/smas-applied-anatomy', priority: 0.7, changefreq: 'monthly' },
+  
+  // Specific techniques
+  { url: '/blog/tactile-gps-surgical-navigation', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/glandular-loop-technique', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/platysmorraphy-technique', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/digastric-shaving-technique', priority: 0.7, changefreq: 'monthly' },
+  
+  // Recovery and results
+  { url: '/blog/endomidface-recovery', priority: 0.6, changefreq: 'monthly' },
+  { url: '/blog/deep-neck-recovery', priority: 0.6, changefreq: 'monthly' },
+  { url: '/blog/modern-face-expected-results', priority: 0.6, changefreq: 'monthly' },
+  
+  // Education
+  { url: '/blog/how-to-become-modern-face-surgeon', priority: 0.7, changefreq: 'monthly' },
+  { url: '/blog/endomidface-learning-curve', priority: 0.6, changefreq: 'monthly' },
+];
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  {blogPages.map((page) => (
+    <url>
+      <loc>{siteUrl}{page.url}</loc>
+      <lastmod>{lastmod}</lastmod>
+      <changefreq>{page.changefreq}</changefreq>
+      <priority>{page.priority}</priority>
+      <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.url}`} />
+      <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.url}`} />
+    </url>
+  ))}
+</urlset>

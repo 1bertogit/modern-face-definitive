@@ -1,0 +1,222 @@
+---
+import '@/styles/global.css';
+import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
+import SEO from '@components/seo/SEO.astro';
+import SchemaOrganization from '@components/seo/SchemaOrganization.astro';
+import SchemaLocalBusiness from '@components/seo/SchemaLocalBusiness.astro';
+import GoogleTagManagerNoScript from '@components/seo/GoogleTagManagerNoScript.astro';
+import VerificationMeta from '@components/seo/VerificationMeta.astro';
+import DeferredAnalytics from '@components/DeferredAnalytics.astro';
+import WebVitals from '@components/WebVitals.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import { getLocaleFromUrl, htmlLang, getAlternateUrls, type Locale } from '@lib/i18n';
+
+interface AlternateUrl {
+  locale: Locale;
+  url: string;
+  hreflang?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noIndex?: boolean;
+  schema?: object;
+  lang?: Locale;
+  keywords?: string[];
+  includeOrgSchema?: boolean;
+  /** Custom alternates for translated content (e.g., blog posts with translated slugs) */
+  customAlternates?: AlternateUrl[];
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-default.webp',
+  noIndex = false,
+  schema,
+  lang,
+  keywords = [],
+  includeOrgSchema = false,
+  customAlternates,
+} = Astro.props;
+
+// Auto-detect locale from URL if not provided
+const locale = lang || getLocaleFromUrl(Astro.url);
+const htmlLangAttr = htmlLang[locale];
+
+// Site title variations by locale
+const siteTitles: Record<Locale, string> = {
+  'pt': 'Modern Face Institute | Dr. Robério Brandão',
+  en: 'Modern Face Institute | Dr. Robério Brandão',
+  es: 'Modern Face Institute | Dr. Robério Brandão',
+};
+
+const homeTitles: Record<Locale, string> = {
+  'pt': 'Início',
+  en: 'Home',
+  es: 'Inicio',
+};
+
+const skipLinkText: Record<Locale, string> = {
+  'pt': 'Ir para o conteúdo principal',
+  en: 'Skip to main content',
+  es: 'Ir al contenido principal',
+};
+
+const siteTitle = siteTitles[locale];
+const homeTitle = homeTitles[locale];
+const fullTitle =
+  title === homeTitle || title === 'Início' || title === 'Home' || title === 'Inicio'
+    ? siteTitle
+    : `${title} | ${siteTitle}`;
+
+// Generate alternate URLs for hreflang
+// Use custom alternates if provided (e.g., for blog posts with translated slugs)
+// Otherwise, generate from URL path translation
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+const alternates = customAlternates?.length
+  ? customAlternates.map((alt) => ({
+      locale: alt.locale,
+      url: alt.url.startsWith('http') ? alt.url : `${siteUrl}${alt.url}`,
+      hreflang: alt.hreflang || alt.locale,
+    }))
+  : getAlternateUrls(Astro.url.pathname, siteUrl);
+
+// Check if this is homepage (should include Organization schema)
+// EN is default at root (/), PT at /pt, ES at /es
+const isHomepage =
+  Astro.url.pathname === '/' ||
+  Astro.url.pathname === '/pt' ||
+  Astro.url.pathname === '/pt/' ||
+  Astro.url.pathname === '/es' ||
+  Astro.url.pathname === '/es/';
+---
+
+<!doctype html>
+<html lang={htmlLangAttr}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Analytics & Tag Management (Deferred - loads after user interaction) -->
+    <DeferredAnalytics />
+
+    <!-- Search Engine Verification -->
+    <VerificationMeta />
+
+    <SEO
+      title={fullTitle}
+      description={description}
+      image={image}
+      noIndex={noIndex}
+      lang={locale}
+      alternates={alternates}
+      keywords={keywords}
+    />
+
+    <!-- RSS Feed -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Modern Face Institute RSS"
+      href="/rss.xml"
+    />
+
+    <!-- Organization Schema (on homepage or when explicitly requested) -->
+    {(isHomepage || includeOrgSchema) && <SchemaOrganization />}
+
+    <!-- LocalBusiness Schema (PT-BR only - for local SEO in Brazil) -->
+    {locale === 'pt' && <SchemaLocalBusiness />}
+
+    <!-- Page-specific schema -->
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+    <!--
+      Font Loading Strategy for Core Web Vitals:
+      1. dns-prefetch + preconnect = fastest connection setup
+      2. Critical fonts: preload + immediate stylesheet (Inter 400-600, Playfair 400-500)
+      3. Non-critical: async load after render (extra weights, Material Symbols)
+      4. All fonts use display=swap to prevent FOIT (Flash of Invisible Text)
+      5. Subset latin-ext reduces font files by ~60%
+    -->
+
+    <!-- DNS prefetch as fallback for older browsers -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Preconnect for modern browsers (improves LCP by ~100-300ms) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Critical Fonts: Inter + Playfair Display (subset latin-ext, display=swap) -->
+    <!-- Using fetchpriority="high" for critical fonts, removing duplicate preload -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&subset=latin-ext&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+      fetchpriority="high"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&subset=latin-ext&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Non-critical font weights (loaded async after paint) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:wght@600;700&subset=latin-ext&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+      fetchpriority="low"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:wght@600;700&subset=latin-ext&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Material Symbols: async load (icons are not critical for FCP/LCP) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+      fetchpriority="low"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
+      />
+    </noscript>
+
+    <!-- Core Web Vitals Monitoring -->
+    <WebVitals />
+  </head>
+  <body class="flex flex-col min-h-screen bg-ivory">
+    <GoogleTagManagerNoScript />
+
+    <!-- Skip Link for Accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary-900 focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
+    >
+      {skipLinkText[locale]}
+    </a>
+
+    <Header locale={locale} />
+    <main id="main-content" class="flex-grow pt-24" role="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <SpeedInsights />
+  </body>
+</html>

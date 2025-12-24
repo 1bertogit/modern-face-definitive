@@ -1,0 +1,195 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Face Moderna®',
+  description:
+    'A metodologia integrada de cirurgia facial criada pelo Dr. Robério Brandão. Segurança máxima, resultados naturais, conhecimento socializado.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const paginas = [
+  {
+    href: '/pt/face-moderna/o-que-e',
+    titulo: 'O Que é Face Moderna®?',
+    descricao: 'Definição, pilares e o problema que resolvemos.',
+    tag: 'Introdução',
+  },
+  {
+    href: '/pt/face-moderna/filosofia',
+    titulo: 'A Filosofia',
+    descricao: 'Por que excelência em cirurgia facial não deveria ser segredo.',
+    tag: 'Manifesto',
+  },
+  {
+    href: '/pt/face-moderna/principios',
+    titulo: 'Os Princípios Técnicos',
+    descricao: 'Os 6 fundamentos que guiam cada decisão cirúrgica.',
+    tag: 'Fundamentos',
+  },
+  {
+    href: '/pt/face-moderna/por-que-visao-direta',
+    titulo: 'Por Que Visão Direta?',
+    descricao: 'A escolha técnica que define a Face Moderna®.',
+    tag: 'Técnica',
+  },
+  {
+    href: '/pt/face-moderna/evolucao-da-cirurgia-facial',
+    titulo: 'Evolução da Cirurgia Facial',
+    descricao: 'De Skoog a Face Moderna®: 50 anos de história.',
+    tag: 'Contexto',
+  },
+  {
+    href: '/pt/face-moderna/socializacao-do-conhecimento',
+    titulo: 'Socialização do Conhecimento',
+    descricao: 'Por que compartilhar é multiplicar.',
+    tag: 'Missão',
+  },
+];
+
+const destaques = [
+  { valor: '18+', label: 'Anos de Desenvolvimento' },
+  { valor: '1.500+', label: 'Cirurgias Realizadas' },
+  { valor: '212', label: 'Casos Consecutivos Documentados' },
+  { valor: '0%', label: 'Lesão Nervosa Permanente' },
+];
+---
+
+<BaseLayout
+  title="Face Moderna®"
+  description="A metodologia integrada de cirurgia facial criada pelo Dr. Robério Brandão. Segurança máxima, resultados naturais, conhecimento socializado."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Metodologia</p>
+      <h1 class="heading-1-white text-5xl md:text-6xl">Face Moderna®</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Uma metodologia integrada de cirurgia facial que combina técnicas avançadas de plano
+        profundo com filosofia de segurança máxima, resultados naturais e conhecimento socializado.
+      </p>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="section-sm bg-ivory border-b border-gray-200">
+    <div class="prose-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          destaques.map((item) => (
+            <div>
+              <p class="text-3xl font-serif text-primary-900">{item.valor}</p>
+              <p class="label-caption mt-1">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap body-base">
+          Face Moderna® não é uma técnica isolada — é uma forma de pensar e praticar cirurgia
+          facial. Desenvolvida ao longo de 18 anos pelo Dr. Robério Brandão, integra o melhor das
+          técnicas de plano profundo com adaptações essenciais para a realidade atual, onde 90% das
+          faces já possuem bioestimuladores e preenchimentos.
+        </p>
+        <p class="body-base">
+          Explore as seções abaixo para entender a filosofia, os princípios técnicos e a missão por
+          trás da Face Moderna®.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Páginas -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Explore a Face Moderna®</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          paginas.map((pagina, index) => (
+            <a
+              href={pagina.href}
+              class="group block p-8 bg-ivory border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all duration-300"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="label-eyebrow">{pagina.tag}</span>
+                <span class="text-3xl font-serif text-primary-200 group-hover:text-accent-600 transition-colors">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <h3 class="heading-3 mb-3 group-hover:text-accent-600 transition-colors">
+                {pagina.titulo}
+              </h3>
+              <p class="body-small">{pagina.descricao}</p>
+              <span class="inline-block mt-6 text-sm text-accent-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                Ler mais →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <blockquote>
+        <p class="heading-2-white italic mb-8">
+          "Excelência não deveria ser segredo guardado por poucos. Nossa missão é socializá-la."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Técnicas -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Conheça as Técnicas</h3>
+          <p class="body-base mb-6">
+            Endomidface, Deep Neck, Browlift — as técnicas que compõem a metodologia Face Moderna®.
+          </p>
+          <a
+            href="/pt/tecnicas"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Explorar técnicas →
+          </a>
+        </div>
+
+        <!-- Formação -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Formação em Face Moderna®</h3>
+          <p class="body-base mb-6">
+            Programas estruturados para cirurgiões que querem dominar o plano profundo com
+            segurança.
+          </p>
+          <a
+            href="/pt/educacao"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Ver programas →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

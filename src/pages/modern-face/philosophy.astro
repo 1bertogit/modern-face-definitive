@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'The Philosophy of Modern Face®',
+  description:
+    'Why excellence in facial surgery should not be a secret guarded by a few. The mission of Modern Face®.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const pillars = [
+  {
+    number: '01',
+    title: 'Uncompromising Safety',
+    description:
+      "0% permanent nerve injury in 212 consecutive cases. This is not luck — it's method. Every technical decision passes through the safety filter first.",
+    metric: 'Zero permanent injuries',
+  },
+  {
+    number: '02',
+    title: 'Elegance in Simplicity',
+    description:
+      'We abandoned expensive endoscopes for direct vision. Not because we reject technology, but because we found a safer and more reproducible path.',
+    metric: 'Direct vision over equipment',
+  },
+  {
+    number: '03',
+    title: 'Knowledge Sharing',
+    description:
+      'Surgical excellence must not remain restricted to a few centers of excellence. Our mission is to multiply capable surgeons.',
+    metric: '500+ trained surgeons',
+  },
+];
+---
+
+<BaseLayout
+  title="The Philosophy of Modern Face®"
+  description="Why excellence in facial surgery should not be a secret guarded by a few. The mission of Modern Face®."
+  schema={schema}
+  lang="en"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Philosophy</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Manifesto</p>
+        <h1 class="heading-1">The Philosophy</h1>
+        <p class="body-large">
+          Why excellence in facial surgery should not be a secret guarded by a few.
+        </p>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Why is excellence in facial surgery a secret guarded by a few? Why does it take a surgeon
+          10-15 years to feel safe in the deep plane? Why do complications that could be avoided
+          still happen?
+        </p>
+
+        <p>
+          These questions haunted me for years. And the answers I found led me to create Modern
+          Face®.
+        </p>
+
+        <h2 class="heading-3">The Problem</h2>
+
+        <p>
+          Facial surgery in deep planes is powerful. The results are superior and more lasting. But
+          the traditional teaching model is broken:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Learning by survival:</strong> Surgeons learn from their
+            own mistakes — and often from complications on their patients.
+          </li>
+          <li>
+            <strong class="text-primary-900">Guarded knowledge:</strong> The best techniques stay restricted
+            to a few centers, transmitted like family secrets.
+          </li>
+          <li>
+            <strong class="text-primary-900">Outdated techniques:</strong> Methods developed for native
+            faces don't account for the reality of modern faces with biostimulators.
+          </li>
+        </ul>
+
+        <p>
+          The result? Talented surgeons give up on the deep plane out of fear. Patients who could
+          have excellent results settle for less. And knowledge that should evolve stagnates.
+        </p>
+      </div>
+
+      <!-- Pillars -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12 text-center">The Three Pillars</h2>
+        <div class="space-y-8">
+          {
+            pillars.map((pillar) => (
+              <div class="bg-white p-8 border-l-4 border-accent-600">
+                <div class="flex items-start gap-6">
+                  <span class="text-5xl font-serif text-accent-600/30">{pillar.number}</span>
+                  <div>
+                    <h3 class="heading-4 mb-3">{pillar.title}</h3>
+                    <p class="body-base mb-4">{pillar.description}</p>
+                    <p class="body-small text-accent-700 font-medium">{pillar.metric}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Content Continuation -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">Who This Is For</h2>
+
+        <p>Modern Face® is not for everyone. It's for the surgeon who:</p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Knows they can do more</strong> — who has mastered the basics
+            and feels the call to evolve
+          </li>
+          <li>
+            <strong class="text-primary-900">Is tired of courses that don't deliver</strong> — weekend
+            promises that don't translate into clinical security
+          </li>
+          <li>
+            <strong class="text-primary-900">Values method over magic</strong> — who understands that
+            consistency comes from process, not talent
+          </li>
+          <li>
+            <strong class="text-primary-900">Prioritizes patient safety</strong> — who is not willing
+            to accept "acceptable" complication rates
+          </li>
+        </ul>
+
+        <h2 class="heading-3">The Commitment</h2>
+
+        <p>
+          Modern Face® is not a weekend course. It's not a certification that looks good on the
+          resume. It's a commitment to a different way of practicing facial surgery.
+        </p>
+
+        <p>
+          We believe that excellence should not be exclusive. That patient safety is non-negotiable.
+          That knowledge grows when shared.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "Excellence should not be a secret. Our mission is to share it."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Discover the Principles</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          The 6 technical foundations that guide every surgical decision.
+        </p>
+        <a
+          href="/modern-face/principles"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Read the Principles
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/modern-face" class="text-sm text-accent-600 hover:text-accent-700">
+            ← Modern Face®
+          </a>
+          <a href="/modern-face/principles" class="text-sm text-accent-600 hover:text-accent-700">
+            The Principles →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

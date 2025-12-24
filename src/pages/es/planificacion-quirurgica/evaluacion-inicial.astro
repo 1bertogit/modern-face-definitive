@@ -1,0 +1,120 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const anamnesis = [
+  'Queja principal y expectativas',
+  'Historial de cirugías faciales previas',
+  'Comorbilidades (diabetes, HTA, coagulopatías)',
+  'Medicaciones en uso (anticoagulantes, AINEs)',
+  'Alergias conocidas',
+  'Tabaquismo (suspender 2-4 semanas antes)',
+];
+
+const expectativas = [
+  { pregunta: '¿Qué espera de la cirugía?', objetivo: 'Entender motivación real' },
+  { pregunta: '¿Tiene fotos de referencia?', objetivo: 'Evaluar realismo' },
+  { pregunta: '¿Qué resultados serían inaceptables?', objetivo: 'Identificar red flags' },
+  { pregunta: '¿Alguien le sugirió la cirugía?', objetivo: 'Detectar presión externa' },
+];
+
+const redFlags = [
+  'Fotos de celebridades como referencia',
+  'Múltiples cirugías previas con insatisfacción',
+  'Presión de terceros (cónyuge, familia)',
+  'Expectativas de cambio de vida',
+  'Inestabilidad emocional evidente',
+];
+---
+
+<BaseLayout
+  title="Evaluación Inicial del Paciente"
+  description="Primera consulta para cirugía facial. Anamnesis, expectativas e identificación de contraindicaciones."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Evaluación Inicial</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 01
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Evaluación Inicial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La primera consulta define todo. Anamnesis completa, expectativas realistas y
+        contraindicaciones.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Anamnesis Dirigida</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          anamnesis.map((item, i) => (
+            <div class="flex items-center gap-4 p-4 bg-white border border-gray-100">
+              <span class="w-8 h-8 bg-accent-600 text-white flex items-center justify-center text-sm flex-shrink-0">
+                {i + 1}
+              </span>
+              <span class="text-warmGray">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Evaluación de Expectativas
+      </h2>
+      <div class="space-y-4">
+        {
+          expectativas.map((e) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-medium text-primary-900 mb-2">"{e.pregunta}"</h3>
+              <p class="text-sm text-accent-600">Objetivo: {e.objetivo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ Red Flags</h2>
+      <div class="space-y-3">
+        {
+          redFlags.map((flag) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800">{flag}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica" class="text-sm text-accent-600"
+        >← Planificación Index</a
+      >
+      <a href="/es/planificacion-quirurgica/sistema-spe-m" class="text-sm text-accent-600"
+        >Sistema SPE-M →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

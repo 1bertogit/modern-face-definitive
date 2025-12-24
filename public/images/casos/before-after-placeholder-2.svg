@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradBefore2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f0"/>
+      <stop offset="100%" style="stop-color:#ebe9e2"/>
+    </linearGradient>
+    <linearGradient id="bgGradAfter2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <clipPath id="leftClip2">
+      <rect x="0" y="0" width="400" height="600"/>
+    </clipPath>
+    <clipPath id="rightClip2">
+      <rect x="400" y="0" width="400" height="600"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background Split -->
+  <rect fill="url(#bgGradBefore2)" x="0" y="0" width="400" height="600"/>
+  <rect fill="url(#bgGradAfter2)" x="400" y="0" width="400" height="600"/>
+
+  <!-- Title Bar -->
+  <rect fill="#1e293b" x="0" y="0" width="800" height="50"/>
+  <text x="400" y="32" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" fill="#b8956c" letter-spacing="0.1em">TERÇO MÉDIO</text>
+
+  <!-- Center Divider with VS -->
+  <rect fill="#b8956c" x="396" y="50" width="8" height="550"/>
+  <circle cx="400" cy="300" r="28" fill="#1e293b"/>
+  <text x="400" y="308" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#b8956c">VS</text>
+
+  <!-- Before Face (Left) - 3/4 view -->
+  <g clip-path="url(#leftClip2)">
+    <g transform="translate(195, 220)">
+      <!-- Face outline 3/4 -->
+      <path d="M -70,15 Q -82,25 -82,50 Q -82,85 -75,105 Q -65,128 -32,135 Q 5,140 35,128 Q 55,115 62,80 Q 65,45 55,15 Q 42,-10 12,-18 Q -25,-20 -55,5 Z" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes 3/4 -->
+      <ellipse cx="-18" cy="15" rx="14" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="22" cy="10" rx="10" ry="6" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose 3/4 -->
+      <path d="M 8,-5 L 12,28" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Descended cheek volume -->
+      <path d="M -50,40 Q -55,60 -52,80" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+      <!-- Problem indicators - Cheek descent -->
+      <path d="M -48,35 Q -52,55 -50,75" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <!-- Problem - Deep nasolabial -->
+      <path d="M 12,28 Q 8,45 2,65" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <!-- Problem - Tear trough -->
+      <path d="M -25,22 Q -22,30 -18,35" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.6"/>
+      <!-- Arrow showing descent -->
+      <path d="M -60,45 L -60,65" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+      <path d="M -64,60 L -60,68 L -56,60" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- After Face (Right) - 3/4 view lifted -->
+  <g clip-path="url(#rightClip2)">
+    <g transform="translate(605, 220)">
+      <!-- Face outline 3/4 - more defined -->
+      <path d="M -73,12 Q -84,22 -84,47 Q -84,80 -77,98 Q -68,118 -35,125 Q 2,130 32,118 Q 52,105 58,72 Q 60,40 52,12 Q 40,-12 10,-20 Q -28,-22 -58,2 Z" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes 3/4 -->
+      <ellipse cx="-18" cy="12" rx="14" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="22" cy="7" rx="10" ry="6" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose 3/4 -->
+      <path d="M 8,-8 L 12,25" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Elevated cheek volume -->
+      <path d="M -50,32 Q -54,48 -52,65" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+      <!-- Improvement indicators - Cheek elevation -->
+      <path d="M -50,30 Q -52,45 -50,60" fill="none" stroke="#16a34a" stroke-width="2.5" opacity="0.7"/>
+      <!-- Improvement - Softened nasolabial -->
+      <path d="M 12,25 Q 10,40 6,55" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <!-- Improvement - Better tear trough -->
+      <path d="M -25,18 Q -22,24 -18,28" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+      <!-- Arrow showing lift -->
+      <path d="M -62,60 L -62,40" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+      <path d="M -66,45 L -62,37 L -58,45" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <text x="200" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">ANTES</text>
+  <text x="600" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">DEPOIS</text>
+
+  <!-- Decorative Lines -->
+  <line x1="100" y1="495" x2="300" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+  <line x1="500" y1="495" x2="700" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Subtle indicator legend -->
+  <g transform="translate(200, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#dc2626" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Queda</text>
+  </g>
+  <g transform="translate(600, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#16a34a" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Elevação</text>
+  </g>
+</svg>

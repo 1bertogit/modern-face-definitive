@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'avaliação inicial cirurgia facial',
+  'anamnese pré-operatória',
+  'expectativas paciente lifting',
+  'contraindicações cirurgia face',
+  'red flags cirurgia estética',
+  'primeira consulta lifting',
+];
+
+const anamnese = [
+  'Queixa principal e expectativas',
+  'Histórico de cirurgias faciais prévias',
+  'Comorbidades (diabetes, HAS, coagulopatias)',
+  'Medicações em uso (anticoagulantes, AINEs)',
+  'Alergias conhecidas',
+  'Tabagismo (suspender 2-4 semanas antes)',
+];
+
+const expectativas = [
+  { pergunta: 'O que você espera da cirurgia?', objetivo: 'Entender motivação real' },
+  { pergunta: 'Tem fotos de referência?', objetivo: 'Avaliar realismo' },
+  { pergunta: 'Quais resultados seriam inaceitáveis?', objetivo: 'Identificar red flags' },
+  { pergunta: 'Alguém sugeriu a cirurgia?', objetivo: 'Detectar pressão externa' },
+];
+
+const redFlags = [
+  'Fotos de celebridades como referência',
+  'Múltiplas cirurgias prévias com insatisfação',
+  'Pressão de terceiros (cônjuge, família)',
+  'Expectativas de mudança de vida',
+  'Instabilidade emocional evidente',
+];
+---
+
+<BaseLayout
+  title="Avaliação Inicial do Paciente"
+  description="Primeira consulta para cirurgia facial. Anamnese, expectativas e identificação de contraindicações."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li>
+            <a href="/pt/tecnicas/planejamento-cirurgico" class="hover:text-white">Planejamento</a>
+          </li>
+          <li><span>/</span></li>
+          <li class="text-white">Avaliação Inicial</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 01
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Avaliação Inicial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        A primeira consulta define tudo. Anamnese completa, expectativas realistas e
+        contraindicações.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Anamnese Dirigida</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          anamnese.map((item, i) => (
+            <div class="flex items-center gap-4 p-4 bg-white border border-gray-100">
+              <span class="w-8 h-8 bg-accent-600 text-white flex items-center justify-center text-sm flex-shrink-0">
+                {i + 1}
+              </span>
+              <span class="text-warmGray">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Avaliação de Expectativas
+      </h2>
+      <div class="space-y-4">
+        {
+          expectativas.map((e) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-medium text-primary-900 mb-2">"{e.pergunta}"</h3>
+              <p class="text-sm text-accent-600">Objetivo: {e.objetivo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ Red Flags</h2>
+      <p class="text-warmGray text-center mb-8">
+        Sinais de alerta que indicam paciente de alto risco
+      </p>
+      <div class="space-y-3">
+        {
+          redFlags.map((flag) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800">{flag}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">O Paciente Ideal</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 bg-green-50 border border-green-200 text-center">
+          <span class="material-symbols-outlined text-green-600 text-2xl mb-2 block">check</span>
+          <span class="text-green-800 text-sm">Expectativas realistas</span>
+        </div>
+        <div class="p-4 bg-green-50 border border-green-200 text-center">
+          <span class="material-symbols-outlined text-green-600 text-2xl mb-2 block">check</span>
+          <span class="text-green-800 text-sm">Saúde adequada</span>
+        </div>
+        <div class="p-4 bg-green-50 border border-green-200 text-center">
+          <span class="material-symbols-outlined text-green-600 text-2xl mb-2 block">check</span>
+          <span class="text-green-800 text-sm">Estabilidade emocional</span>
+        </div>
+        <div class="p-4 bg-green-50 border border-green-200 text-center">
+          <span class="material-symbols-outlined text-green-600 text-2xl mb-2 block">check</span>
+          <span class="text-green-800 text-sm">Motivação pessoal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/planejamento-cirurgico" class="text-sm text-accent-600"
+        >← Planejamento Index</a
+      >
+      <a href="/pt/tecnicas/planejamento-cirurgico/sistema-spe-m" class="text-sm text-accent-600"
+        >Sistema SPE-M →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

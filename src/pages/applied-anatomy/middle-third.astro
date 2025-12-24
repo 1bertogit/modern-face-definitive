@@ -1,0 +1,189 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const spaces = [
+  {
+    name: 'Pre-Zygomatic Space',
+    desc: 'Between SMAS and zygomatic periosteum. Main portal for Endomidface.',
+    safe: true,
+  },
+  {
+    name: 'Pre-Masseteric Space',
+    desc: 'Lateral to zygomatic major. Access to lateral ligaments.',
+    safe: true,
+  },
+  {
+    name: 'Buccal Space',
+    desc: 'Contains buccal fat pad. Transition area to lower third.',
+    safe: false,
+  },
+];
+
+const ligaments = [
+  {
+    name: 'Zygomatic Ligament',
+    desc: 'Bone insertion on zygoma body. Main midface anchor.',
+    release: 'Partial',
+  },
+  {
+    name: 'Zygomatic-Cutaneous Ligament',
+    desc: 'Extensions from main ligament to skin.',
+    release: 'Total',
+  },
+  {
+    name: 'Masseteric Ligament',
+    desc: 'Insertions on anterior masseter border.',
+    release: 'Selective',
+  },
+];
+
+const nerves = [
+  {
+    name: 'Zygomatic Branch',
+    desc: 'Branches to orbicularis oculi. Protected by SMAS.',
+    risk: 'Medium',
+  },
+  {
+    name: 'Buccal Branch',
+    desc: 'Motor to lip elevators. Highest attention zone in midface.',
+    risk: 'High',
+  },
+  { name: 'Infraorbital Nerve', desc: 'Sensory. Emerges from infraorbital foramen.', risk: 'Low' },
+];
+---
+
+<BaseLayout
+  title="Middle Third Anatomy | Midface"
+  description="Applied anatomy of the middle third. Surgical spaces, retaining ligaments and critical nerves for Endomidface."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Middle Third</li>
+        </ol>
+      </nav>
+
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Midface</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Middle Third</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The most complex region of the face. Mastering its anatomy is prerequisite for safe
+        Endomidface.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          The middle third — from the inferior orbital rim to the nasolabial fold — is the region
+          most affected by gravitational aging. It's also the most anatomically complex, with
+          multiple spaces, ligaments, and nerve structures in proximity.
+        </p>
+        <p>
+          For Direct Vision Endomidface, three anatomical elements are critical: surgical spaces
+          (where we dissect), retaining ligaments (what we release), and nerves (what we protect).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Surgical Spaces</h2>
+      <p class="text-warmGray text-center mb-12">Endomidface dissection planes</p>
+
+      <div class="space-y-6">
+        {
+          spaces.map((space) => (
+            <div
+              class={`p-6 border ${space.safe ? 'bg-green-50 border-green-200' : 'bg-amber-50 border-amber-200'}`}
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="font-serif text-primary-900 text-lg mb-2">{space.name}</h3>
+                  <p class="text-warmGray text-sm">{space.desc}</p>
+                </div>
+                <span
+                  class={`text-xs px-2 py-1 flex-shrink-0 ${space.safe ? 'bg-green-600 text-white' : 'bg-amber-600 text-white'}`}
+                >
+                  {space.safe ? 'Safe' : 'Caution'}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Retaining Ligaments</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Ligament</th>
+              <th class="text-left py-4 px-4">Description</th>
+              <th class="text-left py-4 px-4">Release</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ligaments.map((lig) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{lig.name}</td>
+                  <td class="py-4 px-4 text-warmGray">{lig.desc}</td>
+                  <td class="py-4 px-4">
+                    <span
+                      class={`text-xs px-2 py-1 ${lig.release === 'Total' ? 'bg-accent-600 text-white' : 'bg-primary-700 text-white'}`}
+                    >
+                      {lig.release}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Critical Nerves</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          nerves.map((nerve) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-primary-900">{nerve.name}</h3>
+                <span
+                  class={`text-xs px-2 py-1 ${nerve.risk === 'High' ? 'bg-red-600' : nerve.risk === 'Medium' ? 'bg-amber-600' : 'bg-green-600'} text-white`}
+                >
+                  {nerve.risk} Risk
+                </span>
+              </div>
+              <p class="text-sm text-warmGray">{nerve.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/upper-third" class="text-sm text-accent-600">← Upper Third</a>
+      <a href="/applied-anatomy/lower-third" class="text-sm text-accent-600">Lower Third →</a>
+    </div>
+  </section>
+</BaseLayout>

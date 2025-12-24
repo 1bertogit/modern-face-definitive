@@ -1,0 +1,312 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'erros comuns Endomidface',
+  'complicações lifting facial',
+  'armadilhas cirurgia midface',
+  'como evitar erros lifting',
+  'segurança Endomidface',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Erros Comuns e Como Evitá-los',
+  description:
+    'Os erros mais frequentes na técnica Endomidface e as estratégias para evitá-los. Armadilhas anatômicas e técnicas.',
+  procedureType: 'Surgical',
+};
+
+const erros = [
+  {
+    categoria: 'Descolamento',
+    erros: [
+      {
+        erro: 'Aprofundar o descolador no terço médio',
+        consequencia: 'Lesão dos ramos zigomáticos ou alça bucal (paralisia)',
+        solucao: 'Sempre inclinar o descolador para superfície (para cima)',
+        gravidade: 'alta',
+      },
+      {
+        erro: 'Descolar em direção à pálpebra inferior',
+        consequencia: 'Entrada no septo orbitário, quimose prolongada (>1 mês)',
+        solucao: 'Mirar do canto do olho para asa do nariz/canto da boca',
+        gravidade: 'media',
+      },
+      {
+        erro: 'Descolamento superficial demais na região temporal',
+        consequencia: 'Lesão do ramo frontal do nervo facial',
+        solucao: 'Garantir plano entre FTS e FTP, sobre o músculo temporal',
+        gravidade: 'alta',
+      },
+      {
+        erro: 'Não liberar completamente o rebordo orbitário',
+        consequencia: 'Elevação limitada, assimetrias, resultado insuficiente',
+        solucao: 'Liberação agressiva lateral, superior e medial até ver subcutâneo',
+        gravidade: 'media',
+      },
+    ],
+  },
+  {
+    categoria: 'Fixação',
+    erros: [
+      {
+        erro: 'Pontos muito baixos ou anteriores',
+        consequencia: 'Pinçamento ou irritação do nervo frontal',
+        solucao: 'Posicionar pontos o mais posterior e superior possível',
+        gravidade: 'media',
+      },
+      {
+        erro: 'Vetor lateral em vez de vertical',
+        consequencia: "Mirada 'estirada', antinatural, curta duração",
+        solucao: 'Fixação com vetor superior, não posterior',
+        gravidade: 'media',
+      },
+      {
+        erro: 'Fio de sutura inadequado',
+        consequencia: 'Perda precoce da fixação, recidiva',
+        solucao: 'Usar Vicryl 2-0 para sustentação adequada',
+        gravidade: 'baixa',
+      },
+    ],
+  },
+  {
+    categoria: 'Fechamento',
+    erros: [
+      {
+        erro: 'Fechar couro cabeludo com tensão',
+        consequencia: 'Necrose de borda, alopecia, cicatriz alargada',
+        solucao: 'Tração nas camadas profundas, não na pele',
+        gravidade: 'alta',
+      },
+      {
+        erro: 'Ressecção excessiva de couro',
+        consequencia: 'Tensão de fechamento, alteração da linha capilar',
+        solucao: 'Ressecção conservadora, compensar lateralmente',
+        gravidade: 'media',
+      },
+    ],
+  },
+  {
+    categoria: 'Hemostasia',
+    erros: [
+      {
+        erro: 'Cauterizar sem visão direta no terço médio',
+        consequencia: 'Lesão do ramo frontal por dispersão térmica',
+        solucao: 'Cauterização apenas sob visão direta ampliada',
+        gravidade: 'alta',
+      },
+      {
+        erro: 'Não cauterizar veia sentinela adequadamente',
+        consequencia: 'Sangramento, hematoma pós-operatório',
+        solucao: 'Cauterizar na base sob visão, usar como marco anatômico',
+        gravidade: 'baixa',
+      },
+    ],
+  },
+  {
+    categoria: 'Seleção de Pacientes',
+    erros: [
+      {
+        erro: 'Indicar para pacientes com jowls como queixa principal',
+        consequencia: 'Insatisfação — técnica não corrige terço inferior',
+        solucao: 'Comunicar limitações, associar Deep Neck se necessário',
+        gravidade: 'media',
+      },
+      {
+        erro: 'Operar pacientes >70 anos com SMAS redundante',
+        consequencia: 'Resultado insuficiente, técnica inadequada',
+        solucao: 'Considerar Deep Plane tradicional para esses casos',
+        gravidade: 'media',
+      },
+      {
+        erro: 'Não considerar histórico de bioestimuladores',
+        consequencia: 'Planejamento inadequado, risco aumentado em SMAS fixo',
+        solucao: 'Mapear bioestimuladores, usar acesso superior (SMAS móvel)',
+        gravidade: 'baixa',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Erros Comuns no Endomidface"
+  description="Os erros mais frequentes na técnica Endomidface e estratégias para evitá-los. Armadilhas de descolamento, fixação e seleção de pacientes."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Erros Comuns</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Prevenção & Segurança
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Erros Comuns</h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Conhecer as armadilhas é o primeiro passo para evitá-las. Aprenda com os erros — sem
+          precisar cometê-los.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-warmGray leading-relaxed">
+        A curva de aprendizado do Endomidface é moderada, mas existem armadilhas que podem
+        comprometer resultados ou causar complicações. Esta seção documenta os erros mais frequentes
+        observados durante a formação de cirurgiões na técnica.
+      </p>
+    </div>
+  </section>
+
+  <!-- Erros por Categoria -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      {
+        erros.map((categoria) => (
+          <div class="mb-16 last:mb-0">
+            <h2 class="text-2xl font-serif text-primary-900 mb-8 pb-4 border-b border-gray-200">
+              {categoria.categoria}
+            </h2>
+
+            <div class="space-y-6">
+              {categoria.erros.map((item) => (
+                <div
+                  class={`p-6 border-l-4 ${
+                    item.gravidade === 'alta'
+                      ? 'border-red-500 bg-red-50'
+                      : item.gravidade === 'media'
+                        ? 'border-orange-500 bg-orange-50'
+                        : 'border-yellow-500 bg-yellow-50'
+                  }`}
+                >
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <p
+                        class={`text-xs font-bold uppercase tracking-[0.1em] mb-2 ${
+                          item.gravidade === 'alta'
+                            ? 'text-red-600'
+                            : item.gravidade === 'media'
+                              ? 'text-orange-600'
+                              : 'text-yellow-600'
+                        }`}
+                      >
+                        Erro
+                      </p>
+                      <p class="text-primary-900 font-medium">{item.erro}</p>
+                    </div>
+                    <div>
+                      <p
+                        class={`text-xs font-bold uppercase tracking-[0.1em] mb-2 ${
+                          item.gravidade === 'alta'
+                            ? 'text-red-600'
+                            : item.gravidade === 'media'
+                              ? 'text-orange-600'
+                              : 'text-yellow-600'
+                        }`}
+                      >
+                        Consequência
+                      </p>
+                      <p class="text-warmGray text-sm">{item.consequencia}</p>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold text-green-600 uppercase tracking-[0.1em] mb-2">
+                        Solução
+                      </p>
+                      <p class="text-warmGray text-sm">{item.solucao}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Regras de Segurança -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">
+        Regras Inegociáveis de Segurança
+      </h2>
+
+      <div class="space-y-4 text-white">
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span>
+          <p>Nunca cauterizar sem visualização direta no terço médio</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span>
+          <p>Nunca realizar miotomia do músculo frontal (risco de assimetria)</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span>
+          <p>Nunca posicionar pontos muito baixos ou colados à sobrancelha</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span>
+          <p>Nunca fechar couro cabeludo com tensão</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span>
+          <p>Nunca prometer correção de jowls com Endomidface isolado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-primary-900 leading-relaxed mb-6">
+          "O erro mais comum na curva de aprendizado é a pressa em reduzir o tempo cirúrgico. A
+          transição de dependência visual para navegação tátil leva tempo. Respeite esse processo."
+        </p>
+        <footer class="text-sm text-softGray uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/passo-a-passo"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Passo a Passo
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/limitacoes"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Limitações →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

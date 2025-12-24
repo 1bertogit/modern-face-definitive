@@ -1,0 +1,89 @@
+---
+/**
+ * SchemaOrganization - Knowledge Graph para Modern Face Institute
+ * Isso ajuda o Google a entender "quem é" a organização
+ */
+
+interface Props {
+  includeFounder?: boolean;
+}
+
+const { includeFounder = true } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalOrganization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Modern Face Institute',
+  alternateName: ['Brandão Facial Institute', 'Instituto Face Moderna'],
+  url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/logo.png`,
+    width: 512,
+    height: 512,
+  },
+  image: `${siteUrl}/images/og-default.webp`,
+  description:
+    'International training institute for advanced facial surgery techniques. Creator of ENDOMIDFACE® by Direct Vision and Modern Face® philosophy.',
+  medicalSpecialty: ['Plastic Surgery', 'Facial Surgery', 'Aesthetic Medicine'],
+  areaServed: {
+    '@type': 'Place',
+    name: 'Worldwide',
+  },
+  knowsAbout: [
+    'ENDOMIDFACE',
+    'Deep Neck Surgery',
+    'Facial Rejuvenation',
+    'Direct Vision Surgery',
+    'Midface Lift',
+    'Modern Face Philosophy',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Surgical Training Programs',
+    itemListElement: [
+      {
+        '@type': 'Course',
+        name: 'ENDOMIDFACE® Mentorship',
+        description: '2-month mentorship program for ENDOMIDFACE by Direct Vision technique',
+      },
+      {
+        '@type': 'Course',
+        name: 'Deep Neck Mastery',
+        description: '2-month mentorship for Deep Neck without gland removal',
+      },
+      {
+        '@type': 'Course',
+        name: 'Combo Legacy',
+        description: 'Complete 6-month advanced facial surgery training',
+      },
+    ],
+  },
+  sameAs: [
+    'https://www.instagram.com/drroberiobrandao',
+    'https://www.youtube.com/@drroberiobrandao',
+    'https://www.linkedin.com/in/drroberiobrandao',
+  ],
+  ...(includeFounder && {
+    founder: {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person-dr-roberio`,
+      name: 'Dr. Robério Brandão',
+      jobTitle: 'Founder & Creator of ENDOMIDFACE® by Direct Vision',
+      description:
+        'Brazilian facial plastic surgeon, creator of the Modern Face® philosophy and ENDOMIDFACE® by Direct Vision technique. Pioneer in facial videoendoscopy in Rio Grande do Norte (2007).',
+      image: `${siteUrl}/images/dr-roberio-brandao.webp`,
+      url: `${siteUrl}/creator/`,
+      sameAs: [
+        'https://www.instagram.com/drroberiobrandao',
+        'https://www.youtube.com/@drroberiobrandao',
+      ],
+    },
+  }),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />

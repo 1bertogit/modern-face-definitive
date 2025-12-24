@@ -1,0 +1,309 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Curso Endomidface por Visão Direta',
+  description:
+    'Curso presencial intensivo de 3 dias para dominar a técnica Endomidface por Visão Direta com Dr. Robério Brandão.',
+  provider: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+  courseMode: 'Presencial',
+  duration: 'P3D',
+  teaches: 'Endomidface por Visão Direta - técnica de rejuvenescimento do terço médio facial',
+};
+
+const modules = [
+  {
+    day: 'Dia 1',
+    title: 'Fundamentos e GPS Tátil',
+    duration: '8h',
+    topics: [
+      'Anatomia aplicada ao terço médio: SMAS, ligamentos e espaços',
+      'GPS Tátil: treinamento intensivo de sensibilidade',
+      'Identificação de landmarks anatômicos',
+      'Demonstração em cadáver: dissecção do plano profundo',
+      'Planejamento cirúrgico individualizado',
+    ],
+  },
+  {
+    day: 'Dia 2',
+    title: 'Técnica Hands-On',
+    duration: '10h',
+    topics: [
+      'Endomidface por Visão Direta: técnica completa',
+      'Hands-on em cadáver fresh-frozen (cada aluno)',
+      'Liberação dos ligamentos de retenção',
+      'Vetores de suspensão vertical',
+      'Integração com Browlift e Deep Neck',
+    ],
+  },
+  {
+    day: 'Dia 3',
+    title: 'Cirurgia ao Vivo e Mentoria',
+    duration: '8h',
+    topics: [
+      'Cirurgia ao vivo com discussão em tempo real',
+      'Manejo de complicações e como evitá-las',
+      'Protocolos de pós-operatório acelerado',
+      'Mentoria: planejamento dos primeiros 10 casos',
+      'Acesso ao grupo exclusivo de mentoria continuada',
+    ],
+  },
+];
+
+const includes = [
+  { icon: 'school', text: '3 dias de imersão total' },
+  { icon: 'science', text: 'Hands-on em cadáver individual' },
+  { icon: 'live_tv', text: 'Cirurgia ao vivo' },
+  { icon: 'menu_book', text: 'Material didático completo' },
+  { icon: 'groups', text: 'Turmas de máximo 8 alunos' },
+  { icon: 'support_agent', text: 'Mentoria pós-curso 30 dias' },
+  { icon: 'verified', text: 'Certificado de conclusão' },
+  { icon: 'restaurant', text: 'Coffee breaks e almoços inclusos' },
+];
+
+const testimonials = [
+  {
+    quote:
+      'A visão direta mudou tudo. Depois de 10 anos fazendo endoscópico, percebi que estava limitado pelo monitor. Hoje opero com muito mais confiança e precisão.',
+    author: 'Dr. Carlos M.',
+    role: 'Cirurgião Plástico',
+    location: 'São Paulo, SP',
+  },
+  {
+    quote:
+      'O GPS Tátil é revolucionário. Antes eu tinha medo do plano profundo. Hoje, depois de 20 casos, nunca mais hesitei. Zero complicações.',
+    author: 'Dra. Amanda L.',
+    role: 'Cirurgiã Plástica',
+    location: 'Rio de Janeiro, RJ',
+  },
+  {
+    quote:
+      'Investi em curso internacional e não aprendi o que aprendi em 3 dias com Dr. Robério. A didática e a metodologia são incomparáveis.',
+    author: 'Dr. Fernando S.',
+    role: 'Cirurgião Plástico',
+    location: 'Belo Horizonte, MG',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Qual o pré-requisito para fazer o curso?',
+    answer:
+      'O curso é destinado a cirurgiões plásticos e médicos com residência em cirurgia plástica. Experiência prévia com lifting não é obrigatória, mas é recomendável conhecimento básico de anatomia facial.',
+  },
+  {
+    question: 'O hands-on é individual ou em grupo?',
+    answer:
+      'Cada aluno tem sua própria estação de trabalho em cadáver fresh-frozen. Com turmas de máximo 8 alunos, garantimos supervisão individualizada durante todo o procedimento.',
+  },
+  {
+    question: 'Existe suporte após o curso?',
+    answer:
+      'Sim. Todos os alunos têm acesso a 30 dias de mentoria pós-curso via grupo exclusivo, onde podem discutir casos, tirar dúvidas e receber feedback do Dr. Robério e da equipe.',
+  },
+  {
+    question: 'Como funciona o certificado?',
+    answer:
+      'Ao final do curso, você recebe certificado de conclusão do treinamento em Endomidface por Visão Direta, reconhecido como atividade de educação médica continuada.',
+  },
+];
+---
+
+<BaseLayout
+  title="Curso Endomidface por Visão Direta"
+  description="Curso presencial de 3 dias para dominar a técnica Endomidface por Visão Direta. Hands-on em cadáver, cirurgia ao vivo e mentoria com Dr. Robério Brandão."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+            Curso Intensivo
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-primary-900 leading-tight mb-6">
+            Endomidface<br />por Visão Direta
+          </h1>
+          <p class="text-lg text-warmGray leading-relaxed mb-8">
+            Domine a técnica revolucionária em 3 dias de imersão total. Hands-on em cadáver,
+            cirurgia ao vivo e mentoria direta com o criador da técnica.
+          </p>
+
+          <div class="flex flex-wrap gap-8 py-6 border-y border-gray-200 mb-8">
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">3</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">Dias</p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">8</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">Vagas</p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">100%</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">Prático</p>
+            </div>
+          </div>
+
+          <Button href="#inscricao" variant="primary" size="lg"> Garantir Minha Vaga </Button>
+        </div>
+
+        <div class="relative">
+          <img
+            src="/images/techniques/endomidface-hero.png"
+            alt="Curso Endomidface por Visão Direta - Dr. Robério Brandão"
+            class="rounded-lg desaturated-img"
+            width="800"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 hidden lg:block">
+            <p class="text-2xl font-serif font-normal">Próxima Turma</p>
+            <p class="text-sm font-light">Janeiro 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Que Está Incluído -->
+  <section class="py-24 bg-primary-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-white text-2xl font-serif">O Que Está Incluído</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {
+          includes.map((item) => (
+            <div class="flex items-center gap-3 text-white/80">
+              <span class="material-symbols-outlined text-accent-600">{item.icon}</span>
+              <span class="text-sm">{item.text}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Programa Detalhado -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Programa
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-serif text-primary-900">3 Dias de Imersão Total</h3>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {
+          modules.map((module) => (
+            <div class="bg-ivory p-8 rounded-lg border border-gray-100 relative">
+              <div class="absolute -top-4 left-8 bg-accent-600 text-white px-4 py-1 text-xs uppercase tracking-wider">
+                {module.day}
+              </div>
+              <div class="pt-4">
+                <div class="flex justify-between items-start mb-6">
+                  <h4 class="text-xl font-serif font-normal text-primary-900">{module.title}</h4>
+                  <span class="text-xs text-softGray bg-white px-2 py-1 rounded">
+                    {module.duration}
+                  </span>
+                </div>
+                <ul class="space-y-4">
+                  {module.topics.map((topic) => (
+                    <li class="flex items-start gap-3">
+                      <span class="material-symbols-outlined text-accent-600 text-sm mt-1 flex-shrink-0">
+                        check_circle
+                      </span>
+                      <span class="text-warmGray text-sm leading-relaxed">{topic}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Depoimentos
+        </h2>
+        <h3 class="text-4xl font-serif text-primary-900">O Que Dizem os Alunos</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          testimonials.map((testimonial) => (
+            <div class="bg-white p-8 rounded-lg border border-gray-100">
+              <span class="material-symbols-outlined text-3xl text-accent-600 mb-4">
+                format_quote
+              </span>
+              <p class="text-warmGray leading-relaxed mb-6 italic text-sm">"{testimonial.quote}"</p>
+              <div>
+                <p class="font-medium text-primary-900 text-sm">{testimonial.author}</p>
+                <p class="text-xs text-softGray font-light">{testimonial.role}</p>
+                <p class="text-xs text-softGray font-light">{testimonial.location}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Dúvidas Frequentes
+        </h2>
+        <h3 class="text-4xl font-serif text-primary-900">Perguntas sobre o Curso</h3>
+      </div>
+
+      <div class="space-y-6">
+        {
+          faqs.map((faq) => (
+            <div class="bg-ivory p-8 rounded-lg border border-gray-100">
+              <h4 class="text-lg font-serif text-primary-900 mb-4">{faq.question}</h4>
+              <p class="text-warmGray leading-relaxed">{faq.answer}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="inscricao" class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Próxima Turma: Janeiro 2025</h2>
+      <p class="text-lg text-primary-400 mb-6 max-w-xl mx-auto">
+        Vagas limitadas a 8 cirurgiões por turma para garantir máximo aproveitamento e supervisão
+        individualizada.
+      </p>
+      <p class="text-accent-600 text-sm mb-12">Restam apenas 3 vagas para a próxima turma</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <Button href="https://wa.me/5571999999999" variant="primary" size="lg">
+          Falar com a Equipe
+        </Button>
+        <Button href="/pt/tecnicas/endomidface" variant="outline" size="lg">
+          Conhecer a Técnica
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

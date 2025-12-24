@@ -1,0 +1,198 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Face Moderna®',
+  description:
+    'La metodología integrada de cirugía facial creada por el Dr. Robério Brandão. Máxima seguridad, resultados naturales, conocimiento socializado.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const paginas = [
+  {
+    href: '/es/face-moderna/que-es',
+    titulo: '¿Qué es Face Moderna®?',
+    descripcion: 'Definición, pilares y el problema que resolvemos.',
+    tag: 'Introducción',
+  },
+  {
+    href: '/es/face-moderna/filosofia',
+    titulo: 'La Filosofía',
+    descripcion: 'Por qué la excelencia en cirugía facial no debería ser un secreto.',
+    tag: 'Manifiesto',
+  },
+  {
+    href: '/es/face-moderna/principios',
+    titulo: 'Los Principios Técnicos',
+    descripcion: 'Los 6 fundamentos que guían cada decisión quirúrgica.',
+    tag: 'Fundamentos',
+  },
+  {
+    href: '/es/face-moderna/por-que-vision-directa',
+    titulo: '¿Por Qué Visión Directa?',
+    descripcion: 'La elección técnica que define Face Moderna®.',
+    tag: 'Técnica',
+  },
+  {
+    href: '/es/face-moderna/evolucion-de-la-cirugia-facial',
+    titulo: 'Evolución de la Cirugía Facial',
+    descripcion: 'De Skoog a Face Moderna®: 50 años de historia.',
+    tag: 'Contexto',
+  },
+  {
+    href: '/es/face-moderna/socializacion-del-conocimiento',
+    titulo: 'Socialización del Conocimiento',
+    descripcion: 'Por qué compartir es multiplicar.',
+    tag: 'Misión',
+  },
+];
+
+const destacados = [
+  { valor: '18+', etiqueta: 'Años de Desarrollo' },
+  { valor: '1.500+', etiqueta: 'Cirugías Realizadas' },
+  { valor: '212', etiqueta: 'Casos Consecutivos Documentados' },
+  { valor: '0%', etiqueta: 'Lesión Nerviosa Permanente' },
+];
+---
+
+<BaseLayout
+  title="Face Moderna®"
+  description="La metodología integrada de cirugía facial creada por el Dr. Robério Brandão. Máxima seguridad, resultados naturales, conocimiento socializado."
+  schema={schema}
+  lang="es"
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Metodología</p>
+      <h1 class="heading-1-white text-5xl md:text-6xl">Face Moderna®</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Una metodología integrada de cirugía facial que combina técnicas avanzadas de plano profundo
+        con una filosofía de máxima seguridad, resultados naturales y conocimiento socializado.
+      </p>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="section-sm bg-ivory border-b border-gray-200">
+    <div class="prose-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          destacados.map((item) => (
+            <div>
+              <p class="text-3xl font-serif text-primary-900">{item.valor}</p>
+              <p class="label-caption mt-1">{item.etiqueta}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Introducción -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap body-base">
+          Face Moderna® no es una técnica aislada — es una forma de pensar y practicar la cirugía
+          facial. Desarrollada a lo largo de 18 años por el Dr. Robério Brandão, integra lo mejor de
+          las técnicas de plano profundo con adaptaciones esenciales para la realidad actual, donde
+          el 90% de los rostros ya tienen bioestimuladores y rellenos.
+        </p>
+        <p class="body-base">
+          Explore las secciones a continuación para comprender la filosofía, los principios técnicos
+          y la misión detrás de Face Moderna®.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Páginas -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Explore Face Moderna®</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          paginas.map((pagina, index) => (
+            <a
+              href={pagina.href}
+              class="group block p-8 bg-ivory border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all duration-300"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="label-eyebrow">{pagina.tag}</span>
+                <span class="text-3xl font-serif text-primary-200 group-hover:text-accent-600 transition-colors">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <h3 class="heading-3 mb-3 group-hover:text-accent-600 transition-colors">
+                {pagina.titulo}
+              </h3>
+              <p class="body-small">{pagina.descripcion}</p>
+              <span class="inline-block mt-6 text-sm text-accent-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                Leer más →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Cita -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <blockquote>
+        <p class="heading-2-white italic mb-8">
+          "La excelencia no debería ser un secreto guardado por pocos. Nuestra misión es
+          socializarla."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Técnicas -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Conozca las Técnicas</h3>
+          <p class="body-base mb-6">
+            Endomidface, Deep Neck, Browlift — las técnicas que componen la metodología Face
+            Moderna®.
+          </p>
+          <a
+            href="/es/tecnicas"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Explorar técnicas →
+          </a>
+        </div>
+
+        <!-- Formación -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Formación en Face Moderna®</h3>
+          <p class="body-base mb-6">
+            Programas estructurados para cirujanos que quieren dominar el plano profundo con
+            seguridad.
+          </p>
+          <a
+            href="/es/formacion"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Ver programas →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

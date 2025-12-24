@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradBefore1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f0"/>
+      <stop offset="100%" style="stop-color:#ebe9e2"/>
+    </linearGradient>
+    <linearGradient id="bgGradAfter1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <clipPath id="leftClip1">
+      <rect x="0" y="0" width="400" height="600"/>
+    </clipPath>
+    <clipPath id="rightClip1">
+      <rect x="400" y="0" width="400" height="600"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background Split -->
+  <rect fill="url(#bgGradBefore1)" x="0" y="0" width="400" height="600"/>
+  <rect fill="url(#bgGradAfter1)" x="400" y="0" width="400" height="600"/>
+
+  <!-- Title Bar -->
+  <rect fill="#1e293b" x="0" y="0" width="800" height="50"/>
+  <text x="400" y="32" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" fill="#b8956c" letter-spacing="0.1em">LIFTING FACIAL</text>
+
+  <!-- Center Divider with VS -->
+  <rect fill="#b8956c" x="396" y="50" width="8" height="550"/>
+  <circle cx="400" cy="300" r="28" fill="#1e293b"/>
+  <text x="400" y="308" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#b8956c">VS</text>
+
+  <!-- Before Face (Left) -->
+  <g clip-path="url(#leftClip1)">
+    <g transform="translate(200, 220)">
+      <!-- Face outline with sagging -->
+      <ellipse cx="0" cy="20" rx="85" ry="105" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Jawline - sagging -->
+      <path d="M -55,70 Q -50,90 -30,100 Q 0,108 30,100 Q 50,90 55,70" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes -->
+      <ellipse cx="-28" cy="0" rx="12" ry="7" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="28" cy="0" rx="12" ry="7" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose -->
+      <path d="M 0,-15 L 0,20" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <path d="M -10,20 Q 0,25 10,20" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Mouth -->
+      <path d="M -18,45 Q 0,50 18,45" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Problem indicators - Nasolabial folds -->
+      <path d="M -10,20 Q -15,32 -20,48" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <path d="M 10,20 Q 15,32 20,48" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <!-- Problem indicators - Jowls -->
+      <path d="M -45,75 Q -40,85 -35,95" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <path d="M 45,75 Q 40,85 35,95" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.7"/>
+      <!-- Problem indicators - Marionette -->
+      <path d="M -18,48 L -22,65" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.6"/>
+      <path d="M 18,48 L 22,65" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- After Face (Right) -->
+  <g clip-path="url(#rightClip1)">
+    <g transform="translate(600, 220)">
+      <!-- Face outline - lifted -->
+      <ellipse cx="0" cy="18" rx="83" ry="102" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Jawline - defined -->
+      <path d="M -58,62 Q -52,78 -32,86 Q 0,92 32,86 Q 52,78 58,62" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes -->
+      <ellipse cx="-28" cy="-2" rx="12" ry="7" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="28" cy="-2" rx="12" ry="7" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose -->
+      <path d="M 0,-17 L 0,18" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <path d="M -10,18 Q 0,23 10,18" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Mouth - lifted -->
+      <path d="M -18,42 Q 0,45 18,42" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Improvement indicators - Smooth nasolabial -->
+      <path d="M -10,18 Q -12,28 -14,38" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <path d="M 10,18 Q 12,28 14,38" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <!-- Improvement indicators - Defined jawline -->
+      <path d="M -50,62 Q -45,70 -38,78" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+      <path d="M 50,62 Q 45,70 38,78" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <text x="200" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">ANTES</text>
+  <text x="600" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">DEPOIS</text>
+
+  <!-- Decorative Lines -->
+  <line x1="100" y1="495" x2="300" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+  <line x1="500" y1="495" x2="700" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Subtle indicator legend -->
+  <g transform="translate(200, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#dc2626" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Flacidez</text>
+  </g>
+  <g transform="translate(600, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#16a34a" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Melhoria</text>
+  </g>
+</svg>

@@ -1,0 +1,253 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'The Evolution of Facial Surgery',
+  description:
+    'From Skoog to Modern Face®: how facial surgery evolved over 50 years and why we need new approaches for modern faces.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const timeline = [
+  {
+    era: '1970s',
+    title: 'The SMAS Era',
+    surgeon: 'Skoog, Mitz & Peyronie',
+    description:
+      'Discovery of SMAS as a surgical layer. Beginning of deep plane lifting. Conceptual revolution.',
+    limitation: 'Aggressive techniques, long recovery, variable results.',
+  },
+  {
+    era: '1980s',
+    title: 'The Deep Plane Era',
+    surgeon: 'Hamra',
+    description: 'Sub-SMAS deep plane lifting. Longer-lasting results. Improved elevation vector.',
+    limitation: 'Extreme learning curve. Risk of nerve injury. Few mastered it.',
+  },
+  {
+    era: '1990s',
+    title: 'The Endoscopic Era',
+    surgeon: 'Isse, Ramirez',
+    description: 'Introduction of the endoscope. Smaller incisions. Magnified visualization.',
+    limitation: 'High cost. Loss of tactile feedback. Equipment dependency.',
+  },
+  {
+    era: '2000s',
+    title: 'The Filler Era',
+    surgeon: 'Various',
+    description: "Explosion of fillers and biostimulators. 'Liquid facelift'. Less surgery.",
+    limitation: "Temporary results. 'Inflated' faces. Alteration of native anatomy.",
+  },
+  {
+    era: '2010s',
+    title: 'The Integration Era',
+    surgeon: 'Mendelson, Rohrich',
+    description: 'Understanding of fat compartments. Combined techniques. Personalization.',
+    limitation: 'Increasing complexity. No standardization. Inconsistent results.',
+  },
+  {
+    era: '2020s',
+    title: 'The Modern Face® Era',
+    surgeon: 'Dr. Robério Brandão',
+    description:
+      'Direct vision. Adaptation for faces with biostimulators. Systematized safety. Shared knowledge.',
+    limitation: 'In constant evolution.',
+  },
+];
+---
+
+<BaseLayout
+  title="The Evolution of Facial Surgery"
+  description="From Skoog to Modern Face®: how facial surgery evolved over 50 years and why we need new approaches for modern faces."
+  schema={schema}
+  lang="en"
+>
+  <article class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 text-sm text-softGray">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Evolution of Facial Surgery</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16 max-w-3xl">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Historical Context
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 leading-tight mb-6">
+          The Evolution of Facial Surgery
+        </h1>
+        <p class="text-xl text-warmGray leading-relaxed">
+          50 years of advances, limitations, and the need for a new approach for 21st century faces.
+        </p>
+      </header>
+
+      <!-- Introduction -->
+      <div class="prose prose-lg max-w-none text-warmGray mb-20">
+        <p class="drop-cap">
+          To understand Modern Face®, we need to understand where we came from. Facial surgery
+          wasn't born ready — it evolved through generations of surgeons who questioned,
+          experimented, and refined. Each era brought advances. Each era left limitations.
+        </p>
+
+        <p>
+          What we do today is only possible because giants came before us. But honoring the past
+          doesn't mean blindly repeating it. It means building on it.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Vertical line -->
+        <div
+          class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 transform md:-translate-x-1/2"
+        >
+        </div>
+
+        <div class="space-y-16">
+          {
+            timeline.map((item, index) => (
+              <div
+                class={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              >
+                {/* Marker */}
+                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-accent-600 rounded-full transform -translate-x-1/2 md:-translate-x-1/2 mt-2" />
+
+                {/* Content */}
+                <div
+                  class={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'} pl-8 md:pl-0`}
+                >
+                  <span class="text-5xl font-serif text-accent-600/30">{item.era}</span>
+                  <h3 class="text-xl font-serif text-primary-900 mt-2 mb-1">{item.title}</h3>
+                  <p class="text-sm text-accent-600 mb-4">{item.surgeon}</p>
+                  <p class="text-warmGray mb-4">{item.description}</p>
+                  <p class="text-sm text-softGray italic">
+                    <span class="font-medium">Limitation:</span> {item.limitation}
+                  </p>
+                </div>
+
+                {/* Spacer */}
+                <div class="hidden md:block md:w-1/2" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Analysis -->
+      <div class="prose prose-lg max-w-none text-warmGray mt-20">
+        <h2 class="font-serif text-primary-900">What Each Era Taught Us</h2>
+
+        <h3 class="font-serif text-primary-900">From SMAS we learned:</h3>
+        <p>
+          That there is a deep layer that sustains results. That pulling only skin doesn't work
+          long-term. That deep anatomy is the secret to durability.
+        </p>
+
+        <h3 class="font-serif text-primary-900">From Deep Plane we learned:</h3>
+        <p>
+          That the sub-SMAS plane is safer than it seems — when you know the anatomy. That less skin
+          tension means better scars. That vertical vectors are superior to lateral ones.
+        </p>
+
+        <h3 class="font-serif text-primary-900">From the endoscopic era we learned:</h3>
+        <p>
+          That smaller incisions are possible. That magnified visualization has value — but also
+          cost. That technology dependency has risks.
+        </p>
+
+        <h3 class="font-serif text-primary-900">From the filler era we learned:</h3>
+        <p>
+          That patients want less invasive procedures. That volume isn't the only answer. And,
+          critically, that biostimulators alter anatomy in ways that old techniques didn't
+          anticipate.
+        </p>
+
+        <h2 class="font-serif text-primary-900">The Modern Face Challenge</h2>
+
+        <p>
+          Here's the problem: techniques developed between 1970 and 2010 were created for <em
+            >native</em
+          > faces — without biostimulators, without years of hyaluronic acid, without repeated fillers.
+        </p>
+
+        <p>
+          Today, <strong class="text-primary-900"
+            >90% of the faces we operate on have already been treated with injectables</strong
+          >. The anatomical planes are altered. The fibrosis is different. The risks are different.
+        </p>
+
+        <p>
+          Blindly applying 1990s techniques to 2024 faces isn't tradition — it's negligence.
+          Evolution is mandatory.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="text-xl font-serif italic text-primary-900 leading-relaxed">
+            "Honoring the masters of the past doesn't mean repeating their techniques. It means
+            applying their mindset — of questioning and evolution — to present challenges."
+          </p>
+          <p class="text-sm text-softGray mt-4">— Dr. Robério Brandão</p>
+        </div>
+
+        <h2 class="font-serif text-primary-900">Why Modern Face®</h2>
+
+        <p>
+          Modern Face® doesn't discard what came before. It integrates. It takes the best of each
+          era — the understanding of SMAS, the safety of deep plane, the philosophy of minimal
+          invasion — and adapts for today's reality.
+        </p>
+
+        <p>
+          It adds what was missing: direct vision as an alternative to the endoscope. Protocols for
+          faces with biostimulators. Systematization of knowledge to shorten the learning curve.
+        </p>
+
+        <p>
+          It's not rupture. It's natural evolution. The next chapter of a story that began 50 years
+          ago.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="text-2xl font-serif text-white mb-4">Understand the Technique</h3>
+        <p class="text-primary-400 mb-8 max-w-lg mx-auto">
+          See how Modern Face® applies the lessons of the past in the present.
+        </p>
+        <a
+          href="/modern-face/why-direct-vision"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Why Direct Vision?
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/modern-face/principles" class="text-sm text-accent-600 hover:text-accent-700">
+            ← The Technical Principles
+          </a>
+          <a
+            href="/modern-face/knowledge-sharing"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Knowledge Sharing →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

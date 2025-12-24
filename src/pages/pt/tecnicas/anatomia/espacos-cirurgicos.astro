@@ -1,0 +1,161 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'espaços cirúrgicos face',
+  'planos dissecção facial',
+  'espaço pré-zigomático',
+  'espaço sub-SMAS',
+  'anatomia cirúrgica face',
+  'dissecção segura lifting',
+];
+
+const espacos = [
+  {
+    nome: 'Espaço Subgaleal',
+    regiao: 'Terço Superior',
+    desc: 'Entre gálea e periósteo. Plano avascular de dissecção para Browlift.',
+    seguranca: 'Alto',
+  },
+  {
+    nome: 'Espaço Temporal Superficial',
+    regiao: 'Têmpora',
+    desc: 'Entre FTS e fáscia temporal profunda. Contém gordura temporal.',
+    seguranca: 'Alto',
+  },
+  {
+    nome: 'Espaço Pré-Zigomático',
+    regiao: 'Midface',
+    desc: 'Entre SMAS e periósteo do zigoma. Portal principal do Endomidface.',
+    seguranca: 'Alto',
+  },
+  {
+    nome: 'Espaço Pré-Massetérico',
+    regiao: 'Midface Lateral',
+    desc: 'Lateral ao zigomático maior. Acesso aos ligamentos.',
+    seguranca: 'Médio',
+  },
+  {
+    nome: 'Espaço Bucal',
+    regiao: 'Terço Médio/Inferior',
+    desc: 'Contém bola de Bichat. Zona de transição.',
+    seguranca: 'Baixo',
+  },
+  {
+    nome: 'Espaço Sub-SMAS',
+    regiao: 'Face Inferior',
+    desc: 'Profundo ao SMAS. Contém ramos do facial.',
+    seguranca: 'Baixo',
+  },
+  {
+    nome: 'Espaço Subplatismal',
+    regiao: 'Pescoço',
+    desc: 'Profundo ao platisma. Acesso às estruturas cervicais.',
+    seguranca: 'Médio',
+  },
+];
+---
+
+<BaseLayout
+  title="Espaços Cirúrgicos da Face"
+  description="Os espaços e planos de dissecção da cirurgia facial. Onde dissecar com segurança."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/anatomia" class="hover:text-white">Anatomia</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Espaços Cirúrgicos</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Planos de Dissecção
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Espaços Cirúrgicos
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Os "corredores" da dissecção. Conhecê-los é a chave para cirurgia segura.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          A face possui espaços anatômicos naturais — planos de clivagem onde os tecidos se separam
+          com facilidade e, mais importante, com segurança. Dissecar dentro desses espaços minimiza
+          sangramento e risco de lesão nervosa.
+        </p>
+        <blockquote class="border-l-4 border-accent-600 pl-4 italic">
+          "O bom cirurgião não força passagem. Ele encontra o espaço e o segue."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Mapa dos Espaços</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Espaço</th>
+              <th class="text-left py-4 px-4">Região</th>
+              <th class="text-left py-4 px-4">Descrição</th>
+              <th class="text-center py-4 px-4">Segurança</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              espacos.map((e) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{e.nome}</td>
+                  <td class="py-4 px-4 text-accent-600">{e.regiao}</td>
+                  <td class="py-4 px-4 text-warmGray">{e.desc}</td>
+                  <td class="py-4 px-4 text-center">
+                    <span
+                      class={`text-xs px-2 py-1 text-white ${e.seguranca === 'Alto' ? 'bg-green-600' : e.seguranca === 'Médio' ? 'bg-amber-600' : 'bg-red-600'}`}
+                    >
+                      {e.seguranca}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Princípio da Visão Direta
+      </h2>
+      <p class="text-warmGray text-center">
+        A vantagem da visão direta sobre a endoscopia é justamente a capacidade de
+        <strong class="text-primary-900">ver os limites dos espaços em tempo real</strong>. Quando
+        você identifica visualmente a parede do espaço, sabe que está seguro.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/anatomia/regiao-cervical" class="text-sm text-accent-600"
+        >← Região Cervical</a
+      >
+      <a href="/pt/tecnicas/anatomia/ligamentos-retentores" class="text-sm text-accent-600"
+        >Ligamentos Retentores →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

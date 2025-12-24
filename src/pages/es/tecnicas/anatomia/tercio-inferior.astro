@@ -1,0 +1,142 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía tercio inferior facial',
+  'región mandibular cirugía',
+  'nervio marginal mandíbula',
+  'ligamento mandibular jowl',
+  'zonas riesgo cara inferior',
+  'anatomía lifting facial',
+];
+
+const estructuras = [
+  {
+    nombre: 'Ligamento Mandibular',
+    desc: 'Inserción ósea en borde inferior mandibular. Principal responsable del jowl.',
+    manejo: 'Release obligatorio en lifting',
+  },
+  {
+    nombre: 'Jowl Fat',
+    desc: 'Grasa que hernia sobre el ligamento mandibular con el envejecimiento.',
+    manejo: 'Reposicionamiento, no remoción',
+  },
+  {
+    nombre: 'Nervio Marginal',
+    desc: 'Ramo motor del facial. Inerva depresores del labio.',
+    manejo: 'Protección absoluta - identificar primero',
+  },
+  {
+    nombre: 'Platisma',
+    desc: 'Músculo superficial del cuello insertado en mandíbula.',
+    manejo: 'Plicatura y reposicionamiento',
+  },
+];
+
+const zonas = [
+  {
+    zona: 'Zona I',
+    desc: 'Región submental central',
+    riesgo: 'Bajo',
+    estructuras: 'Digástrico, platisma',
+  },
+  {
+    zona: 'Zona II',
+    desc: 'Región submandibular lateral',
+    riesgo: 'Alto',
+    estructuras: 'Nervio marginal, vasos faciales',
+  },
+  {
+    zona: 'Zona III',
+    desc: 'Región preauricular',
+    riesgo: 'Medio',
+    estructuras: 'Ramos del facial, SMAS',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomía del Tercio Inferior | Mandíbula"
+  description="Anatomía aplicada del tercio inferior facial. Región mandibular, jowl y transición cervicofacial."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Tercio Inferior</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Mandíbula
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Tercio Inferior Facial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La región mandibular y transición al cuello. Anatomía del jowl y estructuras críticas.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Estructuras Clave</h2>
+      <div class="space-y-6">
+        {
+          estructuras.map((e) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{e.nombre}</h3>
+              <p class="text-warmGray mb-4">{e.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Manejo:</span>{' '}
+                <span class="text-warmGray">{e.manejo}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Zonas de Riesgo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          zonas.map((z) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-primary-900">{z.zona}</h3>
+                <span
+                  class={`text-xs px-2 py-1 ${z.riesgo === 'Alto' ? 'bg-red-600' : z.riesgo === 'Medio' ? 'bg-amber-600' : 'bg-green-600'} text-white`}
+                >
+                  Riesgo {z.riesgo}
+                </span>
+              </div>
+              <p class="text-warmGray text-sm mb-4">{z.desc}</p>
+              <p class="text-xs text-softGray">
+                <strong>Estructuras:</strong> {z.estructuras}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/tercio-medio" class="text-sm text-accent-600">← Tercio Medio</a
+      >
+      <a href="/es/tecnicas/anatomia/region-cervical" class="text-sm text-accent-600"
+        >Región Cervical →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

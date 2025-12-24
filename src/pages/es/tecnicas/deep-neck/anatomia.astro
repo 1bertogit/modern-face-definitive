@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía cervical Deep Neck',
+  'capas del cuello cirugía',
+  'estructuras nobles cuello',
+  'nervio marginal mandíbula',
+  'platisma músculo cervical',
+  'plano subplatismal cirugía',
+];
+
+const capas = [
+  { n: 'Piel', p: 'Superficial', d: 'Cobertura externa' },
+  { n: 'Grasa Subcutánea', p: 'Superficial', d: 'Variable según biotipo' },
+  { n: 'Platisma', p: 'Superficial', d: 'Músculo delgado, equivalente cervical del SMAS' },
+  { n: 'Grasa Subplatismal', p: 'Profunda', d: 'Objetivo principal del Deep Neck' },
+  { n: 'Digástrico', p: 'Profunda', d: 'Vientre anterior - villano del cuello pesado' },
+  { n: 'Milohioideo', p: 'Profunda', d: 'Piso central' },
+  { n: 'Fascia Cervical Profunda', p: 'Profunda', d: 'Objetivo de fasciotomía' },
+  { n: 'Glándula Submandibular', p: 'Profunda', d: 'NUNCA removida' },
+];
+const nobles = [
+  {
+    s: 'Nervio Marginal',
+    l: 'Borde mandibular',
+    r: 'Parálisis labio',
+    p: 'Evitar disección proximal profunda',
+  },
+  { s: 'Yugular Externa', l: 'Lateral sobre ECOM', r: 'Sangrado', p: 'Identificar y preservar' },
+  { s: 'Arteria/Vena Facial', l: 'Junto a glándula', r: 'Sangrado', p: 'No tocar glándula' },
+  { s: 'Conducto de Wharton', l: 'Junto a glándula', r: 'Sialocele', p: 'No tocar glándula' },
+];
+---
+
+<BaseLayout
+  title="Anatomía del Deep Neck"
+  description="Anatomía cervical aplicada al Deep Neck Face Moderna."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Fundamentos
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Anatomía Cervical Aplicada
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Las capas y estructuras nobles que necesita dominar.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg">
+        En el cuello, el equivalente al SMAS facial es el platisma. Así como trabajamos en el plano
+        sub-SMAS en la cara, en el cuello trabajamos en el plano subplatismal.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Capas del Cuello</h2><table
+        class="w-full text-sm"
+      >
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Estructura</th><th class="text-left py-4 px-4"
+              >Profundidad</th
+            ><th class="text-left py-4 px-4">Descripción</th></tr
+          ></thead
+        ><tbody
+          >{
+            capas.map((c) => (
+              <tr class={`border-b ${c.p === 'Profunda' ? 'bg-accent-50' : ''}`}>
+                <>
+                  <td class="py-4 px-4 font-medium">{c.n}</td>
+                  <td class="py-4 px-4">{c.p}</td>
+                  <td class="py-4 px-4 text-warmGray">{c.d}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Estructuras Nobles</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {
+          nobles.map((n) => (
+            <div class="bg-white/10 p-6">
+              <>
+                <h3 class="text-white font-medium mb-2">{n.s}</h3>
+                <p class="text-primary-300 text-sm">Ubicación: {n.l}</p>
+                <p class="text-red-300 text-sm">Riesgo: {n.r}</p>
+                <p class="text-accent-300 text-sm">Protección: {n.p}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/deep-neck/pilares" class="text-sm text-accent-600">← 4 Pilares</a><a
+        href="/es/tecnicas/deep-neck/indicaciones"
+        class="text-sm text-accent-600">Indicaciones →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

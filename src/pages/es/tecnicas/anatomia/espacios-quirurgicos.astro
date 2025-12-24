@@ -1,0 +1,134 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'espacios quirúrgicos faciales',
+  'planos disección cara',
+  'espacio subgaleal cirugía',
+  'espacio pre-cigomático',
+  'espacio sub-SMAS',
+  'corredores disección lifting',
+];
+
+const espacios = [
+  {
+    nombre: 'Espacio Subgaleal',
+    region: 'Tercio Superior',
+    desc: 'Entre galea y periostio. Plano avascular para Browlift.',
+    seguridad: 'Alto',
+  },
+  {
+    nombre: 'Espacio Temporal Superficial',
+    region: 'Sien',
+    desc: 'Entre FTS y fascia temporal profunda. Contiene grasa temporal.',
+    seguridad: 'Alto',
+  },
+  {
+    nombre: 'Espacio Pre-Cigomático',
+    region: 'Midface',
+    desc: 'Entre SMAS y periostio cigomático. Portal principal del Endomidface.',
+    seguridad: 'Alto',
+  },
+  {
+    nombre: 'Espacio Pre-Masetérico',
+    region: 'Midface Lateral',
+    desc: 'Lateral al cigomático mayor. Acceso a ligamentos.',
+    seguridad: 'Medio',
+  },
+  {
+    nombre: 'Espacio Bucal',
+    region: 'Tercio Medio/Inferior',
+    desc: 'Contiene bola de Bichat. Zona de transición.',
+    seguridad: 'Bajo',
+  },
+  {
+    nombre: 'Espacio Sub-SMAS',
+    region: 'Cara Inferior',
+    desc: 'Profundo al SMAS. Contiene ramos del facial.',
+    seguridad: 'Bajo',
+  },
+  {
+    nombre: 'Espacio Subplatismal',
+    region: 'Cuello',
+    desc: 'Profundo al platisma. Acceso a estructuras cervicales.',
+    seguridad: 'Medio',
+  },
+];
+---
+
+<BaseLayout
+  title="Espacios Quirúrgicos de la Cara"
+  description="Espacios y planos de disección de cirugía facial. Dónde disecar con seguridad."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Espacios Quirúrgicos</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Planos de Disección
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Espacios Quirúrgicos
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Los "corredores" de la disección. Conocerlos es clave para cirugía segura.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Mapa de Espacios</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Espacio</th>
+              <th class="text-left py-4 px-4">Región</th>
+              <th class="text-left py-4 px-4">Descripción</th>
+              <th class="text-center py-4 px-4">Seguridad</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              espacios.map((e) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{e.nombre}</td>
+                  <td class="py-4 px-4 text-accent-600">{e.region}</td>
+                  <td class="py-4 px-4 text-warmGray">{e.desc}</td>
+                  <td class="py-4 px-4 text-center">
+                    <span
+                      class={`text-xs px-2 py-1 text-white ${e.seguridad === 'Alto' ? 'bg-green-600' : e.seguridad === 'Medio' ? 'bg-amber-600' : 'bg-red-600'}`}
+                    >
+                      {e.seguridad}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/region-cervical" class="text-sm text-accent-600"
+        >← Región Cervical</a
+      >
+      <a href="/es/tecnicas/anatomia/ligamentos-retentores" class="text-sm text-accent-600"
+        >Ligamentos Retentores →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

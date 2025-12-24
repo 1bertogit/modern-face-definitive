@@ -1,0 +1,213 @@
+---
+/**
+ * Dynamic Blog Post Route (EN)
+ * Uses Content Collections to render MDX blog posts
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
+import SchemaPerson from '@components/seo/SchemaPerson.astro';
+import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'en');
+
+  return posts.map((post) => {
+    // Remove locale prefix from slug (e.g., "en/slug" -> "slug")
+    const slugParts = post.slug.split('/');
+    const slug = slugParts.length > 1 ? slugParts.slice(1).join('/') : post.slug;
+
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { data } = post;
+const allowedArticleTypes = [
+  'Article',
+  'MedicalWebPage',
+  'TechArticle',
+  'ScholarlyArticle',
+] as const;
+const articleType: (typeof allowedArticleTypes)[number] = allowedArticleTypes.includes(
+  data.articleType as (typeof allowedArticleTypes)[number]
+)
+  ? (data.articleType as (typeof allowedArticleTypes)[number])
+  : 'Article';
+
+const locale = 'en';
+const t = getBlogLabels(locale);
+
+// Get alternate language versions for hreflang (translated slugs via canonicalSlug)
+const alternates = await getBlogAlternates(data.canonicalSlug);
+
+// Get related posts
+const relatedPosts = await getRelatedPosts(post, 3);
+
+const breadcrumbs = [
+  { name: t.home, url: '/' },
+  { name: t.blog, url: '/blog' },
+  { name: data.title, url: Astro.url.pathname },
+];
+---
+
+<BaseLayout
+  title={`${data.title} | Dr. Roberio Brandao`}
+  description={data.description}
+  keywords={data.keywords || []}
+  lang="en"
+  customAlternates={alternates}
+>
+  <SchemaArticle
+    title={data.title}
+    description={data.description}
+    section={data.category}
+    keywords={data.keywords || []}
+    articleType={articleType}
+    datePublished={data.date.toISOString().split('T')[0]}
+  />
+  {data.faq && <SchemaFAQ items={data.faq} />}
+  <SchemaPerson />
+
+  <!-- Hero -->
+  <section class="py-16 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="flex items-center gap-2 text-accent-400 text-sm mb-4">
+        <span class="material-symbols-outlined text-lg">menu_book</span>
+        <span>{data.category} &bull; {data.readTime || '5 min'} {t.readTime}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
+        {data.title}
+      </h1>
+
+      <p class="text-xl text-primary-200 mb-8">
+        {data.description}
+      </p>
+
+      <div class="flex items-center gap-4 text-primary-300 text-sm">
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-white">person</span>
+          </div>
+          <div>
+            <p class="text-white font-medium">{data.author}</p>
+            <p class="text-primary-400">{t.creator}</p>
+          </div>
+        </div>
+        <span class="text-primary-600">&bull;</span>
+        <span>
+          {t.updated}{' '}
+          {
+            data.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+          }
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div
+        class="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-900 prose-a:text-accent-600 hover:prose-a:text-accent-700 prose-blockquote:border-accent-500 prose-blockquote:text-primary-800"
+      >
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <!-- FAQ Section -->
+  {
+    data.faq && data.faq.length > 0 && (
+      <section class="py-16 bg-ivory">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 class="text-2xl font-serif text-primary-900 mb-8">{t.faqTitle}</h2>
+          <div class="space-y-6">
+            {data.faq.map((item) => (
+              <div class="border border-gray-200 rounded-xl overflow-hidden">
+                <details class="group">
+                  <summary class="flex items-center justify-between p-6 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <h3 class="font-bold text-primary-900 pr-4">{item.question}</h3>
+                    <span class="material-symbols-outlined text-warmGray group-open:rotate-180 transition-transform flex-shrink-0">
+                      expand_more
+                    </span>
+                  </summary>
+                  <div class="p-6 bg-white">
+                    <p class="text-warmGray">{item.answer}</p>
+                  </div>
+                </details>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-4">{t.ctaTitle}</h2>
+      <p class="text-primary-200 mb-6">{t.ctaSubtitle}</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/education"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
+        >
+          {t.ctaButton}
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+        >
+          {t.ctaContact}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  {
+    relatedPosts.length > 0 && (
+      <section class="py-16 bg-ivory">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 class="text-2xl font-serif text-primary-900 mb-8">{t.related}</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            {relatedPosts.map((related) => {
+              const article = postToArticle(related);
+              return (
+                <a
+                  href={`/blog/${article.slug}`}
+                  class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+                >
+                  <p class="text-sm text-accent-600 mb-2">{article.category}</p>
+                  <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                    {article.title}
+                  </h3>
+                  <p class="text-warmGray text-sm line-clamp-2">{article.description}</p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

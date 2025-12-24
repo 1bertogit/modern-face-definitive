@@ -1,0 +1,369 @@
+---
+/**
+ * CLUSTER A - Autoria & Provas
+ * Página: /en/creator/case-series-safety/
+ * Prioridade: P0
+ * Intenção: Prova de segurança + dados concretos
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Creator', url: '/creator' },
+  { name: 'Case Series Safety', url: '/creator/case-series-safety' },
+];
+
+const keywords = [
+  'ENDOMIDFACE safety',
+  'facial surgery complications',
+  'nerve injury prevention',
+  'Direct Vision safety record',
+  'Dr Robério Brandão cases',
+  'facial surgery outcomes',
+  'midface lift safety',
+];
+
+const safetyData = {
+  totalCases: '1,500+',
+  permanentNerveInjury: '0',
+  yearsExperience: '18+',
+  transientWeakness: '<2%',
+  hematoma: '<1%',
+  revision: '<3%',
+};
+---
+
+<BaseLayout
+  title="1,500+ Cases, Zero Permanent Neural Injury — ENDOMIDFACE® Safety Record"
+  description="Documented safety data from Dr. Robério Brandão's ENDOMIDFACE by Direct Vision case series. Over 1,500 facial surgeries with zero permanent motor nerve injuries. Evidence-based safety analysis."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="1,500+ Cases, Zero Permanent Neural Injury — ENDOMIDFACE® Safety Record"
+    description="Comprehensive safety analysis of ENDOMIDFACE by Direct Vision technique based on documented case series"
+    section="Clinical Safety"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+        Documented Safety Record
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        1,500+ Cases, Zero Permanent Neural Injury
+      </h1>
+      <p class="text-xl text-primary-200">
+        The most compelling evidence for any surgical technique is its safety record. Here's what 18
+        years of documented outcomes reveal about <strong class="text-white"
+          >ENDOMIDFACE® by Direct Vision</strong
+        >.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Stats Banner -->
+  <section class="py-8 bg-accent-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+        <div>
+          <p class="text-4xl md:text-5xl font-bold">{safetyData.totalCases}</p>
+          <p class="text-sm opacity-90">Total Surgeries</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold">{safetyData.permanentNerveInjury}</p>
+          <p class="text-sm opacity-90">Permanent Nerve Injuries</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold">{safetyData.yearsExperience}</p>
+          <p class="text-sm opacity-90">Years of Data</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold">{safetyData.transientWeakness}</p>
+          <p class="text-sm opacity-90">Transient Weakness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Understanding the Data -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Understanding This Safety Record</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl">
+          When evaluating any surgical technique, safety data matters more than marketing claims.
+          Let's examine what these numbers actually mean and how they compare to published
+          literature on facial surgery.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">
+          What "Zero Permanent Neural Injury" Means
+        </h3>
+
+        <p>
+          In facial surgery, the facial nerve (cranial nerve VII) is the primary concern. This nerve
+          controls facial movement — smiling, eye closure, forehead elevation. Injury to this nerve
+          can result in:
+        </p>
+
+        <ul class="space-y-2">
+          <li>
+            <strong>Transient weakness:</strong> Temporary loss of function that resolves within weeks
+            to months
+          </li>
+          <li>
+            <strong>Permanent weakness:</strong> Persistent loss of function that does not fully recover
+          </li>
+        </ul>
+
+        <p>In Dr. Brandão's case series of over 1,500 ENDOMIDFACE procedures:</p>
+
+        <ul class="space-y-2">
+          <li><strong>Permanent motor nerve injuries:</strong> Zero documented cases</li>
+          <li><strong>Transient weakness:</strong> Less than 2% of cases, all fully resolved</li>
+        </ul>
+
+        <div class="bg-white border-l-4 border-accent-500 p-6 my-8">
+          <p class="font-semibold text-primary-900 mb-2">Important Clarification</p>
+          <p class="text-warmGray">
+            "Zero" refers to documented <em>permanent</em> motor nerve injury. Transient weakness — temporary
+            weakness that resolves completely — does occur in a small percentage of cases, as it does
+            with any technique that works near the facial nerve. The distinction is critical: transient
+            weakness is a known, expected possibility; permanent injury is what we work to prevent absolutely.
+          </p>
+        </div>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">
+          Why Direct Vision Enhances Safety
+        </h3>
+
+        <p>
+          The safety record of ENDOMIDFACE® by Direct Vision isn't accidental. It's built into the
+          technique's fundamental design:
+        </p>
+
+        <ol class="space-y-4">
+          <li>
+            <strong>Direct Visualization:</strong> Unlike endoscopic approaches where you view anatomy
+            through a camera, Direct Vision means your eyes are directly observing the surgical field.
+            There's no camera delay, no parallax distortion, no equipment malfunction risk.
+          </li>
+          <li>
+            <strong>Defined Anatomical Planes:</strong> The technique follows specific anatomical planes
+            where critical structures are predictably located. You're not working blind — you know exactly
+            where the facial nerve branches should be at each stage.
+          </li>
+          <li>
+            <strong>Tactile Feedback:</strong> Direct surgical approach provides haptic (touch) feedback
+            that camera systems cannot. You feel tissue density changes, vessel pulsations, and other
+            subtle cues.
+          </li>
+          <li>
+            <strong>No Equipment Dependency:</strong> Equipment-dependent techniques introduce failure
+            points. If an endoscopic tower malfunctions, you're compromised. Direct Vision requires only
+            surgical loupes and headlamp — tools with near-zero failure rates.
+          </li>
+        </ol>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">
+          Comparison to Published Literature
+        </h3>
+
+        <p>
+          How does this safety record compare to published complication rates for facial surgery?
+          The following ranges come from peer-reviewed literature:
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="my-8 overflow-x-auto">
+        <table class="w-full border-collapse bg-white rounded-xl overflow-hidden shadow-sm">
+          <thead>
+            <tr class="bg-primary-900 text-white">
+              <th class="text-left p-4 font-semibold">Complication</th>
+              <th class="text-center p-4 font-semibold">Literature Range</th>
+              <th class="text-center p-4 font-semibold">ENDOMIDFACE® (Direct Vision)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="p-4 font-medium text-primary-900">Permanent Facial Nerve Injury</td>
+              <td class="p-4 text-center text-warmGray">0.5% - 2.5%</td>
+              <td class="p-4 text-center font-bold text-green-600">0%</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-4 font-medium text-primary-900">Transient Facial Weakness</td>
+              <td class="p-4 text-center text-warmGray">5% - 15%</td>
+              <td class="p-4 text-center font-bold text-green-600">&lt;2%</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-medium text-primary-900">Hematoma Requiring Drainage</td>
+              <td class="p-4 text-center text-warmGray">2% - 5%</td>
+              <td class="p-4 text-center font-bold text-green-600">&lt;1%</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-4 font-medium text-primary-900">Revision Surgery Rate</td>
+              <td class="p-4 text-center text-warmGray">5% - 10%</td>
+              <td class="p-4 text-center font-bold text-green-600">&lt;3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-sm text-softGray italic">
+          Note: Literature ranges are approximations from multiple published studies and vary based
+          on technique, patient selection, and surgeon experience. Direct comparison is complex due
+          to varying definitions and reporting standards. These figures are provided for general
+          context, not rigorous meta-analysis.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">Patient Selection Matters</h3>
+
+        <p>
+          Honest safety reporting requires acknowledging that patient selection affects outcomes.
+          Dr. Brandão is clear about the <a
+            href="/methods/endomidface/indications"
+            class="text-accent-600 hover:text-accent-700 underline">ideal patient profile</a
+          > for ENDOMIDFACE®:
+        </p>
+
+        <ul class="space-y-2">
+          <li><strong>Primary demographic:</strong> Patients aged 45-65 years</li>
+          <li>
+            <strong>Not ideal for:</strong> Patients over 70 with severe SMAS redundancy (better served
+            by traditional deep plane)
+          </li>
+          <li>
+            <strong>Best results:</strong> Modern Face patients (those with prior filler/bioestimulator
+            treatment)
+          </li>
+        </ul>
+
+        <p>
+          Proper case selection isn't about avoiding difficult cases — it's about matching technique
+          to patient. A technique that works beautifully for 80% of your patients is valuable
+          precisely because you recognize the 20% who need a different approach.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">Reproducibility in Training</h3>
+
+        <p>
+          A technique's safety must be reproducible when taught to other surgeons. The over <strong
+            >130 surgeons trained</strong
+          > in ENDOMIDFACE® by Direct Vision have reported similar safety profiles in their own practices,
+          suggesting that the technique's safety isn't solely dependent on Dr. Brandão's individual skill
+          but is inherent to the methodology itself.
+        </p>
+
+        <p>
+          This reproducibility is critical. A "safe" technique that only works in the creator's
+          hands isn't truly safe — it's personal artistry. ENDOMIDFACE® by Direct Vision is designed
+          to be systematically teachable and consistently reproducible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="p-6 bg-gray-50 border border-gray-200 rounded-xl">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-2xl text-warmGray">info</span>
+          <div>
+            <h3 class="font-bold text-primary-900 mb-2">Medical Disclaimer</h3>
+            <p class="text-sm text-warmGray">
+              The safety data presented here is based on Dr. Robério Brandão's documented case
+              series and is intended for informational purposes for medical professionals.
+              Individual results vary based on patient factors, surgeon experience, and case
+              complexity. This information does not constitute medical advice. Surgeons interested
+              in learning this technique should pursue proper training. Patients should consult with
+              qualified surgeons for individual recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Pages -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Related Resources</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a
+          href="/methods/endomidface/complications-prevention"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Complications & Prevention Framework
+          </h3>
+          <p class="text-warmGray text-sm">
+            How potential complications are anticipated and prevented.
+          </p>
+        </a>
+        <a
+          href="/methods/endomidface/anatomy-map"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Applied Anatomy Map
+          </h3>
+          <p class="text-warmGray text-sm">Understanding the anatomical basis for safe surgery.</p>
+        </a>
+        <a
+          href="/creator/timeline"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Development Timeline
+          </h3>
+          <p class="text-warmGray text-sm">18 years of technique evolution and refinement.</p>
+        </a>
+        <a
+          href="/training"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Training Programs
+          </h3>
+          <p class="text-warmGray text-sm">Learn the technique directly from Dr. Brandão.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Safety Through Proper Training</h2>
+      <p class="text-xl text-primary-200 mb-8">
+        The safety record of ENDOMIDFACE® depends on proper technique. Learn from the source through
+        structured mentorship programs.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          Training Programs
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

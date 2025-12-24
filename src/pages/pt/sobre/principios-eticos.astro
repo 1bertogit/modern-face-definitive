@@ -1,0 +1,165 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const principios = [
+  {
+    numero: '01',
+    titulo: 'Segurança Antes de Tudo',
+    desc: 'Nenhum resultado estético justifica uma lesão permanente. Nossa primeira obrigação é não causar dano.',
+    detalhes: [
+      'Zero tolerância a lesões nervosas permanentes',
+      'Técnicas que priorizam visão direta sobre instrumentação',
+      'Planejamento cuidadoso que previne complicações',
+      'Honestidade sobre limites e riscos de cada procedimento',
+    ],
+  },
+  {
+    numero: '02',
+    titulo: 'Respeito à Anatomia',
+    desc: 'A anatomia não mente. Quando respeitamos os planos naturais, os resultados são mais previsíveis e duradouros.',
+    detalhes: [
+      'Estudo contínuo da anatomia facial',
+      'Trabalho nos planos cirúrgicos corretos',
+      'Preservação de estruturas sempre que possível',
+      'Reposicionamento sobre ressecção',
+    ],
+  },
+  {
+    numero: '03',
+    titulo: 'Resultados Naturais',
+    desc: 'O melhor elogio é quando ninguém percebe que houve cirurgia. Buscamos rejuvenescimento, não transformação.',
+    detalhes: [
+      'Vetores que respeitam a harmonia facial',
+      'Recusa a pedidos de resultados artificiais',
+      'Individualização baseada na anatomia do paciente',
+      'Foco em durabilidade, não apenas impacto imediato',
+    ],
+  },
+  {
+    numero: '04',
+    titulo: 'Honestidade com o Paciente',
+    desc: 'O paciente tem direito à verdade sobre o que podemos e o que não podemos fazer por ele.',
+    detalhes: [
+      'Comunicação clara sobre expectativas realistas',
+      'Documentação fotográfica transparente',
+      'Discussão aberta sobre limitações',
+      'Recusa de casos inadequados',
+    ],
+  },
+  {
+    numero: '05',
+    titulo: 'Socialização do Conhecimento',
+    desc: 'O conhecimento que não é compartilhado morre conosco. Ensinar é perpetuar e multiplicar impacto.',
+    detalhes: [
+      'Compartilhamento aberto de técnicas',
+      'Formação de novos cirurgiões',
+      'Documentação sistemática para ensino',
+      'Comunidade de aprendizado contínuo',
+    ],
+  },
+  {
+    numero: '06',
+    titulo: 'Evolução Contínua',
+    desc: 'O dia que pararmos de questionar, paramos de evoluir. Cada caso é uma oportunidade de aprender.',
+    detalhes: [
+      'Questionamento construtivo do status quo',
+      'Abertura a novas evidências e técnicas',
+      'Registro e análise de resultados',
+      'Humildade para reconhecer erros e melhorar',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Princípios Éticos | Os Valores que Nos Guiam"
+  description="Os princípios éticos fundamentais que orientam a prática e o ensino no Modern Face Institute."
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/sobre" class="hover:text-white">Sobre</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Princípios Éticos</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Nossos Valores</p>
+      <h1 class="heading-1-white">Princípios Éticos</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Os valores inegociáveis que fundamentam cada decisão, cada técnica e cada interação no
+        Modern Face Institute
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large-light font-serif italic">
+        "Princípios não são negociáveis. Se uma situação nos força a comprometê-los, é a situação
+        que precisa mudar, não os princípios."
+      </p>
+    </div>
+  </section>
+
+  <!-- Princípios -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <div class="space-y-12">
+        {
+          principios.map((p) => (
+            <div class="bg-white border border-gray-100 overflow-hidden">
+              <div class="p-8">
+                <div class="flex items-start gap-6">
+                  <span class="text-5xl font-serif text-accent-600/20 flex-shrink-0">
+                    {p.numero}
+                  </span>
+                  <div>
+                    <h3 class="heading-4 mb-3">{p.titulo}</h3>
+                    <p class="body-base mb-6">{p.desc}</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {p.detalhes.map((d) => (
+                        <div class="flex items-start gap-2 body-small">
+                          <span class="material-symbols-outlined text-accent-600 text-sm flex-shrink-0">
+                            check
+                          </span>
+                          {d}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Compromisso -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-8">Nosso Compromisso</h2>
+      <p class="body-base-light mb-8">
+        Estes princípios não são aspirações — são compromissos. Eles guiam cada cirurgia que
+        realizamos, cada aula que ministramos, cada decisão que tomamos. Quando você se forma
+        conosco, não está apenas aprendendo técnicas: está assumindo estes mesmos compromissos.
+      </p>
+      <div class="border-t border-white/20 pt-8 mt-8">
+        <p class="text-accent-400 text-sm uppercase tracking-wider">
+          Segurança Máxima • Elegância nos Resultados • Recuperação Otimizada
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/sobre/linha-do-tempo" class="text-sm text-accent-600">← Linha do Tempo</a>
+      <a href="/pt/sobre/visao-de-futuro" class="text-sm text-accent-600">Visão de Futuro →</a>
+    </div>
+  </section>
+</BaseLayout>

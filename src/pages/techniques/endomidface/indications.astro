@@ -1,0 +1,169 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface indications',
+  'midface rejuvenation candidates',
+  'facelift patient selection',
+  'biostimulator facelift safety',
+  'midface surgery contraindications',
+  'ideal facelift age',
+];
+
+const indications = [
+  {
+    t: 'Midface Laxity',
+    d: 'Cheek ptosis, loss of malar projection, early nasolabial fold accentuation.',
+  },
+  {
+    t: 'Lower Eyelid Changes',
+    d: 'Vertically long lower eyelid, negative vector, mild to moderate scleral show.',
+  },
+  {
+    t: 'Faces with Biostimulators',
+    d: 'Patients with fixed lateral SMAS fibrosis. Superior access bypasses the risk zone.',
+  },
+  {
+    t: 'Quick Recovery Desired',
+    d: 'Patients who value minimal downtime and discrete intracapillary scars.',
+  },
+];
+const contraAbs = [
+  'Active smoking without prior pause (minimum 30 days)',
+  'Severe skin excess in face and neck',
+  'Jowls as main isolated complaint',
+  'Total baldness (for associated frontoplasty)',
+  'Essential blepharospasm',
+  'Patients over 70 with severe skin redundancy',
+];
+---
+
+<BaseLayout
+  title="Endomidface Indications"
+  description="Patient selection criteria for Endomidface. Ideal profile 45-50 years, absolute and relative contraindications."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Patient Selection
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Indications & Contraindications
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Proper case selection is as important as the technique itself. Know the ideal profile and
+        Endomidface limitations.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white p-10 border border-accent-200">
+        <h2 class="text-2xl font-serif text-primary-900 mb-6">The Ideal Patient</h2><div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          <div>
+            <p class="text-warmGray mb-6">
+              Based on 200+ documented cases, Dr. Robério Brandão identified the profile that
+              benefits most from Endomidface:
+            </p><ul class="space-y-3 text-warmGray">
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Age range 45-50 years
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Moderate midface laxity
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Preserved skin quality
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Realistic expectations
+              </li>
+            </ul>
+          </div><div class="bg-accent-50 p-6">
+            <p class="text-[10px] font-medium text-accent-600 uppercase mb-3">Clinical Data</p><p
+              class="text-3xl font-serif text-primary-900 mb-2"
+            >
+              80%
+            </p><p class="text-sm text-warmGray">
+              of patients operated by Dr. Robério are in the 45-50 age range. This profile offers
+              the best results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Main Indications</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        {
+          indications.map((i) => (
+            <div class="flex items-start gap-6 p-8 bg-ivory">
+              <div>
+                <>
+                  <h3 class="font-serif text-primary-900 mb-2">{i.t}</h3>
+                  <p class="text-sm text-warmGray">{i.d}</p>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Absolute Contraindications</h2><div
+        class="p-8 bg-red-50 border border-red-100"
+      >
+        <ul class="space-y-3">
+          {
+            contraAbs.map((c) => (
+              <li class="flex items-start gap-3 text-sm text-red-700">
+                <span class="text-red-400 mt-1">✕</span>
+                {c}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="bg-white p-8 border-l-4 border-accent-600">
+        <h2 class="text-xl font-serif text-primary-900 mb-4">
+          What Endomidface Does NOT Correct
+        </h2><ul class="space-y-3 text-warmGray">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Marked jowls</strong
+            > — mandibular line laxity is not corrected
+          </li><li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Significant cervical excess</strong
+            > — flaccid neck requires associated Deep Neck
+          </li><li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Severe mandibular ptosis</strong
+            > — may require pre-auricular incision
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "What's my profile today? Patients between 45-50 years, 80% of my volume. This approach
+        works for this patient. Patients over 70 won't work because the SMAS is too redundant."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/what-is-it" class="text-sm text-accent-600">← What Is It</a
+      ><a href="/techniques/endomidface/anatomy" class="text-sm text-accent-600">Anatomy →</a>
+    </div>
+  </section>
+</BaseLayout>

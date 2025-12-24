@@ -1,0 +1,145 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'casos clínicos Deep Neck',
+  'pescoço espesso tratamento',
+  'antes depois lifting cervical',
+  'Deep Neck jovem',
+  'pós-lipo pescoço correção',
+  'cirurgia cervical exemplos',
+];
+
+const casos = [
+  {
+    t: 'Pescoço Espesso Clássico',
+    desc: 'Paciente com gordura profunda, digástrico hipertrofiado e bandas platismais',
+    proc: 'Shaving digástrico + gordura profunda + fasciotomia + Crevassi',
+    resultado: 'Contorno definido, pescoço negativo',
+  },
+  {
+    t: 'Pescoço Pesado + Face Completa',
+    desc: 'Jowls, pescoço volumoso e queda de terço médio',
+    proc: 'Frontoplastia + Endomidface + Deep Neck completo + lipoenxertia lábios',
+    resultado: 'Rejuvenescimento completo de todos os terços',
+  },
+  {
+    t: 'Deep Neck Isolado (Jovem)',
+    desc: 'Paciente ~40 anos, pescoço com volume mas pele boa',
+    proc: 'Acesso anterior + gordura profunda + shaving + fasciotomia + prótese mento',
+    resultado: 'Contorno suave, ângulo bem desenhado',
+  },
+  {
+    t: 'Jovem com Pouca Gordura',
+    desc: 'Pouca gordura subcutânea, digástrico normal (chato)',
+    proc: 'Gordura subplatismal seletiva + fasciotomia + Crevassi (sem shaving)',
+    resultado: 'Contorno refinado sem esqueletização',
+  },
+  {
+    t: 'Pós-lipo Esqueletizado',
+    desc: 'Lipo prévia chapou superfície mas gordura subplatismal preservada',
+    proc: 'Abertura submentoniana + gordura subplatismal + avaliação digástrico + fasciotomia',
+    resultado: 'Contorno refinado com relevo adequado',
+  },
+  {
+    t: 'Sem Acesso Anterior',
+    desc: 'Paciente não aceita incisão submentoniana',
+    proc: 'Acesso retroauricular apenas + pele/platisma lateral + Crevassi',
+    resultado: 'Melhora limitada mas possível sem cicatriz anterior',
+  },
+];
+---
+
+<BaseLayout
+  title="Casos Clínicos Deep Neck"
+  description="Casos clínicos representativos do Deep Neck Face Moderna. Pescoço espesso, jovem, pós-lipo."
+  keywords={keywords}
+  lang="pt"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Aplicação Prática
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Casos Clínicos</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Cenários representativos que ilustram a aplicação dos princípios do Deep Neck Face Moderna.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-8">
+        {
+          casos.map((c, i) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <>
+                  <span class="text-4xl font-serif text-accent-600/20 flex-shrink-0">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div class="flex-1">
+                    <>
+                      <h3 class="text-xl font-serif text-primary-900 mb-4">{c.t}</h3>
+                      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <>
+                          <div>
+                            <>
+                              <p class="text-xs font-bold text-warmGray uppercase mb-1">
+                                Apresentação
+                              </p>
+                              <p class="text-warmGray">{c.desc}</p>
+                            </>
+                          </div>
+                          <div>
+                            <>
+                              <p class="text-[10px] font-medium text-accent-600 uppercase mb-1">
+                                Procedimento
+                              </p>
+                              <p class="text-warmGray">{c.proc}</p>
+                            </>
+                          </div>
+                          <div>
+                            <>
+                              <p class="text-xs font-bold text-green-600 uppercase mb-1">
+                                Resultado
+                              </p>
+                              <p class="text-warmGray">{c.resultado}</p>
+                            </>
+                          </div>
+                        </>
+                      </div>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Princípio Universal</h2><p
+        class="text-warmGray mb-6"
+      >
+        Independente do caso, o princípio permanece: <strong
+          >a glândula submandibular nunca é removida</strong
+        >. O resultado é obtido através do tratamento das estruturas vizinhas — gordura profunda,
+        digástrico e fáscia.
+      </p><p class="text-warmGray">
+        Cada caso ilustra como os 4 pilares se adaptam à anatomia específica do paciente, mantendo a
+        segurança como prioridade inegociável.
+      </p>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/pt/tecnicas/deep-neck/resultados" class="text-sm text-accent-600">← Resultados</a><a
+        href="/pt/tecnicas/deep-neck"
+        class="text-sm text-accent-600">Visão Geral →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

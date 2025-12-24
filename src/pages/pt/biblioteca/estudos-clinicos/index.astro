@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const estatisticas = [
+  { numero: '1.500+', label: 'Cirurgias faciais totais', periodo: '1995-2024' },
+  { numero: '212+', label: 'Casos Endomidface documentados', periodo: '2019-2024' },
+  { numero: '0', label: 'Lesões nervosas permanentes', periodo: 'Série completa' },
+  { numero: '<3%', label: 'Taxa de revisão', periodo: 'Abaixo da literatura' },
+];
+
+const indicadores = [
+  { nome: 'Satisfação do paciente', valor: '>95%', desc: 'Em pesquisa de follow-up estruturado' },
+  { nome: 'Complicações maiores', valor: '<1%', desc: 'Hematomas, infecções, necrose' },
+  { nome: 'Follow-up 1 mês', valor: '100%', desc: 'Avaliação pós-operatória imediata' },
+  { nome: 'Follow-up 1 ano+', valor: '60%', desc: 'Acompanhamento de longo prazo' },
+];
+
+const metodologia = [
+  'Avaliação pré-operatória padronizada com SPE-M',
+  'Documentação fotográfica em 7 incidências',
+  'Registro detalhado de cada procedimento',
+  'Follow-up estruturado em múltiplos pontos',
+  'Avaliação de satisfação do paciente',
+  'Análise sistemática de complicações',
+];
+---
+
+<BaseLayout
+  title="Estudos Clínicos | Biblioteca"
+  description="Análises de casos, estatísticas e resultados documentados da metodologia Face Moderna."
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/biblioteca" class="hover:text-white">Biblioteca</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Estudos Clínicos</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Estudos Clínicos
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Análises de casos, estatísticas e resultados documentados
+      </p>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Números da Casuística</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {
+          estatisticas.map((e) => (
+            <div class="text-center p-6 bg-white border border-gray-100">
+              <p class="text-3xl md:text-4xl font-serif text-accent-600 mb-2">{e.numero}</p>
+              <p class="text-sm text-primary-900 font-medium mb-1">{e.label}</p>
+              <p class="text-xs text-warmGray">{e.periodo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaque Zero -->
+  <section class="py-20 bg-accent-600">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-8xl font-serif text-white mb-4">0</p>
+      <h2 class="text-xl text-white font-medium mb-4">Lesões Nervosas Permanentes</h2>
+      <p class="text-white/80">
+        Em 212+ casos documentados de Endomidface, não há registro de nenhuma lesão nervosa
+        permanente. Este número não é acidente — é resultado de metodologia que prioriza segurança.
+      </p>
+    </div>
+  </section>
+
+  <!-- Indicadores -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Indicadores de Qualidade
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          indicadores.map((i) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div>
+                <p class="font-medium text-primary-900">{i.nome}</p>
+                <p class="text-xs text-warmGray">{i.desc}</p>
+              </div>
+              <span class="text-xl font-serif text-green-600">{i.valor}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Metodologia de Registro</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          metodologia.map((m) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{m}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Acesso aos Estudos Completos</h2>
+      <p class="text-primary-300 mb-8">
+        Análises detalhadas de casos e estatísticas completas estão disponíveis para alunos dos
+        programas de formação.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/biblioteca/publicacoes" class="text-sm text-accent-600">← Publicações</a>
+      <a href="/pt/biblioteca/infograficos" class="text-sm text-accent-600">Infográficos →</a>
+    </div>
+  </section>
+</BaseLayout>

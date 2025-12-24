@@ -1,0 +1,274 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Socialización del Conocimiento Quirúrgico',
+  description:
+    'Por qué la excelencia en cirugía facial no puede ser secreto de pocos. La misión de Face Moderna® de democratizar el conocimiento.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const problemas = [
+  {
+    titulo: 'Conocimiento Concentrado',
+    descripcion:
+      'Las mejores técnicas quedan restringidas a pocos centros de excelencia, creando una élite quirúrgica mientras la mayoría opera con limitaciones.',
+    impacto: 'Pacientes en regiones sin acceso a estos centros reciben tratamiento inferior.',
+  },
+  {
+    titulo: 'Curva de Aprendizaje Cruel',
+    descripcion:
+      "Sin método estructurado, cada cirujano necesita 'reinventar la rueda'. 50-100 casos para seguridad mínima. ¿Cuántas complicaciones evitables?",
+    impacto: 'Cirujanos talentosos abandonan el plano profundo por miedo.',
+  },
+  {
+    titulo: 'Enseñanza por Observación',
+    descripcion:
+      "El modelo tradicional es ver cirugías y 'absorber'. Sin didáctica estructurada, sin protocolo claro, sin feedback sistemático.",
+    impacto: 'Aprendizaje inconsistente, dependiente de la suerte de tener buenos mentores.',
+  },
+];
+
+const principios = [
+  {
+    numero: '01',
+    titulo: 'Documentar Todo',
+    descripcion:
+      'Cada paso técnico registrado. Cada decisión justificada. Lo que está en la cabeza del maestro necesita estar en el papel.',
+  },
+  {
+    numero: '02',
+    titulo: 'Enseñar el Por Qué',
+    descripcion:
+      'No basta mostrar cómo hacer. El alumno necesita entender por qué lo hacemos así. Solo entonces puede adaptar y evolucionar.',
+  },
+  {
+    numero: '03',
+    titulo: 'Acelerar sin Atajos',
+    descripcion:
+      'Reducir la curva de aprendizaje no significa saltar etapas. Significa eliminar el tiempo perdido con ensayo y error innecesario.',
+  },
+  {
+    numero: '04',
+    titulo: 'Formar Multiplicadores',
+    descripcion:
+      'El objetivo no es crear dependencia del maestro. Es formar cirujanos que puedan enseñar a otros. Conocimiento que se propaga.',
+  },
+];
+
+const numeros = [
+  { valor: '500+', etiqueta: 'Cirujanos Formados' },
+  { valor: '7', etiqueta: 'Países Alcanzados' },
+  { valor: '15-30', etiqueta: 'Casos para Seguridad' },
+  { valor: '0%', etiqueta: 'Lesión Nerviosa Permanente' },
+];
+---
+
+<BaseLayout
+  title="Socialización del Conocimiento"
+  description="Por qué la excelencia en cirugía facial no puede ser secreto de pocos. La misión de Face Moderna® de democratizar el conocimiento."
+  schema={schema}
+  lang="es"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/es" class="hover:text-primary-900">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Socialización del Conocimiento</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Misión</p>
+        <h1 class="heading-1">Socialización del Conocimiento</h1>
+        <p class="body-large">
+          La excelencia quirúrgica no debería ser un secreto guardado por pocos. Nuestra misión es
+          socializarla.
+        </p>
+      </header>
+
+      <!-- Introducción -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Existe una tradición no escrita en la medicina: el conocimiento valioso se guarda. Se
+          protege. Se pasa con cuentagotas a pocos elegidos. "Hice fellowship con fulano" se vuelve
+          moneda de cambio. "Aprendí directo con el maestro" se vuelve credencial.
+        </p>
+
+        <p>
+          Entiendo la lógica. El conocimiento es poder. La exclusividad genera valor. Si todos
+          saben, mi ventaja competitiva desaparece.
+        </p>
+
+        <p>Pero esta lógica tiene un costo. Y quienes lo pagan son los pacientes.</p>
+      </div>
+
+      <!-- El Problema -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12">El Problema del Conocimiento Cerrado</h2>
+        <div class="space-y-8">
+          {
+            problemas.map((prob) => (
+              <div class="bg-white p-8 border-l-4 border-accent-600">
+                <h3 class="heading-4 mb-3">{prob.titulo}</h3>
+                <p class="body-base mb-4">{prob.descripcion}</p>
+                <p class="body-small text-accent-700">
+                  <span class="font-medium">Impacto:</span> {prob.impacto}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Continuación -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">La Decisión</h2>
+
+        <p>
+          En algún momento de mi trayectoria, necesité elegir. Podría guardar lo que aprendí.
+          Proteger mi "ventaja competitiva". Ser el único en la región que opera con seguridad en el
+          plano profundo.
+        </p>
+
+        <p>O podría documentar. Sistematizar. Enseñar. Multiplicar.</p>
+
+        <p>
+          La elección fue fácil cuando miré la realidad: yo soy uno. Opero, como máximo, algunos
+          cientos de pacientes por año. Si formo 50 cirujanos que operen con la misma seguridad, el
+          impacto se multiplica exponencialmente.
+        </p>
+
+        <p>
+          <strong class="text-primary-900"
+            >El conocimiento guardado muere contigo. El conocimiento compartido vive para siempre.</strong
+          >
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "Mi objetivo es que cada alumno me supere. Que lleve la técnica adelante, adapte,
+            mejore. Que forme a otros. Solo así el conocimiento evoluciona."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- Principios -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12">Principios de la Socialización</h2>
+        <div class="space-y-12">
+          {
+            principios.map((p) => (
+              <div class="flex gap-8 items-start">
+                <span class="text-5xl font-serif text-accent-600/30 flex-shrink-0">{p.numero}</span>
+                <div>
+                  <h3 class="heading-4 mb-2">{p.titulo}</h3>
+                  <p class="body-base">{p.descripcion}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Números -->
+      <div class="my-20 section-md bg-primary-900">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {
+            numeros.map((num) => (
+              <div>
+                <p class="text-4xl font-serif text-white mb-2">{num.valor}</p>
+                <p class="text-xs text-primary-400 uppercase tracking-[0.15em]">{num.etiqueta}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Continuación -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">Qué Significa Esto en la Práctica</h2>
+
+        <p>
+          Socializar conocimiento no es hacer un curso de fin de semana y soltar al alumno en el
+          mundo. Es crear un ecosistema de aprendizaje continuo:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Formación estructurada:</strong>
+            De lo básico a lo avanzado, con etapas claras y medibles.
+          </li>
+          <li>
+            <strong class="text-primary-900">Mentoría continuada:</strong>
+            Acompañamiento post-curso. Discusión de casos. Soporte real.
+          </li>
+          <li>
+            <strong class="text-primary-900">Comunidad de práctica:</strong>
+            Cirujanos conectados, intercambiando experiencias, evolucionando juntos.
+          </li>
+          <li>
+            <strong class="text-primary-900">Actualización constante:</strong>
+            La técnica evoluciona. La formación también. Quienes aprendieron hace 5 años siguen recibiendo
+            actualizaciones.
+          </li>
+        </ul>
+
+        <h2 class="heading-3">La Invitación</h2>
+
+        <p>
+          Si eres cirujano y sientes que puedes más — que existe un próximo nivel de seguridad y
+          resultado que aún no alcanzaste — considera esto una invitación.
+        </p>
+
+        <p>
+          No para seguir a un gurú. No para replicar ciegamente una técnica. Sino para aprender un
+          método, entender los principios, y entonces hacer tu propia evolución.
+        </p>
+
+        <p>El conocimiento no disminuye cuando se comparte. Se multiplica.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-white border border-gray-100 text-center">
+        <h3 class="heading-2 mb-4">Conozca los Programas de Formación</h3>
+        <p class="body-base mb-8 max-w-lg mx-auto">
+          Del principiante al avanzado. Del curso puntual a la mentoría de largo plazo.
+        </p>
+        <a
+          href="/es/formacion"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          Ver Programas Educativos
+        </a>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/es/face-moderna/evolucion-de-la-cirugia-facial"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← Evolución de la Cirugía Facial
+          </a>
+          <a href="/es/tecnicas" class="text-sm text-accent-600 hover:text-accent-700">
+            Explorar Técnicas →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

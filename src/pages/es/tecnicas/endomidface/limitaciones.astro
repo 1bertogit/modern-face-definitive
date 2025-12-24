@@ -1,0 +1,147 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'limitaciones Endomidface',
+  'jowls no corrige',
+  'cuándo combinar técnicas',
+  'Deep Neck Endomidface',
+  'exceso cutáneo severo',
+  'honestidad técnica cirugía',
+];
+
+const noCorrige = [
+  {
+    p: 'Jowls (Bulldog)',
+    d: 'La flacidez de la línea mandibular no es tratada por Endomidface. La tracción actúa en tercio medio superior.',
+    s: 'Deep Neck + incisión preauricular con plicatura y resección cutánea',
+  },
+  {
+    p: 'Exceso Cervical Significativo',
+    d: 'Cuello flácido con múltiples pliegues no responde a Endomidface aislado.',
+    s: 'Deep Neck completo (grasa + digástrico + fasciotomía + plastismorrafia)',
+  },
+  {
+    p: 'Ptosis Mandibular Severa',
+    d: 'Descenso marcado de tejidos debajo de mandíbula requiere abordaje más amplio.',
+    s: 'Lifting con incisión preauricular, disección de rama mandibular',
+  },
+  {
+    p: 'Redundancia Cutánea Severa',
+    d: 'Pacientes >70 años con SMAS muy redundante no logran resultados adecuados.',
+    s: 'Deep Plane tradicional con resección cutánea',
+  },
+];
+const combinar = [
+  {
+    c: 'Cara + Cuello Flácido',
+    comb: 'Endomidface + Deep Neck + incisiones retroauriculares',
+    b: 'Rejuvenecimiento completo de tercios medio e inferior',
+  },
+  {
+    c: 'Tercio Superior + Medio',
+    comb: 'Browlift + Endomidface (mismo portal temporal)',
+    b: 'Gold standard de Face Moderna, cicatriz única',
+  },
+  {
+    c: 'Párpado Largo + Bolsas',
+    comb: "Endomidface + Blefaroplastia 'No Touch'",
+    b: 'Elevación del tercio medio reposiciona bolsas naturalmente',
+  },
+  {
+    c: 'Jowls + Tercio Medio',
+    comb: 'Endomidface + Plicaturas + Resección Cutánea',
+    b: 'Resultado equivalente a Deep Plane con menor morbilidad',
+  },
+];
+---
+
+<BaseLayout
+  title="Limitaciones del Endomidface"
+  description="Lo que Endomidface no corrige y cuándo combinar con otras técnicas."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Honestidad Técnica
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Limitaciones de la Técnica
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Transparencia sobre lo que la técnica puede y no puede hacer es fundamental.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg drop-cap">
+        Endomidface es una técnica poderosa para rejuvenecimiento del tercio medio, pero no es
+        universal. Reconocer sus limitaciones es tan importante como dominar su ejecución.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Lo Que Endomidface NO Corrige
+      </h2><div class="space-y-6">
+        {
+          noCorrige.map((n) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-red-600 uppercase mb-2">No Corrige</p>
+                      <h3 class="font-serif text-primary-900">{n.p}</h3>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-2">Por Qué</p>
+                      <p class="text-sm text-warmGray">{n.d}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-2">Alternativa</p>
+                      <p class="text-sm text-warmGray">{n.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Cuándo Combinar Técnicas
+      </h2><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          combinar.map((c) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <>
+                <h3 class="font-serif text-primary-900 mb-3">{c.c}</h3>
+                <p class="text-sm text-accent-600 mb-4">{c.comb}</p>
+                <p class="text-sm text-warmGray">{c.b}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/errores-comunes" class="text-sm text-accent-600"
+        >← Errores Comunes</a
+      ><a href="/es/tecnicas/endomidface/resultados" class="text-sm text-accent-600">Resultados →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

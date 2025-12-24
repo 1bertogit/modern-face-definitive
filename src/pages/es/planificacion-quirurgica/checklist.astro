@@ -1,0 +1,122 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const categorias = [
+  {
+    titulo: 'Documentación',
+    items: [
+      'Término de consentimiento firmado',
+      'Fotografías estandarizadas en prontuario',
+      'Exámenes laboratoriales recientes',
+      'Evaluación cardiológica (si indicada)',
+      'Ficha SPE-M completada',
+    ],
+  },
+  {
+    titulo: 'Paciente',
+    items: [
+      'Ayuno de 8 horas confirmado',
+      'Sin anticoagulantes hace 7+ días',
+      'Sin tabaquismo hace 2+ semanas',
+      'Acompañante presente',
+      'Orientaciones post-op entregadas',
+    ],
+  },
+  {
+    titulo: 'Sala y Equipo',
+    items: [
+      'Material de sutura conferido',
+      'Hemostasia disponible',
+      'Lupas e iluminación testeados',
+      'Posicionamiento de mesa adecuado',
+      'Equipo informado sobre procedimiento',
+    ],
+  },
+  {
+    titulo: 'Marcación',
+    items: [
+      'Paciente de pie para marcación',
+      'Vectores definidos y fotografiados',
+      'Áreas de atención marcadas',
+      'Simetría verificada',
+      'Paciente aprobó marcaciones',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Checklist Preoperatorio"
+  description="Verificación final antes de la cirugía facial. Documentación, paciente, sala y marcaciones."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Checklist</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 06
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Checklist Preoperatorio
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La última verificación antes de iniciar. Checklists reducen errores — no porque no sepa,
+        sino porque detalles escapan en días agitados.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          categorias.map((cat) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h2 class="font-serif text-primary-900 text-xl mb-6 pb-4 border-b border-gray-200">
+                {cat.titulo}
+              </h2>
+              <ul class="space-y-3">
+                {cat.items.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 border-2 border-accent-600 flex-shrink-0 mt-0.5" />
+                    <span class="text-warmGray">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">¿Por qué Usar Checklist?</h2>
+      <p class="text-warmGray mb-8">
+        La aviación redujo errores drásticamente con checklists. La medicina está aprendiendo.
+        Cirujanos experimentados usan checklists no por falta de conocimiento, sino por respeto a la
+        complejidad de los procedimientos.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica/consentimiento" class="text-sm text-accent-600"
+        >← Consentimiento</a
+      >
+      <a href="/es/planificacion-quirurgica" class="text-sm text-accent-600"
+        >Planificación Index →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

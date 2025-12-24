@@ -1,0 +1,261 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'La Evolución de la Cirugía Facial',
+  description:
+    'De Skoog a Face Moderna®: cómo la cirugía facial evolucionó en 50 años y por qué necesitamos nuevos enfoques para rostros modernos.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const timeline = [
+  {
+    era: '1970s',
+    titulo: 'Era del SMAS',
+    cirujano: 'Skoog, Mitz & Peyronie',
+    descripcion:
+      'Descubrimiento del SMAS como capa quirúrgica. Inicio del lifting en plano profundo. Revolución conceptual.',
+    limitacion: 'Técnicas agresivas, recuperación larga, resultados variables.',
+  },
+  {
+    era: '1980s',
+    titulo: 'Era del Deep Plane',
+    cirujano: 'Hamra',
+    descripcion:
+      'Lifting en plano profundo sub-SMAS. Resultados más duraderos. Vector de elevación mejorado.',
+    limitacion: 'Curva de aprendizaje extrema. Riesgo de lesión nerviosa. Pocos lo dominaban.',
+  },
+  {
+    era: '1990s',
+    titulo: 'Era Endoscópica',
+    cirujano: 'Isse, Ramirez',
+    descripcion: 'Introducción del endoscopio. Incisiones menores. Visualización ampliada.',
+    limitacion: 'Costo alto. Pérdida del feedback táctil. Dependencia de equipamiento.',
+  },
+  {
+    era: '2000s',
+    titulo: 'Era de los Rellenos',
+    cirujano: 'Varios',
+    descripcion: "Explosión de rellenos y bioestimuladores. 'Liquid facelift'. Menos cirugía.",
+    limitacion: "Resultados temporales. Rostros 'inflados'. Alteración de la anatomía nativa.",
+  },
+  {
+    era: '2010s',
+    titulo: 'Era de la Integración',
+    cirujano: 'Mendelson, Rohrich',
+    descripcion:
+      'Comprensión de los compartimentos de grasa. Técnicas combinadas. Personalización.',
+    limitacion: 'Complejidad creciente. Sin estandarización. Resultados inconsistentes.',
+  },
+  {
+    era: '2020s',
+    titulo: 'Era de Face Moderna®',
+    cirujano: 'Dr. Robério Brandão',
+    descripcion:
+      'Visión directa. Adaptación para rostros con bioestimuladores. Seguridad sistematizada. Conocimiento socializado.',
+    limitacion: 'En evolución constante.',
+  },
+];
+---
+
+<BaseLayout
+  title="La Evolución de la Cirugía Facial"
+  description="De Skoog a Face Moderna®: cómo la cirugía facial evolucionó en 50 años y por qué necesitamos nuevos enfoques para rostros modernos."
+  schema={schema}
+  lang="es"
+>
+  <article class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 text-sm text-softGray">
+          <li><a href="/es" class="hover:text-primary-900">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Evolución de la Cirugía Facial</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16 max-w-3xl">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Contexto Histórico
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 leading-tight mb-6">
+          La Evolución de la Cirugía Facial
+        </h1>
+        <p class="text-xl text-warmGray leading-relaxed">
+          50 años de avances, limitaciones y la necesidad de un nuevo enfoque para los rostros del
+          siglo XXI.
+        </p>
+      </header>
+
+      <!-- Introducción -->
+      <div class="prose prose-lg max-w-none text-warmGray mb-20">
+        <p class="drop-cap">
+          Para entender Face Moderna®, necesitamos entender de dónde venimos. La cirugía facial no
+          nació lista — evolucionó a través de generaciones de cirujanos que cuestionaron,
+          experimentaron y refinaron. Cada era trajo avances. Cada era dejó limitaciones.
+        </p>
+
+        <p>
+          Lo que hacemos hoy solo es posible porque gigantes vinieron antes. Pero honrar el pasado
+          no significa repetirlo ciegamente. Significa construir sobre él.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Línea vertical -->
+        <div
+          class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 transform md:-translate-x-1/2"
+        >
+        </div>
+
+        <div class="space-y-16">
+          {
+            timeline.map((item, index) => (
+              <div
+                class={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              >
+                {/* Marcador */}
+                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-accent-600 rounded-full transform -translate-x-1/2 md:-translate-x-1/2 mt-2" />
+
+                {/* Contenido */}
+                <div
+                  class={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'} pl-8 md:pl-0`}
+                >
+                  <span class="text-5xl font-serif text-accent-600/30">{item.era}</span>
+                  <h3 class="text-xl font-serif text-primary-900 mt-2 mb-1">{item.titulo}</h3>
+                  <p class="text-sm text-accent-600 mb-4">{item.cirujano}</p>
+                  <p class="text-warmGray mb-4">{item.descripcion}</p>
+                  <p class="text-sm text-softGray italic">
+                    <span class="font-medium">Limitación:</span> {item.limitacion}
+                  </p>
+                </div>
+
+                {/* Espaciador */}
+                <div class="hidden md:block md:w-1/2" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Análisis -->
+      <div class="prose prose-lg max-w-none text-warmGray mt-20">
+        <h2 class="font-serif text-primary-900">Lo Que Cada Era Nos Enseñó</h2>
+
+        <h3 class="font-serif text-primary-900">Del SMAS aprendimos:</h3>
+        <p>
+          Que existe una capa profunda que sustenta los resultados. Que tirar solo piel no funciona
+          a largo plazo. Que la anatomía profunda es el secreto de la durabilidad.
+        </p>
+
+        <h3 class="font-serif text-primary-900">Del Deep Plane aprendimos:</h3>
+        <p>
+          Que el plano sub-SMAS es más seguro de lo que parece — cuando conoces la anatomía. Que
+          menos tensión en la piel significa mejores cicatrices. Que los vectores verticales son
+          superiores a los laterales.
+        </p>
+
+        <h3 class="font-serif text-primary-900">De la era endoscópica aprendimos:</h3>
+        <p>
+          Que incisiones menores son posibles. Que la visualización ampliada tiene valor — pero
+          también costo. Que la dependencia de tecnología tiene riesgos.
+        </p>
+
+        <h3 class="font-serif text-primary-900">De la era de los rellenos aprendimos:</h3>
+        <p>
+          Que el paciente quiere menos invasivo. Que el volumen no es la única respuesta. Y,
+          críticamente, que los bioestimuladores alteran la anatomía de formas que las técnicas
+          antiguas no preveían.
+        </p>
+
+        <h2 class="font-serif text-primary-900">El Desafío del Rostro Moderno</h2>
+
+        <p>
+          Aquí está el problema: las técnicas desarrolladas entre 1970 y 2010 fueron creadas para
+          rostros <em>nativos</em> — sin bioestimuladores, sin años de ácido hialurónico, sin rellenos
+          repetidos.
+        </p>
+
+        <p>
+          Hoy, <strong class="text-primary-900"
+            >el 90% de los rostros que operamos ya fueron tratados con inyectables</strong
+          >. Los planos anatómicos están alterados. La fibrosis es diferente. Los riesgos son otros.
+        </p>
+
+        <p>
+          Aplicar ciegamente técnicas de 1990 en rostros de 2024 no es tradición — es negligencia.
+          La evolución es obligatoria.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="text-xl font-serif italic text-primary-900 leading-relaxed">
+            "Honrar a los maestros del pasado no significa repetir sus técnicas. Significa aplicar
+            su mentalidad — de cuestionamiento y evolución — a los desafíos del presente."
+          </p>
+          <p class="text-sm text-softGray mt-4">— Dr. Robério Brandão</p>
+        </div>
+
+        <h2 class="font-serif text-primary-900">Por Qué Face Moderna®</h2>
+
+        <p>
+          Face Moderna® no descarta lo que vino antes. Integra. Toma lo mejor de cada era — la
+          comprensión del SMAS, la seguridad del deep plane, la filosofía de mínima invasión — y
+          adapta para la realidad actual.
+        </p>
+
+        <p>
+          Agrega lo que faltaba: visión directa como alternativa al endoscopio. Protocolos para
+          rostros con bioestimuladores. Sistematización del conocimiento para acortar la curva de
+          aprendizaje.
+        </p>
+
+        <p>
+          No es ruptura. Es evolución natural. El próximo capítulo de una historia que comenzó hace
+          50 años.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="text-2xl font-serif text-white mb-4">Entienda la Técnica</h3>
+        <p class="text-primary-400 mb-8 max-w-lg mx-auto">
+          Vea cómo Face Moderna® aplica las lecciones del pasado en el presente.
+        </p>
+        <a
+          href="/es/face-moderna/por-que-vision-directa"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          ¿Por Qué Visión Directa?
+        </a>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/es/face-moderna/principios"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← Los Principios Técnicos
+          </a>
+          <a
+            href="/es/face-moderna/socializacion-del-conocimiento"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Socialización del Conocimiento →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

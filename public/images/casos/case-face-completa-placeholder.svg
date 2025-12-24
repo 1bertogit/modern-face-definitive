@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f5"/>
+      <stop offset="100%" style="stop-color:#f0efe8"/>
+    </linearGradient>
+    <linearGradient id="accentGradFace" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8956c;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#9d7f5c;stop-opacity:0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradFace)"/>
+  <rect x="40" y="40" width="720" height="520" rx="4" fill="#ffffff"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05">
+    <line x1="200" y1="40" x2="200" y2="560" stroke="#1e293b" stroke-width="1"/>
+    <line x1="400" y1="40" x2="400" y2="560" stroke="#1e293b" stroke-width="1"/>
+    <line x1="600" y1="40" x2="600" y2="560" stroke="#1e293b" stroke-width="1"/>
+    <line x1="40" y1="200" x2="760" y2="200" stroke="#1e293b" stroke-width="1"/>
+    <line x1="40" y1="400" x2="760" y2="400" stroke="#1e293b" stroke-width="1"/>
+  </g>
+
+  <!-- Face with all zones highlighted -->
+  <g transform="translate(400, 210)">
+    <!-- Face outline -->
+    <ellipse cx="0" cy="45" rx="115" ry="145" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.2"/>
+
+    <!-- Zone 1: Upper face (Browlift zone) -->
+    <ellipse cx="0" cy="-30" rx="105" ry="50" fill="url(#accentGradFace)" opacity="0.3"/>
+    <ellipse cx="0" cy="-30" rx="105" ry="50" fill="none" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <!-- Brows -->
+    <path d="M -55,-35 Q -40,-45 -20,-42" stroke="#b8956c" stroke-width="2.5" opacity="0.8"/>
+    <path d="M 20,-42 Q 40,-45 55,-35" stroke="#b8956c" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Eyes -->
+    <ellipse cx="-35" cy="-15" rx="15" ry="9" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+    <ellipse cx="35" cy="-15" rx="15" ry="9" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Zone 2: Midface (Endomidface zone) -->
+    <ellipse cx="0" cy="30" rx="95" ry="55" fill="url(#accentGradFace)" opacity="0.25"/>
+    <ellipse cx="0" cy="30" rx="95" ry="55" fill="none" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <!-- Cheek contours -->
+    <path d="M -65,15 Q -75,35 -70,55" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+    <path d="M 65,15 Q 75,35 70,55" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+    <!-- Nasolabial -->
+    <path d="M -15,20 Q -25,45 -28,65" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <path d="M 15,20 Q 25,45 28,65" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+
+    <!-- Nose -->
+    <path d="M 0,-5 L 0,25" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+    <path d="M -12,25 Q 0,30 12,25" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+
+    <!-- Mouth -->
+    <path d="M -25,65 Q 0,70 25,65" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+
+    <!-- Zone 3: Lower face and neck -->
+    <ellipse cx="0" cy="120" rx="80" ry="75" fill="url(#accentGradFace)" opacity="0.2"/>
+    <ellipse cx="0" cy="120" rx="80" ry="75" fill="none" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <!-- Jawline -->
+    <path d="M -62,85 Q -55,100 -48,115" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <path d="M 62,85 Q 55,100 48,115" stroke="#b8956c" stroke-width="2" opacity="0.7"/>
+    <!-- Neck contours -->
+    <path d="M -48,115 Q -42,145 -38,180" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+    <path d="M 48,115 Q 42,145 38,180" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+    <path d="M 0,120 L 0,180" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Zone labels -->
+    <text x="130" y="-30" font-family="'Inter', Arial, sans-serif" font-size="10" fill="#b8956c" opacity="0.8">TERÇO SUPERIOR</text>
+    <text x="130" y="30" font-family="'Inter', Arial, sans-serif" font-size="10" fill="#b8956c" opacity="0.8">TERÇO MÉDIO</text>
+    <text x="130" y="120" font-family="'Inter', Arial, sans-serif" font-size="10" fill="#b8956c" opacity="0.8">TERÇO INFERIOR</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="480" font-family="'Playfair Display', Georgia, serif" font-size="24" fill="#1e293b" text-anchor="middle">Face Completa</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="508" font-family="'Inter', Arial, sans-serif" font-size="11" fill="#b8956c" text-anchor="middle" letter-spacing="3">REJUVENESCIMENTO FACIAL TOTAL</text>
+
+  <!-- Decorative line -->
+  <line x1="240" y1="525" x2="560" y2="525" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(720, 520)">
+    <circle r="18" fill="#b8956c" opacity="0.8"/>
+    <rect x="-7" y="-2.5" width="14" height="5" fill="#ffffff"/>
+    <rect x="-2.5" y="-7" width="5" height="14" fill="#ffffff"/>
+  </g>
+</svg>

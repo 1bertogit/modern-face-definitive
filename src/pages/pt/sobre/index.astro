@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const secoes = [
+  {
+    titulo: 'Dr. Robério Brandão',
+    desc: 'Criador da Face Moderna® e pioneiro em técnicas de cirurgia facial por visão direta',
+    href: '/pt/sobre/dr-roberio-brandao',
+    icone: 'person',
+  },
+  {
+    titulo: 'Casuística',
+    desc: 'Mais de 1.500 cirurgias faciais e 212+ casos documentados de Endomidface',
+    href: '/pt/sobre/casuistica',
+    icone: 'analytics',
+  },
+  {
+    titulo: 'Linha do Tempo',
+    desc: 'A evolução de quase 20 anos de dedicação à cirurgia facial',
+    href: '/pt/sobre/linha-do-tempo',
+    icone: 'timeline',
+  },
+  {
+    titulo: 'Princípios Éticos',
+    desc: 'Os valores que guiam nossa prática e ensino',
+    href: '/pt/sobre/principios-eticos',
+    icone: 'verified_user',
+  },
+  {
+    titulo: 'Visão de Futuro',
+    desc: 'Para onde caminha a cirurgia facial e nosso papel nessa evolução',
+    href: '/pt/sobre/visao-de-futuro',
+    icone: 'rocket_launch',
+  },
+];
+
+const numeros = [
+  { valor: '1.500+', label: 'Cirurgias faciais' },
+  { valor: '212+', label: 'Casos Endomidface' },
+  { valor: '0', label: 'Lesões nervosas permanentes' },
+  { valor: '20', label: 'Anos de experiência' },
+];
+---
+
+<BaseLayout
+  title="Sobre | Modern Face Institute"
+  description="Conheça o Dr. Robério Brandão, criador da Face Moderna®, sua trajetória, casuística e os princípios que guiam o instituto."
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Modern Face Institute</p>
+      <h1 class="heading-1-white">Sobre Nós</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Quase 20 anos dedicados à cirurgia facial, formando cirurgiões e desenvolvendo técnicas que
+        priorizam segurança, elegância e resultados duradouros.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="text-xl font-serif text-white italic">
+        "A Face Moderna não é apenas uma técnica. É uma filosofia de respeito à anatomia, ao
+        paciente e ao tempo."
+      </p>
+      <p class="text-white/70 text-sm mt-2">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="section-md bg-ivory">
+    <div class="prose-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {
+          numeros.map((n) => (
+            <div class="text-center p-6 bg-white border border-gray-100">
+              <p class="text-4xl font-serif text-accent-600 mb-2">{n.valor}</p>
+              <p class="body-small">{n.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Conheça Nossa História</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          secoes.map((s) => (
+            <a
+              href={s.href}
+              class="group p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="material-symbols-outlined text-accent-600 text-2xl mb-4 block">
+                {s.icone}
+              </span>
+              <h3 class="heading-3 group-hover:text-accent-600 transition-colors mb-2">
+                {s.titulo}
+              </h3>
+              <p class="body-small">{s.desc}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Missão -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-8">Nossa Missão</h2>
+      <p class="body-large-light mb-8">
+        Formar cirurgiões que não apenas executam técnicas, mas que pensam, planejam e decidem com
+        base em princípios sólidos de anatomia, segurança e respeito ao paciente.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Segurança Máxima</h3>
+          <p class="text-sm text-primary-400">Zero tolerância a lesões permanentes</p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Elegância nos Resultados</h3>
+          <p class="text-sm text-primary-400">Naturalidade e harmonia facial</p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Recuperação Otimizada</h3>
+          <p class="text-sm text-primary-400">Técnicas menos invasivas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2 mb-6">Quer Fazer Parte?</h2>
+      <p class="body-base mb-8">
+        Conheça nossos programas de formação e junte-se a um grupo seleto de cirurgiões que estão
+        redefinindo a cirurgia facial.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas de Formação
+      </a>
+    </div>
+  </section>
+</BaseLayout>

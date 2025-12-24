@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const secciones = [
+  {
+    titulo: 'Información del Procedimiento',
+    items: [
+      'Descripción técnica de la cirugía',
+      'Objetivos realistas esperados',
+      'Alternativas al procedimiento',
+      'Tiempo quirúrgico estimado',
+    ],
+  },
+  {
+    titulo: 'Riesgos y Complicaciones',
+    items: [
+      'Hematoma (más común)',
+      'Infección (rara)',
+      'Lesión nerviosa temporal',
+      'Lesión nerviosa permanente (rara)',
+      'Asimetría',
+      'Cicatriz hipertrófica',
+      'Necesidad de revisión',
+    ],
+  },
+  {
+    titulo: 'Postoperatorio',
+    items: [
+      'Tiempo de recuperación esperado',
+      'Restricciones de actividad',
+      'Signos de alerta',
+      'Cronograma de retornos',
+    ],
+  },
+];
+
+const principios = [
+  'El consentimiento no es solo documento legal',
+  'Es proceso de comunicación con el paciente',
+  'Paciente debe entender, no solo firmar',
+  'Documento debe ser firmado con anticipación',
+];
+---
+
+<BaseLayout
+  title="Consentimiento Informado"
+  description="Término de consentimiento para cirugía facial. Comunicación clara de riesgos y expectativas."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Consentimiento</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 05
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Consentimiento Informado
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La comunicación transparente es fundamental. El paciente debe entender completamente qué
+        esperar.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "El mejor consentimiento es aquel que el paciente consigue explicar de vuelta para usted."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Contenido del Término</h2>
+      <div class="space-y-8">
+        {
+          secciones.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-4">{s.titulo}</h3>
+              <ul class="space-y-2">
+                {s.items.map((item) => (
+                  <li class="flex items-center gap-2 text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Principios del Consentimiento
+      </h2>
+      <div class="space-y-3">
+        {
+          principios.map((p) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{p}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica/fotografia" class="text-sm text-accent-600"
+        >← Fotografía</a
+      >
+      <a href="/es/planificacion-quirurgica/checklist" class="text-sm text-accent-600"
+        >Checklist →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

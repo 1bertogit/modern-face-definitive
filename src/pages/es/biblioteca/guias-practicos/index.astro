@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const guias = [
+  { titulo: 'Checklist Preoperatorio Completo', tipo: 'Checklist', paginas: 4, acceso: 'Alumnos' },
+  { titulo: 'Protocolo de Evaluación SPE-M', tipo: 'Protocolo', paginas: 8, acceso: 'Alumnos' },
+  { titulo: 'Guía de Documentación Fotográfica', tipo: 'Guía', paginas: 12, acceso: 'Alumnos' },
+  {
+    titulo: 'Orientaciones Postoperatorias para Paciente',
+    tipo: 'Handout',
+    paginas: 2,
+    acceso: 'Alumnos',
+  },
+  { titulo: 'Término de Consentimiento Modelo', tipo: 'Documento', paginas: 4, acceso: 'Alumnos' },
+  { titulo: 'Secuencia Operatoria Endomidface', tipo: 'Protocolo', paginas: 6, acceso: 'Alumnos' },
+  { titulo: 'Manejo de Complicaciones', tipo: 'Guía', paginas: 10, acceso: 'Alumnos' },
+  { titulo: 'Quick Reference: Anatomía Facial', tipo: 'Referencia', paginas: 2, acceso: 'Público' },
+];
+
+const formatos = [
+  { icono: 'picture_as_pdf', formato: 'PDF', desc: 'Para impresión' },
+  { icono: 'edit_document', formato: 'Editable', desc: 'Personalizable' },
+  { icono: 'smartphone', formato: 'Mobile', desc: 'Acceso rápido' },
+];
+---
+
+<BaseLayout
+  title="Guías Prácticas | Biblioteca"
+  description="Protocolos, checklists y materiales de referencia rápida para cirugía facial."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li><li><span>/</span></li><li>
+            <a href="/es/biblioteca" class="hover:text-white">Biblioteca</a>
+          </li><li><span>/</span></li><li class="text-white">Guías Prácticas</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Guías Prácticas</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Protocolos, checklists y materiales de referencia rápida
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="flex justify-center gap-8">
+        {
+          formatos.map((f) => (
+            <div class="flex items-center gap-2 text-white">
+              <>
+                <span class="material-symbols-outlined">{f.icono}</span>
+                <div>
+                  <>
+                    <p class="text-sm font-medium">{f.formato}</p>
+                    <p class="text-xs text-white/70">{f.desc}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-4">
+        {
+          guias.map((g) => (
+            <div class="flex items-center justify-between p-4 bg-white border border-gray-100">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-accent-600">description</span>
+                <div>
+                  <>
+                    <h3 class="font-medium text-primary-900">{g.titulo}</h3>
+                    <p class="text-xs text-warmGray">
+                      {g.tipo} • {g.paginas} páginas
+                    </p>
+                  </>
+                </div>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 ${g.acceso === 'Público' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+              >
+                {g.acceso}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Materiales Listos para Usar</h2>
+      <p class="text-warmGray">
+        Todas las guías fueron desarrolladas para uso inmediato en la práctica clínica. Pueden ser
+        impresas, adaptadas a su realidad y compartidas con su equipo.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Acceso a las Guías</h2>
+      <p class="text-primary-300 mb-8">
+        Todas las guías prácticas están disponibles para alumnos de los programas de formación.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/biblioteca/infograficos" class="text-sm text-accent-600">← Infografías</a>
+      <a href="/es/biblioteca" class="text-sm text-accent-600">Biblioteca →</a>
+    </div>
+  </section>
+</BaseLayout>

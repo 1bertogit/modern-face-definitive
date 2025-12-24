@@ -1,0 +1,156 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'resultados Endomidface',
+  'volumen malar superior',
+  'durabilidad 8-12 años',
+  'lesión nerviosa cero',
+  'antes después lifting',
+  'evidencia casos documentados',
+];
+
+const resultados = [
+  {
+    a: 'Volumen Malar',
+    ant: 'Mejillas caídas, pérdida de proyección',
+    dep: 'Restauración de volumen y proyección malar',
+  },
+  {
+    a: 'Párpado Inferior',
+    ant: 'Verticalizado, transición abrupta',
+    dep: 'Acortamiento vertical, transición suave',
+  },
+  {
+    a: 'Pliegue Nasolabial',
+    ant: 'Inicio de acentuación',
+    dep: 'Suavización del pliegue superior',
+  },
+  {
+    a: 'Vector Negativo',
+    ant: "Aspecto 'cansado', párpado proyectado",
+    dep: 'Neutralización o mejora del vector',
+  },
+];
+const nums = [
+  { v: '212', l: 'Casos Documentados' },
+  { v: '0%', l: 'Lesión Nerviosa Permanente' },
+  { v: '7-10', l: 'Días Retorno Social' },
+  { v: '8-12', l: 'Años de Durabilidad' },
+];
+---
+
+<BaseLayout
+  title="Resultados del Endomidface"
+  description="Resultados esperados del Endomidface. Volumen malar superior, 0% lesión permanente."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Evidencia & Datos
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Resultados Esperados</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Lo que puede esperar del Endomidface, basado en 200+ casos documentados.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          nums.map((n) => (
+            <div>
+              <>
+                <p class="text-3xl font-serif">{n.v}</p>
+                <p class="text-xs uppercase opacity-80">{n.l}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Resultados por Área Anatómica
+      </h2><div class="space-y-4">
+        {
+          resultados.map((r) => (
+            <div class="bg-white p-6 border border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+              <>
+                <h3 class="font-serif text-primary-900">{r.a}</h3>
+                <div>
+                  <>
+                    <p class="text-xs text-red-600 uppercase mb-1">Antes</p>
+                    <p class="text-sm text-warmGray">{r.ant}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-green-600 uppercase mb-1">Después</p>
+                    <p class="text-sm text-warmGray">{r.dep}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-accent-600 uppercase mb-1">Duración</p>
+                    <p class="text-sm text-warmGray">8-12 años</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Volumen Malar Superior</h2><p
+        class="text-warmGray mb-6"
+      >
+        Uno de los resultados más notables del Endomidface es la calidad del volumen malar obtenido.
+        Cirujanos con experiencia en ambas técnicas observan: "Endomidface logra muy buen volumen
+        malar, superior al Deep Plane en mi opinión."
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Seguridad Comprobada</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">0%</p><p
+            class="text-white font-medium mb-4"
+          >
+            Lesión Nerviosa Permanente
+          </p><p class="text-primary-300 text-sm">
+            En 212 casos documentados, ninguna lesión nerviosa permanente fue registrada.
+          </p>
+        </div><div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">&lt;3%</p><p
+            class="text-white font-medium mb-4"
+          >
+            Tasa de Complicaciones
+          </p><p class="text-primary-300 text-sm">
+            Complicaciones menores son raras y autolimitadas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/limitaciones" class="text-sm text-accent-600"
+        >← Limitaciones</a
+      ><a href="/es/tecnicas/endomidface/recuperacion" class="text-sm text-accent-600"
+        >Recuperación →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

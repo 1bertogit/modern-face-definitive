@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const modules = [
+  {
+    num: '01',
+    title: 'Modern Face Fundamentals',
+    desc: 'Philosophy, principles and applied anatomy',
+  },
+  { num: '02', title: 'Middle Third Anatomy', desc: 'Spaces, ligaments and critical structures' },
+  { num: '03', title: 'Direct Vision Technique', desc: 'Access, dissection and mobilization' },
+  {
+    num: '04',
+    title: 'Vectors and Fixation',
+    desc: '90° vertical vector and deep temporal fixation',
+  },
+  { num: '05', title: 'Clinical Cases', desc: 'Real case analysis and decision making' },
+  {
+    num: '06',
+    title: 'Complications and Management',
+    desc: 'Prevention, identification and resolution',
+  },
+];
+
+const mentorship = [
+  '2 months of structured follow-up',
+  'Weekly group meetings',
+  'Participant case analysis',
+  'Direct feedback from Dr. Robério',
+  'Exclusive group access',
+];
+
+const outcomes = [
+  'Eliminate endoscope dependency',
+  'Master the areolar sub-SMAS plane',
+  'Execute vertical vector with precision',
+  'Natural and lasting results',
+  'Maximum safety in every procedure',
+];
+---
+
+<BaseLayout
+  title="ENDOMIDFACE® Direct Vision | Course + Mentorship"
+  description="Complete ENDOMIDFACE® course with 2 months mentorship. Master the middle third without endoscope."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/education" class="hover:text-white">Education</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">ENDOMIDFACE®</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Core Program
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        ENDOMIDFACE®<br />Direct Vision
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Complete online course + 2 months structured mentorship. Master the middle third without
+        endoscope dependency.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-center gap-8 text-white">
+      <div class="text-center">
+        <p class="text-sm opacity-70">Investment</p>
+        <p class="text-3xl font-serif">$2,000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Original Value</p>
+        <p class="text-xl line-through opacity-50">$4,000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Savings</p>
+        <p class="text-xl text-green-300">$2,000</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">The Program</h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          ENDOMIDFACE® Direct Vision is the technical mastery program for the middle third of the
+          face. It introduces surgeons to the Modern Face® philosophy, eliminating endoscope
+          dependency and establishing a more direct, safe and reproducible approach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Course Content</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          modules.map((m) => (
+            <div class="flex items-start gap-4 p-6 bg-ivory border border-gray-100">
+              <span class="text-3xl font-serif text-accent-600/30">{m.num}</span>
+              <div>
+                <h3 class="font-serif text-primary-900 mb-1">{m.title}</h3>
+                <p class="text-sm text-warmGray">{m.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Mentorship Included</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          mentorship.map((item) => (
+            <div class="flex items-center gap-3 p-4 bg-white/10">
+              <span class="material-symbols-outlined text-accent-400">check_circle</span>
+              <span class="text-white">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">What You'll Achieve</h2>
+      <div class="space-y-3">
+        {
+          outcomes.map((r) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-green-600">verified</span>
+              <span class="text-warmGray">{r}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-accent-600">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Ready to Master the Middle Third?</h2>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-white text-primary-900 text-sm uppercase tracking-[0.15em] hover:bg-gray-100 transition-colors"
+      >
+        Secure My Spot
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/education" class="text-sm text-accent-600">← Education</a>
+      <a href="/education/core-programs/deep-neck-mastery" class="text-sm text-accent-600"
+        >Deep Neck Mastery →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

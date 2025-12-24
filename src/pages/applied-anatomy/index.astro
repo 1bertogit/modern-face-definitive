@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Applied Anatomy for Facial Surgery',
+  description:
+    'Facial anatomy applied to surgical practice. Spaces, ligaments, nerves and essential structures.',
+};
+
+const regions = [
+  {
+    title: 'Upper Third',
+    subtitle: 'Forehead and Temple',
+    description: 'Anatomy of forehead, temple, and periorbital region. Foundation for Browlift.',
+    topics: ['Supraorbital nerve', 'Temporal fascia', 'Temporal line', 'Orbital rim'],
+    href: '/applied-anatomy/upper-third',
+  },
+  {
+    title: 'Middle Third',
+    subtitle: 'Midface and Malar Region',
+    description: 'Spaces, retaining ligaments, and critical nerves of the midface.',
+    topics: ['Pre-zygomatic space', 'Zygomatic ligament', 'Facial nerve', 'SOOF'],
+    href: '/applied-anatomy/middle-third',
+  },
+  {
+    title: 'Lower Third',
+    subtitle: 'Mandibular Region',
+    description: 'Anatomy of the mandible, jowl, and cervicofacial transition.',
+    topics: ['Mandibular ligament', 'Jowl fat', 'Marginal nerve', 'Platysma'],
+    href: '/applied-anatomy/lower-third',
+  },
+  {
+    title: 'Cervical Region',
+    subtitle: 'Neck',
+    description: 'Deep cervical anatomy for safe Deep Neck procedures.',
+    topics: ['Platysma', 'Digastric', 'Submandibular gland', 'Cervical fascia'],
+    href: '/applied-anatomy/cervical-region',
+  },
+];
+
+const concepts = [
+  {
+    title: 'Surgical Spaces',
+    description: 'Safe dissection planes',
+    href: '/applied-anatomy/surgical-spaces',
+  },
+  {
+    title: 'Retaining Ligaments',
+    description: 'The anchors of the face',
+    href: '/applied-anatomy/retaining-ligaments',
+  },
+  {
+    title: 'Facial Nerves',
+    description: 'What to protect at all costs',
+    href: '/applied-anatomy/facial-nerves',
+  },
+];
+---
+
+<BaseLayout
+  title="Applied Anatomy for Facial Surgery"
+  description="Facial anatomy applied to surgical practice. Spaces, ligaments, nerves and essential structures for Face Moderna."
+  schema={schema}
+  lang="en"
+>
+  <!-- Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Applied Anatomy</li>
+        </ol>
+      </nav>
+
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Fundamentals
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Applied Anatomy</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Anatomy is the absolute truth. Mastering facial structures is a prerequisite for safety and
+        surgical excellence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "You cannot protect what you don't know. Anatomy is not memorization — it's surgical
+        survival."
+      </p>
+    </div>
+  </section>
+
+  <!-- Regions -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">By Anatomical Region</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          regions.map((region, i) => (
+            <a
+              href={region.href}
+              class="group block p-8 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="text-5xl font-serif text-accent-600/20 group-hover:text-accent-600/40 transition-colors block mb-4">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p class="text-xs text-accent-600 uppercase tracking-[0.15em] mb-1">
+                {region.subtitle}
+              </p>
+              <h3 class="text-xl font-serif text-primary-900 mb-3 group-hover:text-accent-600 transition-colors">
+                {region.title}
+              </h3>
+              <p class="text-warmGray text-sm mb-6">{region.description}</p>
+
+              <div class="flex flex-wrap gap-2">
+                {region.topics.map((topic) => (
+                  <span class="text-xs px-2 py-1 bg-ivory text-softGray">{topic}</span>
+                ))}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-cutting Concepts -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Cross-cutting Concepts</h2>
+      <p class="text-warmGray text-center mb-12">Structures spanning multiple regions</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          concepts.map((concept) => (
+            <a
+              href={concept.href}
+              class="group block p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all text-center"
+            >
+              <h3 class="font-serif text-primary-900 text-lg mb-2 group-hover:text-accent-600 transition-colors">
+                {concept.title}
+              </h3>
+              <p class="text-sm text-warmGray">{concept.description}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Anatomy in Practice</h2>
+      <p class="text-warmGray mb-8">
+        In Institute courses, anatomy is taught in an applied way — always connected to surgical
+        technique and intraoperative decisions.
+      </p>
+      <a
+        href="/training"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Explore Courses
+      </a>
+    </div>
+  </section>
+</BaseLayout>

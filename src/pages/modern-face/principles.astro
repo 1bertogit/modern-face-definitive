@@ -1,0 +1,160 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Technical Principles of Modern Face®',
+  description:
+    'The 6 technical foundations that guide every surgical decision in the Modern Face® methodology.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const principles = [
+  {
+    number: '01',
+    title: 'Direct Vision Over Endoscopy',
+    description:
+      'Direct vision provides simultaneous tactile and visual feedback. You see AND feel. At the same time. In the same plane. The endoscope creates a dissociation between eye and hand that increases risk and extends the learning curve.',
+    key: 'Simultaneous feedback',
+  },
+  {
+    number: '02',
+    title: 'Vertical Vector, Not Lateral',
+    description:
+      'Gravity pulls down. The solution is to elevate vertically. Lateral vectors create unnatural tension and compromise durability. The vertical vector respects facial anatomy and produces results that last.',
+    key: 'Lift against gravity',
+  },
+  {
+    number: '03',
+    title: 'Preservation Over Resection',
+    description:
+      'Remove less, reposition more. Aggressive resection creates irreversible problems. Intelligent repositioning preserves tissue and allows adjustments. What is removed cannot be put back.',
+    key: "Reposition, don't remove",
+  },
+  {
+    number: '04',
+    title: 'Safe Deep Plane',
+    description:
+      'The sub-SMAS plane is safer than it seems — when you know the anatomy. The danger is not in the plane, but in ignorance. With correct knowledge, the deep plane offers superior and safer results.',
+    key: 'Knowledge is safety',
+  },
+  {
+    number: '05',
+    title: 'Recovery as a Metric',
+    description:
+      "Quick recovery is not a luxury — it's a sign of good technique. Less trauma, less edema, faster return. If your patient needs 30 days to recover, the technique can be refined.",
+    key: '7 days, not 30',
+  },
+  {
+    number: '06',
+    title: 'Systematic Reproducibility',
+    description:
+      "If it cannot be taught, it's not a method. Reproducibility is the test of truth. Talent is not scalable; method is. What works for one must work for many.",
+    key: 'Method over talent',
+  },
+];
+---
+
+<BaseLayout
+  title="Technical Principles of Modern Face®"
+  description="The 6 technical foundations that guide every surgical decision in the Modern Face® methodology."
+  schema={schema}
+  lang="en"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-base">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Principles</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16 max-w-3xl">
+        <p class="label-eyebrow">Foundations</p>
+        <h1 class="heading-1">The Technical Principles</h1>
+        <p class="body-large">
+          Six foundations that guide every surgical decision. Not rules to follow blindly —
+          principles to understand and apply.
+        </p>
+      </header>
+
+      <!-- Introduction -->
+      <div class="prose prose-lg max-w-none text-warmGray mb-16">
+        <p>
+          Principles are not restrictions. They are freedoms. When you understand
+          <em>why</em> we do something, you don't need to memorize every step. You can adapt, improvise,
+          evolve — always within boundaries that guarantee safety.
+        </p>
+      </div>
+
+      <!-- Principles Grid -->
+      <div class="space-y-12">
+        {
+          principles.map((principle) => (
+            <div class="grid grid-cols-12 gap-8 items-start">
+              <div class="col-span-12 md:col-span-2">
+                <span class="text-6xl font-serif text-accent-600/20">{principle.number}</span>
+              </div>
+              <div class="col-span-12 md:col-span-10 bg-white p-8 border border-gray-100">
+                <h2 class="heading-3 mb-4">{principle.title}</h2>
+                <p class="body-base mb-6">{principle.description}</p>
+                <p class="body-small text-accent-700 font-medium uppercase tracking-[0.1em]">
+                  {principle.key}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Quote -->
+      <div class="my-20">
+        <div class="border-l-4 border-accent-600 pl-8">
+          <p class="heading-2 font-serif italic leading-relaxed">
+            "Principles are not restrictions. They are freedom to operate without fear."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-white border border-gray-100 text-center">
+        <h3 class="heading-2 mb-4">See the Principles in Action</h3>
+        <p class="body-base mb-8 max-w-lg mx-auto">
+          Explore the specific techniques that apply these principles.
+        </p>
+        <a
+          href="/techniques/endomidface"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          Explore Techniques
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/modern-face/philosophy" class="text-sm text-accent-600 hover:text-accent-700">
+            ← The Philosophy
+          </a>
+          <a
+            href="/modern-face/why-direct-vision"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Why Direct Vision? →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

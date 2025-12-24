@@ -1,0 +1,233 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'curso ENDOMIDFACE',
+  'terço médio face',
+  'visão direta Face Moderna',
+  'vetor vertical 90 graus',
+  'lifting sem endoscópio',
+  'mentoria cirurgia facial',
+];
+
+const modulos = [
+  {
+    num: '01',
+    titulo: 'Fundamentos da Face Moderna',
+    desc: 'Filosofia, princípios e anatomia aplicada',
+  },
+  {
+    num: '02',
+    titulo: 'Anatomia do Terço Médio',
+    desc: 'Espaços, ligamentos e estruturas críticas',
+  },
+  { num: '03', titulo: 'Técnica por Visão Direta', desc: 'Acesso, descolamento e mobilização' },
+  {
+    num: '04',
+    titulo: 'Vetores e Fixação',
+    desc: 'Vetor vertical 90° e fixação temporal profunda',
+  },
+  { num: '05', titulo: 'Casos Clínicos', desc: 'Análise de casos reais e tomada de decisão' },
+  { num: '06', titulo: 'Complicações e Manejo', desc: 'Prevenção, identificação e resolução' },
+];
+
+const mentoria = [
+  '2 meses de acompanhamento estruturado',
+  'Encontros semanais em grupo',
+  'Análise de casos dos participantes',
+  'Feedback direto do Dr. Robério',
+  'Acesso ao grupo exclusivo',
+];
+
+const resultados = [
+  'Eliminar dependência do endoscópio',
+  'Dominar o plano sub-SMAS areolar',
+  'Executar vetor vertical com precisão',
+  'Resultados naturais e duradouros',
+  'Segurança máxima em cada procedimento',
+];
+---
+
+<BaseLayout
+  title="ENDOMIDFACE® por Visão Direta | Curso + Mentoria"
+  description="Curso completo de ENDOMIDFACE® com 2 meses de mentoria. Domine o terço médio da face sem endoscópio."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/educacao" class="hover:text-white">Educação</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">ENDOMIDFACE®</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Programa Núcleo
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        ENDOMIDFACE®<br />por Visão Direta
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Curso online completo + 2 meses de mentoria estruturada. Domine o terço médio da face sem
+        dependência do endoscópio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Preço Destaque -->
+  <section class="py-8 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-center gap-8 text-white">
+      <div class="text-center">
+        <p class="text-sm opacity-70">Investimento</p>
+        <p class="text-3xl font-serif">R$ 10.000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Valor Original</p>
+        <p class="text-xl line-through opacity-50">R$ 20.000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Economia</p>
+        <p class="text-xl text-green-300">R$ 10.000</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que é -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">O Programa</h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O ENDOMIDFACE® por Visão Direta é o programa de domínio técnico do terço médio da face.
+          Introduz o cirurgião à filosofia da Face Moderna®, eliminando a dependência do endoscópio
+          e estabelecendo uma abordagem mais direta, segura e reprodutível.
+        </p>
+        <p>
+          É o pilar central da formação para quem busca previsibilidade, segurança e impacto
+          estético real no rejuvenescimento facial.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulos -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Conteúdo do Curso</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          modulos.map((m) => (
+            <div class="flex items-start gap-4 p-6 bg-ivory border border-gray-100">
+              <span class="text-3xl font-serif text-accent-600/30">{m.num}</span>
+              <div>
+                <h3 class="font-serif text-primary-900 mb-1">{m.titulo}</h3>
+                <p class="text-sm text-warmGray">{m.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentoria -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Mentoria Incluída</h2>
+      <p class="text-primary-300 text-center mb-12">
+        2 meses de acompanhamento para implementação real
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          mentoria.map((item) => (
+            <div class="flex items-center gap-3 p-4 bg-white/10">
+              <span class="material-symbols-outlined text-accent-400">check_circle</span>
+              <span class="text-white">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultados -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        O que Você Vai Conquistar
+      </h2>
+      <div class="space-y-3">
+        {
+          resultados.map((r) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-green-600">verified</span>
+              <span class="text-warmGray">{r}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Foco Técnico -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Foco Técnico</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-ivory border border-gray-100 text-center">
+          <span class="material-symbols-outlined text-accent-600 text-2xl mb-2 block">layers</span>
+          <p class="text-sm text-warmGray">Acesso seguro pelo plano sub-SMAS areolar</p>
+        </div>
+        <div class="p-6 bg-ivory border border-gray-100 text-center">
+          <span class="material-symbols-outlined text-accent-600 text-2xl mb-2 block"
+            >straighten</span
+          >
+          <p class="text-sm text-warmGray">Vetor de tração vertical a 90°</p>
+        </div>
+        <div class="p-6 bg-ivory border border-gray-100 text-center">
+          <span class="material-symbols-outlined text-accent-600 text-2xl mb-2 block">push_pin</span
+          >
+          <p class="text-sm text-warmGray">Fixação temporal profunda</p>
+        </div>
+        <div class="p-6 bg-ivory border border-gray-100 text-center">
+          <span class="material-symbols-outlined text-accent-600 text-2xl mb-2 block"
+            >auto_awesome</span
+          >
+          <p class="text-sm text-warmGray">Resultados naturais, estáveis e duradouros</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-accent-600">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Pronto para Dominar o Terço Médio?</h2>
+      <p class="text-white/80 mb-8">
+        Condição especial para novos cirurgiões em fase de entrada na metodologia Face Moderna®
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-white text-primary-900 text-sm uppercase tracking-[0.15em] hover:bg-gray-100 transition-colors"
+      >
+        Garantir Minha Vaga
+      </a>
+    </div>
+  </section>
+
+  <!-- Nav -->
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/educacao" class="text-sm text-accent-600">← Educação</a>
+      <a href="/pt/educacao/programas-nucleo/deep-neck-mastery" class="text-sm text-accent-600"
+        >Deep Neck Mastery →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

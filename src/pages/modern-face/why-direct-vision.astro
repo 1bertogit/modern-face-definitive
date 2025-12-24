@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Why Direct Vision?',
+  description:
+    'The technical choice that defines Modern Face®: why we abandoned the endoscope and what we gained from it.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const comparison = [
+  {
+    aspect: 'Feedback',
+    endoscope: 'Visual only (2D)',
+    directVision: 'Visual + tactile simultaneous',
+  },
+  {
+    aspect: 'Learning curve',
+    endoscope: '50-100 cases',
+    directVision: '15-30 cases',
+  },
+  {
+    aspect: 'Equipment cost',
+    endoscope: '$15,000 - $30,000',
+    directVision: 'Basic instruments',
+  },
+  {
+    aspect: 'Technical dependency',
+    endoscope: 'High (camera, monitor, assistant)',
+    directVision: 'Low (autonomous surgeon)',
+  },
+  {
+    aspect: 'Surgical time',
+    endoscope: '90-120 min',
+    directVision: '60-90 min',
+  },
+  {
+    aspect: 'Intraoperative adaptation',
+    endoscope: 'Limited',
+    directVision: 'Immediate',
+  },
+];
+---
+
+<BaseLayout
+  title="Why Direct Vision?"
+  description="The technical choice that defines Modern Face®: why we abandoned the endoscope and what we gained from it."
+  schema={schema}
+  lang="en"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Why Direct Vision?</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Modern Face®</p>
+        <h1 class="heading-1">Why Direct Vision?</h1>
+        <p class="body-large">
+          The question every surgeon asks — and the answer that changed my practice.
+        </p>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          When I present the Endomidface by Direct Vision, the first reaction is always the same:
+          "But Dr. Robério, isn't this a step backward? Isn't abandoning the endoscope going back in
+          time?"
+        </p>
+
+        <p>It's a fair question. And it deserves an honest answer.</p>
+
+        <h2 class="heading-3">The Myth of Linear Progress</h2>
+
+        <p>
+          There's an implicit belief in medicine that "more technology = better results." The
+          endoscope looks modern. The video tower impresses. The patient feels they're receiving
+          "the most advanced treatment."
+        </p>
+
+        <p>
+          But technology is a tool, not an end. The right question isn't "which equipment to use?" —
+          it's <strong class="text-primary-900"
+            >"what gives me the best result with maximum safety?"</strong
+          >
+        </p>
+
+        <h2 class="heading-3">What I Lost with the Endoscope</h2>
+
+        <p>
+          For years, I operated with endoscopy. I mastered the technique. I had consistent results.
+          But something bothered me:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Hand-eye dissociation:</strong> You look at a monitor while
+            your hands work somewhere else. The brain needs to constantly translate.
+          </li>
+          <li>
+            <strong class="text-primary-900">Loss of tactile feedback:</strong> The camera shows, but
+            doesn't feel. The difference between "almost on the nerve" and "on the nerve" is sometimes
+            millimetric.
+          </li>
+          <li>
+            <strong class="text-primary-900">Equipment dependency:</strong> Tower malfunction? Camera
+            fogged? Surgery compromised.
+          </li>
+          <li>
+            <strong class="text-primary-900">Cruel learning curve:</strong> 50, 80, 100 cases to feel
+            real confidence. How many avoidable complications along the way?
+          </li>
+        </ul>
+
+        <h2 class="heading-3">What I Gained with Direct Vision</h2>
+
+        <p>
+          The transition wasn't immediate. It was years of technical evolution, refining accesses,
+          lighting, positioning. Until arriving at a method that offers:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Simultaneous tactile + visual feedback:</strong>
+            You see AND feel. At the same time. In the same plane.
+          </li>
+          <li>
+            <strong class="text-primary-900">Reduced learning curve:</strong> 15-30 cases for safety.
+            Not 100.
+          </li>
+          <li>
+            <strong class="text-primary-900">Total autonomy:</strong> I don't depend on expensive equipment,
+            camera-trained assistant, or luck with technology.
+          </li>
+          <li>
+            <strong class="text-primary-900">Immediate adaptation:</strong> Unexpected anatomy? I adjust
+            on the spot. No time lost repositioning camera.
+          </li>
+        </ul>
+
+        <h2 class="heading-3">The Numbers Speak</h2>
+
+        <p>
+          212 consecutive cases of Endomidface by Direct Vision.
+          <strong class="text-primary-900">Zero permanent nerve injury.</strong>
+        </p>
+
+        <p>
+          This is not luck. It's method. It's the logical consequence of a technique that
+          prioritizes safety over impression.
+        </p>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="my-16">
+        <h3 class="heading-3 mb-8 text-center">Comparison: Endoscopy vs. Direct Vision</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-primary-900">
+                <th class="text-left py-4 pr-4 font-medium text-primary-900">Aspect</th>
+                <th class="text-left py-4 px-4 font-medium text-softGray">Endoscopy</th>
+                <th class="text-left py-4 pl-4 font-medium text-accent-600">Direct Vision</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                comparison.map((item) => (
+                  <tr class="border-b border-gray-200">
+                    <td class="py-4 pr-4 font-medium text-primary-900">{item.aspect}</td>
+                    <td class="py-4 px-4 text-softGray">{item.endoscope}</td>
+                    <td class="py-4 pl-4 text-warmGray">{item.directVision}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">The Right Question</h2>
+
+        <p>
+          So no, direct vision is not a step backward. It's evolution. It's understanding that the
+          best instrument is the one that connects you to the patient — not the one that separates
+          you from them.
+        </p>
+
+        <p>
+          The question isn't "endoscope or not?". It's: <strong class="text-primary-900">
+            "what allows me to operate with maximum safety and consistent results?"</strong
+          >
+        </p>
+
+        <p>For me, after 18 years, the answer is clear.</p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "The essence of plastic surgery lies in the connection between the surgeon's hands and
+            the patient's tissues. Anything that interrupts this connection is an obstacle, not an
+            advancement."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/modern-face/principles" class="text-sm text-accent-600 hover:text-accent-700">
+            ← The Technical Principles
+          </a>
+          <a href="/techniques/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+            Endomidface Technique →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

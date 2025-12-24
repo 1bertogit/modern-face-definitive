@@ -1,0 +1,168 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const vetores = [
+  {
+    regiao: 'Terço Superior',
+    direcao: 'Vertical/Superolateral',
+    angulo: '70-90°',
+    fixacao: 'Temporal profunda',
+  },
+  { regiao: 'Terço Médio', direcao: 'Vertical puro', angulo: '90°', fixacao: 'Fáscia temporal' },
+  {
+    regiao: 'Terço Inferior',
+    direcao: 'Posterossuperior',
+    angulo: '45-60°',
+    fixacao: 'SMAS/Platisma',
+  },
+  { regiao: 'Pescoço', direcao: 'Posterior', angulo: 'Horizontal', fixacao: 'Mastoide' },
+];
+
+const funcionalidades = [
+  'Marcação de vetores sobre foto do paciente',
+  'Comparação de diferentes direções',
+  'Simulação de resultado esperado',
+  'Documentação do planejamento',
+  'Compartilhamento com equipe',
+  'Histórico de casos similares',
+];
+---
+
+<BaseLayout
+  title="Planejamento de Vetores | FaceOS"
+  description="Ferramenta para definição e visualização de vetores em cirurgia facial. Planejamento baseado em anatomia."
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica" class="hover:text-white">Tecnologia</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica/faceos" class="hover:text-white">FaceOS</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Vetores</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-amber-500 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Em Desenvolvimento
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Planejamento de Vetores
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Ferramenta para definição, visualização e documentação dos vetores de tração em cirurgia
+        facial.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "O vetor define o resultado. Escolher a direção errada é garantir um resultado artificial."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Por que Vetores Importam?
+      </h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Na filosofia Face Moderna®, o vetor de tração é um dos elementos mais críticos para um
+          resultado natural. A direção errada pode criar tensões artificiais, distorcer landmarks
+          faciais e comprometer a harmonia do resultado.
+        </p>
+        <p>
+          O módulo de Planejamento de Vetores permite visualizar, comparar e documentar as direções
+          escolhidas para cada região facial, garantindo consistência no planejamento e clareza na
+          comunicação.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Vetores por Região</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-primary-900 text-white">
+              <th class="p-4 text-left font-medium">Região</th>
+              <th class="p-4 text-left font-medium">Direção</th>
+              <th class="p-4 text-left font-medium">Ângulo</th>
+              <th class="p-4 text-left font-medium">Fixação</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              vetores.map((v, i) => (
+                <tr class={i % 2 === 0 ? 'bg-ivory' : 'bg-white'}>
+                  <td class="p-4 border-b border-gray-100 font-medium text-primary-900">
+                    {v.regiao}
+                  </td>
+                  <td class="p-4 border-b border-gray-100 text-warmGray">{v.direcao}</td>
+                  <td class="p-4 border-b border-gray-100 text-accent-600 font-medium">
+                    {v.angulo}
+                  </td>
+                  <td class="p-4 border-b border-gray-100 text-warmGray">{v.fixacao}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Funcionalidades Planejadas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          funcionalidades.map((f) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{f}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Aprenda sobre Vetores</h2>
+      <p class="text-primary-300 mb-8">
+        A definição correta de vetores é um dos tópicos centrais dos programas de formação.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnologia-clinica/faceos/prontuario" class="text-sm text-accent-600"
+        >← Prontuário</a
+      >
+      <a href="/pt/tecnologia-clinica/faceos/checklists" class="text-sm text-accent-600"
+        >Checklists →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

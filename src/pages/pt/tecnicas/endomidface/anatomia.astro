@@ -1,0 +1,321 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomia Endomidface',
+  'espaço pré-zigomático',
+  'espaço pré-maxilar',
+  'anatomia midface',
+  'ligamentos retentores face',
+  'SOOF anatomia',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Anatomia Aplicada',
+  description:
+    'Anatomia dos espaços pré-zigomático e pré-maxilar. Planos de descolamento, ligamentos retentores e estruturas nobres no Endomidface.',
+  procedureType: 'Surgical',
+};
+
+const espacos = [
+  {
+    nome: 'Espaço Pré-zigomático',
+    descricao:
+      'Primeiro espaço acessado. Entrada percebida como súbita perda de resistência ao descolador.',
+    conteudo: 'Gordura pré-zigomática, parte do SOOF (gordura suborbicular)',
+    limites: 'Superior: reborde orbitário | Inferior: músculo zigomático maior',
+  },
+  {
+    nome: 'Espaço Pré-maxilar',
+    descricao: 'Continuação do descolamento em direção ao canto da boca.',
+    conteudo: 'Gordura profunda medial, compartimentos de gordura malar',
+    limites: 'Superior: espaço pré-zigomático | Inferior: região bucal',
+  },
+  {
+    nome: 'Espaço Bucal',
+    descricao: 'Limite distal do descolamento. Contém a bola de Bichat.',
+    conteudo: 'Bola de Bichat, gordura bucal',
+    limites: 'Lateral: ligamento massetérico | Medial: músculo bucinador',
+  },
+];
+
+const estruturasNobres = [
+  {
+    estrutura: 'Ramo Frontal do Facial',
+    localizacao: 'No teto do espaço temporal, na fáscia temporal superficial',
+    protecao: 'Descolar sempre sobre a fáscia temporal profunda; dar pontos posteriores à incisão',
+  },
+  {
+    estrutura: 'Ramos Zigomáticos',
+    localizacao: 'No assoalho dos espaços pré-zigomático e pré-maxilar',
+    protecao: 'Inclinar descolador para superfície (para cima); nunca aprofundar',
+  },
+  {
+    estrutura: 'Alça Bucal',
+    localizacao: 'Abaixo do plano de descolamento, no assoalho',
+    protecao: 'Manter-se no teto do SMAS; se furar para superfície, sem dano permanente',
+  },
+  {
+    estrutura: 'Nervo Supraorbitário',
+    localizacao: 'Ao nível da pupila, na borda orbitária superior',
+    protecao: 'Nervo sensitivo, geralmente visualizado; tração pode causar dormência transitória',
+  },
+  {
+    estrutura: 'Veia Sentinela',
+    localizacao: 'Portal temporal, próxima à crista temporal',
+    protecao: 'Cauterizar na base sob visão direta; serve como marco anatômico',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomia do Endomidface"
+  description="Anatomia aplicada ao Endomidface. Espaços pré-zigomático e pré-maxilar, planos de descolamento, ligamentos retentores e proteção de estruturas nobres."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Anatomia</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="label-eyebrow-white">Fundamentos Anatômicos</p>
+        <h1 class="heading-1-white">Anatomia Aplicada</h1>
+        <p class="body-large-light max-w-2xl mx-auto">
+          Os espaços profundos, os planos de descolamento e as estruturas nobres que você precisa
+          conhecer para operar com segurança.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap body-base">
+          A compreensão da anatomia profunda é crucial para a segurança e eficácia do Endomidface. A
+          cirurgia é realizada em planos delicados, próximos a nervos e vasos importantes. O
+          objetivo é acessar e mobilizar os espaços pré-zigomático e pré-maxilar, sempre mantendo o
+          descolador inclinado para a superfície.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Espaços Anatômicos -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-4 text-center">Espaços Anatômicos Abordados</h2>
+      <p class="text-center body-base mb-12 max-w-2xl mx-auto">
+        O Endomidface mobiliza três espaços profundos do terço médio facial, permitindo elevação
+        vertical dos tecidos até o sulco nasogeniano.
+      </p>
+
+      <div class="space-y-6">
+        {
+          espacos.map((espaco, index) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <span class="text-4xl font-serif text-accent-600/30 flex-shrink-0">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div class="flex-1">
+                  <h3 class="heading-3 mb-3">{espaco.nome}</h3>
+                  <p class="body-base mb-4">{espaco.descricao}</p>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <p class="label-eyebrow mb-1">Conteúdo</p>
+                      <p class="body-small">{espaco.conteudo}</p>
+                    </div>
+                    <div>
+                      <p class="label-eyebrow mb-1">Limites</p>
+                      <p class="body-small">{espaco.limites}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Planos de Descolamento -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <h2 class="heading-2 mb-8">Planos de Descolamento</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 border-t-4 border-accent-600">
+          <h3 class="heading-4 mb-3">Região Temporal</h3>
+          <p class="body-small mb-3">
+            Entre a fáscia temporal superficial e a fáscia temporal profunda.
+          </p>
+          <p class="label-caption text-accent-700">Assoalho seguro: músculo temporal</p>
+        </div>
+
+        <div class="bg-white p-6 border-t-4 border-accent-600">
+          <h3 class="font-serif text-primary-900 mb-3">Região Frontal</h3>
+          <p class="body-small mb-3">Plano subperióstico após a crista temporal.</p>
+          <p class="label-caption text-accent-700">Liberação ampla do rebordo orbitário</p>
+        </div>
+
+        <div class="bg-white p-6 border-t-4 border-accent-600">
+          <h3 class="heading-4 mb-3">Terço Médio</h3>
+          <p class="body-small mb-3">Plano Sub-SMAS (mesmo plano do Deep Plane).</p>
+          <p class="text-xs text-accent-600">Descolador inclinado para superfície</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regra de Ouro -->
+  <section class="section-md bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-6">A Regra de Ouro do Descolamento</h2>
+      <p class="body-large-light mb-8">
+        "As estruturas nobres estão abaixo. Se eu inclino meu descolador para baixo e perco o plano,
+        haverá lesão motora. Se inclino para cima e furo o SMAS, vou para o subcutâneo e pele — está
+        tudo tranquilo, não há dano permanente."
+      </p>
+      <p class="body-small-light uppercase tracking-[0.15em]">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Estruturas Nobres -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-4 text-center">Estruturas Nobres e Proteção</h2>
+      <p class="text-center text-warmGray mb-12 max-w-2xl mx-auto">
+        Conhecer a localização e as estratégias de proteção de cada estrutura é fundamental para
+        operar com segurança máxima.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4 font-serif text-primary-900">Estrutura</th>
+              <th class="text-left py-4 px-4 font-serif text-primary-900">Localização</th>
+              <th class="text-left py-4 px-4 font-serif text-primary-900">Como Proteger</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              estruturasNobres.map((item) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{item.estrutura}</td>
+                  <td class="py-4 px-4 text-warmGray">{item.localizacao}</td>
+                  <td class="py-4 px-4 text-warmGray">{item.protecao}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ligamentos Retentores -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <h2 class="heading-2 mb-8">Ligamentos Retentores</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="body-base">
+          Os ligamentos retentores da face são estruturas que fixam a pele e o SMAS aos ossos
+          subjacentes. Eles criam uma divisão: as áreas à frente dos ligamentos são móveis, enquanto
+          as áreas atrás são fixas.
+        </p>
+
+        <h3 class="heading-3">Ligamento Zigomático</h3>
+        <p class="body-base">
+          O mais forte da face. <strong>Não é liberado no Endomidface</strong>. A técnica passa na
+          frente dele, mobilizando os tecidos anteriores e reposicionando-os para cima (não para
+          trás).
+        </p>
+
+        <h3 class="heading-3">Ligamentos Massetéricos</h3>
+        <p class="body-base">
+          Limitam o descolamento lateral. O cirurgião sente sua resistência ao avançar o descolador.
+          Não são liberados por esta via.
+        </p>
+
+        <h3 class="heading-3">Implicação Prática</h3>
+        <p class="body-base">
+          Como não liberamos os ligamentos laterais fortes, a mobilização é
+          <strong>vertical (para cima)</strong> e não posterior (para trás). Isso reduz a necessidade
+          de manipular zonas perigosas e mantém a segurança como prioridade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Em Resumo -->
+  <section class="section-lg bg-white">
+    <div class="prose-narrow">
+      <h2 class="heading-2 mb-8">Em Resumo</h2>
+
+      <div class="bg-ivory p-8 border border-gray-100">
+        <ul class="space-y-4 text-warmGray">
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">1.</span>
+            <span>O Endomidface acessa os espaços pré-zigomático, pré-maxilar e bucal</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">2.</span>
+            <span>O descolamento é no plano Sub-SMAS — o mesmo do Deep Plane</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">3.</span>
+            <span>Estruturas nobres (nervos motores) estão no assoalho — incline para cima</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">4.</span>
+            <span>Ligamentos zigomático e massetérico não são liberados — vetor é vertical</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">5.</span>
+            <span>A perda de resistência indica entrada no espaço pré-zigomático</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/indicacoes"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Indicações
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/vetores"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Vetores →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

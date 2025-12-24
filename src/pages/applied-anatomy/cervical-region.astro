@@ -1,0 +1,136 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const structures = [
+  {
+    name: 'Platysma',
+    desc: 'Superficial neck muscle. Medial bands visible with aging.',
+    layer: 'Superficial',
+  },
+  {
+    name: 'Submandibular Gland',
+    desc: 'Major salivary gland. NEVER removed in Face Moderna.',
+    layer: 'Deep',
+  },
+  {
+    name: 'Anterior Digastric Belly',
+    desc: 'Floor of mouth muscle. Can be shaved 50-60%.',
+    layer: 'Deep',
+  },
+  { name: 'Superficial Cervical Fascia', desc: 'Platysma envelope.', layer: 'Superficial' },
+  {
+    name: 'Deep Cervical Fascia',
+    desc: 'Contains vital structures - carotid, jugular, nerves.',
+    layer: 'Deep',
+  },
+];
+
+const pillars = [
+  { num: '1', name: 'Deep Fat', desc: 'Deep pre-platysmal fat. Accessed below platysma.' },
+  { num: '2', name: 'Digastric Shaving', desc: '50-60% reduction of anterior belly. Never 100%.' },
+  { num: '3', name: 'Fasciotomy', desc: 'Pre-hyoid fascia incision. Mandatory in 100% of cases.' },
+  { num: '4', name: 'Platysmorraphy', desc: 'Midline platysma plication + Crevassi.' },
+];
+
+const warnings = [
+  'Never remove submandibular gland',
+  'Maximum 60% digastric shaving',
+  'Fasciotomy mandatory for optimal result',
+  'Identify marginal nerve before dissecting',
+];
+---
+
+<BaseLayout
+  title="Cervical Anatomy | Neck"
+  description="Applied cervical anatomy. Neck structures for Deep Neck: platysma, digastric, gland."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Cervical Region</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Neck</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Cervical Region</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Deep neck anatomy. Foundation for safe and effective Deep Neck.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Main Structures</h2>
+      <div class="space-y-4">
+        {
+          structures.map((s) => (
+            <div class="flex items-center gap-6 p-6 bg-white border border-gray-100">
+              <span
+                class={`text-xs px-3 py-1 flex-shrink-0 ${s.layer === 'Superficial' ? 'bg-primary-700' : 'bg-purple-600'} text-white`}
+              >
+                {s.layer}
+              </span>
+              <div>
+                <h3 class="font-serif text-primary-900">{s.name}</h3>
+                <p class="text-sm text-warmGray">{s.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        The 4 Pillars of Deep Neck
+      </h2>
+      <p class="text-warmGray text-center mb-12">Anatomical correlation with technique</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          pillars.map((p) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <span class="text-4xl font-serif text-accent-600/30 block mb-2">{p.num}</span>
+              <h3 class="font-serif text-primary-900 mb-2">{p.name}</h3>
+              <p class="text-sm text-warmGray">{p.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        ⚠️ Inviolable Principles
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          warnings.map((w) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800 text-sm">{w}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/lower-third" class="text-sm text-accent-600">← Lower Third</a>
+      <a href="/applied-anatomy/surgical-spaces" class="text-sm text-accent-600"
+        >Surgical Spaces →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

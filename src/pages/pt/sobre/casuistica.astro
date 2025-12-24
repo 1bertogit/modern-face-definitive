@@ -1,0 +1,177 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const estatisticas = [
+  { categoria: 'Total de Cirurgias Faciais', valor: '1.500+', periodo: '1995-2024' },
+  { categoria: 'Endomidface por Visão Direta', valor: '212+', periodo: '2019-2024' },
+  { categoria: 'Deep Neck', valor: '180+', periodo: '2018-2024' },
+  { categoria: 'Frontoplastia/Browlift', valor: '150+', periodo: '2016-2024' },
+];
+
+const seguranca = [
+  {
+    metrica: 'Lesões nervosas permanentes',
+    valor: '0',
+    desc: 'Zero casos de paralisia definitiva',
+  },
+  { metrica: 'Taxa de revisão', valor: '<3%', desc: 'Abaixo da média da literatura' },
+  { metrica: 'Complicações maiores', valor: '<1%', desc: 'Hematomas, infecções, necrose' },
+  { metrica: 'Satisfação do paciente', valor: '>95%', desc: 'Em pesquisa de follow-up' },
+];
+
+const followUp = [
+  { tempo: '1 mês', percentual: '100%', desc: 'Avaliação pós-operatória imediata' },
+  { tempo: '3 meses', percentual: '95%', desc: 'Acompanhamento de evolução' },
+  { tempo: '6 meses', percentual: '85%', desc: 'Avaliação de estabilidade' },
+  { tempo: '1 ano+', percentual: '60%', desc: 'Follow-up de longo prazo' },
+];
+---
+
+<BaseLayout
+  title="Casuística | Resultados Documentados"
+  description="Números e estatísticas das cirurgias faciais realizadas pelo Dr. Robério Brandão. Mais de 1.500 procedimentos com segurança comprovada."
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/sobre" class="hover:text-white">Sobre</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Casuística</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Resultados Documentados</p>
+      <h1 class="heading-1-white">Casuística</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Números que refletem quase 20 anos de dedicação à cirurgia facial com compromisso absoluto
+        com segurança e resultados.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large-light font-serif italic">
+        "Os números não mentem. Eles contam a história de cada decisão tomada, cada técnica
+        refinada, cada paciente cuidado."
+      </p>
+    </div>
+  </section>
+
+  <!-- Volume Cirúrgico -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-12 text-center">Volume Cirúrgico</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          estatisticas.map((e) => (
+            <div class="p-8 bg-white border border-gray-100 text-center">
+              <p class="text-5xl font-serif text-accent-600 mb-2">{e.valor}</p>
+              <h3 class="font-medium text-primary-900 mb-1">{e.categoria}</h3>
+              <p class="label-caption">{e.periodo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Segurança -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 mb-4 text-center">Indicadores de Segurança</h2>
+      <p class="body-base text-center mb-12">O pilar inegociável da Face Moderna®</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          seguranca.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="font-medium text-primary-900">{s.metrica}</h3>
+                <span class="text-2xl font-serif text-green-600">{s.valor}</span>
+              </div>
+              <p class="body-small">{s.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaque Zero -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-8xl font-serif text-accent-400 mb-4">0</p>
+      <h2 class="heading-2-white mb-4">Lesões Nervosas Permanentes</h2>
+      <p class="body-base-light">
+        Em mais de 212 casos documentados de Endomidface por Visão Direta, não há registro de
+        nenhuma lesão nervosa permanente. Este número não é acidente — é resultado de uma
+        metodologia que prioriza segurança acima de tudo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Follow-up -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 mb-12 text-center">Acompanhamento</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          followUp.map((f) => (
+            <div class="p-6 bg-white border border-gray-100 text-center">
+              <p class="text-3xl font-serif text-accent-600 mb-1">{f.percentual}</p>
+              <p class="font-medium text-primary-900 text-sm mb-1">{f.tempo}</p>
+              <p class="label-caption">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologia -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 mb-8 text-center">Metodologia de Registro</h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>Todos os casos são documentados seguindo protocolo padronizado que inclui:</p>
+        <ul>
+          <li>Avaliação pré-operatória com sistema SPE-M</li>
+          <li>Documentação fotográfica em 7 incidências</li>
+          <li>Registro detalhado do procedimento</li>
+          <li>Follow-up estruturado em múltiplos pontos</li>
+          <li>Avaliação de satisfação do paciente</li>
+        </ul>
+        <p>
+          Esta metodologia permite não apenas acompanhar resultados, mas também identificar padrões,
+          refinar técnicas e ensinar com base em evidências concretas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2 mb-6">Aprenda a Metodologia</h2>
+      <p class="body-base mb-8">
+        Os mesmos protocolos que geraram estes resultados são ensinados em nossos programas de
+        formação.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/sobre/dr-roberio-brandao" class="text-sm text-accent-600">← Dr. Robério</a>
+      <a href="/pt/sobre/linha-do-tempo" class="text-sm text-accent-600">Linha do Tempo →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,165 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomia terço inferior face',
+  'mandíbula anatomia cirúrgica',
+  'jowl anatomia',
+  'ligamento mandibular',
+  'nervo marginal proteção',
+  'transição cervicofacial',
+];
+
+const estruturas = [
+  {
+    nome: 'Ligamento Mandibular',
+    desc: 'Inserção óssea na borda inferior da mandíbula. Principal responsável pelo jowl.',
+    manejo: 'Release obrigatório no lifting',
+  },
+  {
+    nome: 'Jowl Fat',
+    desc: 'Gordura que hernia sobre o ligamento mandibular com o envelhecimento.',
+    manejo: 'Reposicionamento, não remoção',
+  },
+  {
+    nome: 'Nervo Marginal',
+    desc: 'Ramo motor do facial. Inerva depressores do lábio.',
+    manejo: 'Proteção absoluta - identificar antes',
+  },
+  {
+    nome: 'Platisma',
+    desc: 'Músculo superficial do pescoço que se insere na mandíbula.',
+    manejo: 'Plicatura e reposicionamento',
+  },
+];
+
+const zonas = [
+  {
+    zona: 'Zona I',
+    desc: 'Região central submental',
+    risco: 'Baixo',
+    estruturas: 'Digástrico, platisma',
+  },
+  {
+    zona: 'Zona II',
+    desc: 'Região submandibular lateral',
+    risco: 'Alto',
+    estruturas: 'Nervo marginal, vasos faciais',
+  },
+  {
+    zona: 'Zona III',
+    desc: 'Região pré-auricular',
+    risco: 'Médio',
+    estruturas: 'Ramos do facial, SMAS',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomia do Terço Inferior | Mandíbula"
+  description="Anatomia aplicada do terço inferior facial. Região mandibular, jowl e transição cervicofacial."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/anatomia" class="hover:text-white">Anatomia</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Terço Inferior</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Mandíbula
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Terço Inferior Facial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        A região mandibular e a transição para o pescoço. Anatomia do jowl e estruturas críticas.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O terço inferior facial é a região mais visível do envelhecimento. A perda de definição
+          mandibular e o aparecimento do jowl são queixas frequentes. Anatomicamente, esta região
+          faz a transição entre face e pescoço — e abriga o temido nervo marginal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Estruturas Chave</h2>
+      <div class="space-y-6">
+        {
+          estruturas.map((e) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{e.nome}</h3>
+              <p class="text-warmGray mb-4">{e.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Manejo:</span>{' '}
+                <span class="text-warmGray">{e.manejo}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Zonas de Risco</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          zonas.map((z) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-primary-900">{z.zona}</h3>
+                <span
+                  class={`text-xs px-2 py-1 ${z.risco === 'Alto' ? 'bg-red-600' : z.risco === 'Médio' ? 'bg-amber-600' : 'bg-green-600'} text-white`}
+                >
+                  Risco {z.risco}
+                </span>
+              </div>
+              <p class="text-warmGray text-sm mb-4">{z.desc}</p>
+              <p class="text-xs text-softGray">
+                <strong>Estruturas:</strong> {z.estruturas}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">O Nervo Marginal</h2>
+      <p class="text-primary-300 mb-4">
+        O nervo marginal da mandíbula é o "terror" da cirurgia facial. Sua lesão causa assimetria
+        labial permanente — o sorriso torto que identifica complicação cirúrgica.
+      </p>
+      <p class="text-accent-400 text-sm">
+        Na Face Moderna, a visão direta permite identificar o nervo antes de lesioná-lo.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/anatomia/terco-medio" class="text-sm text-accent-600">← Terço Médio</a>
+      <a href="/pt/tecnicas/anatomia/regiao-cervical" class="text-sm text-accent-600"
+        >Região Cervical →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

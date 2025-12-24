@@ -1,0 +1,115 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck anatomy',
+  'cervical anatomy facelift',
+  'platysma muscle',
+  'marginal nerve protection',
+  'neck layers surgery',
+  'subplatysmal dissection',
+];
+
+const layers = [
+  { n: 'Skin', p: 'Superficial', d: 'External coverage' },
+  { n: 'Subcutaneous Fat', p: 'Superficial', d: 'Variable by biotype' },
+  { n: 'Platysma', p: 'Superficial', d: 'Thin muscle, cervical equivalent of SMAS' },
+  { n: 'Subplatysmal Fat', p: 'Deep', d: 'Main Deep Neck target' },
+  { n: 'Digastric', p: 'Deep', d: 'Anterior belly - heavy neck villain' },
+  { n: 'Mylohyoid', p: 'Deep', d: 'Central floor' },
+  { n: 'Deep Cervical Fascia', p: 'Deep', d: 'Fasciotomy target' },
+  { n: 'Submandibular Gland', p: 'Deep', d: 'NEVER removed' },
+];
+const nobles = [
+  {
+    s: 'Marginal Nerve',
+    l: 'Mandibular border',
+    r: 'Lip paralysis',
+    p: 'Avoid deep proximal dissection',
+  },
+  { s: 'External Jugular', l: 'Lateral over SCM', r: 'Bleeding', p: 'Identify and preserve' },
+  { s: 'Facial Artery/Vein', l: 'Near gland', r: 'Bleeding', p: "Don't touch gland" },
+  { s: "Wharton's Duct", l: 'Near gland', r: 'Sialocele', p: "Don't touch gland" },
+];
+---
+
+<BaseLayout
+  title="Deep Neck Anatomy"
+  description="Cervical anatomy applied to Deep Neck Face Moderna."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Foundations
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Applied Cervical Anatomy
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        The layers and noble structures you need to master.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg">
+        In the neck, the SMAS equivalent is the platysma. Just as we work in the sub-SMAS plane in
+        the face, in the neck we work in the subplatysmal plane.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Neck Layers</h2><table
+        class="w-full text-sm"
+      >
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Structure</th><th class="text-left py-4 px-4">Depth</th
+            ><th class="text-left py-4 px-4">Description</th></tr
+          ></thead
+        ><tbody
+          >{
+            layers.map((l) => (
+              <tr class={`border-b ${l.p === 'Deep' ? 'bg-accent-50' : ''}`}>
+                <>
+                  <td class="py-4 px-4 font-medium">{l.n}</td>
+                  <td class="py-4 px-4">{l.p}</td>
+                  <td class="py-4 px-4 text-warmGray">{l.d}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Noble Structures</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {
+          nobles.map((n) => (
+            <div class="bg-white/10 p-6">
+              <>
+                <h3 class="text-white font-medium mb-2">{n.s}</h3>
+                <p class="text-primary-300 text-sm">Location: {n.l}</p>
+                <p class="text-red-300 text-sm">Risk: {n.r}</p>
+                <p class="text-accent-300 text-sm">Protection: {n.p}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck/pillars" class="text-sm text-accent-600">← 4 Pillars</a><a
+        href="/techniques/deep-neck/indications"
+        class="text-sm text-accent-600">Indications →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

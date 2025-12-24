@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const domains = [
+  {
+    letter: 'S',
+    name: 'Skin',
+    items: [
+      'Overall quality',
+      'Photodamage (spots, wrinkles)',
+      'Elastosis',
+      'Dynamic vs static wrinkles',
+    ],
+  },
+  {
+    letter: 'P',
+    name: 'Ptosis',
+    items: [
+      'Eyebrow (lateral ptosis)',
+      'Eyelid (dermatochalasis)',
+      'Midface (nasojugal fold)',
+      'Jowl (mandibular border)',
+      'Neck (platysmal bands)',
+    ],
+  },
+  {
+    letter: 'E',
+    name: 'Structure',
+    items: ['Malar projection', 'Retrognathia', 'Cervicomental angle', 'Facial asymmetries'],
+  },
+  {
+    letter: 'M',
+    name: 'Mass/Muscle',
+    items: ['Masseter hypertrophy', 'Platysmal bands', 'Submental fat', 'Malar volume'],
+  },
+];
+
+const scale = [
+  { grade: '0', desc: 'Absent', color: 'bg-green-600' },
+  { grade: '1', desc: 'Mild', color: 'bg-yellow-600' },
+  { grade: '2', desc: 'Moderate', color: 'bg-orange-600' },
+  { grade: '3', desc: 'Severe', color: 'bg-red-600' },
+];
+---
+
+<BaseLayout
+  title="SPE-M Assessment System"
+  description="Systematic pre-operative assessment: Skin, Ptosis, Structure and Mass. Standardized protocol."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/surgical-planning" class="hover:text-white">Planning</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">SPE-M</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Step 02</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">SPE-M System</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Systematic assessment in 4 domains: Skin, Ptosis, Structure and Mass.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">The 4 Domains</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          domains.map((d) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="w-12 h-12 bg-accent-600 text-white flex items-center justify-center text-2xl font-serif">
+                  {d.letter}
+                </span>
+                <h3 class="font-serif text-primary-900 text-lg">{d.name}</h3>
+              </div>
+              <ul class="space-y-2">
+                {d.items.map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Grading Scale</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          scale.map((s) => (
+            <div class="flex items-center gap-2 p-3 bg-white border border-gray-100">
+              <span
+                class={`w-8 h-8 ${s.color} text-white flex items-center justify-center font-bold`}
+              >
+                {s.grade}
+              </span>
+              <span class="text-warmGray">{s.desc}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/surgical-planning/initial-assessment" class="text-sm text-accent-600"
+        >← Initial Assessment</a
+      >
+      <a href="/surgical-planning/vectors" class="text-sm text-accent-600">Vectors →</a>
+    </div>
+  </section>
+</BaseLayout>

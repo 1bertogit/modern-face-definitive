@@ -1,0 +1,177 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const categorias = [
+  {
+    titulo: 'E-books',
+    desc: 'Guías completas y profundas sobre técnicas y filosofía de la Face Moderna',
+    href: '/es/biblioteca/ebooks',
+    icono: 'menu_book',
+    qtd: '3 títulos',
+  },
+  {
+    titulo: 'Publicaciones Científicas',
+    desc: 'Artículos, presentaciones en congresos y contribuciones académicas',
+    href: '/es/biblioteca/publicaciones',
+    icono: 'science',
+    qtd: 'Próximamente',
+  },
+  {
+    titulo: 'Estudios Clínicos',
+    desc: 'Análisis de casos, estadísticas y resultados documentados',
+    href: '/es/biblioteca/estudios-clinicos',
+    icono: 'analytics',
+    qtd: '212+ casos',
+  },
+  {
+    titulo: 'Infografías',
+    desc: 'Visualizaciones didácticas de anatomía, técnicas y protocolos',
+    href: '/es/biblioteca/infograficos',
+    icono: 'image',
+    qtd: '12 materiales',
+  },
+  {
+    titulo: 'Guías Prácticas',
+    desc: 'Protocolos, checklists y materiales de referencia rápida',
+    href: '/es/biblioteca/guias-practicos',
+    icono: 'description',
+    qtd: '8 guías',
+  },
+];
+
+const destacados = [
+  { titulo: 'E-book: Fundamentos del Endomidface', tipo: 'E-book', acceso: 'Alumnos' },
+  { titulo: 'Infografía: Anatomía del Tercio Medio', tipo: 'Infografía', acceso: 'Público' },
+  { titulo: 'Guía: Checklist Preoperatorio', tipo: 'Guía Práctica', acceso: 'Alumnos' },
+];
+---
+
+<BaseLayout
+  title="Biblioteca | Recursos Educativos"
+  description="Biblioteca de recursos educativos: e-books, publicaciones científicas, estudios clínicos, infografías y guías prácticas."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Biblioteca</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Recursos educativos para profundizar su conocimiento en cirugía facial y la metodología Face
+        Moderna®
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "El conocimiento que no se comparte muere con nosotros. Aquí, vive y se multiplica."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Explorar por Categoría</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          categorias.map((c) => (
+            <a
+              href={c.href}
+              class="group p-6 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">{c.icono}</span>
+                <span class="text-xs px-2 py-1 bg-gray-100 text-softGray">{c.qtd}</span>
+              </div>
+              <h3 class="font-serif text-xl text-primary-900 group-hover:text-accent-600 transition-colors mb-2">
+                {c.titulo}
+              </h3>
+              <p class="text-sm text-warmGray">{c.desc}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Materiales Destacados</h2>
+      <div class="space-y-4">
+        {
+          destacados.map((d) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-accent-600">star</span>
+                <div>
+                  <>
+                    <h3 class="font-medium text-primary-900">{d.titulo}</h3>
+                    <p class="text-xs text-warmGray">{d.tipo}</p>
+                  </>
+                </div>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 ${d.acceso === 'Público' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+              >
+                {d.acceso}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Niveles de Acceso</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-green-400">lock_open</span><h3
+              class="font-medium text-white"
+            >
+              Contenido Público
+            </h3>
+          </div>
+          <p class="text-primary-300 text-sm mb-4">
+            Infografías introductorias y materiales de divulgación disponibles para todos.
+          </p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-accent-400">school</span><h3
+              class="font-medium text-white"
+            >
+              Contenido Exclusivo
+            </h3>
+          </div>
+          <p class="text-primary-300 text-sm mb-4">
+            E-books completos, estudios de caso y guías avanzadas para alumnos de los programas.
+          </p>
+          <a href="/es/educacion" class="text-xs text-accent-400 hover:text-accent-300"
+            >Ver programas →</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Acceso Completo a la Biblioteca</h2>
+      <p class="text-warmGray mb-8">
+        Los alumnos de los programas de formación tienen acceso integral a todos los materiales de
+        la biblioteca.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas de Formación</a
+      >
+    </div>
+  </section>
+</BaseLayout>

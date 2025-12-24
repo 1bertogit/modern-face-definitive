@@ -1,0 +1,117 @@
+---
+/**
+ * SchemaArticle - Schema para artigos e páginas de conteúdo técnico
+ * Melhora rich snippets e autoria
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  datePublished?: string;
+  dateModified?: string;
+  image?: string;
+  author?: string;
+  section?: string;
+  keywords?: string[];
+  wordCount?: number;
+  articleType?: 'Article' | 'MedicalWebPage' | 'TechArticle' | 'ScholarlyArticle';
+}
+
+const {
+  title,
+  description,
+  datePublished,
+  dateModified,
+  image,
+  author = 'Dr. Robério Brandão',
+  section = 'Facial Surgery',
+  keywords = [],
+  wordCount,
+  articleType = 'MedicalWebPage',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+const pageUrl = `${siteUrl}${Astro.url.pathname}`;
+const today = new Date().toISOString().split('T')[0];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': articleType,
+  headline: title,
+  description: description,
+  url: pageUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+  },
+  author: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person-dr-roberio`,
+    name: author,
+    url: `${siteUrl}/creator/`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Modern Face Institute',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/images/logo.png`,
+    },
+  },
+  datePublished: datePublished || today,
+  dateModified: dateModified || today,
+  articleSection: section,
+  inLanguage: Astro.url.pathname.startsWith('/en')
+    ? 'en'
+    : Astro.url.pathname.startsWith('/es')
+      ? 'es'
+      : 'pt',
+  ...(image && {
+    image: {
+      '@type': 'ImageObject',
+      url: image.startsWith('http') ? image : `${siteUrl}${image}`,
+      width: 1200,
+      height: 630,
+    },
+  }),
+  ...(keywords.length > 0 && {
+    keywords: keywords.join(', '),
+  }),
+  ...(wordCount && {
+    wordCount: wordCount,
+  }),
+  about: {
+    '@type': 'Thing',
+    name: 'Facial Surgery Techniques',
+  },
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Modern Face Institute',
+    url: siteUrl,
+  },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['article', '.content', 'h1', 'h2'],
+  },
+};
+
+// Adicionar schema específico para MedicalWebPage
+const medicalExtension =
+  articleType === 'MedicalWebPage'
+    ? {
+        medicalAudience: {
+          '@type': 'MedicalAudience',
+          audienceType: 'Clinician',
+        },
+        specialty: {
+          '@type': 'MedicalSpecialty',
+          name: 'Plastic Surgery',
+        },
+      }
+    : {};
+
+const finalSchema = { ...articleSchema, ...medicalExtension };
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />

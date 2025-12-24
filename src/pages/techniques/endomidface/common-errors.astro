@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface common errors',
+  'midface surgery complications',
+  'facelift safety tips',
+  'facial nerve protection',
+  'Endomidface learning mistakes',
+  'facelift technique errors',
+];
+
+const errors = [
+  {
+    e: 'Deepening dissector in midface',
+    c: 'Zygomatic branches or buccal loop injury (paralysis)',
+    s: 'Always tilt dissector toward surface (upward)',
+    g: 'high',
+  },
+  {
+    e: 'Dissecting toward lower eyelid',
+    c: 'Entry into orbital septum, prolonged chemosis (>1 month)',
+    s: 'Aim from eye corner to nasal ala/mouth corner',
+    g: 'medium',
+  },
+  {
+    e: 'Too superficial dissection in temporal region',
+    c: 'Frontal nerve branch injury',
+    s: 'Ensure plane between STF and DTF, over temporal muscle',
+    g: 'high',
+  },
+  {
+    e: 'Not fully releasing orbital rim',
+    c: 'Limited elevation, asymmetries, insufficient result',
+    s: 'Aggressive lateral, superior, and medial release until subcutaneous is visible',
+    g: 'medium',
+  },
+  {
+    e: 'Sutures too low or anterior',
+    c: 'Frontal nerve pinching or irritation',
+    s: 'Position sutures as posterior and superior as possible',
+    g: 'medium',
+  },
+  {
+    e: 'Closing scalp with tension',
+    c: 'Edge necrosis, alopecia, widened scar',
+    s: 'Traction in deep layers, not skin',
+    g: 'high',
+  },
+];
+---
+
+<BaseLayout
+  title="Common Errors in Endomidface"
+  description="Most frequent errors in Endomidface technique and strategies to avoid them."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Prevention & Safety
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Common Errors</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Knowing the pitfalls is the first step to avoiding them. Learn from errors — without making
+        them.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-4">
+        {
+          errors.map((er) => (
+            <div
+              class={`p-6 border-l-4 ${er.g === 'high' ? 'border-red-500 bg-red-50' : er.g === 'medium' ? 'border-orange-500 bg-orange-50' : 'border-yellow-500 bg-yellow-50'}`}
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <>
+                  <div>
+                    <>
+                      <p
+                        class={`text-xs font-bold uppercase mb-1 ${er.g === 'high' ? 'text-red-600' : 'text-orange-600'}`}
+                      >
+                        Error
+                      </p>
+                      <p class="text-primary-900 font-medium">{er.e}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-1">Consequence</p>
+                      <p class="text-sm text-warmGray">{er.c}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-1">Solution</p>
+                      <p class="text-sm text-warmGray">{er.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">
+        Non-Negotiable Safety Rules
+      </h2><div class="space-y-4 text-white">
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>
+            Never cauterize without direct visualization in midface
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>
+            Never perform frontalis muscle myotomy (asymmetry risk)
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>
+            Never position sutures too low or close to eyebrow
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>Never close scalp with tension</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-primary-900 mb-6">
+        "The most common error in the learning curve is rushing to reduce surgical time. The
+        transition from visual dependency to tactile navigation takes time. Respect this process."
+      </p><footer class="text-sm text-softGray">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/step-by-step" class="text-sm text-accent-600"
+        >← Step by Step</a
+      ><a href="/techniques/endomidface/limitations" class="text-sm text-accent-600"
+        >Limitations →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

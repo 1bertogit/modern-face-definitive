@@ -1,0 +1,314 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface passo a passo',
+  'técnica cirúrgica Endomidface',
+  'protocolo Endomidface',
+  'como fazer Endomidface',
+  'etapas lifting midface',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Passo a Passo Cirúrgico',
+  description:
+    'Protocolo cirúrgico completo do Endomidface. Marcação, incisão, descolamento, liberações, fixação e fechamento.',
+  procedureType: 'Surgical',
+};
+
+const etapas = [
+  {
+    numero: '01',
+    titulo: 'Marcação Pré-operatória',
+    tempo: '5-10 min',
+    descricao: 'Desenho da incisão intracapilar (~5cm), marcos anatômicos, linhas de referência.',
+    pontos: [
+      'Marcar linha da incisão 3-4cm atrás da linha do cabelo',
+      'Identificar crista temporal inferior',
+      'Marcar projeção do arco zigomático',
+      'Definir limites de segurança (1,5cm do forame infraorbitário)',
+    ],
+  },
+  {
+    numero: '02',
+    titulo: 'Anestesia e Infiltração',
+    tempo: '10-15 min',
+    descricao: 'Anestesia local com sedação. Infiltração tumescente na região temporal e frontal.',
+    pontos: [
+      'Lidocaína 0,5% com adrenalina 1:200.000',
+      'Infiltração subcutânea e subgaleal',
+      'Aguardar 10-15 minutos para vasoconstrição',
+      'Sedação leve a moderada com anestesiologista',
+    ],
+  },
+  {
+    numero: '03',
+    titulo: 'Incisão e Acesso Temporal',
+    tempo: '5 min',
+    descricao: 'Incisão intracapilar e entrada no plano entre fáscias temporais.',
+    pontos: [
+      'Incisão com bisturi 15 ou 10',
+      'Profundidade até fáscia temporal superficial',
+      'Identificar plano correto: entre FTS e FTP',
+      'Evitar plano mais superficial (risco ao nervo frontal)',
+    ],
+  },
+  {
+    numero: '04',
+    titulo: 'Descolamento Temporal',
+    tempo: '15-20 min',
+    descricao: 'Descolamento sobre a fáscia temporal profunda até a crista temporal.',
+    pontos: [
+      'Usar descolador rombo ou tesoura Metzenbaum',
+      'Assoalho: músculo temporal (visível através da FTP)',
+      'Cauterizar veia sentinela sob visão',
+      'Liberar crista temporal inferior com tesoura',
+    ],
+  },
+  {
+    numero: '05',
+    titulo: 'Descolamento Frontal (Subperióstico)',
+    tempo: '10-15 min',
+    descricao: 'Progressão para região frontal, liberação do rebordo orbitário.',
+    pontos: [
+      'Mudar para plano subperióstico após crista',
+      'Liberar rebordo orbitário lateral e superior',
+      'Visualizar nervo supraorbitário (sensitivo)',
+      'Cortar periósteo até ver amarelo do subcutâneo',
+    ],
+  },
+  {
+    numero: '06',
+    titulo: 'Descolamento do Terço Médio (Sub-SMAS)',
+    tempo: '15-20 min',
+    descricao: 'Entrada nos espaços pré-zigomático e pré-maxilar.',
+    pontos: [
+      'Passar arco zigomático com descolador neutro',
+      'Sentir perda de resistência = espaço pré-zigomático',
+      'Inclinar descolador para superfície',
+      'Avançar até canto da boca (espaço pré-maxilar)',
+    ],
+  },
+  {
+    numero: '07',
+    titulo: 'Miotomias (Opcional)',
+    tempo: '5-10 min',
+    descricao: 'Enfraquecimento dos músculos da mímica por visão direta.',
+    pontos: [
+      'Miotomia do orbicular (porção lateral)',
+      'Desinserção de corrugadores e próceros',
+      'Sempre por visão direta com cautério',
+      'Nunca miotomia do frontal (risco de assimetria)',
+    ],
+  },
+  {
+    numero: '08',
+    titulo: 'Fixação',
+    tempo: '10-15 min',
+    descricao: 'Ancorar tecidos mobilizados com vetor vertical.',
+    pontos: [
+      'Vicryl 2-0 na fáscia temporal profunda',
+      'Pontos posteriores e superiores à incisão',
+      'Retalho de músculo para fixação medial',
+      'Testar tensão antes de finalizar',
+    ],
+  },
+  {
+    numero: '09',
+    titulo: 'Fechamento',
+    tempo: '10-15 min',
+    descricao: 'Sutura do couro cabeludo sem tensão.',
+    pontos: [
+      'Ressecção de faixa controlada de couro (se necessário)',
+      'Compensar excesso do meio para laterais',
+      'Sutura intradérmica ou grampos',
+      'Curativo compressivo leve',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Passo a Passo Cirúrgico"
+  description="Protocolo cirúrgico completo do Endomidface por Visão Direta. Tempo médio: 90-120 minutos. 9 etapas detalhadas."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Passo a Passo</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Protocolo Cirúrgico
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Passo a Passo</h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          O protocolo completo do Endomidface em 9 etapas. Tempo cirúrgico médio: 90-120 minutos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tempo Total -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">90-120</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">Minutos</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif">9</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">Etapas</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif">Local</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">+ Sedação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Etapas -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-8">
+        {
+          etapas.map((etapa) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <span class="text-4xl font-serif text-accent-600/30">{etapa.numero}</span>
+                  <p class="text-xs text-accent-600 mt-1">{etapa.tempo}</p>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-serif text-primary-900 mb-3">{etapa.titulo}</h3>
+                  <p class="text-warmGray mb-4">{etapa.descricao}</p>
+                  <ul class="space-y-2">
+                    {etapa.pontos.map((ponto) => (
+                      <li class="flex items-start gap-2 text-sm text-warmGray">
+                        <span class="text-accent-600 mt-1">→</span>
+                        {ponto}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Dicas Críticas -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Dicas Críticas</h2>
+
+      <div class="space-y-4">
+        <div class="bg-white/10 p-6 border-l-4 border-accent-500">
+          <p class="text-white">
+            <strong class="text-accent-400">Perda de resistência:</strong>
+            Quando o descolador "afunda" subitamente, você entrou no espaço pré-zigomático. Incline para
+            cima e continue.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-6 border-l-4 border-accent-500">
+          <p class="text-white">
+            <strong class="text-accent-400">Direção do descolador:</strong>
+            Mirar do canto do olho em direção à asa do nariz. Nunca descolar em direção à pálpebra inferior
+            (risco de quimose).
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-6 border-l-4 border-accent-500">
+          <p class="text-white">
+            <strong class="text-accent-400">Inclinação para superfície:</strong>
+            No terço médio, sempre inclinar o descolador para cima. Nervos motores estão no assoalho.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-6 border-l-4 border-accent-500">
+          <p class="text-white">
+            <strong class="text-accent-400">Veia sentinela:</strong>
+            Cauterizar na base sob visão direta. Serve como marco — depois dela, você está próximo à crista
+            temporal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curva de Aprendizado -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Curva de Aprendizado</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-ivory text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-2">
+            Fase 1: Iniciação
+          </p>
+          <p class="text-2xl font-serif text-primary-900 mb-2">Casos 1-5</p>
+          <p class="text-sm text-warmGray">~150 minutos</p>
+          <p class="text-xs text-warmGray mt-2">Foco em anatomia e segurança</p>
+        </div>
+
+        <div class="p-6 bg-ivory text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-2">
+            Fase 2: Consolidação
+          </p>
+          <p class="text-2xl font-serif text-primary-900 mb-2">Casos 6-15</p>
+          <p class="text-sm text-warmGray">~120 minutos</p>
+          <p class="text-xs text-warmGray mt-2">Desenvolvendo navegação tátil</p>
+        </div>
+
+        <div class="p-6 bg-ivory text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-2">
+            Fase 3: Proficiência
+          </p>
+          <p class="text-2xl font-serif text-primary-900 mb-2">Casos 16-30</p>
+          <p class="text-sm text-warmGray">90-100 minutos</p>
+          <p class="text-xs text-warmGray mt-2">Domínio técnico completo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/vetores"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Vetores
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/erros-comuns"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Erros Comuns →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

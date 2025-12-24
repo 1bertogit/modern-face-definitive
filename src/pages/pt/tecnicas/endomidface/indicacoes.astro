@@ -1,0 +1,366 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface indicações',
+  'quem pode fazer Endomidface',
+  'candidato ideal lifting midface',
+  'contraindicações Endomidface',
+  'seleção paciente lifting facial',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Indicações e Contraindicações',
+  description:
+    'Critérios de seleção de pacientes para Endomidface. Perfil ideal, contraindicações absolutas e relativas.',
+  procedureType: 'Surgical',
+};
+
+const indicacoes = [
+  {
+    titulo: 'Flacidez do Terço Médio',
+    descricao:
+      'Queda das bochechas, perda de projeção malar, acentuação inicial do sulco nasogeniano.',
+    icone: 'face_retouching_natural',
+  },
+  {
+    titulo: 'Alterações da Pálpebra Inferior',
+    descricao:
+      'Pálpebra inferior longa verticalmente, vetor negativo, scleral show leve ou moderado.',
+    icone: 'visibility',
+  },
+  {
+    titulo: 'Face com Bioestimuladores',
+    descricao:
+      'Pacientes com fibrose no SMAS fixo lateral. O acesso superior contorna a zona de risco.',
+    icone: 'healing',
+  },
+  {
+    titulo: 'Recuperação Rápida Desejada',
+    descricao: 'Pacientes que valorizam pouco downtime e cicatrizes intracapilares discretas.',
+    icone: 'schedule',
+  },
+];
+
+const contraindicacoesAbsolutas = [
+  'Tabagismo ativo sem pausa prévia (mínimo 30 dias)',
+  'Excesso de pele severo em face e pescoço',
+  'Jowls como queixa principal isolada',
+  'Calvície total (para frontoplastia associada)',
+  'Blefaroespasmo essencial',
+  'Pacientes acima de 70 anos com redundância cutânea severa',
+];
+
+const contraindicacoesRelativas = [
+  'Expectativas incompatíveis com resultados possíveis',
+  'Doenças pulmonares ou sistêmicas descompensadas',
+  'Coagulopatias não controladas',
+  'Testa muito curta com necessidade de browlift amplo',
+];
+---
+
+<BaseLayout
+  title="Indicações do Endomidface"
+  description="Critérios de seleção de pacientes para Endomidface. Perfil ideal entre 45-50 anos, contraindicações absolutas e relativas."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Indicações</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Seleção de Pacientes
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Indicações e Contraindicações
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          A seleção correta do caso é tão importante quanto a técnica em si. Conheça o perfil ideal
+          e as limitações do Endomidface.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfil Ideal -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-white p-10 border border-accent-200">
+        <h2 class="text-2xl font-serif text-primary-900 mb-6">O Paciente Ideal</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-warmGray mb-6">
+              Com base em mais de 200 casos documentados, o Dr. Robério Brandão identificou o perfil
+              que mais se beneficia do Endomidface:
+            </p>
+
+            <ul class="space-y-3 text-warmGray">
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>
+                Faixa etária entre 45-50 anos
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>
+                Flacidez moderada do terço médio
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>
+                Qualidade cutânea preservada
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>
+                Expectativas realistas
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-accent-50 p-6">
+            <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-3">
+              Dado Clínico
+            </p>
+            <p class="text-3xl font-serif text-primary-900 mb-2">80%</p>
+            <p class="text-sm text-warmGray">
+              dos pacientes operados pelo Dr. Robério estão na faixa de 45-50 anos. Nesse perfil, a
+              técnica oferece os melhores resultados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Indicações -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Indicações Principais</h2>
+      <p class="text-center text-warmGray mb-12 max-w-2xl mx-auto">
+        O Endomidface é particularmente bem indicado nas seguintes situações clínicas.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          indicacoes.map((item) => (
+            <div class="flex items-start gap-6 p-8 bg-ivory border border-gray-100">
+              <span class="material-symbols-outlined text-3xl text-accent-600 flex-shrink-0">
+                {item.icone}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-2">{item.titulo}</h3>
+                <p class="text-sm text-warmGray">{item.descricao}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Critérios Práticos -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Critérios Práticos para Indicar</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          De forma aplicada, o Endomidface por Visão Direta é particularmente bem indicado quando:
+        </p>
+
+        <ol class="space-y-6">
+          <li>
+            <strong class="text-primary-900">Há queixa estruturada do terço médio</strong>
+            <p class="mt-2 text-sm">
+              Flacidez malar, queda de bochecha, perda de contorno na transição pálpebra-bochecha.
+            </p>
+          </li>
+
+          <li>
+            <strong class="text-primary-900">Há benefício claro na pálpebra inferior</strong>
+            <p class="mt-2 text-sm">
+              Pálpebra inferior longa, vetor negativo, necessidade de reforço da continência
+              palpebral.
+            </p>
+          </li>
+
+          <li>
+            <strong class="text-primary-900">O paciente tem histórico de bioestimuladores</strong>
+            <p class="mt-2 text-sm">
+              Sobretudo quando há provável fibrose no SMAS fixo lateral e se deseja evitar dissecção
+              direta nessa zona.
+            </p>
+          </li>
+
+          <li>
+            <strong class="text-primary-900">O paciente valoriza recuperação rápida</strong>
+            <p class="mt-2 text-sm">
+              Cicatrizes discretas, menor dependência de tecnologias, retorno social em 7-10 dias.
+            </p>
+          </li>
+
+          <li>
+            <strong class="text-primary-900">Há expectativa realista</strong>
+            <p class="mt-2 text-sm">
+              O paciente entende que jowls, excesso de pele importante e pescoço muito flácido podem
+              exigir técnicas adicionais.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contraindicações -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Contraindicações</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Absolutas -->
+        <div class="p-8 bg-red-50 border border-red-100">
+          <h3 class="text-lg font-serif text-red-800 mb-6 flex items-center gap-3">
+            <span class="material-symbols-outlined">block</span>
+            Absolutas
+          </h3>
+          <ul class="space-y-3">
+            {
+              contraindicacoesAbsolutas.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-red-700">
+                  <span class="text-red-400 mt-1">✕</span>
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- Relativas -->
+        <div class="p-8 bg-amber-50 border border-amber-100">
+          <h3 class="text-lg font-serif text-amber-800 mb-6 flex items-center gap-3">
+            <span class="material-symbols-outlined">warning</span>
+            Relativas
+          </h3>
+          <ul class="space-y-3">
+            {
+              contraindicacoesRelativas.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-amber-700">
+                  <span class="text-amber-400 mt-1">!</span>
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitações -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-white p-8 border-l-4 border-accent-600">
+        <h2 class="text-xl font-serif text-primary-900 mb-4">O Que o Endomidface NÃO Corrige</h2>
+
+        <p class="text-warmGray mb-6">
+          É fundamental comunicar ao paciente as limitações da técnica isolada:
+        </p>
+
+        <ul class="space-y-3 text-warmGray">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span
+              ><strong class="text-primary-900">Jowls marcados</strong> — a flacidez na linha da mandíbula
+              ("bulldog") não é corrigida</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span
+              ><strong class="text-primary-900">Excesso cervical importante</strong> — pescoço flácido
+              requer Deep Neck associado</span
+            >
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span
+              ><strong class="text-primary-900">Ptose mandibular severa</strong> — pode exigir incisão
+              pré-auricular</span
+            >
+          </li>
+        </ul>
+
+        <p class="text-sm text-warmGray mt-6 italic">
+          Nesses contextos, o Endomidface deve ser associado a outras abordagens (Deep Neck, lifting
+          com incisão pré-auricular e ressecção de pele).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "Qual é o meu perfil hoje em dia? São pacientes entre 45 e 50 anos, 80% do meu movimento.
+          Nesse paciente funciona essa abordagem. Pacientes acima de 70 anos, não vai funcionar,
+          porque tem um SMAS muito redundante."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Em Resumo -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Em Resumo</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          O Endomidface é ideal para pacientes entre 45-50 anos com flacidez moderada do terço
+          médio, especialmente aqueles com histórico de bioestimuladores. A técnica não deve ser
+          indicada isoladamente para jowls ou excesso cervical significativo. A comunicação clara
+          das limitações é essencial para alinhamento de expectativas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/o-que-e"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← O Que É
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/anatomia"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Anatomia →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

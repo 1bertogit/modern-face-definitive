@@ -1,0 +1,130 @@
+---
+/**
+ * SchemaLocalBusiness - Schema para SEO Local
+ * Ajuda o Google a exibir informações da clínica em buscas locais
+ * (Google Maps, Knowledge Panel, Local Pack)
+ */
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  '@id': `${siteUrl}/#localbusiness`,
+  name: 'Dr. Robério Brandão - Cirurgia Plástica Facial',
+  description:
+    'Instituto especializado em cirurgia facial moderna: ENDOMIDFACE, Deep Neck e Browlift por Visão Direta. Referência em rejuvenescimento facial no Nordeste.',
+  url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/logo.png`,
+    width: 512,
+    height: 512,
+  },
+  image: `${siteUrl}/images/og-default.webp`,
+  telephone: '+55-84-92001-3480',
+  email: 'contato@drroberiobrandao.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Prudente de Morais',
+    addressLocality: 'Natal',
+    addressRegion: 'RN',
+    postalCode: '59020-000',
+    addressCountry: 'BR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -5.7945,
+    longitude: -35.211,
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Natal',
+    },
+    {
+      '@type': 'State',
+      name: 'Rio Grande do Norte',
+    },
+    {
+      '@type': 'Place',
+      name: 'Nordeste do Brasil',
+    },
+  ],
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '08:00',
+      closes: '12:00',
+    },
+  ],
+  priceRange: '$$$',
+  currenciesAccepted: 'BRL',
+  paymentAccepted: ['Cash', 'Credit Card', 'Debit Card', 'Bank Transfer', 'PIX'],
+  medicalSpecialty: {
+    '@type': 'MedicalSpecialty',
+    name: 'Plastic Surgery',
+  },
+  availableService: [
+    {
+      '@type': 'MedicalProcedure',
+      name: 'ENDOMIDFACE por Visão Direta',
+      description:
+        'Rejuvenescimento do terço médio da face sem endoscópio, com segurança superior em faces com bioestimuladores.',
+      procedureType: 'Surgical',
+      bodyLocation: 'Face - Terço Médio',
+    },
+    {
+      '@type': 'MedicalProcedure',
+      name: 'Deep Neck Lift',
+      description:
+        'Rejuvenescimento cervical completo que trata flacidez do pescoço, papada e bandas platismais.',
+      procedureType: 'Surgical',
+      bodyLocation: 'Pescoço',
+    },
+    {
+      '@type': 'MedicalProcedure',
+      name: 'Browlift por Visão Direta',
+      description: 'Elevação das sobrancelhas e rejuvenescimento do terço superior da face.',
+      procedureType: 'Surgical',
+      bodyLocation: 'Face - Terço Superior',
+    },
+    {
+      '@type': 'MedicalProcedure',
+      name: 'Deep Plane Facelift',
+      description: 'Lifting facial em plano profundo com resultados naturais e duradouros.',
+      procedureType: 'Surgical',
+      bodyLocation: 'Face',
+    },
+    {
+      '@type': 'MedicalProcedure',
+      name: 'Blefaroplastia',
+      description: 'Cirurgia de pálpebras para remover excesso de pele e bolsas de gordura.',
+      procedureType: 'Surgical',
+      bodyLocation: 'Pálpebras',
+    },
+  ],
+  founder: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person-dr-roberio`,
+    name: 'Dr. Robério Brandão',
+    jobTitle: 'Cirurgião Plástico - Fundador',
+    description:
+      'Cirurgião plástico especialista em rejuvenescimento facial, criador da técnica ENDOMIDFACE por Visão Direta.',
+  },
+  sameAs: [
+    'https://www.instagram.com/drroberiobrandao',
+    'https://www.youtube.com/@drroberiobrandao',
+    'https://www.linkedin.com/in/drroberiobrandao',
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />

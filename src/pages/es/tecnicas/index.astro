@@ -1,0 +1,280 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'técnicas quirúrgicas faciales',
+  'lifting facial Face Moderna',
+  'Endomidface visión directa',
+  'Deep Neck cervical',
+  'Browlift evolutivo',
+  'cirugía facial mínimamente invasiva',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Técnicas Quirúrgicas Face Moderna®',
+  description:
+    'Las técnicas que componen la metodología Face Moderna®: Endomidface por Visión Directa, Deep Neck y Browlift Evolutivo.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const tecnicasPrincipales = [
+  {
+    href: '/es/tecnicas/endomidface',
+    nombre: 'Endomidface por Visión Directa',
+    subtitulo: 'Tercio Medio del Rostro',
+    descripcion:
+      'Rejuvenecimiento del tercio medio sin endoscopio. Visión directa, feedback táctil simultáneo, seguridad máxima en rostros con bioestimuladores.',
+    destaque: '212 casos • 0% lesión nerviosa',
+    tag: 'Técnica Principal',
+  },
+  {
+    href: '/es/tecnicas/deep-neck',
+    nombre: 'Deep Neck Face Moderna',
+    subtitulo: 'Cuello y Región Cervical',
+    descripcion:
+      'Tratamiento completo del cuello SIN remoción de la glándula submandibular. Platismorrafia, shaving digástrico, Crevassi lateral.',
+    destaque: 'Preservación glandular total',
+    tag: 'Técnica Principal',
+  },
+  {
+    href: '/es/tecnicas/browlift',
+    nombre: 'Browlift Evolutivo',
+    subtitulo: 'Tercio Superior y Cejas',
+    descripcion:
+      'Frontoplastia por visión directa con acceso intracapilar. Portal seguro para el Endomidface. Vector vertical, resultado natural.',
+    destaque: 'Incisión 100% oculta',
+    tag: 'Técnica Principal',
+  },
+];
+
+// Técnicas complementarias - páginas aún no creadas
+// const tecnicasComplementarias = [
+//   {
+//     href: "/es/tecnicas/blefaroplastia",
+//     nombre: "Blefaroplastia Conservadora",
+//     descripcion: "Preservación del músculo orbicular y grasa orbital."
+//   },
+//   {
+//     href: "/es/tecnicas/cantopexia",
+//     nombre: "Cantopexia",
+//     descripcion: "Soporte y reposicionamiento del canto lateral."
+//   },
+//   {
+//     href: "/es/tecnicas/rostro-fibrosado",
+//     nombre: "Rostro Fibrosado",
+//     descripcion: "Protocolos para rostros con bioestimuladores previos."
+//   },
+//   {
+//     href: "/es/tecnicas/revisiones-y-complicaciones",
+//     nombre: "Revisiones y Complicaciones",
+//     descripcion: "Manejo de casos secundarios y complicaciones."
+//   },
+//   {
+//     href: "/es/tecnicas/combinaciones-quirurgicas",
+//     nombre: "Combinaciones Quirúrgicas",
+//     descripcion: "Secuencia e integración de múltiples procedimientos."
+//   }
+// ];
+
+const comparativo = [
+  {
+    aspecto: 'Nivel de Invasividad',
+    emf: 'Mínimamente Invasiva',
+    ponytail: 'Moderadamente Invasiva',
+    deepPlane: 'Altamente Invasiva',
+  },
+  {
+    aspecto: 'Seguridad en Rostros Inyectados',
+    emf: 'Segura',
+    ponytail: 'Cuidados Especiales',
+    deepPlane: 'Contraindicada',
+  },
+  {
+    aspecto: 'Tiempo Quirúrgico',
+    emf: '90-120 min',
+    ponytail: '120-180 min',
+    deepPlane: '180-240 min',
+  },
+  { aspecto: 'Recuperación', emf: '7-10 días', ponytail: '14-21 días', deepPlane: '21-30 días' },
+  { aspecto: 'Curva de Aprendizaje', emf: 'Moderada', ponytail: 'Moderada', deepPlane: 'Empinada' },
+  { aspecto: 'Tasa de Complicaciones', emf: '<3%', ponytail: '5-8%', deepPlane: '8-12%' },
+];
+---
+
+<BaseLayout
+  title="Técnicas Quirúrgicas"
+  description="Las técnicas que componen la metodología Face Moderna®: Endomidface por Visión Directa, Deep Neck y Browlift Evolutivo."
+  schema={schema}
+  keywords={keywords}
+  lang="es"
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Face Moderna®</p>
+      <h1 class="heading-1-white text-5xl md:text-6xl">Técnicas Quirúrgicas</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Tres técnicas principales integradas en una metodología cohesiva. Cada una resuelve
+        problemas específicos, todas comparten los mismos principios: seguridad máxima, resultado
+        natural, recuperación optimizada.
+      </p>
+    </div>
+  </section>
+
+  <!-- Técnicas Principales -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Técnicas Principales</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        El núcleo de Face Moderna®. Tres técnicas que pueden aplicarse aisladamente o combinadas
+        según la necesidad del paciente.
+      </p>
+
+      <div class="space-y-8">
+        {
+          tecnicasPrincipales.map((tecnica, index) => (
+            <a
+              href={tecnica.href}
+              class="group block bg-white border border-gray-100 hover:border-accent-600 hover:shadow-xl transition-all duration-300"
+            >
+              <div class="grid grid-cols-12 gap-0">
+                <div class="col-span-12 md:col-span-2 bg-primary-900 p-8 flex items-center justify-center">
+                  <span class="text-6xl font-serif text-white/20 group-hover:text-accent-500 transition-colors">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <div class="col-span-12 md:col-span-10 p-8">
+                  <div class="flex items-start justify-between mb-4">
+                    <span class="label-eyebrow">{tecnica.tag}</span>
+                    <span class="text-sm text-accent-600 font-medium">{tecnica.destaque}</span>
+                  </div>
+
+                  <h3 class="heading-3 mb-2 group-hover:text-accent-600 transition-colors">
+                    {tecnica.nombre}
+                  </h3>
+                  <p class="text-sm text-accent-600 mb-4">{tecnica.subtitulo}</p>
+                  <p class="body-small">{tecnica.descripcion}</p>
+
+                  <span class="inline-block mt-6 text-sm text-accent-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Explorar técnica →
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Comparativo Técnico</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        Cómo el Endomidface por Visión Directa se compara con otros enfoques de lifting facial en
+        plano profundo.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 pr-4 font-medium text-primary-900">Aspecto</th>
+              <th class="text-left py-4 px-4 font-medium text-accent-600">EMF Visión Directa</th>
+              <th class="text-left py-4 px-4 font-medium text-softGray">Ponytail Facelift</th>
+              <th class="text-left py-4 pl-4 font-medium text-softGray">Deep Plane Tradicional</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparativo.map((item) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 pr-4 font-medium text-primary-900">{item.aspecto}</td>
+                  <td class="py-4 px-4 text-accent-600 font-medium">{item.emf}</td>
+                  <td class="py-4 px-4 text-warmGray">{item.ponytail}</td>
+                  <td class="py-4 pl-4 text-warmGray">{item.deepPlane}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-xs text-softGray mt-6 text-center">
+        * Datos basados en 212 casos consecutivos documentados y literatura científica comparativa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cita -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <blockquote>
+        <p class="heading-2-white italic mb-8">
+          "La técnica correcta es aquella que entrega el mejor resultado con máxima seguridad — no
+          la que parece más impresionante."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Técnicas Complementarias -->
+  {/* Sección comentada - páginas aún no creadas */}
+  {
+    /* <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Técnicas Complementarias
+      </h2>
+      <p class="text-warmGray text-center mb-12 max-w-2xl mx-auto">
+        Procedimientos que se integran a las técnicas principales para 
+        resultados completos y personalizados.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tecnicasComplementarias.map((tecnica) => (
+          <a 
+            href={tecnica.href}
+            class="group block p-6 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+          >
+            <h3 class="text-lg font-serif text-primary-900 mb-2 group-hover:text-accent-600 transition-colors">
+              {tecnica.nombre}
+            </h3>
+            <p class="text-sm text-warmGray">
+              {tecnica.descripcion}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section> */
+  }
+
+  <!-- CTA -->
+  <section class="section-lg bg-white">
+    <div class="prose-base">
+      <div class="p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Aprenda las Técnicas</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          Programas estructurados para dominar cada técnica con seguridad y consistencia.
+        </p>
+        <a
+          href="/es/formacion"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Ver Programas de Formación
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

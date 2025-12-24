@@ -1,0 +1,134 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const spaces = [
+  {
+    name: 'Subgaleal Space',
+    region: 'Upper Third',
+    desc: 'Between galea and periosteum. Avascular dissection plane for Browlift.',
+    safety: 'High',
+  },
+  {
+    name: 'Superficial Temporal Space',
+    region: 'Temple',
+    desc: 'Between STF and deep temporal fascia. Contains temporal fat.',
+    safety: 'High',
+  },
+  {
+    name: 'Pre-Zygomatic Space',
+    region: 'Midface',
+    desc: 'Between SMAS and zygomatic periosteum. Main Endomidface portal.',
+    safety: 'High',
+  },
+  {
+    name: 'Pre-Masseteric Space',
+    region: 'Lateral Midface',
+    desc: 'Lateral to zygomatic major. Access to ligaments.',
+    safety: 'Medium',
+  },
+  {
+    name: 'Buccal Space',
+    region: 'Middle/Lower Third',
+    desc: 'Contains buccal fat pad. Transition zone.',
+    safety: 'Low',
+  },
+  {
+    name: 'Sub-SMAS Space',
+    region: 'Lower Face',
+    desc: 'Deep to SMAS. Contains facial branches.',
+    safety: 'Low',
+  },
+  {
+    name: 'Subplatysmal Space',
+    region: 'Neck',
+    desc: 'Deep to platysma. Access to cervical structures.',
+    safety: 'Medium',
+  },
+];
+---
+
+<BaseLayout
+  title="Facial Surgical Spaces"
+  description="Spaces and dissection planes of facial surgery. Where to dissect safely."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Surgical Spaces</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Dissection Planes
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Surgical Spaces</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The "corridors" of dissection. Knowing them is key to safe surgery.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          The face has natural anatomical spaces — cleavage planes where tissues separate easily
+          and, more importantly, safely. Dissecting within these spaces minimizes bleeding and nerve
+          injury risk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Space Map</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Space</th>
+              <th class="text-left py-4 px-4">Region</th>
+              <th class="text-left py-4 px-4">Description</th>
+              <th class="text-center py-4 px-4">Safety</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              spaces.map((s) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{s.name}</td>
+                  <td class="py-4 px-4 text-accent-600">{s.region}</td>
+                  <td class="py-4 px-4 text-warmGray">{s.desc}</td>
+                  <td class="py-4 px-4 text-center">
+                    <span
+                      class={`text-xs px-2 py-1 text-white ${s.safety === 'High' ? 'bg-green-600' : s.safety === 'Medium' ? 'bg-amber-600' : 'bg-red-600'}`}
+                    >
+                      {s.safety}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/cervical-region" class="text-sm text-accent-600"
+        >← Cervical Region</a
+      >
+      <a href="/applied-anatomy/retaining-ligaments" class="text-sm text-accent-600"
+        >Retaining Ligaments →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'consentimento informado cirurgia',
+  'termo consentimento lifting',
+  'riscos complicações lifting',
+  'comunicação paciente cirurgia',
+  'documentação legal cirurgia',
+  'hematoma lesão nervosa riscos',
+];
+
+const secoes = [
+  {
+    titulo: 'Informações do Procedimento',
+    itens: [
+      'Descrição técnica da cirurgia',
+      'Objetivos realistas esperados',
+      'Alternativas ao procedimento',
+      'Tempo cirúrgico estimado',
+    ],
+  },
+  {
+    titulo: 'Riscos e Complicações',
+    itens: [
+      'Hematoma (mais comum)',
+      'Infecção (rara)',
+      'Lesão nervosa temporária',
+      'Lesão nervosa permanente (rara)',
+      'Assimetria',
+      'Cicatriz hipertrófica',
+      'Necessidade de revisão',
+    ],
+  },
+  {
+    titulo: 'Pós-Operatório',
+    itens: [
+      'Tempo de recuperação esperado',
+      'Restrições de atividade',
+      'Sinais de alerta',
+      'Cronograma de retornos',
+    ],
+  },
+];
+
+const principios = [
+  'O consentimento não é apenas documento legal',
+  'É processo de comunicação com o paciente',
+  'Paciente deve entender, não apenas assinar',
+  'Documento deve ser assinado com antecedência',
+];
+---
+
+<BaseLayout
+  title="Consentimento Informado"
+  description="Termo de consentimento para cirurgia facial. Comunicação clara de riscos e expectativas."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li>
+            <a href="/pt/tecnicas/planejamento-cirurgico" class="hover:text-white">Planejamento</a>
+          </li>
+          <li><span>/</span></li>
+          <li class="text-white">Consentimento</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 05
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Consentimento Informado
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Comunicação transparente é fundamental. O paciente deve entender completamente o que
+        esperar.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "O melhor consentimento é aquele que o paciente consegue explicar de volta para você."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Conteúdo do Termo</h2>
+      <div class="space-y-8">
+        {
+          secoes.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-4">{s.titulo}</h3>
+              <ul class="space-y-2">
+                {s.itens.map((item) => (
+                  <li class="flex items-center gap-2 text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Princípios do Consentimento
+      </h2>
+      <div class="space-y-3">
+        {
+          principios.map((p) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{p}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/planejamento-cirurgico/fotografia" class="text-sm text-accent-600"
+        >← Fotografia</a
+      >
+      <a href="/pt/tecnicas/planejamento-cirurgico/checklist" class="text-sm text-accent-600"
+        >Checklist →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

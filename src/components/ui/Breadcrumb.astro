@@ -1,0 +1,57 @@
+---
+/**
+ * Breadcrumb - Navegação visual + Schema markup
+ */
+import SchemaBreadcrumb from '@components/seo/SchemaBreadcrumb.astro';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<!-- Schema Markup -->
+<SchemaBreadcrumb items={items} />
+
+<!-- Visual Breadcrumb -->
+<nav aria-label="Breadcrumb" class={`text-sm ${className}`}>
+  <ol
+    class="flex items-center flex-wrap gap-1"
+    itemscope
+    itemtype="https://schema.org/BreadcrumbList"
+  >
+    {
+      items.map((item, index) => (
+        <li
+          class="flex items-center"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem"
+        >
+          {index > 0 && <span class="mx-2 text-softGray">/</span>}
+          {index === items.length - 1 ? (
+            <span class="text-primary-900 font-medium" itemprop="name">
+              {item.name}
+            </span>
+          ) : (
+            <a
+              href={item.url}
+              class="text-softGray hover:text-primary-600 transition-colors"
+              itemprop="item"
+            >
+              <span itemprop="name">{item.name}</span>
+            </a>
+          )}
+          <meta itemprop="position" content={String(index + 1)} />
+        </li>
+      ))
+    }
+  </ol>
+</nav>

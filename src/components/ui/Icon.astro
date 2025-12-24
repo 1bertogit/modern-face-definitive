@@ -1,0 +1,31 @@
+---
+interface Props {
+  name:
+    | 'executive-summary'
+    | 'check-positive'
+    | 'check-negative'
+    | 'note'
+    | 'location'
+    | 'combine'
+    | 'warning'
+    | 'star';
+  className?: string;
+  size?: number;
+}
+
+const iconMap = {
+  'executive-summary': '/images/icons/icon-executive-summary.svg',
+  'check-positive': '/images/icons/icon-check-positive.svg',
+  'check-negative': '/images/icons/icon-check-negative.svg',
+  note: '/images/icons/icon-note.svg',
+  location: '/images/icons/icon-location.svg',
+  combine: '/images/icons/icon-combine.svg',
+  warning: '/images/icons/icon-warning.svg',
+  star: '/images/icons/icon-star.svg',
+};
+
+const { name, className = '', size = 24 } = Astro.props;
+const iconPath = iconMap[name];
+---
+
+<img src={iconPath} alt={name} width={size} height={size} class={className} loading="lazy" />

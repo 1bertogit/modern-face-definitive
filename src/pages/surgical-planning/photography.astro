@@ -1,0 +1,96 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const views = [
+  { name: 'Frontal', desc: 'Looking at camera, neutral expression', required: true },
+  { name: 'Oblique 45° R', desc: '45° rotation to right', required: true },
+  { name: 'Oblique 45° L', desc: '45° rotation to left', required: true },
+  { name: 'Profile R', desc: 'Complete right profile', required: true },
+  { name: 'Profile L', desc: 'Complete left profile', required: true },
+  { name: 'Nasal Base', desc: 'Inferior nasal view', required: false },
+  { name: 'Extended Neck', desc: 'Cervical hyperextension', required: false },
+];
+
+const specs = [
+  { item: 'Background', value: 'Neutral (blue or gray)' },
+  { item: 'Lighting', value: 'Ring light or dual flash' },
+  { item: 'Distance', value: '1.5 meters standardized' },
+  { item: 'Camera height', value: 'Eye level' },
+  { item: 'Expression', value: 'Neutral, no smile' },
+  { item: 'Hair', value: 'Pulled back' },
+];
+---
+
+<BaseLayout
+  title="Standardized Photography"
+  description="Pre-operative photographic documentation. Mandatory views and technical specifications."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/surgical-planning" class="hover:text-white">Planning</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Photography</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Step 04</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Standardized Photography
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Photographic documentation is mandatory. Standardization ensures comparability and legal
+        protection.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Views</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          views.map((v) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div>
+                <h3 class="font-medium text-primary-900">{v.name}</h3>
+                <p class="text-sm text-warmGray">{v.desc}</p>
+              </div>
+              <span
+                class={`text-xs px-2 py-1 ${v.required ? 'bg-accent-600' : 'bg-gray-400'} text-white`}
+              >
+                {v.required ? 'Required' : 'Optional'}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Technical Specs</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {
+          specs.map((s) => (
+            <div class="p-4 bg-white border border-gray-100 text-center">
+              <p class="text-xs text-accent-600 uppercase tracking-wide mb-1">{s.item}</p>
+              <p class="text-warmGray font-medium">{s.value}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/surgical-planning/vectors" class="text-sm text-accent-600">← Vectors</a>
+      <a href="/surgical-planning/consent" class="text-sm text-accent-600">Consent →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,141 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface recovery',
+  'facelift post-operative care',
+  'midface surgery recovery time',
+  'facelift discharge protocol',
+  'facelift edema resolution',
+  'quick facelift recovery',
+];
+
+const timeline = [
+  { t: '0-2h', title: 'Surgical Center', d: 'Post-operative observation, vital signs monitoring' },
+  { t: '2h', title: 'Discharge', d: 'Patient released home with companion' },
+  { t: '24h', title: 'First Return', d: 'Evaluation, dressing change if needed' },
+  { t: '72h', title: 'Micropore Removal', d: 'Forehead micropore is removed' },
+  { t: '7 days', title: 'Suture Removal', d: 'Scalp sutures or staples' },
+  { t: '7-10 days', title: 'Social Return', d: 'Patient presentable, minimal residual edema' },
+  { t: '2 weeks', title: 'Initial Result', d: 'Follow-up photos, result already evident' },
+  { t: '6 months', title: 'Final Result', d: 'Complete stabilization, definitive result' },
+];
+---
+
+<BaseLayout
+  title="Endomidface Recovery"
+  description="Complete post-operative recovery protocol for Endomidface. Discharge in 2h, micropore 72h, social return 7-10 days."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Post-operative
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Recovery</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        One of Endomidface's great differentiators is accelerated recovery. Learn the complete
+        post-operative protocol.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">2h</p><p class="text-xs uppercase">Discharge</p>
+        </div><div>
+          <p class="text-3xl font-serif">72h</p><p class="text-xs uppercase">Micropore</p>
+        </div><div>
+          <p class="text-3xl font-serif">7-10d</p><p class="text-xs uppercase">Social Return</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Recovery Timeline</h2><div
+        class="space-y-6"
+      >
+        {
+          timeline.map((item) => (
+            <div class="flex items-start gap-6 bg-white p-6 border border-gray-100">
+              <>
+                <div class="w-16 flex-shrink-0">
+                  <p class="text-accent-600 font-serif text-lg">{item.t}</p>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-1">{item.title}</h3>
+                    <p class="text-sm text-warmGray">{item.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Edema and Ecchymosis</h2><p
+        class="text-warmGray mb-6"
+      >
+        Endomidface is characterized by <strong>significantly less edema</strong> compared to more extensive
+        techniques. This is due to the focused approach on the midface and preservation of lymphatic drainage.
+      </p><h3 class="font-serif text-primary-900 mb-4">What to Expect</h3><ul
+        class="space-y-2 text-warmGray"
+      >
+        <li><strong>First 48h:</strong> More pronounced edema, mainly periorbital</li><li>
+          <strong>3-5 days:</strong> Peak edema, beginning of resolution
+        </li><li><strong>7-10 days:</strong> Minimal residual edema, patient presentable</li><li>
+          <strong>2-4 weeks:</strong> Complete resolution in most cases
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Tips to Optimize Recovery</h2><div
+        class="space-y-4 text-white"
+      >
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span><p>
+            Apply cold compresses in first 48h (20 min on/off)
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span><p>
+            Keep head elevated even during the day
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span><p>
+            Avoid excess salt (contributes to fluid retention)
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span><p>
+            No makeup on operated area for 7-10 days
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-primary-900 mb-6">
+        "She was discharged from the surgical center 2 hours after completion. Photo at 2 weeks
+        already showing significant result. This strategy of dissecting and elevating the midface
+        made me save time, continue with local anesthesia and sedation, and have much less edema."
+      </p><footer class="text-sm text-softGray">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/results" class="text-sm text-accent-600">← Results</a><a
+        href="/techniques/endomidface"
+        class="text-sm text-accent-600">Overview →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

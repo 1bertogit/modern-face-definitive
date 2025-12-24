@@ -1,0 +1,187 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'sistema SPE-M avaliação',
+  'skin ptose estrutura massa',
+  'avaliação sistemática face',
+  'graduação envelhecimento facial',
+  'protocolo pré-operatório',
+  'exame pré-operatório lifting',
+];
+
+const dominios = [
+  {
+    letra: 'S',
+    nome: 'Skin',
+    traducao: 'Pele',
+    itens: [
+      'Qualidade geral',
+      'Fotodano (manchas, rugas)',
+      'Elastose',
+      'Rugas dinâmicas vs estáticas',
+    ],
+  },
+  {
+    letra: 'P',
+    nome: 'Ptose',
+    traducao: 'Ptose',
+    itens: [
+      'Sobrancelha (ptose lateral)',
+      'Pálpebra (dermatocálase)',
+      'Midface (sulco nasojugal)',
+      'Jowl (borda mandibular)',
+      'Pescoço (bandas platismais)',
+    ],
+  },
+  {
+    letra: 'E',
+    nome: 'Estrutura',
+    traducao: 'Estrutura',
+    itens: ['Projeção malar', 'Retrognatia', 'Ângulo cervicomentoniano', 'Assimetrias faciais'],
+  },
+  {
+    letra: 'M',
+    nome: 'Massa',
+    traducao: 'Músculo/Massa',
+    itens: ['Hipertrofia masseter', 'Bandas platismais', 'Gordura submentoniana', 'Volume malar'],
+  },
+];
+
+const escala = [
+  { grau: '0', desc: 'Ausente', cor: 'bg-green-600' },
+  { grau: '1', desc: 'Leve', cor: 'bg-yellow-600' },
+  { grau: '2', desc: 'Moderado', cor: 'bg-orange-600' },
+  { grau: '3', desc: 'Severo', cor: 'bg-red-600' },
+];
+---
+
+<BaseLayout
+  title="Sistema SPE-M de Avaliação"
+  description="Avaliação sistemática pré-operatória: Skin, Ptose, Estrutura e Massa. Protocolo padronizado."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li>
+            <a href="/pt/tecnicas/planejamento-cirurgico" class="hover:text-white">Planejamento</a>
+          </li>
+          <li><span>/</span></li>
+          <li class="text-white">SPE-M</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 02
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Sistema SPE-M</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Avaliação sistemática em 4 domínios: Skin, Ptose, Estrutura e Massa.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O SPE-M é um sistema de avaliação que organiza o exame pré-operatório em 4 domínios
+          complementares. Cada item é graduado de 0 a 3, permitindo documentação objetiva e
+          comparação evolutiva.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Os 4 Domínios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          dominios.map((d) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="w-12 h-12 bg-accent-600 text-white flex items-center justify-center text-2xl font-serif">
+                  {d.letra}
+                </span>
+                <div>
+                  <h3 class="font-serif text-primary-900 text-lg">{d.nome}</h3>
+                  <p class="text-sm text-accent-600">{d.traducao}</p>
+                </div>
+              </div>
+              <ul class="space-y-2">
+                {d.itens.map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Escala de Graduação</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          escala.map((e) => (
+            <div class="flex items-center gap-2 p-3 bg-white border border-gray-100">
+              <span
+                class={`w-8 h-8 ${e.cor} text-white flex items-center justify-center font-bold`}
+              >
+                {e.grau}
+              </span>
+              <span class="text-warmGray">{e.desc}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Aplicação Prática</h2>
+      <div class="space-y-4">
+        <div class="p-4 bg-ivory border border-gray-100">
+          <h3 class="font-medium text-primary-900 mb-2">Quando Preencher</h3>
+          <p class="text-sm text-warmGray">
+            Na primeira consulta e revisado imediatamente antes da cirurgia
+          </p>
+        </div>
+        <div class="p-4 bg-ivory border border-gray-100">
+          <h3 class="font-medium text-primary-900 mb-2">Como Usar</h3>
+          <p class="text-sm text-warmGray">
+            Guia a discussão com paciente e define prioridades cirúrgicas
+          </p>
+        </div>
+        <div class="p-4 bg-ivory border border-gray-100">
+          <h3 class="font-medium text-primary-900 mb-2">Documentação</h3>
+          <p class="text-sm text-warmGray">
+            Anexar ao prontuário junto com fotografias padronizadas
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a
+        href="/pt/tecnicas/planejamento-cirurgico/avaliacao-inicial"
+        class="text-sm text-accent-600">← Avaliação Inicial</a
+      >
+      <a href="/pt/tecnicas/planejamento-cirurgico/vetores" class="text-sm text-accent-600"
+        >Vetores →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+// sitemap-blog.xml - Blog Posts
+import { getCollection } from 'astro:content';
+
+const siteUrl = 'https://drroberiobrandao.com';
+const lastmod = new Date().toISOString().split('T')[0];
+
+// Get all blog posts
+const allPosts = await getCollection('blog');
+
+// Group posts by canonical slug for hreflang linking
+// Posts are organized in subdirectories: en/, pt/, es/
+const postsBySlug = new Map<string, { en?: string; pt?: string; es?: string; date?: Date }>();
+
+allPosts.forEach((post) => {
+  // Extract locale from id (e.g., "en/post-slug" -> "en")
+  const parts = post.id.split('/');
+  const locale = parts[0] as 'en' | 'pt' | 'es';
+  const slug = parts.slice(1).join('/').replace(/\.mdx?$/, '');
+  
+  // Use the post slug as the canonical key (without locale)
+  const canonicalKey = post.data.canonicalSlug || slug;
+  
+  const existing = postsBySlug.get(canonicalKey) || {};
+  
+  if (locale === 'en') {
+    existing.en = `/blog/${slug}`;
+  } else if (locale === 'pt') {
+    existing.pt = `/pt/blog/${slug}`;
+  } else if (locale === 'es') {
+    existing.es = `/es/blog/${slug}`;
+  }
+  
+  // Track the most recent date
+  if (post.data.pubDate && (!existing.date || post.data.pubDate > existing.date)) {
+    existing.date = post.data.pubDate;
+  }
+  
+  postsBySlug.set(canonicalKey, existing);
+});
+
+// Convert to array for rendering
+const blogEntries = Array.from(postsBySlug.entries()).map(([key, urls]) => ({
+  key,
+  ...urls,
+  lastmod: urls.date ? urls.date.toISOString().split('T')[0] : lastmod,
+}));
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {/* Blog index pages */}
+  <url>
+    <loc>{siteUrl}/blog</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}/blog`} />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}/pt/blog`} />
+    <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}/es/blog`} />
+    <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}/blog`} />
+  </url>
+  <url>
+    <loc>{siteUrl}/pt/blog</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}/blog`} />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}/pt/blog`} />
+    <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}/es/blog`} />
+    <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}/blog`} />
+  </url>
+  <url>
+    <loc>{siteUrl}/es/blog</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}/blog`} />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}/pt/blog`} />
+    <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}/es/blog`} />
+    <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}/blog`} />
+  </url>
+  
+  {/* Individual blog posts */}
+  {blogEntries.map((entry) => (
+    <>
+      {entry.en && (
+        <url>
+          <loc>{siteUrl}{entry.en}</loc>
+          <lastmod>{entry.lastmod}</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.7</priority>
+          {entry.en && <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${entry.en}`} />}
+          {entry.pt && <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${entry.pt}`} />}
+          {entry.es && <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${entry.es}`} />}
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${entry.en || entry.pt || entry.es}`} />
+        </url>
+      )}
+      {entry.pt && (
+        <url>
+          <loc>{siteUrl}{entry.pt}</loc>
+          <lastmod>{entry.lastmod}</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.7</priority>
+          {entry.en && <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${entry.en}`} />}
+          {entry.pt && <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${entry.pt}`} />}
+          {entry.es && <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${entry.es}`} />}
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${entry.en || entry.pt || entry.es}`} />
+        </url>
+      )}
+      {entry.es && (
+        <url>
+          <loc>{siteUrl}{entry.es}</loc>
+          <lastmod>{entry.lastmod}</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.7</priority>
+          {entry.en && <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${entry.en}`} />}
+          {entry.pt && <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${entry.pt}`} />}
+          {entry.es && <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${entry.es}`} />}
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${entry.en || entry.pt || entry.es}`} />
+        </url>
+      )}
+    </>
+  ))}
+</urlset>

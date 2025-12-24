@@ -1,0 +1,304 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck Face Moderna',
+  'tratamiento cuello quirúrgico',
+  'glándula submandibular preservación',
+  'platismorrafia técnica',
+  'shaving digástrico',
+  'Crevassi lateral cuello',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Deep Neck Face Moderna',
+  description:
+    'Tratamiento quirúrgico completo del cuello SIN remoción de la glándula submandibular. Platismorrafia, shaving digástrico, Crevassi lateral.',
+  procedureType: 'Surgical',
+  bodyLocation: 'Neck - Cervical Region',
+};
+
+const principios = [
+  {
+    titulo: 'Preservación Glandular Total',
+    descripcion:
+      'NUNCA remover la glándula submandibular. El riesgo de lesión de estructuras nobles no justifica el beneficio estético marginal.',
+    destaque: 'Principio Innegociable',
+    icono: 'shield',
+  },
+  {
+    titulo: 'Shaving Digástrico Controlado',
+    descripcion:
+      'Reducción del vientre anterior del digástrico hipertrofiado por shaving, no excisión completa. Mantiene función, reduce volumen.',
+    destaque: 'Técnica de Preservación',
+    icono: 'content_cut',
+  },
+  {
+    titulo: 'Platismorrafia en Capas',
+    descripcion:
+      'Plicatura del platisma con técnica en capas. Comienza en el mentón, desciende hasta el ángulo, vuelve. Crea definición cervical.',
+    destaque: 'Definición Estructural',
+    icono: 'layers',
+  },
+  {
+    titulo: 'Crevassi Lateral',
+    descripcion:
+      'Plicatura del platisma en la fascia del ECOM. Soporte lateral que previene recidiva y mantiene el ángulo cervical.',
+    destaque: 'Sustentación Durable',
+    icono: 'anchor',
+  },
+];
+
+const subpaginas = [
+  {
+    href: '/es/tecnicas/deep-neck/que-es',
+    titulo: 'Definición y Filosofía',
+    descripcion: 'El enfoque Face Moderna para el cuello',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/anatomia',
+    titulo: 'Anatomía Cervical',
+    descripcion: 'Estructuras críticas y zonas de seguridad',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/pilares',
+    titulo: 'Pilares Técnicos',
+    descripcion: 'Fundamentos del Deep Neck',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/paso-a-paso',
+    titulo: 'Paso a Paso',
+    descripcion: 'Secuencia técnica del procedimiento',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/indicaciones',
+    titulo: 'Indicaciones',
+    descripcion: 'Cuándo y para quién está indicado',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/errores-comunes',
+    titulo: 'Errores Clásicos',
+    descripcion: 'Trampas comunes y cómo evitarlas',
+  },
+  {
+    href: '/es/tecnicas/deep-neck/resultados',
+    titulo: 'Resultados Esperados',
+    descripcion: 'Lo que es posible alcanzar',
+  },
+];
+
+const indicaciones = [
+  'Cuello pesado con exceso de grasa submentoniana',
+  'Bandas platismales visibles en reposo o dinámica',
+  "Digástrico hipertrofiado (vientre como 'un dedo')",
+  'Pérdida del ángulo cervicomental',
+  'Ptosis de piel cervical moderada a severa',
+  'Casos secundarios con resultado insatisfactorio previo',
+];
+---
+
+<BaseLayout
+  title="Deep Neck Face Moderna"
+  description="Tratamiento quirúrgico completo del cuello SIN remoción de la glándula submandibular. Platismorrafia, shaving digástrico, Crevassi lateral."
+  schema={schema}
+  keywords={keywords}
+  lang="es"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Deep Neck</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Técnica Principal • Región Cervical
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Deep Neck Face Moderna
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Tratamiento completo del cuello con preservación total de la glándula submandibular.
+          Seguridad máxima sin comprometer el resultado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alerta de Principio -->
+  <section class="py-6 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-white font-medium">
+        <span class="font-bold">Principio Innegociable:</span> La glándula submandibular NUNCA es removida
+        en Face Moderna. Seguridad sobre milímetros estéticos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Introducción -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          El cuello es frecuentemente negligenciado en cirugías faciales, pero es imposible tener un
+          resultado armonioso sin tratarlo adecuadamente. El Deep Neck Face Moderna aborda el cuello
+          de forma completa — bandas platismales, grasa submentoniana, digástrico hipertrofiado —
+          pero siempre dentro de límites de seguridad bien definidos.
+        </p>
+
+        <p>
+          La diferencia fundamental de nuestro enfoque: <strong class="text-primary-900">
+            nunca removemos la glándula submandibular</strong
+          >. Mientras algunas escuelas defienden la remoción para "limpiar" la mandíbula, nosotros
+          consideramos el riesgo inaceptable. La proximidad con el nervio marginal de la mandíbula,
+          la arteria y vena facial, y el nervio hipogloso torna esa maniobra innecesariamente
+          peligrosa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principios -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Los Cuatro Pilares del Deep Neck
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          principios.map((item) => (
+            <div class="p-8 bg-ivory border-l-4 border-accent-600">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl text-accent-600">{item.icono}</span>
+                <div>
+                  <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-2">
+                    {item.destaque}
+                  </p>
+                  <h3 class="text-lg font-serif text-primary-900 mb-3">{item.titulo}</h3>
+                  <p class="text-warmGray text-sm leading-relaxed">{item.descripcion}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Indicaciones -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Indicaciones</h2>
+
+      <p class="text-warmGray mb-8">
+        El Deep Neck Face Moderna está indicado para pacientes que presentan:
+      </p>
+
+      <div class="space-y-4">
+        {
+          indicaciones.map((indicacion) => (
+            <div class="flex items-start gap-4 p-4 bg-white border border-gray-100">
+              <span class="text-accent-600 mt-1">✓</span>
+              <p class="text-warmGray">{indicacion}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 p-8 bg-primary-900">
+        <h3 class="text-lg font-serif text-white mb-4">Cuándo NO hacer Deep Neck aislado</h3>
+        <p class="text-primary-300 text-sm">
+          Si el tercio medio del rostro también está comprometido (ptosis malar, surco nasogeniano
+          profundo), el Deep Neck aislado creará una desarmonía. En esos casos, la combinación con
+          Endomidface es esencial para un resultado armonioso.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subpáginas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Explore en Profundidad</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          subpaginas.map((pagina, index) => (
+            <a
+              href={pagina.href}
+              class="group flex items-start gap-6 p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="text-3xl font-serif text-accent-600/30 group-hover:text-accent-600 transition-colors">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-1 group-hover:text-accent-600 transition-colors">
+                  {pagina.titulo}
+                </h3>
+                <p class="text-sm text-warmGray">{pagina.descripcion}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Cita -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "Remover la glándula submandibular para ganar milímetros de definición es cambiar
+          seguridad por vanidad técnica. Face Moderna no acepta ese trade-off."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="p-12 bg-white border border-gray-100 text-center">
+        <h3 class="text-2xl font-serif text-primary-900 mb-4">Curso Deep Neck Mastery</h3>
+        <p class="text-warmGray mb-8 max-w-lg mx-auto">
+          Formación completa en la técnica de tratamiento cervical de Face Moderna. De la anatomía a
+          la ejecución, con casos reales y mentoría.
+        </p>
+        <a
+          href="/es/formacion/programas-nucleo/deep-neck-mastery"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          Ver Programa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegación -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/es/tecnicas/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+          ← Endomidface
+        </a>
+        <a href="/es/tecnicas/browlift" class="text-sm text-accent-600 hover:text-accent-700">
+          Browlift →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

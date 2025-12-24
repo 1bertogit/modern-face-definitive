@@ -1,0 +1,165 @@
+---
+/**
+ * Core Web Vitals Monitoring Component
+ *
+ * Tracks and reports essential performance metrics:
+ * - LCP (Largest Contentful Paint): Loading performance
+ * - FID (First Input Delay) / INP (Interaction to Next Paint): Interactivity
+ * - CLS (Cumulative Layout Shift): Visual stability
+ * - FCP (First Contentful Paint): Initial render
+ * - TTFB (Time to First Byte): Server responsiveness
+ *
+ * Metrics are logged to console in development.
+ * In production, they can be sent to analytics services.
+ *
+ * Performance optimizations:
+ * - Uses esm.sh CDN for web-vitals (browser-compatible ES modules)
+ * - Only runs in browser environment
+ * - Minimal footprint (~4KB gzipped)
+ * - Non-blocking async load
+ */
+
+interface Props {
+  /**
+   * Enable sending metrics to analytics endpoint
+   * Default: false (console only in dev)
+   */
+  sendToAnalytics?: boolean;
+
+  /**
+   * Custom analytics endpoint URL
+   * Default: '/api/web-vitals' (if sendToAnalytics is true)
+   */
+  analyticsEndpoint?: string;
+}
+
+const { sendToAnalytics = false, analyticsEndpoint = '/api/web-vitals' } = Astro.props;
+
+// Determine if we're in development mode (available at build time)
+const isDev = import.meta.env.DEV;
+---
+
+<script define:vars={{ sendToAnalytics, analyticsEndpoint, isDev }} type="module">
+  // Import from esm.sh CDN for browser compatibility
+  import { onCLS, onFID, onLCP, onFCP, onTTFB, onINP } from 'https://esm.sh/web-vitals@4';
+
+  // Thresholds based on Google's Core Web Vitals recommendations
+  const THRESHOLDS = {
+    LCP: { good: 2500, needsImprovement: 4000 },
+    FID: { good: 100, needsImprovement: 300 },
+    INP: { good: 200, needsImprovement: 500 },
+    CLS: { good: 0.1, needsImprovement: 0.25 },
+    FCP: { good: 1800, needsImprovement: 3000 },
+    TTFB: { good: 800, needsImprovement: 1800 },
+  };
+
+  // Rating helper
+  function getRating(name, value) {
+    const threshold = THRESHOLDS[name];
+    if (!threshold) return 'unknown';
+
+    if (value <= threshold.good) return 'good';
+    if (value <= threshold.needsImprovement) return 'needs-improvement';
+    return 'poor';
+  }
+
+  // Console styling
+  const STYLES = {
+    good: 'color: #0cce6b; font-weight: bold;',
+    'needs-improvement': 'color: #ffa400; font-weight: bold;',
+    poor: 'color: #ff4e42; font-weight: bold;',
+    label: 'color: #1e293b; font-weight: 600;',
+  };
+
+  // Format metric value for display
+  function formatValue(name, value) {
+    if (name === 'CLS') {
+      return value.toFixed(3);
+    }
+    return `${Math.round(value)}ms`;
+  }
+
+  // Get emoji indicator
+  function getEmoji(rating) {
+    switch (rating) {
+      case 'good':
+        return '✓';
+      case 'needs-improvement':
+        return '⚠';
+      case 'poor':
+        return '✗';
+      default:
+        return '?';
+    }
+  }
+
+  // Send metric to analytics (if enabled)
+  function sendToAnalyticsEndpoint(metric) {
+    if (!sendToAnalytics) return;
+
+    const body = JSON.stringify({
+      name: metric.name,
+      value: metric.value,
+      rating: metric.rating,
+      delta: metric.delta,
+      id: metric.id,
+      navigationType: metric.navigationType,
+      url: window.location.href,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Use sendBeacon if available (non-blocking)
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(analyticsEndpoint, body);
+    } else {
+      // Fallback to fetch with keepalive
+      fetch(analyticsEndpoint, {
+        method: 'POST',
+        body,
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+      }).catch((error) => {
+        // Only log errors in development
+        if (isDev) {
+          console.error('[Web Vitals] Failed to send metric:', error);
+        }
+      });
+    }
+  }
+
+  // Log metric to console (dev mode)
+  function logMetric(metric) {
+    if (!isDev && !sendToAnalytics) return;
+
+    const rating = getRating(metric.name, metric.value);
+    const formattedValue = formatValue(metric.name, metric.value);
+    const emoji = getEmoji(rating);
+
+    if (isDev) {
+      // eslint-disable-next-line no-console
+      console.log(
+        `%c[Web Vitals]%c ${metric.name}: %c${formattedValue} ${emoji}`,
+        STYLES.label,
+        'color: #64748b;',
+        STYLES[rating]
+      );
+    }
+
+    // Send to analytics if enabled
+    sendToAnalyticsEndpoint({ ...metric, rating });
+  }
+
+  // Register all Core Web Vitals observers
+  onLCP(logMetric);
+  onFID(logMetric);
+  onINP(logMetric); // New metric replacing FID
+  onCLS(logMetric);
+  onFCP(logMetric);
+  onTTFB(logMetric);
+
+  // Log initialization in dev
+  if (isDev) {
+    // eslint-disable-next-line no-console
+    console.log('%c[Web Vitals]%c Monitoring initialized', STYLES.label, 'color: #64748b;');
+  }
+</script>

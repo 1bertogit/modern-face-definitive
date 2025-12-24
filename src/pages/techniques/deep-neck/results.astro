@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck results',
+  'neck rejuvenation before after',
+  'negative neck technique',
+  'cervical contour surgery',
+  'neck facelift recovery',
+  'double chin removal results',
+];
+
+const results = [
+  {
+    a: 'Submental Contour',
+    bef: 'Undefined, volume accumulation',
+    aft: 'Defined, marked cervico-mandibular angle',
+  },
+  {
+    a: 'Mento-hyoid Distance',
+    bef: "Short, 'locked' neck",
+    aft: 'Lengthened, defined horizontal neck',
+  },
+  { a: 'Platysmal Bands', bef: 'Visible, vertical', aft: 'Corrected by platysmorraphy' },
+  { a: 'Double Chin', bef: 'Present, accumulated fat', aft: 'Eliminated, clean profile' },
+];
+const nums = [
+  { v: '0%', l: 'Gland Removal' },
+  { v: '8-12', l: 'Years Duration' },
+  { v: '7-14d', l: 'Social Return' },
+  { v: '6m', l: 'Final Result' },
+];
+---
+
+<BaseLayout
+  title="Deep Neck Results"
+  description="Expected Deep Neck Face Moderna results. Defined contour without gland removal."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Evidence
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Expected Results</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        What you can expect from Deep Neck Face Moderna.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          nums.map((n) => (
+            <div>
+              <>
+                <p class="text-3xl font-serif">{n.v}</p>
+                <p class="text-xs uppercase opacity-80">{n.l}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Results by Area</h2><div
+        class="space-y-4"
+      >
+        {
+          results.map((r) => (
+            <div class="bg-white p-6 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+              <>
+                <h3 class="font-serif text-primary-900">{r.a}</h3>
+                <div>
+                  <>
+                    <p class="text-xs text-red-600 uppercase mb-1">Before</p>
+                    <p class="text-sm text-warmGray">{r.bef}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-green-600 uppercase mb-1">After</p>
+                    <p class="text-sm text-warmGray">{r.aft}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">The Negative Neck</h2><p
+        class="text-warmGray mb-6"
+      >
+        The most valued Deep Neck result is creating the "negative neck" — the supra-hyoid
+        depression that visually lengthens the horizontal neck and defines cervical contour.
+      </p><p class="text-warmGray">
+        This is achieved through pre-hyoid fasciotomy combined with digastric shaving, which allows
+        the posterior belly to pull the hyoid backward.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Recovery</h2><div class="space-y-4">
+        <div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">24h</span><p class="text-warmGray">
+            Hospital discharge, compressive dressing
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">7d</span><p class="text-warmGray">
+            Suture removal, edema still present
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">14d</span><p class="text-warmGray">
+            Social return, minimal residual ecchymosis
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">6m</span><p class="text-warmGray">
+            Final result stabilized
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "Defined submandibular contour, increased mento-hyoid distance, result in difficult neck —
+        but with polishing time up to 6 months for 'showcase' final result."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck/common-errors" class="text-sm text-accent-600"
+        >← Common Errors</a
+      ><a href="/techniques/deep-neck/cases" class="text-sm text-accent-600">Clinical Cases →</a>
+    </div>
+  </section>
+</BaseLayout>

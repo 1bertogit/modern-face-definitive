@@ -1,0 +1,207 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'La Filosofía de Face Moderna®',
+  description:
+    'Por qué la excelencia en cirugía facial no debería ser un secreto guardado por pocos. La misión de Face Moderna®.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const pilares = [
+  {
+    numero: '01',
+    titulo: 'Seguridad Innegociable',
+    descripcion:
+      '0% de lesión nerviosa permanente en 212 casos consecutivos. Esto no es suerte — es método. Cada decisión técnica pasa primero por el filtro de seguridad.',
+    metrica: 'Cero lesiones permanentes',
+  },
+  {
+    numero: '02',
+    titulo: 'Elegancia en la Simplicidad',
+    descripcion:
+      'Abandonamos los endoscopios caros por la visión directa. No porque rechacemos la tecnología, sino porque encontramos un camino más seguro y reproducible.',
+    metrica: 'Visión directa sobre equipamiento',
+  },
+  {
+    numero: '03',
+    titulo: 'Socialización del Conocimiento',
+    descripcion:
+      'La excelencia quirúrgica no debe permanecer restringida a pocos centros de excelencia. Nuestra misión es multiplicar cirujanos capaces.',
+    metrica: '500+ cirujanos formados',
+  },
+];
+---
+
+<BaseLayout
+  title="La Filosofía de Face Moderna®"
+  description="Por qué la excelencia en cirugía facial no debería ser un secreto guardado por pocos. La misión de Face Moderna®."
+  schema={schema}
+  lang="es"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/es" class="hover:text-primary-900">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Filosofía</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Manifiesto</p>
+        <h1 class="heading-1">La Filosofía</h1>
+        <p class="body-large">
+          Por qué la excelencia en cirugía facial no debería ser un secreto guardado por pocos.
+        </p>
+      </header>
+
+      <!-- Contenido -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          ¿Por qué la excelencia en cirugía facial es un secreto guardado por pocos? ¿Por qué un
+          cirujano tarda 10-15 años en sentirse seguro en el plano profundo? ¿Por qué siguen
+          ocurriendo complicaciones que podrían evitarse?
+        </p>
+
+        <p>
+          Estas preguntas me persiguieron durante años. Y las respuestas que encontré me llevaron a
+          crear Face Moderna®.
+        </p>
+
+        <h2 class="heading-3">El Problema</h2>
+
+        <p>
+          La cirugía facial en planos profundos es poderosa. Los resultados son superiores y más
+          duraderos. Pero el modelo tradicional de enseñanza está roto:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Aprendizaje por supervivencia:</strong> Los cirujanos aprenden
+            de sus propios errores — y a menudo de complicaciones en sus pacientes.
+          </li>
+          <li>
+            <strong class="text-primary-900">Conocimiento guardado:</strong> Las mejores técnicas quedan
+            restringidas a pocos centros, transmitidas como secretos de familia.
+          </li>
+          <li>
+            <strong class="text-primary-900">Técnicas desactualizadas:</strong> Métodos desarrollados
+            para rostros nativos no consideran la realidad de rostros modernos con bioestimuladores.
+          </li>
+        </ul>
+
+        <p>
+          ¿El resultado? Cirujanos talentosos abandonan el plano profundo por miedo. Pacientes que
+          podrían tener resultados excelentes se conforman con menos. Y el conocimiento que debería
+          evolucionar se estanca.
+        </p>
+      </div>
+
+      <!-- Pilares -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12 text-center">Los Tres Pilares</h2>
+        <div class="space-y-8">
+          {
+            pilares.map((pilar) => (
+              <div class="bg-white p-8 border-l-4 border-accent-600">
+                <div class="flex items-start gap-6">
+                  <span class="text-5xl font-serif text-accent-600/30">{pilar.numero}</span>
+                  <div>
+                    <h3 class="heading-4 mb-3">{pilar.titulo}</h3>
+                    <p class="body-base mb-4">{pilar.descripcion}</p>
+                    <p class="body-small text-accent-700 font-medium">{pilar.metrica}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Continuación del contenido -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="heading-3">Para Quién Es</h2>
+
+        <p>Face Moderna® no es para todos. Es para el cirujano que:</p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Sabe que puede más</strong> — que domina lo básico y siente
+            el llamado a evolucionar
+          </li>
+          <li>
+            <strong class="text-primary-900">Está cansado de cursos que no cumplen</strong> — promesas
+            de fin de semana que no se traducen en seguridad clínica
+          </li>
+          <li>
+            <strong class="text-primary-900">Valora método sobre magia</strong> — que entiende que la
+            consistencia viene del proceso, no del talento
+          </li>
+          <li>
+            <strong class="text-primary-900">Prioriza la seguridad del paciente</strong> — que no está
+            dispuesto a aceptar tasas de complicación "aceptables"
+          </li>
+        </ul>
+
+        <h2 class="heading-3">El Compromiso</h2>
+
+        <p>
+          Face Moderna® no es un curso de fin de semana. No es una certificación que queda bien en
+          el currículum. Es un compromiso con una forma diferente de practicar la cirugía facial.
+        </p>
+
+        <p>
+          Creemos que la excelencia no debe ser exclusiva. Que la seguridad del paciente es
+          innegociable. Que el conocimiento crece cuando se comparte.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "La excelencia no debería ser un secreto. Nuestra misión es socializarla."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Descubra los Principios</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          Los 6 fundamentos técnicos que guían cada decisión quirúrgica.
+        </p>
+        <a
+          href="/es/face-moderna/principios"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Leer los Principios
+        </a>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/es/face-moderna" class="text-sm text-accent-600 hover:text-accent-700">
+            ← Face Moderna®
+          </a>
+          <a
+            href="/es/face-moderna/principios"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Los Principios →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

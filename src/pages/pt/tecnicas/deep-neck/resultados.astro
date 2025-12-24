@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'resultados Deep Neck',
+  'antes e depois pescoço',
+  'pescoço negativo cirurgia',
+  'contorno cervical definido',
+  'durabilidade lifting pescoço',
+  'recuperação Deep Neck',
+];
+
+const resultados = [
+  {
+    a: 'Contorno Submentoniano',
+    ant: 'Indefinido, acúmulo de volume',
+    dep: 'Definido, ângulo cervico-mandibular marcado',
+  },
+  {
+    a: 'Distância Mento-Hioide',
+    ant: "Curta, pescoço 'travado'",
+    dep: 'Alongada, pescoço horizontal definido',
+  },
+  { a: 'Bandas Platismais', ant: 'Visíveis, verticais', dep: 'Corrigidas pela platismorrafia' },
+  { a: 'Papada', ant: 'Presente, gordura acumulada', dep: 'Eliminada, perfil limpo' },
+];
+const numeros = [
+  { v: '0%', l: 'Remoção de Glândula' },
+  { v: '8-12', l: 'Anos de Duração' },
+  { v: '7-14d', l: 'Retorno Social' },
+  { v: '6m', l: 'Resultado Final' },
+];
+---
+
+<BaseLayout
+  title="Resultados do Deep Neck"
+  description="Resultados esperados do Deep Neck Face Moderna. Contorno definido sem remoção de glândula."
+  keywords={keywords}
+  lang="pt"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Evidências
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Resultados Esperados</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        O que você pode esperar do Deep Neck Face Moderna.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          numeros.map((n) => (
+            <div>
+              <>
+                <p class="text-3xl font-serif">{n.v}</p>
+                <p class="text-xs uppercase opacity-80">{n.l}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Resultados por Área</h2><div
+        class="space-y-4"
+      >
+        {
+          resultados.map((r) => (
+            <div class="bg-white p-6 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+              <>
+                <h3 class="font-serif text-primary-900">{r.a}</h3>
+                <div>
+                  <>
+                    <p class="text-xs text-red-600 uppercase mb-1">Antes</p>
+                    <p class="text-sm text-warmGray">{r.ant}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-green-600 uppercase mb-1">Depois</p>
+                    <p class="text-sm text-warmGray">{r.dep}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">O Pescoço Negativo</h2><p
+        class="text-warmGray mb-6"
+      >
+        O resultado mais valorizado no Deep Neck é a criação do "pescoço negativo" — a depressão
+        supra-hioideia que alonga visualmente o pescoço horizontal e define o contorno cervical.
+      </p><p class="text-warmGray">
+        Isso é obtido através da fasciotomia pré-hioideia combinada com o shaving do digástrico, que
+        permite que o ventre posterior puxe o hioide para trás.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Recuperação</h2><div class="space-y-4">
+        <div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">24h</span><p class="text-warmGray">
+            Alta hospitalar, curativo compressivo
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">7d</span><p class="text-warmGray">
+            Remoção de pontos, edema ainda presente
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">14d</span><p class="text-warmGray">
+            Retorno social, equimose residual mínima
+          </p>
+        </div><div class="flex items-start gap-4 p-4 bg-white">
+          <span class="text-accent-600 font-serif text-lg">6m</span><p class="text-warmGray">
+            Resultado final estabilizado
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "Contorno submandibular definido, aumento da distância mento-hioide, resultado em pescoço
+        difícil — mas com tempo de polimento até 6 meses para resultado 'final de vitrine'."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/pt/tecnicas/deep-neck/erros-comuns" class="text-sm text-accent-600"
+        >← Erros Comuns</a
+      ><a href="/pt/tecnicas/deep-neck/casos" class="text-sm text-accent-600">Casos Clínicos →</a>
+    </div>
+  </section>
+</BaseLayout>

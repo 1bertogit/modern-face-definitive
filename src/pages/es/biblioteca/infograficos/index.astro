@@ -1,0 +1,155 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const infograficos = [
+  {
+    titulo: 'Anatomía del Tercio Medio Facial',
+    categoria: 'Anatomía',
+    acceso: 'Público',
+    destaque: true,
+  },
+  {
+    titulo: 'Espacios Anatómicos de la Cara',
+    categoria: 'Anatomía',
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  {
+    titulo: 'Ligamentos Retentores Faciales',
+    categoria: 'Anatomía',
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  {
+    titulo: 'Sistema SPE-M en 4 Pasos',
+    categoria: 'Evaluación',
+    acceso: 'Público',
+    destaque: true,
+  },
+  {
+    titulo: 'Vectores de Tracción por Región',
+    categoria: 'Técnica',
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  {
+    titulo: 'Comparativo: Visión Directa vs Endoscopía',
+    categoria: 'Técnica',
+    acceso: 'Público',
+    destaque: false,
+  },
+  {
+    titulo: 'Planos Quirúrgicos de la Cara',
+    categoria: 'Técnica',
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  {
+    titulo: 'Secuencia Operatoria Endomidface',
+    categoria: 'Protocolo',
+    acceso: 'Alumnos',
+    destaque: true,
+  },
+  {
+    titulo: 'Checklist Preoperatorio Visual',
+    categoria: 'Protocolo',
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  { titulo: 'Timeline de Recuperación', categoria: 'Post-Op', acceso: 'Público', destaque: false },
+  { titulo: 'Cuidados Postoperatorios', categoria: 'Post-Op', acceso: 'Alumnos', destaque: false },
+  {
+    titulo: 'Filosofía Face Moderna en 5 Pilares',
+    categoria: 'Filosofía',
+    acceso: 'Público',
+    destaque: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Infografías | Biblioteca"
+  description="Visualizaciones didácticas de anatomía, técnicas y protocolos para cirugía facial."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li><li><span>/</span></li><li>
+            <a href="/es/biblioteca" class="hover:text-white">Biblioteca</a>
+          </li><li><span>/</span></li><li class="text-white">Infografías</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Infografías</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Visualizaciones didácticas de anatomía, técnicas y protocolos
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex justify-center gap-12">
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">12</p><p class="text-sm text-white/80">
+          materiales
+        </p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">6</p><p class="text-sm text-white/80">
+          categorías
+        </p>
+      </div>
+      <div class="text-center">
+        <p class="text-3xl font-serif text-white">5</p><p class="text-sm text-white/80">públicos</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          infograficos.map((i) => (
+            <div
+              class={`p-4 bg-white border ${i.destaque ? 'border-accent-600' : 'border-gray-100'}`}
+            >
+              <div class="flex items-start justify-between mb-2">
+                <span class="text-xs px-2 py-1 bg-gray-100 text-softGray">{i.categoria}</span>
+                <span
+                  class={`text-xs px-2 py-1 ${i.acceso === 'Público' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+                >
+                  {i.acceso}
+                </span>
+              </div>
+              <h3 class="font-medium text-primary-900 text-sm">{i.titulo}</h3>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Acceso Completo</h2>
+      <p class="text-primary-300 mb-8">
+        Todas las infografías en alta resolución para alumnos de los programas.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/biblioteca/estudios-clinicos" class="text-sm text-accent-600"
+        >← Estudios Clínicos</a
+      >
+      <a href="/es/biblioteca/guias-practicos" class="text-sm text-accent-600">Guías Prácticas →</a>
+    </div>
+  </section>
+</BaseLayout>

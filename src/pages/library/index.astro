@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const categories = [
+  {
+    title: 'E-books',
+    desc: 'Complete and in-depth guides on Modern Face techniques and philosophy',
+    href: '/library/ebooks',
+    icon: 'menu_book',
+    qty: '3 titles',
+  },
+  {
+    title: 'Scientific Publications',
+    desc: 'Articles, congress presentations and academic contributions',
+    href: '/library/publications',
+    icon: 'science',
+    qty: 'Coming soon',
+  },
+  {
+    title: 'Clinical Studies',
+    desc: 'Case analyses, statistics and documented results',
+    href: '/library/clinical-studies',
+    icon: 'analytics',
+    qty: '212+ cases',
+  },
+  {
+    title: 'Infographics',
+    desc: 'Educational visualizations of anatomy, techniques and protocols',
+    href: '/library/infographics',
+    icon: 'image',
+    qty: '12 materials',
+  },
+  {
+    title: 'Practical Guides',
+    desc: 'Protocols, checklists and quick reference materials',
+    href: '/library/practical-guides',
+    icon: 'description',
+    qty: '8 guides',
+  },
+];
+
+const highlights = [
+  { title: 'E-book: Endomidface Fundamentals', type: 'E-book', access: 'Students' },
+  { title: 'Infographic: Middle Third Anatomy', type: 'Infographic', access: 'Public' },
+  { title: 'Guide: Pre-Operative Checklist', type: 'Practical Guide', access: 'Students' },
+];
+---
+
+<BaseLayout
+  title="Library | Educational Resources"
+  description="Educational resources library: e-books, scientific publications, clinical studies, infographics and practical guides."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Library</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Educational resources to deepen your knowledge in facial surgery and the Modern Face®
+        methodology
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "Knowledge that is not shared dies with us. Here, it lives and multiplies."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Explore by Category</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          categories.map((c) => (
+            <a
+              href={c.href}
+              class="group p-6 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">{c.icon}</span>
+                <span class="text-xs px-2 py-1 bg-gray-100 text-softGray">{c.qty}</span>
+              </div>
+              <h3 class="font-serif text-xl text-primary-900 group-hover:text-accent-600 transition-colors mb-2">
+                {c.title}
+              </h3>
+              <p class="text-sm text-warmGray">{c.desc}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Featured Materials</h2>
+      <div class="space-y-4">
+        {
+          highlights.map((d) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-accent-600">star</span>
+                <div>
+                  <>
+                    <h3 class="font-medium text-primary-900">{d.title}</h3>
+                    <p class="text-xs text-warmGray">{d.type}</p>
+                  </>
+                </div>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 ${d.access === 'Public' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+              >
+                {d.access}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Access Levels</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-green-400">lock_open</span><h3
+              class="font-medium text-white"
+            >
+              Public Content
+            </h3>
+          </div>
+          <p class="text-primary-300 text-sm mb-4">
+            Introductory infographics and promotional materials available to everyone.
+          </p>
+          <p class="text-xs text-primary-400">Access now</p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-accent-400">school</span><h3
+              class="font-medium text-white"
+            >
+              Exclusive Content
+            </h3>
+          </div>
+          <p class="text-primary-300 text-sm mb-4">
+            Complete e-books, case studies and advanced guides for program students.
+          </p>
+          <a href="/education" class="text-xs text-accent-400 hover:text-accent-300"
+            >View programs →</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Full Library Access</h2>
+      <p class="text-warmGray mb-8">
+        Training program students have full access to all library materials, including new content
+        as it is published.
+      </p>
+      <a
+        href="/education"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >View Training Programs</a
+      >
+    </div>
+  </section>
+</BaseLayout>

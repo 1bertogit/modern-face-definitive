@@ -1,0 +1,127 @@
+# =============================================================================
+# HTTP HEADERS - Dr. Robério Brandão | Modern Face Institute
+# https://drroberiobrandao.com
+# For Netlify, Cloudflare Pages, or Vercel
+# Last Updated: 2025-12-23
+# =============================================================================
+
+# === GLOBAL HEADERS ===
+/*
+  # Security
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://us.i.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://us.i.posthog.com; frame-ancestors 'none';
+  
+  # SEO - Allow indexing
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  
+  # Performance
+  Vary: Accept-Encoding
+
+# === HTML PAGES - Short cache for freshness ===
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: index, follow
+
+# === BLOG AND MAIN CONTENT ===
+/blog/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow, max-image-preview:large
+
+# === TECHNIQUES PAGES (High SEO priority) ===
+/techniques/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow, max-image-preview:large
+
+/modern-face/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow, max-image-preview:large
+
+/education/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow
+
+# === MULTILINGUAL PAGES ===
+/pt/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow
+  Content-Language: pt-BR
+
+/es/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  X-Robots-Tag: index, follow
+  Content-Language: es
+
+# === STATIC ASSETS - Long cache ===
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# === SEO FILES ===
+/sitemap*.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: application/xml
+  X-Robots-Tag: noindex
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+  X-Robots-Tag: noindex
+
+/rss.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/rss+xml
+
+# === MANIFEST AND FAVICONS ===
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/favicon*
+  Cache-Control: public, max-age=31536000, immutable
+
+# === NOINDEX PAGES ===
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
+/api/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/preview/*
+  X-Robots-Tag: noindex, nofollow
+
+# === PDFs AND DOCUMENTS ===
+/*.pdf
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: index, follow
+  Content-Disposition: inline
+
+# === VIDEOS ===
+/*.mp4
+  Cache-Control: public, max-age=31536000
+  X-Robots-Tag: noindex
+
+/*.webm
+  Cache-Control: public, max-age=31536000
+  X-Robots-Tag: noindex

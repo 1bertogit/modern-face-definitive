@@ -1,0 +1,161 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía región cervical',
+  'estructuras cuello cirugía',
+  'platisma digástrico anatomía',
+  'glándula submandibular preservación',
+  'fascia cervical profunda',
+  'anatomía Deep Neck',
+];
+
+const estructuras = [
+  {
+    nombre: 'Platisma',
+    desc: 'Músculo superficial del cuello. Bandas mediales visibles con envejecimiento.',
+    capa: 'Superficial',
+  },
+  {
+    nombre: 'Glándula Submandibular',
+    desc: 'Glándula salival mayor. NUNCA removida en Face Moderna.',
+    capa: 'Profundo',
+  },
+  {
+    nombre: 'Vientre Anterior del Digástrico',
+    desc: 'Músculo del piso de la boca. Puede ser shaved 50-60%.',
+    capa: 'Profundo',
+  },
+  { nombre: 'Fascia Cervical Superficial', desc: 'Envoltorio del platisma.', capa: 'Superficial' },
+  {
+    nombre: 'Fascia Cervical Profunda',
+    desc: 'Contiene estructuras nobles - carótida, yugular, nervios.',
+    capa: 'Profundo',
+  },
+];
+
+const pilares = [
+  {
+    num: '1',
+    nombre: 'Grasa Profunda',
+    desc: 'Grasa pre-platismal profunda. Accedida bajo el platisma.',
+  },
+  {
+    num: '2',
+    nombre: 'Shaving Digástrico',
+    desc: 'Reducción de 50-60% del vientre anterior. Nunca 100%.',
+  },
+  {
+    num: '3',
+    nombre: 'Fasciotomía',
+    desc: 'Incisión en fascia pre-hioidea. Obligatoria en 100% de casos.',
+  },
+  { num: '4', nombre: 'Platismorrafia', desc: 'Plicatura del platisma en línea media + Crevassi.' },
+];
+
+const alertas = [
+  'Nunca remover glándula submandibular',
+  'Shaving digástrico máximo 60%',
+  'Fasciotomía obligatoria para resultado óptimo',
+  'Identificar marginal antes de disecar',
+];
+---
+
+<BaseLayout
+  title="Anatomía Cervical | Cuello"
+  description="Anatomía aplicada de la región cervical. Estructuras del cuello para Deep Neck: platisma, digástrico, glándula."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Región Cervical</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Cuello</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Región Cervical</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Anatomía profunda del cuello. Base para Deep Neck seguro y eficaz.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Estructuras Principales
+      </h2>
+      <div class="space-y-4">
+        {
+          estructuras.map((e) => (
+            <div class="flex items-center gap-6 p-6 bg-white border border-gray-100">
+              <span
+                class={`text-xs px-3 py-1 flex-shrink-0 ${e.capa === 'Superficial' ? 'bg-primary-700' : 'bg-purple-600'} text-white`}
+              >
+                {e.capa}
+              </span>
+              <div>
+                <h3 class="font-serif text-primary-900">{e.nombre}</h3>
+                <p class="text-sm text-warmGray">{e.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Los 4 Pilares del Deep Neck
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          pilares.map((p) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <span class="text-4xl font-serif text-accent-600/30 block mb-2">{p.num}</span>
+              <h3 class="font-serif text-primary-900 mb-2">{p.nombre}</h3>
+              <p class="text-sm text-warmGray">{p.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        ⚠️ Principios Inviolables
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          alertas.map((a) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800 text-sm">{a}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/tercio-inferior" class="text-sm text-accent-600"
+        >← Tercio Inferior</a
+      >
+      <a href="/es/tecnicas/anatomia/espacios-quirurgicos" class="text-sm text-accent-600"
+        >Espacios Quirúrgicos →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

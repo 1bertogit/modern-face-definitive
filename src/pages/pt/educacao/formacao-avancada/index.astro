@@ -1,0 +1,302 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'formação avançada Face Moderna',
+  'curso completo cirurgia facial',
+  'ENDOMIDFACE Deep Neck mentoria',
+  'domínio Face Moderna',
+  'programa cirurgião plástico',
+  'capacitação lifting facial',
+];
+
+const inclusos = [
+  { titulo: 'ENDOMIDFACE® Completo', desc: 'Curso online + todas as aulas', icone: 'school' },
+  { titulo: 'Deep Neck Mastery', desc: 'Curso online completo', icone: 'school' },
+  { titulo: '6 Meses de Mentoria', desc: 'Acompanhamento estruturado', icone: 'groups' },
+  { titulo: 'Trilha Pedagógica', desc: 'Progressão sistemática', icone: 'route' },
+  { titulo: 'Checkpoints Técnicos', desc: 'Avaliações de progresso', icone: 'fact_check' },
+  { titulo: 'Círculo Legacy', desc: 'Grupo seleto de cirurgiões', icone: 'diamond' },
+];
+
+const diferenciais = [
+  {
+    titulo: 'Não é a soma de dois cursos',
+    desc: 'É um programa de formação integrada com visão completa da face',
+  },
+  {
+    titulo: 'Integração filosófica',
+    desc: 'Abordagem da face como unidade harmônica, da testa ao pescoço',
+  },
+  {
+    titulo: 'Domínio completo',
+    desc: 'Entrega integral do método Face Moderna® em todos os terços',
+  },
+  {
+    titulo: 'Mentoria de implementação',
+    desc: 'Discussão de casos próprios com feedback direto, acelerando a maestria',
+  },
+];
+
+const comparativo = [
+  { item: 'Cursos incluídos', individual: '1 curso', legacy: '2 cursos completos' },
+  { item: 'Mentoria', individual: '2 meses', legacy: '6 meses estruturados' },
+  { item: 'Integração técnica', individual: 'Parcial', legacy: 'Completa' },
+  { item: 'Círculo exclusivo', individual: 'Não', legacy: 'Sim' },
+  { item: 'Investimento', individual: 'R$ 19.000', legacy: 'R$ 30.000' },
+  { item: 'Economia vs. separado', individual: '-', legacy: 'R$ 26.000 (46%)' },
+];
+
+const paraQuem = [
+  'Cirurgiões que querem domínio completo da metodologia',
+  'Profissionais que buscam resultados consistentes em toda a face',
+  'Cirurgiões dispostos a investir em formação de excelência',
+  'Quem valoriza mentoria e feedback direto',
+];
+
+const naoParaQuem = [
+  'Quem busca soluções rápidas sem compromisso',
+  'Cirurgiões que preferem abordagens fragmentadas',
+  'Profissionais sem disponibilidade para mentoria',
+];
+---
+
+<BaseLayout
+  title="Formação Avançada | Domínio da Face Moderna®"
+  description="Programa completo de formação: ENDOMIDFACE® + Deep Neck + 6 meses de mentoria. Domine toda a face."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/educacao" class="hover:text-white">Educação</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Formação Avançada</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Programa Recomendado
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Formação Avançada
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto mb-4">
+        Programa de Domínio da Face Moderna®
+      </p>
+      <p class="text-primary-400">ENDOMIDFACE® + Deep Neck + 6 meses de Mentoria Estruturada</p>
+    </div>
+  </section>
+
+  <!-- Preço Destaque -->
+  <section class="py-8 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-center gap-8 text-white">
+      <div class="text-center">
+        <p class="text-sm opacity-70">Investimento</p>
+        <p class="text-4xl font-serif">R$ 30.000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Valor Original</p>
+        <p class="text-xl line-through opacity-50">R$ 56.000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Economia</p>
+        <p class="text-2xl text-green-300">R$ 26.000</p>
+        <p class="text-xs opacity-70">46% de desconto</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que é -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Este Não É a Soma de Dois Cursos
+      </h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O programa de Formação Avançada é uma jornada de formação completa para cirurgiões que
+          buscam domínio integral da Face Moderna® — terço médio, terço inferior e Deep Neck — com
+          integração técnica e maturidade decisória.
+        </p>
+        <p>
+          Enquanto os cursos individuais ensinam <strong>o que fazer</strong>, a Formação Avançada
+          ensina
+          <strong>como pensar, planejar e decidir</strong> em cirurgia facial de alto nível.
+        </p>
+        <p>
+          É um programa voltado à formação de mestres, com impacto definitivo na visão cirúrgica,
+          execução técnica e consistência de resultados.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O que está incluído -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">O que Está Incluído</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          inclusos.map((item) => (
+            <div class="p-6 bg-ivory border border-gray-100 text-center">
+              <span class="material-symbols-outlined text-accent-600 text-3xl mb-4 block">
+                {item.icone}
+              </span>
+              <h3 class="font-medium text-primary-900 mb-2">{item.titulo}</h3>
+              <p class="text-sm text-warmGray">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-12 text-center">Por que a Formação Avançada?</h2>
+      <div class="space-y-6">
+        {
+          diferenciais.map((d) => (
+            <div class="p-6 bg-white/10">
+              <h3 class="font-medium text-white mb-2">{d.titulo}</h3>
+              <p class="text-primary-300">{d.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Cursos Individuais vs. Formação Avançada
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 pr-4 text-warmGray font-normal">Comparativo</th>
+              <th class="text-center py-4 px-4 text-warmGray font-normal">Cursos Individuais</th>
+              <th class="text-center py-4 pl-4 bg-accent-600/10 text-primary-900 font-medium"
+                >Formação Avançada</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparativo.map((row) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 pr-4 text-warmGray">{row.item}</td>
+                  <td class="text-center py-4 px-4 text-warmGray">{row.individual}</td>
+                  <td class="text-center py-4 pl-4 bg-accent-600/5 font-medium text-primary-900">
+                    {row.legacy}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-xl font-serif text-primary-900 mb-6">Para Quem É</h2>
+          <div class="space-y-3">
+            {
+              paraQuem.map((item) => (
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-green-600 flex-shrink-0">
+                    check_circle
+                  </span>
+                  <span class="text-warmGray">{item}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div>
+          <h2 class="text-xl font-serif text-primary-900 mb-6">Não É Para Quem</h2>
+          <div class="space-y-3">
+            {
+              naoParaQuem.map((item) => (
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-red-600 flex-shrink-0">cancel</span>
+                  <span class="text-warmGray">{item}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentoria -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">6 Meses de Mentoria Estruturada</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 bg-white border border-gray-100">
+          <p class="text-3xl font-serif text-accent-600 mb-1">24</p>
+          <p class="text-xs text-warmGray">Encontros em grupo</p>
+        </div>
+        <div class="p-4 bg-white border border-gray-100">
+          <p class="text-3xl font-serif text-accent-600 mb-1">6</p>
+          <p class="text-xs text-warmGray">Checkpoints técnicos</p>
+        </div>
+        <div class="p-4 bg-white border border-gray-100">
+          <p class="text-3xl font-serif text-accent-600 mb-1">∞</p>
+          <p class="text-xs text-warmGray">Casos analisados</p>
+        </div>
+        <div class="p-4 bg-white border border-gray-100">
+          <p class="text-3xl font-serif text-accent-600 mb-1">1</p>
+          <p class="text-xs text-warmGray">Círculo exclusivo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Pronto para Dominar a Face Moderna®?</h2>
+      <p class="text-primary-300 mb-4">
+        Condição especial para formação de um grupo restrito de cirurgiões
+      </p>
+      <p class="text-2xl font-serif text-accent-400 mb-8">
+        R$ 30.000 <span class="text-sm text-primary-400 line-through ml-2">R$ 56.000</span>
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Quero Fazer Parte
+      </a>
+      <p class="text-xs text-softGray mt-6">Vagas limitadas • Condição por tempo limitado</p>
+    </div>
+  </section>
+
+  <!-- Nav -->
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/educacao/programas-nucleo/deep-neck-mastery" class="text-sm text-accent-600"
+        >← Deep Neck Mastery</a
+      >
+      <a href="/pt/educacao" class="text-sm text-accent-600">Educação →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,95 @@
+---
+/**
+ * BlogGrid.astro
+ * Grid responsivo para exibição de artigos com featured post destacado
+ * Layout: 1 col (mobile) → 2 cols (md) → 3 cols (lg)
+ */
+
+import BlogCard from './BlogCard.astro';
+
+export interface Article {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  readTime: string;
+  date: string;
+  featured?: boolean;
+  image?: string;
+}
+
+export interface Props {
+  articles: Article[];
+  showFeatured?: boolean;
+  locale?: 'pt' | 'en' | 'es';
+  class?: string;
+}
+
+const { articles, showFeatured = true, locale = 'en', class: className = '' } = Astro.props;
+
+// Separar featured do resto
+const featuredArticle = showFeatured ? articles.find((a) => a.featured) : null;
+const regularArticles = showFeatured ? articles.filter((a) => !a.featured) : articles;
+
+// Internacionalizar aria-label
+const ariaLabels = {
+  'en': 'Blog articles list',
+  'pt': 'Lista de artigos do blog',
+  'es': 'Lista de artículos del blog',
+};
+const ariaLabel = ariaLabels[locale] || ariaLabels['en'];
+---
+
+<section class:list={['space-y-12', className]} aria-label={ariaLabel}>
+  {/* Featured Post - Layout horizontal em desktop */}
+  {
+    featuredArticle && (
+      <div class="featured-section">
+        <BlogCard {...featuredArticle} featured={true} locale={locale} class="shadow-sm" />
+      </div>
+    )
+  }
+
+  {/* Regular Grid */}
+  {
+    regularArticles.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+        {regularArticles.map((article) => (
+          <BlogCard {...article} locale={locale} />
+        ))}
+      </div>
+    )
+  }
+
+  {/* Empty State */}
+  {
+    articles.length === 0 && (
+      <div class="text-center section-md">
+        <span
+          class="material-symbols-outlined text-6xl text-primary-200 mb-4 block"
+          aria-hidden="true"
+        >
+          article
+        </span>
+        <p class="body-large text-softGray">
+          {locale === 'en'
+            ? 'No articles found.'
+            : locale === 'es'
+              ? 'No se encontraron artículos.'
+              : 'Nenhum artigo encontrado.'}
+        </p>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  /* Featured article styling */
+  .featured-section :global(article) {
+    @apply bg-ivory;
+  }
+
+  .featured-section :global(article:hover) {
+    @apply bg-white;
+  }
+</style>

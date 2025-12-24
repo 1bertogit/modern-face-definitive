@@ -1,0 +1,196 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Modern Face®',
+  description:
+    'The integrated facial surgery methodology created by Dr. Robério Brandão. Maximum safety, natural results, shared knowledge.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const pages = [
+  {
+    href: '/modern-face/what-is-it',
+    title: 'What is Modern Face®?',
+    description: 'Definition, pillars, and the problem we solve.',
+    tag: 'Introduction',
+  },
+  {
+    href: '/modern-face/philosophy',
+    title: 'The Philosophy',
+    description: "Why excellence in facial surgery shouldn't be a secret.",
+    tag: 'Manifesto',
+  },
+  {
+    href: '/modern-face/principles',
+    title: 'Technical Principles',
+    description: 'The 6 fundamentals that guide every surgical decision.',
+    tag: 'Foundations',
+  },
+  {
+    href: '/modern-face/why-direct-vision',
+    title: 'Why Direct Vision?',
+    description: 'The technical choice that defines Modern Face®.',
+    tag: 'Technique',
+  },
+  {
+    href: '/modern-face/evolution-of-facial-surgery',
+    title: 'Evolution of Facial Surgery',
+    description: 'From Skoog to Modern Face®: 50 years of history.',
+    tag: 'Context',
+  },
+  {
+    href: '/modern-face/knowledge-sharing',
+    title: 'Knowledge Sharing',
+    description: 'Why sharing is multiplying.',
+    tag: 'Mission',
+  },
+];
+
+const highlights = [
+  { value: '18+', label: 'Years of Development' },
+  { value: '1,500+', label: 'Surgeries Performed' },
+  { value: '212', label: 'Consecutive Documented Cases' },
+  { value: '0%', label: 'Permanent Nerve Injury' },
+];
+---
+
+<BaseLayout
+  title="Modern Face®"
+  description="The integrated facial surgery methodology created by Dr. Robério Brandão. Maximum safety, natural results, shared knowledge."
+  schema={schema}
+  lang="en"
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Methodology</p>
+      <h1 class="heading-1-white text-5xl md:text-6xl">Modern Face®</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        An integrated facial surgery methodology that combines advanced deep plane techniques with a
+        philosophy of maximum safety, natural results, and shared knowledge.
+      </p>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="section-sm bg-ivory border-b border-gray-200">
+    <div class="prose-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          highlights.map((item) => (
+            <div>
+              <p class="text-3xl font-serif text-primary-900">{item.value}</p>
+              <p class="label-caption mt-1">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap body-base">
+          Modern Face® is not an isolated technique — it's a way of thinking and practicing facial
+          surgery. Developed over 18 years by Dr. Robério Brandão, it integrates the best of deep
+          plane techniques with essential adaptations for today's reality, where 90% of faces
+          already have biostimulators and fillers.
+        </p>
+        <p class="body-base">
+          Explore the sections below to understand the philosophy, technical principles, and mission
+          behind Modern Face®.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pages Grid -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Explore Modern Face®</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          pages.map((page, index) => (
+            <a
+              href={page.href}
+              class="group block p-8 bg-ivory border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all duration-300"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="label-eyebrow">{page.tag}</span>
+                <span class="text-3xl font-serif text-primary-200 group-hover:text-accent-600 transition-colors">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+              <h3 class="heading-3 mb-3 group-hover:text-accent-600 transition-colors">
+                {page.title}
+              </h3>
+              <p class="body-small">{page.description}</p>
+              <span class="inline-block mt-6 text-sm text-accent-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                Read more →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <blockquote>
+        <p class="heading-2-white italic mb-8">
+          "Excellence shouldn't be a secret guarded by a few. Our mission is to share it."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Techniques -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Discover the Techniques</h3>
+          <p class="body-base mb-6">
+            Endomidface, Deep Neck, Browlift — the techniques that comprise the Modern Face®
+            methodology.
+          </p>
+          <a
+            href="/techniques/endomidface"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Explore techniques →
+          </a>
+        </div>
+
+        <!-- Training -->
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="heading-3 mb-4">Modern Face® Training</h3>
+          <p class="body-base mb-6">
+            Structured programs for surgeons who want to master the deep plane safely.
+          </p>
+          <a
+            href="/training/endomidface-course"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            View programs →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

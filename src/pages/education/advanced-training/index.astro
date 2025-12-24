@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const included = [
+  { title: 'Complete ENDOMIDFACE®', desc: 'Online course + all lessons', icon: 'school' },
+  { title: 'Deep Neck Mastery', desc: 'Complete online course', icon: 'school' },
+  { title: '6 Months Mentorship', desc: 'Structured follow-up', icon: 'groups' },
+  { title: 'Pedagogical Track', desc: 'Systematic progression', icon: 'route' },
+  { title: 'Technical Checkpoints', desc: 'Progress evaluations', icon: 'fact_check' },
+  { title: 'Legacy Circle', desc: 'Select group of surgeons', icon: 'diamond' },
+];
+
+const differentials = [
+  {
+    title: 'Not the sum of two courses',
+    desc: "It's an integrated training program with complete facial vision",
+  },
+  {
+    title: 'Philosophical integration',
+    desc: 'Face approach as a harmonic unit, from forehead to neck',
+  },
+  { title: 'Complete mastery', desc: 'Full delivery of the Modern Face® method across all thirds' },
+  {
+    title: 'Implementation mentorship',
+    desc: 'Discussion of your own cases with direct feedback, accelerating mastery',
+  },
+];
+
+const comparison = [
+  { item: 'Courses included', individual: '1 course', legacy: '2 complete courses' },
+  { item: 'Mentorship', individual: '2 months', legacy: '6 structured months' },
+  { item: 'Technical integration', individual: 'Partial', legacy: 'Complete' },
+  { item: 'Exclusive circle', individual: 'No', legacy: 'Yes' },
+  { item: 'Investment', individual: '$3,800', legacy: '$6,000' },
+  { item: 'Savings vs. separate', individual: '-', legacy: '$5,200 (46%)' },
+];
+
+const forWhom = [
+  'Surgeons who want complete methodology mastery',
+  'Professionals seeking consistent results across the whole face',
+  'Surgeons willing to invest in excellence training',
+  'Those who value mentorship and direct feedback',
+];
+
+const notForWhom = [
+  'Those seeking quick solutions without commitment',
+  'Surgeons who prefer fragmented approaches',
+  'Professionals without availability for mentorship',
+];
+---
+
+<BaseLayout
+  title="Advanced Training | Modern Face® Mastery"
+  description="Complete training program: ENDOMIDFACE® + Deep Neck + 6 months mentorship. Master the entire face."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/education" class="hover:text-white">Education</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Advanced Training</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Recommended Program
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Advanced Training
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto mb-4">
+        Modern Face® Mastery Program
+      </p>
+      <p class="text-primary-400">ENDOMIDFACE® + Deep Neck + 6 Months Structured Mentorship</p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-center gap-8 text-white">
+      <div class="text-center">
+        <p class="text-sm opacity-70">Investment</p>
+        <p class="text-4xl font-serif">$6,000</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Original Value</p>
+        <p class="text-xl line-through opacity-50">$11,200</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm opacity-70">Savings</p>
+        <p class="text-2xl text-green-300">$5,200</p>
+        <p class="text-xs opacity-70">46% discount</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        This Is Not the Sum of Two Courses
+      </h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          The Advanced Training program is a complete training journey for surgeons seeking integral
+          mastery of the Modern Face® — middle third, lower third and Deep Neck — with technical
+          integration and decision-making maturity.
+        </p>
+        <p>
+          While individual courses teach <strong>what to do</strong>, Advanced Training teaches
+          <strong>how to think, plan and decide</strong> in high-level facial surgery.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">What's Included</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          included.map((item) => (
+            <div class="p-6 bg-ivory border border-gray-100 text-center">
+              <span class="material-symbols-outlined text-accent-600 text-3xl mb-4 block">
+                {item.icon}
+              </span>
+              <h3 class="font-medium text-primary-900 mb-2">{item.title}</h3>
+              <p class="text-sm text-warmGray">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-12 text-center">Why Advanced Training?</h2>
+      <div class="space-y-6">
+        {
+          differentials.map((d) => (
+            <div class="p-6 bg-white/10">
+              <h3 class="font-medium text-white mb-2">{d.title}</h3>
+              <p class="text-primary-300">{d.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Individual Courses vs. Advanced Training
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 pr-4 text-warmGray font-normal">Comparison</th>
+              <th class="text-center py-4 px-4 text-warmGray font-normal">Individual Courses</th>
+              <th class="text-center py-4 pl-4 bg-accent-600/10 text-primary-900 font-medium"
+                >Advanced Training</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparison.map((row) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 pr-4 text-warmGray">{row.item}</td>
+                  <td class="text-center py-4 px-4 text-warmGray">{row.individual}</td>
+                  <td class="text-center py-4 pl-4 bg-accent-600/5 font-medium text-primary-900">
+                    {row.legacy}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-xl font-serif text-primary-900 mb-6">For Whom</h2>
+          <div class="space-y-3">
+            {
+              forWhom.map((item) => (
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-green-600 flex-shrink-0">
+                    check_circle
+                  </span>
+                  <span class="text-warmGray">{item}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div>
+          <h2 class="text-xl font-serif text-primary-900 mb-6">Not For Whom</h2>
+          <div class="space-y-3">
+            {
+              notForWhom.map((item) => (
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-red-600 flex-shrink-0">cancel</span>
+                  <span class="text-warmGray">{item}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Ready to Master Modern Face®?</h2>
+      <p class="text-2xl font-serif text-accent-400 mb-8">
+        $6,000 <span class="text-sm text-primary-400 line-through ml-2">$11,200</span>
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        I Want to Join
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/education/core-programs/deep-neck-mastery" class="text-sm text-accent-600"
+        >← Deep Neck Mastery</a
+      >
+      <a href="/education" class="text-sm text-accent-600">Education →</a>
+    </div>
+  </section>
+</BaseLayout>

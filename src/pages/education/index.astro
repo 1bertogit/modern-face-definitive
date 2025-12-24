@@ -1,0 +1,184 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const programs = [
+  {
+    featured: true,
+    title: 'Advanced Training',
+    subtitle: 'Modern Face® Mastery Program',
+    desc: 'ENDOMIDFACE® + Deep Neck + 6 months Mentorship. Complete training for full mastery.',
+    price: '$6,000',
+    originalPrice: '$11,200',
+    savings: '$5,200',
+    href: '/education/advanced-training',
+    badge: 'RECOMMENDED',
+  },
+  {
+    title: 'ENDOMIDFACE® Direct Vision',
+    subtitle: 'Online Course + 2 months Mentorship',
+    desc: 'Technical mastery of the middle third. Eliminates endoscope dependency.',
+    price: '$2,000',
+    originalPrice: '$4,000',
+    savings: '$2,000',
+    href: '/education/core-programs/endomidface-direct-vision',
+  },
+  {
+    title: 'Deep Neck Mastery',
+    subtitle: 'Online Course + 2 months Mentorship',
+    desc: 'Specialization in cervical and mandibular contour. Complex cases with safety.',
+    price: '$1,800',
+    originalPrice: '$3,600',
+    savings: '$1,800',
+    href: '/education/core-programs/deep-neck-mastery',
+  },
+];
+
+const differentials = [
+  {
+    icon: 'visibility',
+    title: 'Direct Vision',
+    desc: 'Methodology that eliminates endoscope dependency',
+  },
+  { icon: 'groups', title: 'Real Mentorship', desc: 'Structured follow-up with case analysis' },
+  {
+    icon: 'verified',
+    title: '212+ Cases',
+    desc: 'Validated technique with zero permanent nerve injuries',
+  },
+  {
+    icon: 'school',
+    title: 'Complete Training',
+    desc: 'From concept to execution, basic to advanced',
+  },
+];
+---
+
+<BaseLayout
+  title="Education | Facial Surgery Training"
+  description="Advanced facial surgery training programs. ENDOMIDFACE®, Deep Neck and Advanced Training with mentorship."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Facial Surgery Training
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Structured programs for surgeons seeking technical mastery, safety and consistent results in
+        the Modern Face® methodology.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "We don't just teach technique. We train surgeons who think, plan and decide."
+      </p>
+      <p class="text-white/70 text-sm mt-2">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Training Programs</h2>
+      <p class="text-warmGray text-center mb-12">Choose the program suited to your current stage</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {
+          programs.map((prog) => (
+            <a
+              href={prog.href}
+              class={`group block p-8 border transition-all ${prog.featured ? 'bg-primary-900 border-primary-900 text-white' : 'bg-white border-gray-100 hover:border-accent-600'}`}
+            >
+              {prog.badge && (
+                <span class="inline-block px-3 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-4">
+                  {prog.badge}
+                </span>
+              )}
+              <h3
+                class={`text-xl font-serif mb-1 ${prog.featured ? 'text-white' : 'text-primary-900 group-hover:text-accent-600'} transition-colors`}
+              >
+                {prog.title}
+              </h3>
+              <p class={`text-sm mb-4 ${prog.featured ? 'text-primary-300' : 'text-accent-600'}`}>
+                {prog.subtitle}
+              </p>
+              <p class={`text-sm mb-6 ${prog.featured ? 'text-primary-300' : 'text-warmGray'}`}>
+                {prog.desc}
+              </p>
+
+              <div class={`pt-4 border-t ${prog.featured ? 'border-white/20' : 'border-gray-100'}`}>
+                <p
+                  class={`text-2xl font-serif ${prog.featured ? 'text-accent-400' : 'text-primary-900'}`}
+                >
+                  {prog.price}
+                </p>
+                <p class={`text-xs ${prog.featured ? 'text-primary-400' : 'text-softGray'}`}>
+                  <span class="line-through">{prog.originalPrice}</span>
+                  <span class="ml-2 text-green-500">Save: {prog.savings}</span>
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Why Train With Us</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          differentials.map((dif) => (
+            <div class="text-center p-6">
+              <span class="material-symbols-outlined text-accent-600 text-3xl mb-4 block">
+                {dif.icon}
+              </span>
+              <h3 class="font-medium text-primary-900 mb-2">{dif.title}</h3>
+              <p class="text-sm text-warmGray">{dif.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">Satellite Courses</h2>
+      <p class="text-warmGray text-center mb-8">
+        Complementary modules for deepening in specific areas
+      </p>
+      <div class="text-center">
+        <a
+          href="/education/satellite-courses"
+          class="inline-block px-8 py-4 border-2 border-primary-900 text-primary-900 text-sm uppercase tracking-[0.15em] hover:bg-primary-900 hover:text-white transition-colors"
+        >
+          View All Courses
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-6">Ready to Start?</h2>
+      <p class="text-primary-300 mb-8">
+        Get in touch to discuss which program best fits your professional stage.
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Talk to Our Team
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,371 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { casesContent, getCasesSchema } from '@lib/content/cases';
+
+const locale = 'en';
+const content = casesContent[locale];
+const schema = getCasesSchema(locale);
+
+const keywords = [
+  'Face Moderna student cases',
+  'technique reproducibility',
+  'trained surgeons',
+  'methodology results',
+  'surgeon testimonials',
+  'Face Moderna alumni gallery',
+];
+
+// Alumni testimonials
+const testimonials = [
+  {
+    name: 'Dr. Alexandre M.',
+    city: 'São Paulo, SP',
+    specialty: 'Plastic Surgeon',
+    surgeries: '50+ Endomidface',
+    testimonial:
+      'The learning curve was much faster than I expected. By the 15th case I already felt confident. Today, with over 50 procedures, Face Moderna® is my main rejuvenation technique.',
+    image: '/images/testimonials/avatars/alumni-avatar-1.png',
+    graduationYear: '2022',
+    featured: true,
+  },
+  {
+    name: 'Dr. Carolina S.',
+    city: 'Rio de Janeiro, RJ',
+    specialty: 'Plastic Surgeon',
+    surgeries: '35+ Endomidface',
+    testimonial:
+      'The tactile feedback from direct vision completely changes the safety of the procedure. I can feel each anatomical plane and have millimeter control of repositioning.',
+    image: '/images/testimonials/avatars/alumni-avatar-2.png',
+    graduationYear: '2023',
+    featured: true,
+  },
+  {
+    name: 'Dr. Roberto F.',
+    city: 'Belo Horizonte, MG',
+    specialty: 'Plastic Surgeon',
+    surgeries: '40+ Modern Face',
+    testimonial:
+      'After mastering the technique, my patient satisfaction index increased significantly. Natural and long-lasting results make all the difference in the postoperative period.',
+    image: '/images/testimonials/avatars/alumni-avatar-3.png',
+    graduationYear: '2022',
+    featured: true,
+  },
+  {
+    name: 'Dr. Juliana P.',
+    city: 'Brasília, DF',
+    specialty: 'Plastic Surgeon',
+    surgeries: '25+ Endomidface',
+    testimonial:
+      "Dr. Robério's teaching methodology is exceptional. Each step is explained in detail, and post-course support gave me confidence to start my first cases.",
+    image: '/images/testimonials/avatars/alumni-avatar-4.png',
+    graduationYear: '2023',
+    featured: false,
+  },
+  {
+    name: 'Dr. Fernando L.',
+    city: 'Curitiba, PR',
+    specialty: 'Plastic Surgeon',
+    surgeries: '30+ Modern Face',
+    testimonial:
+      'The difference lies in applied anatomy. Understanding aging in layers and treating each patient in a personalized way revolutionized my surgical practice.',
+    image: '/images/testimonials/avatars/alumni-avatar-5.png',
+    graduationYear: '2021',
+    featured: false,
+  },
+  {
+    name: 'Dr. Patrícia A.',
+    city: 'Porto Alegre, RS',
+    specialty: 'Plastic Surgeon',
+    surgeries: '20+ Endomidface',
+    testimonial:
+      "Patients' quick recovery is one of the highlights. Minimal edema and early return to social activities greatly increase postoperative satisfaction.",
+    image: '/images/testimonials/avatars/alumni-avatar-6.png',
+    graduationYear: '2024',
+    featured: false,
+  },
+  {
+    name: 'Dr. Marcelo R.',
+    city: 'Salvador, BA',
+    specialty: 'Plastic Surgeon',
+    surgeries: '45+ Modern Face',
+    testimonial:
+      'I incorporated Face Moderna® as a routine procedure. The predictability of results and technical safety allow me to offer excellent treatment to my patients.',
+    image: '/images/testimonials/avatars/alumni-avatar-7.png',
+    graduationYear: '2022',
+    featured: false,
+  },
+  {
+    name: 'Dr. Renata M.',
+    city: 'Recife, PE',
+    specialty: 'Plastic Surgeon',
+    surgeries: '28+ Endomidface',
+    testimonial:
+      'Post-graduation follow-up makes all the difference. Whenever I have questions, I receive quick and detailed support. This gave me confidence to grow in the technique.',
+    image: '/images/testimonials/avatars/alumni-avatar-8.png',
+    graduationYear: '2023',
+    featured: false,
+  },
+  {
+    name: 'Dr. Carlos H.',
+    city: 'Fortaleza, CE',
+    specialty: 'Plastic Surgeon',
+    surgeries: '32+ Modern Face',
+    testimonial:
+      "The conservative and respectful approach to facial anatomy results in patients with a rejuvenated appearance, but without obvious signs of surgery. That's what we all seek.",
+    image: '/images/testimonials/avatars/alumni-avatar-9.png',
+    graduationYear: '2023',
+    featured: false,
+  },
+  {
+    name: 'Dr. Beatriz C.',
+    city: 'Campinas, SP',
+    specialty: 'Plastic Surgeon',
+    surgeries: '22+ Endomidface',
+    testimonial:
+      'The precision in repositioning facial structures without excessive skin tension is one of the greatest technical advantages I learned. The results speak for themselves.',
+    image: '/images/testimonials/avatars/alumni-avatar-10.png',
+    graduationYear: '2024',
+    featured: false,
+  },
+];
+
+// Statistics
+const statistics = [
+  { number: '60+', label: 'Graduated Students' },
+  { number: '650+', label: 'Cases Performed' },
+  { number: '18', label: 'States Represented' },
+];
+---
+
+<BaseLayout
+  title="Student Cases | Face Moderna®"
+  description="Results from surgeons trained in the Face Moderna® methodology. Proof of technique reproducibility."
+  keywords={keywords}
+  schema={schema}
+  lang={locale}
+>
+  <!-- Breadcrumb -->
+  <section class="pt-28 pb-4 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-softGray">
+        <a href="/en" class="hover:text-accent-600">{content.ui.breadcrumb.home}</a>
+        <span>/</span>
+        <a href="/cases" class="hover:text-accent-600">{content.ui.breadcrumb.cases}</a>
+        <span>/</span>
+        <span class="text-primary-900">{content.ui.breadcrumb.students}</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="section-md bg-ivory">
+    <div class="prose-wide">
+      <p class="label-eyebrow">Proof of Reproducibility</p>
+      <h1 class="heading-1">{content.ui.breadcrumb.students}</h1>
+      <p class="body-base max-w-2xl">
+        The true validation of a technique is when other surgeons can reproduce it safely and
+        consistently. See the results of those trained in the Face Moderna® methodology.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="text-lg font-serif text-white italic">
+        "A technique is only good if it can be taught. A technique is excellent when students can
+        achieve consistent results."
+      </p>
+      <p class="text-white/70 text-sm mt-2">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {
+          statistics.map((stat) => (
+            <div class="py-8">
+              <p class="text-5xl font-serif text-accent-600 mb-2">{stat.number}</p>
+              <p class="text-sm uppercase tracking-[0.15em] text-primary-400">{stat.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-md bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-2 text-center mb-12">What Graduates Say</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        Testimonials from surgeons who have mastered the Face Moderna® methodology and are achieving
+        consistent results in their practices.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {
+          testimonials.map((testimonial) => (
+            <div
+              class={`p-6 bg-ivory border transition-all duration-300 hover:shadow-lg ${testimonial.featured ? 'border-accent-600 shadow-md' : 'border-gray-100'}`}
+            >
+              {/* Avatar */}
+              <div class="flex justify-center mb-4">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  class="w-20 h-20 rounded-full object-cover"
+                  loading="lazy"
+                  onerror="this.src='/images/testimonials/avatars/alumni-avatar-1.png'"
+                />
+              </div>
+
+              <blockquote class="body-small italic mb-6 min-h-[120px]">
+                "{testimonial.testimonial}"
+              </blockquote>
+
+              <div class="border-t border-gray-200 pt-4">
+                <p class="font-medium text-primary-900 text-sm">{testimonial.name}</p>
+                <p class="text-xs text-softGray">{testimonial.specialty}</p>
+                <p class="text-xs text-softGray">{testimonial.city}</p>
+                <div class="flex items-center justify-between mt-3">
+                  <p class="text-xs text-accent-600 font-medium">{testimonial.surgeries}</p>
+                  <p class="text-xs text-primary-400">Graduated {testimonial.graduationYear}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="text-center text-sm text-softGray mt-12 max-w-2xl mx-auto">
+        Testimonials represent individual experiences. Results may vary according to dedication,
+        practice, and each surgeon's profile.
+      </p>
+    </div>
+  </section>
+
+  <!-- Results Gallery -->
+  <section class="section-md bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 text-center mb-12">Results Gallery</h2>
+      <p class="body-base text-center mb-12 max-w-2xl mx-auto">
+        Selected cases from surgeons trained in the Face Moderna® methodology.
+      </p>
+
+      <!-- Results Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/students/student-result-1.png"
+            alt="Student result - Case 1"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/students/student-result-2.png"
+            alt="Student result - Case 2"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/students/student-result-3.png"
+            alt="Student result - Case 3"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/students/student-result-4.png"
+            alt="Student result - Case 4"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/techniques/case-endomidface.png"
+            alt="Endomidface technique"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/techniques/case-deep-neck.png"
+            alt="Deep Neck technique"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/techniques/case-browlift.png"
+            alt="Browlift technique"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div
+          class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all overflow-hidden"
+        >
+          <img
+            src="/images/casos/techniques/case-face-completa.png"
+            alt="Full Face"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <p class="text-center text-sm text-softGray mt-12">
+        Real cases from surgeons trained in the Face Moderna® methodology. Illustrative images
+        demonstrate the reproducibility of the technique.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-base text-center">
+      <h3 class="heading-2-white mb-4">Be Next</h3>
+      <p class="body-base-light mb-8 max-w-lg mx-auto">
+        Join the group of surgeons who are mastering Face Moderna® and achieving consistent results.
+      </p>
+      <a
+        href="/education"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+      >
+        View Training Programs
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,404 @@
+---
+/**
+ * CLUSTER A - Autoria & Provas
+ * Página: /en/creator/
+ * Prioridade: P0
+ * Intenção: Entidade + Autoria (Anti-sequestro)
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaPerson from '@components/seo/SchemaPerson.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Creator', url: '/creator' },
+];
+
+const keywords = [
+  'Dr. Robério Brandão',
+  'ENDOMIDFACE creator',
+  'Direct Vision facial surgery',
+  'Modern Face founder',
+  'facial surgery pioneer Brazil',
+  'ENDOMIDFACE inventor',
+  'midface lift creator',
+];
+
+// Related pages for internal linking
+const relatedPages = [
+  {
+    title: 'Timeline: 2006 → 2024',
+    url: '/creator/timeline',
+    desc: 'Chronological proof of technique development',
+  },
+  {
+    title: 'Case Series Safety Record',
+    url: '/creator/case-series-safety',
+    desc: '1,500+ cases with zero permanent neural injury',
+  },
+  {
+    title: 'ENDOMIDFACE® Trademark',
+    url: '/creator/trademark-endomidface',
+    desc: 'Legal authorship protection',
+  },
+  {
+    title: 'Invited Lectures',
+    url: '/creator/invited-lectures',
+    desc: 'SBCP 2023, Full Face Global 2024',
+  },
+  {
+    title: 'FAQ: Authorship',
+    url: '/creator/faq-authorship',
+    desc: "Common questions about the technique's origin",
+  },
+];
+---
+
+<BaseLayout
+  title="Dr. Robério Brandão — Creator of ENDOMIDFACE® by Direct Vision"
+  description="Meet Dr. Robério Brandão, the Brazilian facial plastic surgeon who created ENDOMIDFACE® by Direct Vision technique and founded the Modern Face® philosophy. Pioneer since 2006 with 1,500+ surgeries."
+  keywords={keywords}
+  includeOrgSchema={true}
+>
+  <SchemaPerson extended={true} />
+  <SchemaArticle
+    title="Dr. Robério Brandão — Creator of ENDOMIDFACE® by Direct Vision"
+    description="Complete profile of Dr. Robério Brandão, creator of the ENDOMIDFACE technique using Direct Vision approach."
+    section="Creator Profile"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div class="text-white">
+          <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+            Founder & Creator
+          </p>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
+            Dr. Robério Brandão
+          </h1>
+          <p class="text-xl md:text-2xl text-primary-200 mb-6">
+            Creator of <strong class="text-white">ENDOMIDFACE® by Direct Vision</strong> and Founder of
+            the <strong class="text-white">Modern Face®</strong> Philosophy
+          </p>
+          <p class="text-lg text-primary-300 mb-8">
+            Brazilian facial plastic surgeon pioneering safer, more accessible facial surgery
+            techniques since 2006. Over 1,500 surgeries performed with zero permanent neural
+            injuries documented.
+          </p>
+
+          <!-- Key Stats -->
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="text-center p-4 bg-white/10 rounded-lg">
+              <p class="text-3xl font-bold text-accent-400">18+</p>
+              <p class="text-sm text-primary-300">Years Experience</p>
+            </div>
+            <div class="text-center p-4 bg-white/10 rounded-lg">
+              <p class="text-3xl font-bold text-accent-400">1,500+</p>
+              <p class="text-sm text-primary-300">Surgeries</p>
+            </div>
+            <div class="text-center p-4 bg-white/10 rounded-lg">
+              <p class="text-3xl font-bold text-accent-400">130+</p>
+              <p class="text-sm text-primary-300">Surgeons Trained</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/training"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
+            >
+              <span class="material-symbols-outlined">school</span>
+              Training Programs
+            </a>
+            <a
+              href="/creator/timeline"
+              class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <span class="material-symbols-outlined">timeline</span>
+              View Timeline
+            </a>
+          </div>
+        </div>
+
+        <!-- Image Placeholder -->
+        <div class="relative">
+          <div class="aspect-[4/5] bg-primary-700/50 rounded-2xl flex items-center justify-center">
+            <div class="text-center text-primary-400">
+              <span class="material-symbols-outlined text-6xl mb-2">person</span>
+              <p class="text-sm">Dr. Robério Brandão</p>
+            </div>
+          </div>
+          <!-- Credentials Badge -->
+          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
+            <p class="text-xs text-softGray mb-1">Member of</p>
+            <p class="font-bold text-primary-900">SBCP</p>
+            <p class="text-xs text-softGray">Sociedade Brasileira de<br />Cirurgia Plástica</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Story Section -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-8">
+        The Origin Story: Why ENDOMIDFACE® Was Born
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl leading-relaxed mb-6">
+          In 2006, Dr. Robério Brandão began developing what would become the <strong
+            >ENDOMIDFACE® by Direct Vision</strong
+          > technique — not out of academic curiosity, but out of <em>clinical necessity</em>.
+        </p>
+
+        <p class="mb-6">
+          Working in Natal, Rio Grande do Norte, Brazil, Dr. Brandão faced a practical reality that
+          many surgeons outside major metropolitan centers understand: <strong
+            >expensive endoscopic equipment wasn't accessible</strong
+          >. The $100,000-$150,000 towers that enabled traditional endoscopic midface surgery were
+          simply not available.
+        </p>
+
+        <p class="mb-6">
+          But patients still needed facial rejuvenation. The midface — the area between the lower
+          eyelid and the mouth — was sagging. Traditional SMAS techniques couldn't adequately
+          address this region. And waiting for equipment that might never arrive wasn't an option.
+        </p>
+
+        <blockquote class="border-l-4 border-accent-500 pl-6 my-8 italic text-xl">
+          "I didn't set out to create a new technique. I set out to solve a problem: how to safely
+          lift the midface without equipment I didn't have."
+          <footer class="text-base not-italic mt-2">— Dr. Robério Brandão</footer>
+        </blockquote>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-12 mb-4">
+          The 2007 Breakthrough: Proving Direct Vision Was Possible
+        </h3>
+
+        <p class="mb-6">
+          In 2007, Dr. Brandão became a <strong
+            >pioneer in facial videoendoscopy in Rio Grande do Norte</strong
+          >. But paradoxically, this experience with endoscopic surgery revealed its limitations —
+          and pointed toward a better path.
+        </p>
+
+        <p class="mb-6">
+          The endoscope showed what needed to be done. But did you really need a camera to do it?
+          Dr. Brandão's insight was radical: with proper incision placement, adequate lighting, and
+          meticulous anatomical knowledge, you could achieve the same — or better — visualization <strong
+            >with direct vision</strong
+          >.
+        </p>
+
+        <p class="mb-6">
+          This wasn't a step backward. It was a step forward: eliminating expensive equipment,
+          reducing potential points of failure, and giving the surgeon <em
+            >more control, not less</em
+          >.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-12 mb-4">
+          The Modern Challenge: Faces Changed by Bioestimulators
+        </h3>
+
+        <p class="mb-6">
+          By the 2010s, a new challenge emerged that validated Dr. Brandão's approach. <strong
+            >Facial fillers and bioestimulators became ubiquitous</strong
+          >. Conservative estimates suggest that 70-90% of patients seeking facial surgery today
+          have previously received injectable treatments.
+        </p>
+
+        <p class="mb-6">
+          These treatments change the surgical landscape — literally. The planes that traditional
+          techniques rely upon are no longer predictable. Fibrotic tissue creates adhesions.
+          Granulomas hide in unexpected locations. <strong
+            >The "classic" face is now the exception, not the rule.</strong
+          >
+        </p>
+
+        <p class="mb-6">
+          This is where the <a
+            href="/philosophy"
+            class="text-accent-600 hover:text-accent-700 underline">Modern Face® philosophy</a
+          > becomes essential. Dr. Brandão recognized that surgical approaches designed for virgin tissue
+          needed to evolve for the contemporary patient — and ENDOMIDFACE® by Direct Vision was already
+          adapted for this reality.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-12 mb-4">
+          The Safety Record: 1,500+ Cases, Zero Permanent Neural Injuries
+        </h3>
+
+        <p class="mb-6">
+          Perhaps the most compelling evidence for any surgical technique is its safety record. Over
+          18 years and more than <strong>1,500 facial surgeries</strong>, Dr. Brandão has documented <strong
+            >zero permanent motor nerve injuries</strong
+          >.
+        </p>
+
+        <p class="mb-6">
+          This isn't marketing language. This is documented clinical data. The <a
+            href="/creator/case-series-safety"
+            class="text-accent-600 hover:text-accent-700 underline"
+            >complete case series safety analysis</a
+          > is available for review by medical professionals.
+        </p>
+
+        <p class="mb-6">
+          The safety comes from the technique itself: Direct Vision means you <em>see</em> the anatomical
+          structures you need to protect. There's no camera delay. No parallax error. No equipment malfunction.
+          Just your eyes, your hands, and your knowledge of anatomy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-12 text-center">
+        Recognition & Validation
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Credential Card 1 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl">campaign</span>
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">Invited Speaker — SBCP 2023</h3>
+          <p class="text-warmGray">
+            National Congress of the Brazilian Society of Plastic Surgery. Presented ENDOMIDFACE
+            technique to peer surgeons.
+          </p>
+        </div>
+
+        <!-- Credential Card 2 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl">public</span>
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">Full Face Global Summit 2024</h3>
+          <p class="text-warmGray">
+            International summit presenting the Modern Face philosophy and Direct Vision approach to
+            global audience.
+          </p>
+        </div>
+
+        <!-- Credential Card 3 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl">verified</span>
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">ENDOMIDFACE® Trademark</h3>
+          <p class="text-warmGray">
+            Registered trademark protecting the technique name and associated intellectual property.
+          </p>
+        </div>
+
+        <!-- Credential Card 4 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl">school</span>
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">130+ Surgeons Trained</h3>
+          <p class="text-warmGray">
+            Surgeons from 7+ countries trained in the Direct Vision methodology through mentorship
+            programs.
+          </p>
+        </div>
+
+        <!-- Credential Card 5 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl">history_edu</span>
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">Pioneer Status — 2007</h3>
+          <p class="text-warmGray">
+            First to perform facial videoendoscopy in Rio Grande do Norte, Brazil.
+          </p>
+        </div>
+
+        <!-- Credential Card 6 -->
+        <div class="p-6 bg-ivory rounded-xl">
+          <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl"
+              >medical_information</span
+            >
+          </div>
+          <h3 class="font-bold text-lg text-primary-900 mb-2">SBCP Member</h3>
+          <p class="text-warmGray">
+            Active member of the Brazilian Society of Plastic Surgery (Sociedade Brasileira de
+            Cirurgia Plástica).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Pages / Internal Links -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Explore the Evidence</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          relatedPages.map((page) => (
+            <a
+              href={page.url}
+              class="group block p-6 bg-white rounded-xl border border-gray-200 hover:border-accent-500 hover:shadow-lg transition-all"
+            >
+              <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                {page.title}
+              </h3>
+              <p class="text-warmGray text-sm mb-4">{page.desc}</p>
+              <span class="inline-flex items-center text-accent-600 text-sm font-medium">
+                Read more
+                <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">
+        Learn Directly From the Creator
+      </h2>
+      <p class="text-xl text-primary-200 mb-8">
+        Dr. Robério Brandão personally mentors surgeons in the ENDOMIDFACE® and Deep Neck techniques
+        through structured online programs with live case discussions.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          View Training Programs
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

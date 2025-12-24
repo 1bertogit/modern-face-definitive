@@ -1,0 +1,381 @@
+---
+/**
+ * CLUSTER B - Filosofia Face Moderna®
+ * Página: /en/philosophy/
+ * Prioridade: P0
+ * Intenção: Entidade + Hub filosófico
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Philosophy', url: '/philosophy' },
+];
+
+const keywords = [
+  'Modern Face philosophy',
+  'facial surgery philosophy',
+  'contemporary facelift approach',
+  'filler affected face surgery',
+  'bioestimulator surgery',
+  'Dr Robério Brandão philosophy',
+  'modern facial rejuvenation',
+];
+
+const philosophyPillars = [
+  {
+    icon: 'visibility',
+    title: 'Direct Vision',
+    desc: "See what you're doing. No cameras, no screens, no equipment dependency. Your eyes, your hands, direct control.",
+    link: '/philosophy/why-direct-vision',
+  },
+  {
+    icon: 'shield',
+    title: 'Safety First',
+    desc: 'Every technical decision prioritizes nerve preservation and complication prevention over speed or convenience.',
+    link: '/philosophy/safety-principles',
+  },
+  {
+    icon: 'arrow_upward',
+    title: 'Vertical Vectors',
+    desc: 'Lift where gravity pulls — vertically. Not the lateral tension of traditional techniques.',
+    link: '/methods/endomidface/markings',
+  },
+  {
+    icon: 'healing',
+    title: 'Fast Recovery',
+    desc: 'Local anesthesia, minimal dissection, reduced edema. Patients return to life faster.',
+    link: '/philosophy/efficiency-local-anesthesia',
+  },
+];
+
+const relatedPages = [
+  {
+    title: 'What Is the Modern Face Patient?',
+    url: '/philosophy/modern-face-definition',
+    desc: 'Understanding the contemporary patient profile',
+  },
+  {
+    title: 'Why Classic Techniques Stall',
+    url: '/philosophy/why-classic-techniques-stall',
+    desc: 'The problem with traditional approaches',
+  },
+  {
+    title: 'Safety Principles',
+    url: '/philosophy/safety-principles',
+    desc: 'The foundation of safe surgery',
+  },
+  {
+    title: 'Glossary of Terms',
+    url: '/philosophy/glossary',
+    desc: 'Clear definitions for precise communication',
+  },
+];
+---
+
+<BaseLayout
+  title="Modern Face® — A Surgical Philosophy for the Contemporary Patient"
+  description="Modern Face® is a surgical philosophy for facial rejuvenation adapted to contemporary patients. Most facelift candidates today have received fillers or bioestimulators. Traditional techniques weren't designed for these faces. Modern Face® is."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="Modern Face® — A Surgical Philosophy"
+    description="Understanding the Modern Face philosophy for contemporary facial surgery"
+    section="Philosophy"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="max-w-3xl">
+        <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+          The Foundation
+        </p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">
+          Modern Face®
+        </h1>
+        <p class="text-2xl md:text-3xl text-primary-200 mb-6 font-serif italic">
+          A Surgical Philosophy for the Contemporary Patient
+        </p>
+        <p class="text-xl text-primary-300 mb-8">
+          The "classic" facelift patient — someone who has never received injectable treatments — is
+          now the exception. <strong class="text-white">Modern Face®</strong> is a surgical philosophy
+          designed for the 70-90% of patients who arrive with tissue already altered by fillers and bioestimulators.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/philosophy/modern-face-definition"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
+          >
+            What Is Modern Face?
+          </a>
+          <a
+            href="/methods"
+            class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+          >
+            View Techniques
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem Statement -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-8">
+        The Shift No One Talks About
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl leading-relaxed mb-6">
+          Every facial surgery textbook, every traditional training program, every "classic"
+          technique was developed for a patient population that <em>barely exists anymore</em>.
+        </p>
+
+        <p class="mb-6">
+          Consider: conservative estimates suggest that <strong>70-90% of patients</strong> seeking facial
+          rejuvenation surgery today have previously received facial fillers, bioestimulators (like Sculptra
+          or Radiesse), or both. These treatments are ubiquitous. Your patients aren't arriving with virgin
+          tissue — they're arriving with tissue that has been injected, stimulated, and altered multiple
+          times.
+        </p>
+
+        <p class="mb-6">This matters surgically because:</p>
+
+        <ul class="space-y-3 mb-6">
+          <li>
+            <strong>Planes are unpredictable.</strong> The sub-SMAS plane that Deep Plane relies upon?
+            It may be disrupted by fibrotic nodules, migrated filler, or bioestimulator-induced collagen.
+          </li>
+          <li>
+            <strong>Tissue consistency varies.</strong> Areas that should dissect smoothly may be adherent.
+            Tissue that should be mobile may be tethered.
+          </li>
+          <li>
+            <strong>Anatomical landmarks shift.</strong> Granulomas, fibrosis, and pseudo-capsules create
+            unexpected structures that weren't in your training.
+          </li>
+        </ul>
+
+        <blockquote class="border-l-4 border-accent-500 pl-6 my-8 italic text-xl">
+          "We cannot keep operating on the Modern Face with techniques designed for the Classic
+          Face. The tissue has changed. Our approach must change with it."
+          <footer class="text-base not-italic mt-2">— Dr. Robério Brandão</footer>
+        </blockquote>
+
+        <p class="mb-6">
+          The <strong>Modern Face®</strong> philosophy is Dr. Brandão's response to this reality. It's
+          not about abandoning anatomical principles — it's about adapting them for the patients who actually
+          walk into your office.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Pillars -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-4">The Four Pillars</h2>
+        <p class="text-xl text-warmGray max-w-2xl mx-auto">
+          Modern Face® isn't just a technique — it's a framework for thinking about facial surgery.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          philosophyPillars.map((pillar) => (
+            <a
+              href={pillar.link}
+              class="group block p-8 bg-ivory rounded-2xl hover:shadow-xl transition-all"
+            >
+              <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent-200 transition-colors">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">
+                  {pillar.icon}
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-primary-900 mb-3 group-hover:text-accent-600 transition-colors">
+                {pillar.title}
+              </h3>
+              <p class="text-warmGray text-lg">{pillar.desc}</p>
+              <span class="inline-flex items-center mt-4 text-accent-600 font-medium">
+                Learn more
+                <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- What Modern Face Is NOT -->
+  <section class="py-20 bg-primary-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">
+        What Modern Face® Is <span class="text-accent-600">NOT</span>
+      </h2>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-4 p-6 bg-white rounded-xl">
+          <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0">close</span>
+          <div>
+            <h3 class="font-bold text-primary-900 mb-2">Not a rejection of anatomy</h3>
+            <p class="text-warmGray">
+              Modern Face® is built on anatomical understanding — it simply acknowledges that the
+              anatomy we encounter today is different from what textbooks describe.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-white rounded-xl">
+          <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0">close</span>
+          <div>
+            <h3 class="font-bold text-primary-900 mb-2">
+              Not a claim that other techniques are wrong
+            </h3>
+            <p class="text-warmGray">
+              Traditional Deep Plane is excellent — for certain patients. Dr. Brandão teaches when
+              to use each approach. Modern Face® is about <em>matching technique to patient</em>.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-white rounded-xl">
+          <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0">close</span>
+          <div>
+            <h3 class="font-bold text-primary-900 mb-2">Not marketing language</h3>
+            <p class="text-warmGray">
+              This isn't a brand built for patient marketing. It's a framework for surgeons. The
+              philosophy emerged from clinical necessity, not commercial strategy.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-6 bg-white rounded-xl">
+          <span class="material-symbols-outlined text-red-500 text-2xl flex-shrink-0">close</span>
+          <div>
+            <h3 class="font-bold text-primary-900 mb-2">Not about avoiding complexity</h3>
+            <p class="text-warmGray">
+              Direct Vision doesn't mean simpler surgery. It means surgery where you see everything
+              directly — which can actually be <em>more demanding</em> in terms of anatomical knowledge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Techniques -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8 text-center">
+        Techniques Built on Modern Face® Philosophy
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <a
+          href="/methods/endomidface-direct-vision"
+          class="group block p-8 border-2 border-gray-200 rounded-2xl hover:border-accent-500 hover:shadow-lg transition-all"
+        >
+          <p class="text-sm font-semibold text-accent-600 mb-2">Midface</p>
+          <h3 class="text-2xl font-bold text-primary-900 mb-3 group-hover:text-accent-600">
+            ENDOMIDFACE® by Direct Vision
+          </h3>
+          <p class="text-warmGray mb-4">
+            Vertical midface elevation using Direct Vision approach. The core technique for
+            addressing the malar complex and nasolabial region in the Modern Face patient.
+          </p>
+          <span class="inline-flex items-center text-accent-600 font-medium">
+            Learn the technique
+            <span
+              class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform"
+              >arrow_forward</span
+            >
+          </span>
+        </a>
+
+        <a
+          href="/methods/deep-neck"
+          class="group block p-8 border-2 border-gray-200 rounded-2xl hover:border-accent-500 hover:shadow-lg transition-all"
+        >
+          <p class="text-sm font-semibold text-accent-600 mb-2">Cervical</p>
+          <h3 class="text-2xl font-bold text-primary-900 mb-3 group-hover:text-accent-600">
+            Deep Neck Without Gland Removal
+          </h3>
+          <p class="text-warmGray mb-4">
+            Cervical rejuvenation that preserves the submandibular gland while achieving excellent
+            neck definition. Complementary to ENDOMIDFACE® for full facial treatment.
+          </p>
+          <span class="inline-flex items-center text-accent-600 font-medium">
+            Learn the technique
+            <span
+              class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform"
+              >arrow_forward</span
+            >
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Pages -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Explore the Philosophy</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          relatedPages.map((page) => (
+            <a
+              href={page.url}
+              class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+            >
+              <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                {page.title}
+              </h3>
+              <p class="text-warmGray text-sm">{page.desc}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">
+        Learn to Operate on the Modern Face
+      </h2>
+      <p class="text-xl text-primary-200 mb-8">
+        Training programs designed for surgeons who want to adapt their practice for contemporary
+        patients — not yesterday's textbooks.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          Training Programs
+        </a>
+        <a
+          href="/creator"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          About Dr. Brandão
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

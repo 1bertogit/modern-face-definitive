@@ -1,0 +1,109 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const layers = [
+  { num: '1', layer: 'Skin', desc: 'Thicker at glabella, thin at temple' },
+  { num: '2', layer: 'Subcutaneous', desc: 'Contains superficial vessels' },
+  { num: '3', layer: 'Galea/STF', desc: 'Galea centrally, Superficial Temporal Fascia laterally' },
+  { num: '4', layer: 'Subgaleal Space', desc: 'Avascular dissection plane' },
+  { num: '5', layer: 'Periosteum', desc: 'Firmly attached to bone' },
+];
+
+const structures = [
+  {
+    name: 'Supraorbital Nerve',
+    desc: 'Emerges from supraorbital foramen. Sensory to forehead.',
+    protection: 'Identify position before dissection',
+  },
+  {
+    name: 'Supratrochlear Nerve',
+    desc: 'Medial to supraorbital. Sensory to glabella.',
+    protection: 'Preserve during temporal access',
+  },
+  {
+    name: 'Frontal Branch of Facial',
+    desc: 'Motor to frontalis. Crosses zygomatic arch.',
+    protection: 'Subperiosteal dissection at arch',
+  },
+  {
+    name: 'Superficial Temporal Fascia',
+    desc: 'Continuation of SMAS at temple.',
+    protection: 'Safe dissection plane',
+  },
+];
+---
+
+<BaseLayout
+  title="Upper Third Anatomy | Forehead and Temple"
+  description="Applied anatomy of the upper facial third. Frontal, temporal and periorbital region for Browlift."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Upper Third</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Forehead & Temple
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Upper Third</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The frontal and temporal region. Anatomical basis for Browlift and midface access.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Anatomical Layers</h2>
+      <div class="space-y-4">
+        {
+          layers.map((l) => (
+            <div class="flex items-center gap-6 p-4 bg-ivory border border-gray-100">
+              <span class="w-10 h-10 bg-accent-600 text-white flex items-center justify-center font-serif text-lg flex-shrink-0">
+                {l.num}
+              </span>
+              <div>
+                <h3 class="font-medium text-primary-900">{l.layer}</h3>
+                <p class="text-sm text-warmGray">{l.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Critical Structures</h2>
+      <div class="space-y-6">
+        {
+          structures.map((s) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{s.name}</h3>
+              <p class="text-warmGray mb-4">{s.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Protection:</span>{' '}
+                <span class="text-warmGray">{s.protection}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy" class="text-sm text-accent-600">← Anatomy Index</a>
+      <a href="/applied-anatomy/middle-third" class="text-sm text-accent-600">Middle Third →</a>
+    </div>
+  </section>
+</BaseLayout>

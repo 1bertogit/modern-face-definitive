@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { casesContent, getCasesSchema } from '@lib/content/cases';
+
+const locale = 'en';
+const content = casesContent[locale];
+const schema = getCasesSchema(locale);
+---
+
+<BaseLayout
+  title={content.meta.title}
+  description={content.meta.description}
+  keywords={content.meta.keywords}
+  schema={schema}
+  lang={locale}
+>
+  <!-- Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        {content.hero.subtitle}
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        {content.hero.title}
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        {content.hero.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        {content.quote.text}
+      </p>
+      <p class="text-white/70 text-sm mt-2">{content.quote.author}</p>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          content.categories.map((cat) => (
+            <a
+              href={cat.href}
+              class="group block p-10 bg-white border border-gray-100 hover:border-accent-600 hover:shadow-xl transition-all"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <span class="material-symbols-outlined text-4xl text-accent-600">{cat.icone}</span>
+                <span class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.15em]">
+                  {cat.stats}
+                </span>
+              </div>
+
+              <h2 class="text-2xl font-serif text-primary-900 mb-4 group-hover:text-accent-600 transition-colors">
+                {cat.titulo}
+              </h2>
+              <p class="text-warmGray leading-relaxed mb-6">{cat.descricao}</p>
+
+              <span class="inline-flex items-center text-sm text-accent-600 font-medium">
+                {content.ui.viewCases}
+                <span class="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">{content.stats.nerveDamage.value}</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">
+            {content.stats.nerveDamage.label}
+          </p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">{content.stats.documented.value}</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">
+            {content.stats.documented.label}
+          </p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">{content.stats.recovery.value}</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">
+            {content.stats.recovery.label}
+          </p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">{content.stats.experience.value}</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">
+            {content.stats.experience.label}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="text-2xl font-serif text-white mb-4">
+        {content.cta.title}
+      </h3>
+      <p class="text-primary-400 mb-8 max-w-lg mx-auto">
+        {content.cta.description}
+      </p>
+      <a
+        href={content.cta.href}
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+      >
+        {content.cta.button}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

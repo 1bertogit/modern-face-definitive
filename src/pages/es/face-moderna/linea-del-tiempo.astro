@@ -1,0 +1,127 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import TimelineInteractive from '@components/islands/TimelineInteractive';
+import { LocalizedErrorBoundary } from '@components/islands/ErrorBoundary';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Línea del Tiempo de la Cirugía Facial',
+  description:
+    'De la primera rinoplastia reconstructiva a la Face Moderna®: 2.600 años de evolución de la cirugía plástica facial.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+---
+
+<BaseLayout
+  title="Línea del Tiempo de la Cirugía Facial | Modern Face Institute"
+  description="Infográfico interactivo: del primer colgajo facial (~600 a.C.) al concepto de Face Moderna®. Explore 2.600 años de evolución técnica."
+  lang="es"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-primary-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Evolución Histórica
+      </p>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight mb-6">
+        Línea del Tiempo de la<br />Cirugía Plástica Facial
+      </h1>
+      <p class="text-lg text-primary-300 max-w-3xl leading-relaxed">
+        Del "primer colgajo" al <strong class="text-white">Rostro Moderno</strong>: explore los
+        hitos que transformaron la cirugía facial a lo largo de 2.600 años. Haga clic en cada evento
+        para expandir detalles.
+      </p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="bg-ivory border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3">
+      <ol class="flex items-center gap-2 text-xs text-warmGray">
+        <li><a href="/es" class="hover:text-accent-600 transition-colors">Inicio</a></li>
+        <li class="text-primary-300">/</li>
+        <li>
+          <a href="/es/face-moderna" class="hover:text-accent-600 transition-colors"
+            >Face Moderna®</a
+          >
+        </li>
+        <li class="text-primary-300">/</li>
+        <li class="text-primary-900">Línea del Tiempo</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Timeline Interactive -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Note: Timeline content is currently only available in Portuguese -->
+      <LocalizedErrorBoundary locale="es" client:load>
+        <TimelineInteractive />
+      </LocalizedErrorBoundary>
+    </div>
+  </section>
+
+  <!-- Context Section -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">¿Por qué estudiar la historia?</h2>
+      <div class="prose prose-lg text-warmGray">
+        <p>
+          Comprender la evolución de la cirugía facial no es un ejercicio de erudición — es una
+          herramienta de formación. Cada técnica que usamos hoy lleva en sí las soluciones (y los
+          errores) de generaciones anteriores.
+        </p>
+        <p>
+          El trayecto del skin-only al SMAS, del SMAS al deep-plane, del deep-plane al
+          reconocimiento del midface como territorio autónomo — cada etapa respondió a limitaciones
+          percibidas y trajo nuevos desafíos.
+        </p>
+        <p>
+          La <strong>Face Moderna®</strong> no surge del vacío: es resultado lógico de esa trayectoria,
+          proponiendo una organización por territorios (tercio medio, cuello) con estrategias de acceso
+          específicas y énfasis en resultados no-estigmatizantes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-4">¿Quiere dominar el próximo capítulo?</h2>
+      <p class="text-primary-300 mb-8">
+        Conozca los programas de formación en Endomidface y Deep Neck.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <nav class="py-8 bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a
+        href="/es/face-moderna/evolucion-de-la-cirugia-facial"
+        class="text-sm text-warmGray hover:text-accent-600 transition-colors"
+      >
+        ← Evolución de la Cirugía Facial
+      </a>
+      <a
+        href="/es/face-moderna/filosofia"
+        class="text-sm text-accent-600 hover:text-accent-700 transition-colors"
+      >
+        Filosofía →
+      </a>
+    </div>
+  </nav>
+</BaseLayout>

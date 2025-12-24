@@ -1,0 +1,172 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'o que é Deep Neck',
+  'Deep Neck Face Moderna',
+  'rejuvenescimento cervical',
+  'glândula submandibular preservação',
+  'lifting pescoço técnica',
+  'cirurgia cervical definição',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Deep Neck Face Moderna',
+  description: 'Técnica de rejuvenescimento cervical sem remoção da glândula submandibular.',
+};
+const diferenciais = [
+  {
+    aspecto: 'Glândula Submandibular',
+    tradicional: 'Remoção rotineira',
+    faceModerna: 'NUNCA removida',
+  },
+  {
+    aspecto: 'Foco Principal',
+    tradicional: 'Tratamento da glândula',
+    faceModerna: 'Gordura + digástrico + fasciotomia',
+  },
+  {
+    aspecto: 'Tendão do Digástrico',
+    tradicional: 'Plicatura para expor glândula',
+    faceModerna: 'Não plicatura — evita anteriorização',
+  },
+  { aspecto: 'Risco', tradicional: 'Alto ao remover glândula', faceModerna: 'Minimizado' },
+];
+---
+
+<BaseLayout
+  title="O Que É o Deep Neck"
+  description="Definição do Deep Neck Face Moderna. Rejuvenescimento cervical sem remoção da glândula."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li><li>/</li><li>
+            <a href="/pt/tecnicas" class="hover:text-white">Técnicas</a>
+          </li><li>/</li><li>
+            <a href="/pt/tecnicas/deep-neck" class="hover:text-white">Deep Neck</a>
+          </li><li>/</li><li class="text-white">O Que É</li>
+        </ol>
+      </nav>
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Definição & Filosofia
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          O Que É o Deep Neck
+        </h1>
+        <p class="text-xl text-primary-300 max-w-2xl mx-auto">
+          Rejuvenescimento cervical estrutural com filosofia de preservação. A glândula
+          submandibular NUNCA é removida.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-red-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-white font-medium">
+        ⚠️ Princípio Inegociável: A glândula submandibular NUNCA é removida no protocolo Face
+        Moderna
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O Deep Neck da Face Moderna é uma técnica de rejuvenescimento cervical que aborda as
+          estruturas profundas do pescoço — gordura subplatismal, músculo digástrico e fáscia
+          cervical — sem remover a glândula submandibular. Esta filosofia de preservação representa
+          uma quebra de paradigma.
+        </p>
+        <h2 class="font-serif text-primary-900">A Filosofia da Preservação</h2>
+        <p>
+          Tradicionalmente, a glândula submandibular era considerada a "vilã" do pescoço pesado. O
+          Dr. Robério Brandão propõe: "Em vez de expor e ressecar, nós contornamos e camuflamos."
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        O Que o Deep Neck Realmente Trata
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Gordura Profunda</h3><p
+            class="text-sm text-warmGray"
+          >
+            Remoção de gordura interplatismal e subplatismal por visão direta.
+          </p>
+        </div>
+        <div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Músculo Digástrico</h3><p
+            class="text-sm text-warmGray"
+          >
+            Shaving seletivo do ventre anterior quando hipertrofiado.
+          </p>
+        </div>
+        <div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Fáscia Pré-hioideia</h3><p
+            class="text-sm text-warmGray"
+          >
+            Fasciotomia horizontal obrigatória. Alonga o pescoço.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Tradicional vs. Face Moderna
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead
+            ><tr class="border-b-2 border-primary-900"
+              ><th class="text-left py-4 px-4">Aspecto</th><th class="text-left py-4 px-4"
+                >Tradicional</th
+              ><th class="text-left py-4 px-4 text-accent-600">Face Moderna</th></tr
+            ></thead
+          ><tbody
+            >{
+              diferenciais.map((d) => (
+                <tr class="border-b border-gray-200">
+                  <>
+                    <td class="py-4 px-4 font-medium">{d.aspecto}</td>
+                    <td class="py-4 px-4 text-warmGray">{d.tradicional}</td>
+                    <td class="py-4 px-4 text-warmGray bg-accent-50">{d.faceModerna}</td>
+                  </>
+                </tr>
+              ))
+            }</tbody
+          >
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "Em muitos pescoços pesados, o verdadeiro vilão é o ventre anterior hipertrofiado do
+        digástrico, com espessura de um dedo, enquanto o platisma é fino como uma cartolina."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/pt/tecnicas/deep-neck" class="text-sm text-accent-600">← Visão Geral</a><a
+        href="/pt/tecnicas/deep-neck/pilares"
+        class="text-sm text-accent-600">4 Pilares →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface results',
+  'midface surgery before after',
+  'facelift durability',
+  'malar volume restoration',
+  'natural facelift results',
+  'Endomidface safety data',
+];
+
+const results = [
+  {
+    a: 'Malar Volume',
+    bef: 'Sagging cheeks, loss of projection',
+    aft: 'Restoration of malar volume and projection',
+  },
+  {
+    a: 'Lower Eyelid',
+    bef: 'Vertically elongated, abrupt transition',
+    aft: 'Vertical shortening, smooth transition',
+  },
+  {
+    a: 'Nasolabial Fold',
+    bef: "Beginning accentuation ('Chinese mustache')",
+    aft: 'Superior fold softening',
+  },
+  {
+    a: 'Negative Vector',
+    bef: "'Tired' look, projected eyelid",
+    aft: 'Neutralization or vector improvement',
+  },
+];
+const nums = [
+  { v: '212', l: 'Documented Cases' },
+  { v: '0%', l: 'Permanent Nerve Injury' },
+  { v: '7-10', l: 'Days to Social Return' },
+  { v: '8-12', l: 'Years of Durability' },
+];
+---
+
+<BaseLayout
+  title="Endomidface Results"
+  description="Expected Endomidface results. Superior malar volume, 0% permanent nerve injury, 8-12 year durability."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Evidence & Data
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Expected Results</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        What you can expect from Endomidface, based on 200+ cases documented by Dr. Robério Brandão.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          nums.map((n) => (
+            <div>
+              <>
+                <p class="text-3xl font-serif">{n.v}</p>
+                <p class="text-xs uppercase opacity-80">{n.l}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Results by Anatomical Area
+      </h2><div class="space-y-4">
+        {
+          results.map((r) => (
+            <div class="bg-white p-6 border border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+              <>
+                <h3 class="font-serif text-primary-900">{r.a}</h3>
+                <div>
+                  <>
+                    <p class="text-xs text-red-600 uppercase mb-1">Before</p>
+                    <p class="text-sm text-warmGray">{r.bef}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-green-600 uppercase mb-1">After</p>
+                    <p class="text-sm text-warmGray">{r.aft}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <p class="text-xs text-accent-600 uppercase mb-1">Duration</p>
+                    <p class="text-sm text-warmGray">8-12 years</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Superior Malar Volume</h2><p
+        class="text-warmGray mb-6"
+      >
+        One of the most notable Endomidface results is the quality of malar volume obtained.
+        Surgeons with experience in both techniques observe: "Endomidface achieves very good malar
+        volume, superior to Deep Plane in my view."
+      </p><p class="text-warmGray">
+        This superior volumetric result is due to the specific approach to the pre-zygomatic
+        compartment with optimized vectorization developed by Dr. Robério.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Proven Safety</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">0%</p><p
+            class="text-white font-medium mb-4"
+          >
+            Permanent Nerve Injury
+          </p><p class="text-primary-300 text-sm">
+            In 212 documented cases, no permanent nerve injury was recorded. Transient paresthesias
+            may occur, resolving in 1-3 months.
+          </p>
+        </div><div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">&lt;3%</p><p
+            class="text-white font-medium mb-4"
+          >
+            Complication Rate
+          </p><p class="text-primary-300 text-sm">
+            Minor complications (ecchymosis, prolonged edema) are rare and self-limiting. No major
+            complications in the series.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/limitations" class="text-sm text-accent-600">← Limitations</a
+      ><a href="/techniques/endomidface/recovery" class="text-sm text-accent-600">Recovery →</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,137 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'ligamentos retentores faciales',
+  'ligamento cigomático liberación',
+  'ligamento mandibular jowl',
+  'anclajes faciales cirugía',
+  'release ligamentos lifting',
+  'envejecimiento facial ligamentos',
+];
+
+const ligamentos = [
+  {
+    nombre: 'Ligamento Orbitario',
+    region: 'Periorbitario',
+    origen: 'Reborde orbitario',
+    funcion: 'Sostiene tejidos periorbitarios',
+    release: 'Parcial',
+  },
+  {
+    nombre: 'Ligamento Cigomático',
+    region: 'Midface',
+    origen: 'Cuerpo del cigoma',
+    funcion: 'Ancla principal del midface',
+    release: 'Total',
+  },
+  {
+    nombre: 'Ligamento Cigomático-Cutáneo',
+    region: 'Midface',
+    origen: 'Extensión del cigomático',
+    funcion: 'Conecta al tejido cutáneo',
+    release: 'Total',
+  },
+  {
+    nombre: 'Ligamento Masetérico',
+    region: 'Cara Lateral',
+    origen: 'Borde del masetero',
+    funcion: 'Sostiene tejidos sobre masetero',
+    release: 'Selectivo',
+  },
+  {
+    nombre: 'Ligamento Mandibular',
+    region: 'Mandíbula',
+    origen: 'Borde inferior mandibular',
+    funcion: 'Principal responsable del jowl',
+    release: 'Total',
+  },
+  {
+    nombre: 'Ligamento Platisma-Auricular',
+    region: 'Cuello',
+    origen: 'Región auricular',
+    funcion: 'Ancla platisma lateralmente',
+    release: 'Parcial',
+  },
+];
+---
+
+<BaseLayout
+  title="Ligamentos Retentores de la Cara"
+  description="Los ligamentos que sostienen la cara y necesitan ser liberados en lifting."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Ligamentos Retentores</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Anclajes Faciales
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Ligamentos Retentores
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Los anclajes que sostienen la cara al esqueleto. Ceden con el envejecimiento. Se liberan en
+        lifting.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Mapa de Ligamentos</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-primary-900">
+              <th class="text-left py-4 px-4">Ligamento</th>
+              <th class="text-left py-4 px-4">Región</th>
+              <th class="text-left py-4 px-4">Origen</th>
+              <th class="text-left py-4 px-4">Función</th>
+              <th class="text-center py-4 px-4">Release</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              ligamentos.map((l) => (
+                <tr class="border-b border-gray-200">
+                  <td class="py-4 px-4 font-medium text-primary-900">{l.nombre}</td>
+                  <td class="py-4 px-4 text-accent-600">{l.region}</td>
+                  <td class="py-4 px-4 text-warmGray">{l.origen}</td>
+                  <td class="py-4 px-4 text-warmGray">{l.funcion}</td>
+                  <td class="py-4 px-4 text-center">
+                    <span
+                      class={`text-xs px-2 py-1 text-white ${l.release === 'Total' ? 'bg-green-600' : l.release === 'Parcial' ? 'bg-amber-600' : 'bg-primary-700'}`}
+                    >
+                      {l.release}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/espacios-quirurgicos" class="text-sm text-accent-600"
+        >← Espacios Quirúrgicos</a
+      >
+      <a href="/es/tecnicas/anatomia/nervios-faciales" class="text-sm text-accent-600"
+        >Nervios Faciales →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

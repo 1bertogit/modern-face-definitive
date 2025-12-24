@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomía Endomidface',
+  'espacio pre-cigomático',
+  'espacio pre-maxilar',
+  'estructuras nobles faciales',
+  'planos disección facial',
+  'nervios faciales protección',
+];
+
+const espacios = [
+  {
+    n: 'Espacio Pre-cigomático',
+    d: 'Primer espacio accedido. Entrada percibida como pérdida súbita de resistencia.',
+    c: 'Grasa pre-cigomática, SOOF',
+  },
+  {
+    n: 'Espacio Pre-maxilar',
+    d: 'Continuación de la disección hacia la comisura bucal.',
+    c: 'Grasa medial profunda, compartimentos malares',
+  },
+  {
+    n: 'Espacio Bucal',
+    d: 'Límite distal de la disección. Contiene bola de Bichat.',
+    c: 'Bola de grasa bucal',
+  },
+];
+const nobles = [
+  {
+    s: 'Rama Frontal',
+    l: 'En techo del espacio temporal, en fascia temporal superficial',
+    p: 'Disección siempre sobre fascia temporal profunda; suturas posteriores a incisión',
+  },
+  {
+    s: 'Ramas Cigomáticas',
+    l: 'En piso de espacios pre-cigomático y pre-maxilar',
+    p: 'Inclinar descolador hacia superficie (arriba); nunca profundizar',
+  },
+  {
+    s: 'Asa Bucal',
+    l: 'Debajo del plano de disección, en el piso',
+    p: 'Mantenerse en techo del SMAS; si perfora a superficie, sin daño permanente',
+  },
+  {
+    s: 'Nervio Supraorbitario',
+    l: 'A nivel de pupila, reborde orbitario superior',
+    p: 'Nervio sensitivo, tracción puede causar adormecimiento transitorio',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomía del Endomidface"
+  description="Anatomía aplicada al Endomidface. Espacios pre-cigomático y pre-maxilar, planos de disección."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Fundamentos Anatómicos
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Anatomía Aplicada</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Los espacios profundos, planos de disección y estructuras nobles que necesita conocer.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg drop-cap">
+        Comprender la anatomía profunda es crucial para la seguridad y eficacia del Endomidface. La
+        cirugía se realiza en planos delicados, cerca de nervios y vasos importantes. El objetivo es
+        acceder y movilizar los espacios pre-cigomático y pre-maxilar, manteniendo siempre el
+        descolador inclinado hacia la superficie.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Espacios Anatómicos Abordados
+      </h2><div class="space-y-6">
+        {
+          espacios.map((e, i) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <>
+                  <span class="text-4xl font-serif text-accent-600/30">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <>
+                      <h3 class="text-xl font-serif text-primary-900 mb-3">{e.n}</h3>
+                      <p class="text-warmGray mb-4">{e.d}</p>
+                      <p class="text-sm text-accent-600">Contenido: {e.c}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">La Regla de Oro de la Disección</h2><p
+        class="text-xl text-primary-300 mb-8"
+      >
+        "Las estructuras nobles están abajo. Si inclino mi descolador hacia abajo y pierdo el plano,
+        habrá lesión motora. Si inclino hacia arriba y perforo el SMAS, voy al subcutáneo y piel —
+        todo bien, sin daño permanente."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Estructuras Nobles y Protección
+      </h2><table class="w-full text-sm">
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Estructura</th><th class="text-left py-4 px-4"
+              >Localización</th
+            ><th class="text-left py-4 px-4">Cómo Proteger</th></tr
+          ></thead
+        ><tbody
+          >{
+            nobles.map((n) => (
+              <tr class="border-b border-gray-200">
+                <>
+                  <td class="py-4 px-4 font-medium text-primary-900">{n.s}</td>
+                  <td class="py-4 px-4 text-warmGray">{n.l}</td>
+                  <td class="py-4 px-4 text-warmGray">{n.p}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/indicaciones" class="text-sm text-accent-600"
+        >← Indicaciones</a
+      ><a href="/es/tecnicas/endomidface/vectores" class="text-sm text-accent-600">Vectores →</a>
+    </div>
+  </section>
+</BaseLayout>

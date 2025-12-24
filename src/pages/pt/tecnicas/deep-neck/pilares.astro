@@ -1,0 +1,147 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  '4 pilares Deep Neck',
+  'fasciotomia pré-hioideia',
+  'shaving digástrico',
+  'platismorrafia técnica',
+  'gordura profunda pescoço',
+  'Crevassi lifting',
+];
+
+const pilares = [
+  {
+    n: '01',
+    t: 'Gordura Profunda',
+    s: 'Limpeza do Assoalho',
+    d: 'Remoção de gordura interplatismal e subplatismal por visão direta.',
+    det: [
+      'Abrir platisma na linha média',
+      'Retirar gordura com bisturi elétrico',
+      'Limpar do hioide para cima',
+      'Preservar gordura abaixo do hioide',
+    ],
+    m: 'Esvaziar o travesseiro antes de apertar a fronha',
+  },
+  {
+    n: '02',
+    t: 'Shaving do Digástrico',
+    s: 'O Ponto de Virada',
+    d: 'Redução seletiva do ventre anterior hipertrofiado — o verdadeiro vilão.',
+    det: [
+      'Identificar ventre anterior',
+      'Ressecar 50-60% do volume',
+      'Transformar de cilíndrico para plano',
+      'NUNCA plicar o tendão',
+    ],
+    m: 'Podar a raiz grossa do jardim',
+  },
+  {
+    n: '03',
+    t: 'Fasciotomia Pré-hioideia',
+    s: 'Obrigatória em 100%',
+    d: 'Secção horizontal da fáscia cervical profunda logo acima do hioide.',
+    det: [
+      'Incisão horizontal acima do hioide',
+      'Libera amarração do hioide',
+      'Aumenta distância mento-hioide',
+      'Cria pescoço negativo',
+    ],
+    m: 'Soltar o freio que prende o pescoço',
+  },
+  {
+    n: '04',
+    t: 'Platismorrafia + Crevassi',
+    s: 'Arquitetura Final',
+    d: 'Sutura medial do platisma e fixação lateral na fáscia do ECOM.',
+    det: [
+      'Platismorrafia da mandíbula ao hioide',
+      'Tensão moderada',
+      'Crevassi na fáscia do ECOM',
+      'Define ângulo mandibular',
+    ],
+    m: 'Reforçar a estrutura',
+  },
+];
+---
+
+<BaseLayout
+  title="Os 4 Pilares do Deep Neck"
+  description="Os 4 pilares: Gordura, Digástrico, Fasciotomia, Platismorrafia."
+  keywords={keywords}
+  lang="pt"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Estrutura Técnica
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Os 4 Pilares do Deep Neck
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Cada pilar é essencial. Juntos, transformam o pescoço pesado em contorno definido.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-white italic">
+        "Tratar só pele e platisma é aparar a grama. O Deep Neck é reformar o jardim inteiro."
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-12">
+        {
+          pilares.map((p) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <>
+                  <span class="text-5xl font-serif text-accent-600/20">{p.n}</span>
+                  <div>
+                    <>
+                      <p class="text-[10px] font-medium text-accent-600 uppercase mb-2">{p.s}</p>
+                      <h2 class="text-xl font-serif text-primary-900 mb-3">{p.t}</h2>
+                      <p class="text-warmGray mb-4">{p.d}</p>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <>
+                          <ul class="space-y-2">
+                            {p.det.map((d) => (
+                              <li class="text-sm text-warmGray">→ {d}</li>
+                            ))}
+                          </ul>
+                          <div class="bg-ivory p-4">
+                            <>
+                              <p class="text-xs text-accent-600 mb-1">Metáfora</p>
+                              <p class="text-sm italic">"{p.m}"</p>
+                            </>
+                          </div>
+                        </>
+                      </div>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "A fasciotomia pré-hioideia é obrigatória em 100% das cirurgias de Deep Neck."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/pt/tecnicas/deep-neck/o-que-e" class="text-sm text-accent-600">← O Que É</a><a
+        href="/pt/tecnicas/deep-neck/anatomia"
+        class="text-sm text-accent-600">Anatomia →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

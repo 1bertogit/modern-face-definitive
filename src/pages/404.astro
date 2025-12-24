@@ -1,0 +1,152 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { getLocaleFromUrl } from '@lib/i18n';
+
+const locale = getLocaleFromUrl(Astro.url);
+
+const content = {
+  'pt': {
+    title: 'Página não encontrada',
+    heading: '404',
+    subheading: 'Ops! Página não encontrada',
+    description:
+      'A página que você está procurando pode ter sido removida, renomeada ou está temporariamente indisponível.',
+    homeLink: 'Voltar ao início',
+    techniquesLink: 'Ver técnicas',
+    contactLink: 'Entrar em contato',
+  },
+  en: {
+    title: 'Page Not Found',
+    heading: '404',
+    subheading: 'Oops! Page not found',
+    description:
+      'The page you are looking for might have been removed, renamed, or is temporarily unavailable.',
+    homeLink: 'Back to home',
+    techniquesLink: 'View techniques',
+    contactLink: 'Contact us',
+  },
+  es: {
+    title: 'Página no encontrada',
+    heading: '404',
+    subheading: '¡Ups! Página no encontrada',
+    description:
+      'La página que buscas puede haber sido eliminada, renombrada o está temporalmente no disponible.',
+    homeLink: 'Volver al inicio',
+    techniquesLink: 'Ver técnicas',
+    contactLink: 'Contactar',
+  },
+};
+
+const t = content[locale];
+
+const links = {
+  'pt': { home: '/pt', techniques: '/pt/tecnicas', contact: '/pt/contato' },
+  en: { home: '/', techniques: '/techniques', contact: '/contact' },
+  es: { home: '/es', techniques: '/es/tecnicas', contact: '/es/contacto' },
+};
+
+const l = links[locale];
+---
+
+<BaseLayout title={t.title} description={t.description} noIndex={true}>
+  <section class="min-h-[70vh] flex items-center justify-center py-20">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <!-- 404 Number -->
+      <p class="text-[150px] md:text-[200px] font-serif text-primary-200 leading-none select-none">
+        {t.heading}
+      </p>
+
+      <!-- Heading -->
+      <h1 class="text-3xl md:text-4xl font-serif text-primary-900 -mt-8 mb-4">
+        {t.subheading}
+      </h1>
+
+      <!-- Description -->
+      <p class="text-lg text-warmGray mb-10 max-w-md mx-auto">
+        {t.description}
+      </p>
+
+      <!-- Links -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={l.home}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-primary-900 text-white rounded-lg hover:bg-primary-800 transition-colors"
+        >
+          <span class="material-symbols-outlined text-xl">home</span>
+          {t.homeLink}
+        </a>
+
+        <a
+          href={l.techniques}
+          class="inline-flex items-center gap-2 px-6 py-3 border border-primary-900 text-primary-900 rounded-lg hover:bg-primary-50 transition-colors"
+        >
+          <span class="material-symbols-outlined text-xl">science</span>
+          {t.techniquesLink}
+        </a>
+
+        <a
+          href={l.contact}
+          class="inline-flex items-center gap-2 px-6 py-3 text-primary-700 hover:text-primary-900 transition-colors"
+        >
+          <span class="material-symbols-outlined text-xl">mail</span>
+          {t.contactLink}
+        </a>
+      </div>
+
+      <!-- Search suggestion -->
+      <div class="mt-16 pt-8 border-t border-gray-200">
+        <p class="text-sm text-softGray mb-4">
+          {
+            locale === 'en'
+              ? 'Popular pages:'
+              : locale === 'es'
+                ? 'Páginas populares:'
+                : 'Páginas populares:'
+          }
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a
+            href={locale === 'pt'
+              ? '/pt/tecnicas/endomidface'
+              : locale === 'en'
+                ? '/techniques/endomidface'
+                : '/es/tecnicas/endomidface'}
+            class="text-sm px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            ENDOMIDFACE®
+          </a>
+          <a
+            href={locale === 'pt'
+              ? '/pt/tecnicas/deep-neck'
+              : locale === 'en'
+                ? '/techniques/deep-neck'
+                : '/es/tecnicas/deep-neck'}
+            class="text-sm px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            Deep Neck
+          </a>
+          <a
+            href={locale === 'pt'
+              ? '/pt/face-moderna'
+              : locale === 'en'
+                ? '/modern-face'
+                : '/es/face-moderna'}
+            class="text-sm px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            Face Moderna®
+          </a>
+          <a
+            href={locale === 'pt'
+              ? '/pt/educacao'
+              : locale === 'en'
+                ? '/education'
+                : '/es/educacion'}
+            class="text-sm px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            {locale === 'en' ? 'Training' : 'Formação'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

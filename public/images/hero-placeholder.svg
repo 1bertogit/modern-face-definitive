@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#1e293b"/>
+  <rect x="0" y="0" width="800" height="1000" fill="url(#heroGrad)"/>
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#102a43;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Abstract face silhouette -->
+  <ellipse cx="400" cy="350" rx="180" ry="230" stroke="#b8956c" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M 300 400 Q 320 450 400 480 Q 480 450 500 400" stroke="#b8956c" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M 330 350 Q 350 340 370 350" stroke="#b8956c" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M 430 350 Q 450 340 470 350" stroke="#b8956c" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Decorative lines -->
+  <line x1="200" y1="700" x2="600" y2="700" stroke="#b8956c" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="750" x2="500" y2="750" stroke="#b8956c" stroke-width="1" opacity="0.15"/>
+  <!-- Text -->
+  <text x="400" y="820" font-family="Georgia, serif" font-size="36" fill="#b8956c" text-anchor="middle" opacity="0.7">DR. ROBERIO</text>
+  <text x="400" y="870" font-family="Arial, sans-serif" font-size="14" fill="#8a8a88" text-anchor="middle" letter-spacing="4">BRANDAO</text>
+  <text x="400" y="920" font-family="Arial, sans-serif" font-size="11" fill="#8a8a88" text-anchor="middle" letter-spacing="2" opacity="0.6">FACE MODERNA</text>
+</svg>

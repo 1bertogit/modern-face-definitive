@@ -1,0 +1,202 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'nervos faciais anatomia',
+  'nervo marginal mandíbula',
+  'ramo frontal facial',
+  'lesão nervosa lifting',
+  'proteção nervos cirurgia',
+  'nervos motores face',
+];
+
+const nervosMotores = [
+  {
+    nome: 'Ramo Temporal/Frontal',
+    funcao: 'Frontalis, orbicular superior',
+    risco: 'Alto',
+    zona: 'Arco zigomático',
+  },
+  {
+    nome: 'Ramo Zigomático',
+    funcao: 'Orbicular do olho',
+    risco: 'Médio',
+    zona: 'Protegido pelo SMAS',
+  },
+  {
+    nome: 'Ramo Bucal',
+    funcao: 'Elevadores do lábio, zigomático',
+    risco: 'Alto',
+    zona: 'Midface - maior atenção',
+  },
+  {
+    nome: 'Ramo Marginal',
+    funcao: 'Depressores do lábio',
+    risco: 'Muito Alto',
+    zona: 'Borda mandibular',
+  },
+  { nome: 'Ramo Cervical', funcao: 'Platisma', risco: 'Baixo', zona: 'Pescoço' },
+];
+
+const nervosSensitivos = [
+  { nome: 'Supraorbital', origem: 'V1', area: 'Fronte e couro cabeludo anterior' },
+  { nome: 'Supratroclear', origem: 'V1', area: 'Glabela e parte medial da fronte' },
+  { nome: 'Infraorbital', origem: 'V2', area: 'Pálpebra inferior, nariz lateral, lábio superior' },
+  { nome: 'Mental', origem: 'V3', area: 'Lábio inferior e mento' },
+];
+---
+
+<BaseLayout
+  title="Nervos da Face | Anatomia Cirúrgica"
+  description="Nervos motores e sensitivos da face. O que proteger a todo custo na cirurgia facial."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/anatomia" class="hover:text-white">Anatomia</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Nervos Faciais</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Segurança Máxima
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Nervos Faciais</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        O que proteger a todo custo. Lesão nervosa é a complicação mais temida da cirurgia facial.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-red-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "Você não pode proteger o que não conhece. E não pode conhecer o que não vê."
+      </p>
+      <p class="text-white/80 text-sm mt-2">— Princípio da Visão Direta</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Os nervos faciais dividem-se em dois sistemas: o nervo facial (VII par craniano),
+          responsável pela motricidade da mímica facial, e os ramos do trigêmeo (V par),
+          responsáveis pela sensibilidade.
+        </p>
+        <p>
+          Na cirurgia facial, a proteção dos ramos motores é crítica — sua lesão causa paralisia
+          visível. Os nervos sensitivos, quando lesados, causam dormência temporária ou permanente,
+          geralmente mais tolerável.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Nervo Facial (VII) — Ramos Motores
+      </h2>
+      <p class="text-warmGray text-center mb-12">Da motricidade facial — lesão causa paralisia</p>
+
+      <div class="space-y-4">
+        {
+          nervosMotores.map((n) => (
+            <div class="flex flex-col md:flex-row md:items-center gap-4 p-6 bg-ivory border border-gray-100">
+              <div class="flex-1">
+                <h3 class="font-serif text-primary-900 mb-1">{n.nome}</h3>
+                <p class="text-sm text-warmGray">Função: {n.funcao}</p>
+                <p class="text-xs text-softGray">Zona crítica: {n.zona}</p>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 self-start md:self-center text-white ${n.risco === 'Muito Alto' ? 'bg-red-700' : n.risco === 'Alto' ? 'bg-red-600' : n.risco === 'Médio' ? 'bg-amber-600' : 'bg-green-600'}`}
+              >
+                Risco {n.risco}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ O Ramo Marginal</h2>
+      <div class="bg-white p-8 border border-red-200">
+        <p class="text-warmGray mb-4">
+          O ramo marginal da mandíbula é responsável pela <strong class="text-primary-900"
+            >maioria das complicações</strong
+          >
+          em cirurgia facial. Sua lesão causa assimetria labial — o "sorriso torto" que identifica complicação
+          cirúrgica.
+        </p>
+        <ul class="space-y-2 text-sm text-warmGray">
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span>
+            <span>Cruza a mandíbula em posição variável</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span>
+            <span>Em 20% dos casos, passa abaixo da borda inferior da mandíbula</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span>
+            <span>A visão direta permite identificá-lo antes de lesioná-lo</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Trigêmeo (V) — Ramos Sensitivos
+      </h2>
+      <p class="text-warmGray text-center mb-12">Da sensibilidade facial — lesão causa dormência</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          nervosSensitivos.map((n) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif text-primary-900">{n.nome}</h3>
+                <span class="text-xs px-2 py-1 bg-accent-100 text-accent-800">{n.origem}</span>
+              </div>
+              <p class="text-sm text-warmGray">Área: {n.area}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">A Vantagem da Visão Direta</h2>
+      <p class="text-primary-300">
+        Na técnica endoscópica, você vê numa tela o que está a centímetros de distância. Na visão
+        direta, você vê o nervo antes de tocá-lo.
+        <span class="text-accent-400"
+          >Essa diferença de milímetros pode ser a diferença entre sucesso e complicação.</span
+        >
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/anatomia/ligamentos-retentores" class="text-sm text-accent-600"
+        >← Ligamentos Retentores</a
+      >
+      <a href="/pt/tecnicas/anatomia" class="text-sm text-accent-600">Voltar ao Índice →</a>
+    </div>
+  </section>
+</BaseLayout>

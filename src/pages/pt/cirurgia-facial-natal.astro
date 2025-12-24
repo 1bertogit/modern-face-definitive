@@ -1,0 +1,707 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import FAQAccordion from '@components/islands/FAQAccordion';
+import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
+
+/**
+ * Landing Page SEO Local - Cirurgião Plástico em Natal/RN
+ * Otimizada para busca local e turismo médico
+ */
+
+const keywords = [
+  // Alta Intenção (Fundo de Funil)
+  'cirurgião plástico em Natal',
+  'melhor cirurgião plástico Natal RN',
+  'clínica de cirurgia plástica em Natal',
+  'Dr Robério Brandão',
+  'cirurgião plástico Petrópolis Natal',
+  'cirurgião plástico Tirol Natal',
+  'consulta cirurgião plástico Natal',
+  'cirurgia plástica segura Natal',
+  // Autoridade em Face
+  'Deep Plane Facelift Natal',
+  'lifting facial em Natal',
+  'rejuvenescimento facial cirúrgico Natal',
+  'ritidoplastia Natal',
+  'ENDOMIDFACE Natal',
+  'Deep Neck cirurgia pescoço Natal',
+  'Browlift Natal',
+  'cirurgia de pálpebras Natal',
+  // Geolocalização
+  'cirurgião plástico especialista em face Natal',
+  'clínica cirurgia plástica Tirol Petrópolis',
+  'turismo médico cirurgia plástica Natal',
+];
+
+// Schema LocalBusiness/MedicalBusiness
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: 'Modern Face Institute - Dr. Robério Brandão',
+  image: 'https://drroberiobrandao.com/og-image.webp',
+  description:
+    'Clínica especializada em cirurgia plástica facial em Natal/RN. Dr. Robério Brandão - especialista em Deep Plane Facelift, ENDOMIDFACE, Deep Neck e rejuvenescimento facial.',
+  url: 'https://drroberiobrandao.com/cirurgia-facial-natal',
+  telephone: '+55-84-XXXX-XXXX',
+  priceRange: '$$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Prudente de Morais',
+    addressLocality: 'Natal',
+    addressRegion: 'RN',
+    postalCode: '59020-000',
+    addressCountry: 'BR',
+    areaServed: ['Natal', 'Rio Grande do Norte', 'Nordeste'],
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '-5.7945',
+    longitude: '-35.2110',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '08:00',
+      closes: '12:00',
+    },
+  ],
+  sameAs: [
+    'https://www.instagram.com/drroberiobrandao',
+    'https://www.youtube.com/@modernfaceinstitute',
+  ],
+  medicalSpecialty: {
+    '@type': 'MedicalSpecialty',
+    name: 'Plastic Surgery - Facial Rejuvenation',
+  },
+};
+
+// Schema Person - Dr. Robério Brandão
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dr. Robério Brandão',
+  jobTitle: 'Cirurgião Plástico',
+  description:
+    'Cirurgião plástico especialista em rejuvenescimento facial, criador da técnica ENDOMIDFACE por Visão Direta. 18+ anos de experiência, +1.500 cirurgias faciais realizadas.',
+  image: 'https://drroberiobrandao.com/images/dr-roberio-brandao.webp',
+  url: 'https://drroberiobrandao.com/sobre/dr-roberio',
+  sameAs: ['https://www.instagram.com/drroberiobrandao'],
+  worksFor: {
+    '@type': 'MedicalBusiness',
+    name: 'Modern Face Institute',
+  },
+  knowsAbout: [
+    'Deep Plane Facelift',
+    'ENDOMIDFACE',
+    'Deep Neck Lift',
+    'Browlift',
+    'Blefaroplastia',
+    'Rejuvenescimento Facial',
+  ],
+  memberOf: {
+    '@type': 'Organization',
+    name: 'Sociedade Brasileira de Cirurgia Plástica',
+  },
+};
+
+// Schema MedicalProcedure para cada técnica
+const procedureSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name: 'Deep Plane Facelift em Natal',
+    description:
+      "Lifting facial em plano profundo que reposiciona os tecidos faciais de forma natural e duradoura, evitando o aspecto 'esticado' do lifting tradicional.",
+    procedureType: 'Surgical',
+    bodyLocation: 'Face',
+    preparation: 'Consulta inicial, exames pré-operatórios, avaliação fotográfica',
+    followup: 'Acompanhamento pós-operatório por 12 meses',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name: 'ENDOMIDFACE em Natal',
+    description:
+      'Técnica exclusiva de rejuvenescimento do terço médio da face por visão direta, sem endoscópio, com segurança superior em faces com bioestimuladores.',
+    procedureType: 'Surgical',
+    bodyLocation: 'Face - Terço Médio',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name: 'Deep Neck Lift em Natal',
+    description:
+      'Cirurgia de rejuvenescimento cervical que trata flacidez do pescoço, papada e bandas platismais de forma definitiva.',
+    procedureType: 'Surgical',
+    bodyLocation: 'Pescoço',
+  },
+];
+
+// Combinar todos os schemas
+const combinedSchema = [localBusinessSchema, personSchema, ...procedureSchemas];
+
+// Credenciais
+const credenciais = [
+  { valor: '18+', label: 'Anos de Experiência' },
+  { valor: '1.500+', label: 'Cirurgias Faciais' },
+  { valor: '200+', label: 'Casos Documentados' },
+  { valor: '0%', label: 'Lesão Nervosa Permanente' },
+];
+
+// Técnicas oferecidas
+const tecnicas = [
+  {
+    nome: 'Deep Plane Facelift',
+    descricao:
+      "Lifting facial em plano profundo com resultados naturais e duradouros. Sem aspecto 'esticado'.",
+    href: '/pt/tecnicas/deep-plane',
+    icone: 'face_retouching_natural',
+  },
+  {
+    nome: 'ENDOMIDFACE',
+    descricao:
+      'Técnica exclusiva para o terço médio da face. Segurança máxima em faces com bioestimuladores.',
+    href: '/pt/tecnicas/endomidface',
+    icone: 'visibility',
+  },
+  {
+    nome: 'Deep Neck',
+    descricao: 'Rejuvenescimento cervical completo. Trata papada, flacidez e bandas platismais.',
+    href: '/pt/tecnicas/deep-neck',
+    icone: 'straighten',
+  },
+  {
+    nome: 'Browlift',
+    descricao:
+      'Elevação das sobrancelhas e rejuvenescimento do terço superior. Olhar descansado e natural.',
+    href: '/pt/tecnicas/browlift',
+    icone: 'visibility',
+  },
+  {
+    nome: 'Blefaroplastia',
+    descricao:
+      'Cirurgia de pálpebras superiores e inferiores. Remove excesso de pele e bolsas de gordura.',
+    href: '/pt/tecnicas/blefaroplastia',
+    icone: 'remove_red_eye',
+  },
+];
+
+// Diferenciais
+const diferenciais = [
+  {
+    titulo: 'Técnicas Modernas',
+    descricao:
+      "Deep Plane Facelift e ENDOMIDFACE, não o lifting tradicional que deixa aspecto 'esticado'. Resultados naturais.",
+    icone: 'auto_awesome',
+  },
+  {
+    titulo: 'Resultados Duradouros',
+    descricao:
+      '8-12 anos de durabilidade comprovada. Técnicas que trabalham em plano profundo, não apenas na pele.',
+    icone: 'schedule',
+  },
+  {
+    titulo: 'Clínica Moderna',
+    descricao:
+      'Estrutura completa no Tirol/Petrópolis, Natal. Centro cirúrgico equipado e ambiente acolhedor.',
+    icone: 'local_hospital',
+  },
+  {
+    titulo: 'Atendimento Personalizado',
+    descricao:
+      'Cada paciente é único. Avaliação detalhada, planejamento cirúrgico individualizado e expectativas alinhadas.',
+    icone: 'person',
+  },
+  {
+    titulo: 'Suporte Pós-Operatório',
+    descricao:
+      'Acompanhamento por 12 meses incluído. Retornos regulares, orientações personalizadas e disponibilidade.',
+    icone: 'support_agent',
+  },
+  {
+    titulo: 'Segurança Comprovada',
+    descricao:
+      '0% de lesão nervosa permanente em mais de 1.500 cirurgias. Protocolos rigorosos de segurança.',
+    icone: 'verified_user',
+  },
+];
+
+// FAQ
+const faqItems = [
+  {
+    question: 'Qual o melhor cirurgião plástico de Natal para lifting facial?',
+    answer:
+      "Dr. Robério Brandão é referência em Natal e no Nordeste em cirurgia de rejuvenescimento facial. Com mais de 18 anos de experiência e 1.500+ cirurgias faciais realizadas, é especialista em técnicas modernas como Deep Plane Facelift e criador da técnica ENDOMIDFACE por Visão Direta. Sua formação inclui treinamentos internacionais e uma abordagem que prioriza resultados naturais, sem o aspecto 'esticado' comum em técnicas tradicionais.",
+  },
+  {
+    question: 'Quanto custa um lifting facial em Natal?',
+    answer:
+      'O valor de um lifting facial varia de acordo com a técnica indicada, a extensão do procedimento e as necessidades individuais de cada paciente. Um Deep Plane Facelift completo, por exemplo, tem valor diferente de um lifting apenas no terço médio (ENDOMIDFACE). Na consulta inicial, após avaliação detalhada, o Dr. Robério apresenta um planejamento personalizado com valores transparentes, incluindo honorários médicos, centro cirúrgico, anestesia e acompanhamento pós-operatório por 12 meses.',
+  },
+  {
+    question: 'O que é Deep Plane Facelift e por que é melhor?',
+    answer:
+      "O Deep Plane Facelift é uma técnica avançada que trabalha em um plano mais profundo da face, reposicionando não apenas a pele, mas todo o complexo de tecidos (SMAS, gordura, ligamentos). Diferentemente do lifting tradicional que apenas 'estica' a pele, o Deep Plane restaura a anatomia natural da face, resultando em: aspecto mais natural (sem aparência artificial), durabilidade superior (8-12 anos vs 3-5 anos do tradicional), recuperação mais tranquila e menos tensão nas cicatrizes.",
+  },
+  {
+    question: 'A clínica atende pacientes de outros estados?',
+    answer:
+      'Sim, recebemos pacientes de todo o Brasil, especialmente de João Pessoa, Recife, Fortaleza e outras capitais do Nordeste. Para pacientes de fora, oferecemos: consulta inicial presencial ou por telemedicina (para primeira avaliação), planejamento detalhado antes da viagem, indicação de hospedagem próxima à clínica, protocolo de acompanhamento adaptado (retornos presenciais nos dias críticos e acompanhamento remoto nos demais), e disponibilidade para contato direto com o Dr. Robério durante toda a recuperação.',
+  },
+  {
+    question: 'Como é a recuperação de um lifting facial?',
+    answer:
+      'A recuperação varia conforme a técnica. Para o Deep Plane Facelift: primeiras 48-72h são as mais críticas (repouso absoluto, compressas frias); em 7-10 dias há retorno social possível (edema e hematomas controlados com maquiagem); em 3-4 semanas é possível retomar exercícios leves; e o resultado final se consolida entre 3-6 meses. O ENDOMIDFACE tem recuperação mais rápida: retorno social em 7-10 dias e resultado final em 4-8 semanas. Todos os pacientes recebem protocolo detalhado e acompanhamento contínuo.',
+  },
+  {
+    question: 'Qual a diferença entre lifting tradicional e Deep Plane?',
+    answer:
+      "A diferença fundamental está no plano de dissecção. O lifting tradicional trabalha superficialmente, apenas tensionando a pele — o que gera o aspecto 'puxado' e tem menor durabilidade (3-5 anos). O Deep Plane trabalha em plano profundo, liberando e reposicionando todo o bloco de tecidos (SMAS móvel, gordura malar, ligamentos). Isso permite: vetor de elevação mais natural (vertical, contra a gravidade), menor tensão nas cicatrizes, resultado mais harmonioso e duradouro (8-12 anos), e menor risco de aspecto artificial.",
+  },
+  {
+    question: 'O Dr. Robério faz cirurgias combinadas (face + corpo)?',
+    answer:
+      'O Dr. Robério é especialista exclusivo em cirurgia facial. Essa especialização permite expertise máxima na área, com conhecimento profundo da anatomia facial e domínio de técnicas avançadas como Deep Plane e ENDOMIDFACE. Para procedimentos corporais (lipo, abdominoplastia, mamoplastia), indicamos colegas de confiança. Caso deseje combinar procedimentos, podemos coordenar com outros especialistas para que as cirurgias sejam realizadas na mesma data, quando seguro.',
+  },
+];
+
+// Breadcrumbs
+const breadcrumbItems = [
+  { name: 'Home', url: '/' },
+  { name: 'Cirurgião Plástico em Natal', url: '/cirurgia-facial-natal' },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: `https://drroberiobrandao.com${item.url}`,
+  })),
+};
+---
+
+<BaseLayout
+  title="Cirurgião Plástico em Natal - Dr. Robério Brandão | Modern Face Institute"
+  description="Melhor cirurgião plástico em Natal/RN. Especialista em Deep Plane Facelift, ENDOMIDFACE, Deep Neck e Lipo HD. 18 anos de experiência, +1.500 cirurgias. Clínica no Tirol/Petrópolis."
+  keywords={keywords}
+  schema={combinedSchema}
+>
+  <!-- Schema Breadcrumb -->
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <!-- Hero Section -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white transition-colors">Home</a></li>
+          <li><span class="mx-2">/</span></li>
+          <li class="text-white">Cirurgião Plástico em Natal</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-accent-600/20 border border-accent-600/30 rounded-full mb-6"
+        >
+          <span class="material-symbols-outlined text-accent-500 text-sm">location_on</span>
+          <span class="text-xs font-medium text-accent-400 uppercase tracking-wider">
+            Clínica no Tirol/Petrópolis - Natal/RN
+          </span>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Cirurgião Plástico em Natal
+          <span class="block text-accent-400 mt-2">Dr. Robério Brandão</span>
+        </h1>
+
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto mb-8">
+          Especialista em Rejuvenescimento Facial | Deep Plane • ENDOMIDFACE • Deep Neck
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#contato"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-600 text-white font-medium hover:bg-accent-700 transition-colors"
+          >
+            <span class="material-symbols-outlined text-xl">calendar_month</span>
+            Agendar Consulta
+          </a>
+          <a
+            href="https://wa.me/5584999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white hover:bg-white/10 transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              ></path>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credenciais -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          credenciais.map((item) => (
+            <div>
+              <p class="text-4xl font-serif text-white mb-1">{item.valor}</p>
+              <p class="text-xs text-white/80 uppercase tracking-[0.1em]">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre o Dr. Robério -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Foto (Placeholder) -->
+        <div class="relative">
+          <div
+            class="aspect-[4/5] bg-primary-100 border border-gray-200 flex items-center justify-center"
+          >
+            <div class="text-center p-8">
+              <span class="material-symbols-outlined text-6xl text-primary-300 mb-4 block"
+                >person</span
+              >
+              <p class="text-sm text-primary-400">Dr. Robério Brandão</p>
+            </div>
+          </div>
+          <!-- Badge flutuante -->
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 shadow-lg border border-gray-100">
+            <p class="text-3xl font-serif text-accent-600 mb-1">18+</p>
+            <p class="text-xs text-warmGray uppercase tracking-wider">Anos de Experiência</p>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div>
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+            Sobre o Especialista
+          </p>
+          <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-6">Dr. Robério Brandão</h2>
+
+          <div class="prose prose-lg max-w-none text-warmGray">
+            <p class="drop-cap">
+              Com mais de 18 anos dedicados exclusivamente à cirurgia facial, Dr. Robério Brandão é
+              referência em Natal e no Nordeste em técnicas avançadas de rejuvenescimento. Criador
+              da técnica ENDOMIDFACE por Visão Direta, já realizou mais de 1.500 cirurgias faciais
+              com índice de 0% de lesão nervosa permanente.
+            </p>
+
+            <p>
+              Sua formação inclui treinamentos internacionais com os maiores nomes da cirurgia
+              facial, incluindo especialização em Deep Plane Facelift. Diferentemente de cirurgiões
+              generalistas, Dr. Robério concentra toda sua expertise em uma única área: <strong
+                class="text-primary-900">fazer rostos voltarem a parecer como eram</strong
+              > — não diferentes, não esticados, mas naturalmente mais jovens.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/pt/sobre/dr-roberio"
+              class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+            >
+              Conheça a história completa →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Técnicas Oferecidas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Procedimentos em Natal
+        </p>
+        <h2 class="text-3xl md:text-4xl font-serif text-primary-900">
+          Técnicas de Rejuvenescimento Facial
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          tecnicas.map((tecnica) => (
+            <a
+              href={tecnica.href}
+              class="group p-8 bg-ivory border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="material-symbols-outlined text-3xl text-accent-600/50 group-hover:text-accent-600 transition-colors mb-4 block">
+                {tecnica.icone}
+              </span>
+              <h3 class="text-lg font-serif text-primary-900 mb-3 group-hover:text-accent-600 transition-colors">
+                {tecnica.nome}
+              </h3>
+              <p class="text-warmGray text-sm leading-relaxed mb-4">{tecnica.descricao}</p>
+              <span class="text-sm text-accent-600 group-hover:text-accent-700">Saiba mais →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que escolher Dr. Robério -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Diferenciais
+        </p>
+        <h2 class="text-3xl md:text-4xl font-serif text-primary-900">
+          Por que Escolher o Dr. Robério em Natal
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          diferenciais.map((item) => (
+            <div class="p-8 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-3xl text-accent-600 mb-4 block">
+                {item.icone}
+              </span>
+              <h3 class="text-lg font-serif text-primary-900 mb-3">{item.titulo}</h3>
+              <p class="text-warmGray text-sm leading-relaxed">{item.descricao}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Pacientes de Fora (Turismo Médico) -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Turismo Médico
+        </p>
+        <h2 class="text-3xl md:text-4xl font-serif text-white">
+          Pacientes de João Pessoa, Recife e Outros Estados
+        </h2>
+        <p class="text-primary-300 mt-4 max-w-2xl mx-auto">
+          Recebemos pacientes de todo o Brasil. Nossa estrutura foi pensada para oferecer conforto e
+          segurança a quem vem de longe.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 bg-white/5 border border-white/10">
+          <span class="material-symbols-outlined text-3xl text-accent-500 mb-4 block"
+            >video_call</span
+          >
+          <h3 class="text-lg font-serif text-white mb-3">Consulta Inicial</h3>
+          <p class="text-primary-300 text-sm leading-relaxed">
+            Primeira avaliação por telemedicina para análise inicial. Avaliação presencial
+            obrigatória antes da cirurgia.
+          </p>
+        </div>
+
+        <div class="p-8 bg-white/5 border border-white/10">
+          <span class="material-symbols-outlined text-3xl text-accent-500 mb-4 block">hotel</span>
+          <h3 class="text-lg font-serif text-white mb-3">Hospedagem</h3>
+          <p class="text-primary-300 text-sm leading-relaxed">
+            Indicação de hotéis parceiros próximos à clínica, com tarifas especiais para pacientes.
+          </p>
+        </div>
+
+        <div class="p-8 bg-white/5 border border-white/10">
+          <span class="material-symbols-outlined text-3xl text-accent-500 mb-4 block"
+            >support_agent</span
+          >
+          <h3 class="text-lg font-serif text-white mb-3">Acompanhamento Remoto</h3>
+          <p class="text-primary-300 text-sm leading-relaxed">
+            Protocolo adaptado com retornos presenciais nos dias críticos e acompanhamento por vídeo
+            nos demais.
+          </p>
+        </div>
+
+        <div class="p-8 bg-white/5 border border-white/10">
+          <span class="material-symbols-outlined text-3xl text-accent-500 mb-4 block"
+            >phone_in_talk</span
+          >
+          <h3 class="text-lg font-serif text-white mb-3">Contato Direto</h3>
+          <p class="text-primary-300 text-sm leading-relaxed">
+            Acesso direto ao Dr. Robério durante toda a recuperação. Disponibilidade para dúvidas e
+            emergências.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização -->
+  <section id="localizacao" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Mapa Placeholder -->
+        <div
+          class="aspect-square bg-gray-100 border border-gray-200 flex items-center justify-center"
+        >
+          <div class="text-center p-8">
+            <span class="material-symbols-outlined text-6xl text-primary-300 mb-4 block">map</span>
+            <p class="text-sm text-softGray">Google Maps</p>
+            <p class="text-xs text-primary-400 mt-2">Tirol/Petrópolis - Natal/RN</p>
+          </div>
+        </div>
+
+        <!-- Informações -->
+        <div>
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+            Localização
+          </p>
+          <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-8">Clínica em Natal</h2>
+
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-accent-600">location_on</span>
+              <div>
+                <p class="font-medium text-primary-900">Endereço</p>
+                <p class="text-warmGray text-sm">
+                  Av. Prudente de Morais<br />
+                  Tirol/Petrópolis - Natal/RN<br />
+                  CEP: 59020-000
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-accent-600">schedule</span>
+              <div>
+                <p class="font-medium text-primary-900">Horário de Atendimento</p>
+                <p class="text-warmGray text-sm">
+                  Segunda a Sexta: 08h às 18h<br />
+                  Sábado: 08h às 12h
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-accent-600">phone</span>
+              <div>
+                <p class="font-medium text-primary-900">Telefone / WhatsApp</p>
+                <p class="text-warmGray text-sm">(84) 9 9999-9999</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="material-symbols-outlined text-accent-600">mail</span>
+              <div>
+                <p class="font-medium text-primary-900">E-mail</p>
+                <p class="text-warmGray text-sm">contato@drroberiobrandao.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-primary-900 text-white hover:bg-primary-800 transition-colors"
+            >
+              <span class="material-symbols-outlined text-lg">directions</span>
+              Ver no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Perguntas Frequentes
+        </p>
+        <h2 class="text-3xl md:text-4xl font-serif text-primary-900">
+          Dúvidas sobre Cirurgia Plástica em Natal
+        </h2>
+      </div>
+
+      <FAQAccordion client:load items={faqItems} />
+    </div>
+  </section>
+
+  <!-- Schema FAQ -->
+  <SchemaFAQ items={faqItems} />
+
+  <!-- CTA Final -->
+  <section id="contato" class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Agende sua Avaliação em Natal</h2>
+      <p class="text-primary-300 mb-8 max-w-2xl mx-auto">
+        O primeiro passo é uma consulta para entender suas expectativas e avaliar as melhores opções
+        para seu caso. Entre em contato e agende sua avaliação.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://wa.me/5584999999999?text=Olá, gostaria de agendar uma consulta com o Dr. Robério Brandão."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            ></path>
+          </svg>
+          Agendar via WhatsApp
+        </a>
+
+        <a
+          href="tel:+5584999999999"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/30 text-white hover:bg-white/10 transition-colors"
+        >
+          <span class="material-symbols-outlined">phone</span>
+          Ligar Agora
+        </a>
+      </div>
+
+      <!-- Formulário Placeholder -->
+      <div class="mt-12 p-8 bg-white/5 border border-white/10">
+        <p class="text-primary-400 text-sm">Formulário de contato em breve</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/pt" class="text-sm text-accent-600 hover:text-accent-700"> ← Home </a>
+        <a href="/pt/tecnicas" class="text-sm text-accent-600 hover:text-accent-700">
+          Técnicas →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

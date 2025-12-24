@@ -1,0 +1,301 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck facelift',
+  'neck rejuvenation surgery',
+  'platysma plication',
+  'digastric shaving',
+  'submandibular gland preservation',
+  'Modern Face neck technique',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Modern Face Deep Neck',
+  description:
+    'Complete surgical neck treatment WITHOUT submandibular gland removal. Platysma plication, digastric shaving, lateral Crevassi.',
+  procedureType: 'Surgical',
+  bodyLocation: 'Neck - Cervical Region',
+};
+
+const principles = [
+  {
+    title: 'Total Gland Preservation',
+    description:
+      'NEVER remove the submandibular gland. The risk of injury to vital structures does not justify the marginal aesthetic benefit.',
+    highlight: 'Non-Negotiable Principle',
+    icon: 'shield',
+  },
+  {
+    title: 'Controlled Digastric Shaving',
+    description:
+      'Reduction of hypertrophied anterior digastric belly by shaving, not complete excision. Maintains function, reduces volume.',
+    highlight: 'Preservation Technique',
+    icon: 'content_cut',
+  },
+  {
+    title: 'Layered Platysma Plication',
+    description:
+      'Platysma plication with layered technique. Starts at the mentum, descends to the angle, returns. Creates cervical definition.',
+    highlight: 'Structural Definition',
+    icon: 'layers',
+  },
+  {
+    title: 'Lateral Crevassi',
+    description:
+      'Platysma plication to the SCM fascia. Lateral support that prevents recurrence and maintains the cervical angle.',
+    highlight: 'Durable Support',
+    icon: 'anchor',
+  },
+];
+
+const subpages = [
+  {
+    href: '/techniques/deep-neck/what-is-it',
+    title: 'Definition & Philosophy',
+    description: 'The Modern Face approach to the neck',
+  },
+  {
+    href: '/techniques/deep-neck/anatomy',
+    title: 'Cervical Anatomy',
+    description: 'Critical structures and safety zones',
+  },
+  {
+    href: '/techniques/deep-neck/pillars',
+    title: 'Technical Pillars',
+    description: 'Fundamentals of Deep Neck',
+  },
+  {
+    href: '/techniques/deep-neck/step-by-step',
+    title: 'Step by Step',
+    description: 'Technical sequence of the procedure',
+  },
+  {
+    href: '/techniques/deep-neck/indications',
+    title: 'Indications',
+    description: 'When and for whom it is indicated',
+  },
+  {
+    href: '/techniques/deep-neck/common-errors',
+    title: 'Classic Errors',
+    description: 'Common pitfalls and how to avoid them',
+  },
+  {
+    href: '/techniques/deep-neck/results',
+    title: 'Expected Results',
+    description: 'What can be achieved',
+  },
+];
+
+const indications = [
+  'Heavy neck with submental fat excess',
+  'Platysmal bands visible at rest or dynamic',
+  "Hypertrophied digastric (belly like 'a finger')",
+  'Loss of cervicomental angle',
+  'Moderate to severe cervical skin ptosis',
+  'Secondary cases with unsatisfactory prior results',
+];
+---
+
+<BaseLayout
+  title="Modern Face Deep Neck"
+  description="Complete surgical neck treatment WITHOUT submandibular gland removal. Platysma plication, digastric shaving, lateral Crevassi."
+  keywords={keywords}
+  schema={schema}
+  lang="en"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/techniques" class="hover:text-white">Techniques</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Deep Neck</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Main Technique • Cervical Region
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Modern Face Deep Neck
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Complete neck treatment with total submandibular gland preservation. Maximum safety
+          without compromising results.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principle Alert -->
+  <section class="py-6 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-white font-medium">
+        <span class="font-bold">Non-Negotiable Principle:</span> The submandibular gland is NEVER removed
+        in Modern Face. Safety over aesthetic millimeters.
+      </p>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          The neck is often neglected in facial surgeries, but it's impossible to have a harmonious
+          result without treating it adequately. Modern Face Deep Neck addresses the neck
+          comprehensively — platysmal bands, submental fat, hypertrophied digastric — but always
+          within well-defined safety limits.
+        </p>
+
+        <p>
+          The fundamental difference in our approach: <strong class="text-primary-900">
+            we never remove the submandibular gland</strong
+          >. While some schools advocate removal to "clean" the mandible, we consider the risk
+          unacceptable. The proximity to the marginal mandibular nerve, facial artery and vein, and
+          hypoglossal nerve makes this maneuver unnecessarily dangerous.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        The Four Pillars of Deep Neck
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          principles.map((item) => (
+            <div class="p-8 bg-ivory border-l-4 border-accent-600">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-2xl text-accent-600">{item.icon}</span>
+                <div>
+                  <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-2">
+                    {item.highlight}
+                  </p>
+                  <h3 class="text-lg font-serif text-primary-900 mb-3">{item.title}</h3>
+                  <p class="text-warmGray text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Indications -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Indications</h2>
+
+      <p class="text-warmGray mb-8">Modern Face Deep Neck is indicated for patients presenting:</p>
+
+      <div class="space-y-4">
+        {
+          indications.map((indication) => (
+            <div class="flex items-start gap-4 p-4 bg-white border border-gray-100">
+              <span class="text-accent-600 mt-1">✓</span>
+              <p class="text-warmGray">{indication}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 p-8 bg-primary-900">
+        <h3 class="text-lg font-serif text-white mb-4">When NOT to do isolated Deep Neck</h3>
+        <p class="text-primary-300 text-sm">
+          If the midface is also compromised (malar ptosis, deep nasolabial fold), isolated Deep
+          Neck will create disharmony. In these cases, combination with Endomidface is essential for
+          a harmonious result.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subpages -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Explore in Depth</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          subpages.map((page, index) => (
+            <a
+              href={page.href}
+              class="group flex items-start gap-6 p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="text-3xl font-serif text-accent-600/30 group-hover:text-accent-600 transition-colors">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-1 group-hover:text-accent-600 transition-colors">
+                  {page.title}
+                </h3>
+                <p class="text-sm text-warmGray">{page.description}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "Removing the submandibular gland to gain millimeters of definition is trading safety for
+          technical vanity. Modern Face doesn't accept this trade-off."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="p-12 bg-white border border-gray-100 text-center">
+        <h3 class="text-2xl font-serif text-primary-900 mb-4">Deep Neck Mastery Course</h3>
+        <p class="text-warmGray mb-8 max-w-lg mx-auto">
+          Complete training in Modern Face cervical treatment technique. From anatomy to execution,
+          with real cases and mentorship.
+        </p>
+        <a
+          href="/education/core-programs/deep-neck-mastery"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          View Program
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/techniques/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+          ← Endomidface
+        </a>
+        <a href="/techniques/browlift" class="text-sm text-accent-600 hover:text-accent-700">
+          Browlift →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

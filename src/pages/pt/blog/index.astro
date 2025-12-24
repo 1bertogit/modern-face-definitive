@@ -1,0 +1,118 @@
+---
+/**
+ * Blog Index Page (PT-BR) - Premium UI
+ * Uses Content Collections for blog data
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import BlogGrid from '@components/blog/BlogGrid.astro';
+import BlogSidebar from '@components/blog/BlogSidebar.astro';
+import { getArticlesForLocale, getCategories, getPopularArticles } from '@lib/blog-utils';
+
+const locale = 'pt';
+
+const breadcrumbs = [
+  { name: 'Início', url: '/pt' },
+  { name: 'Blog', url: '/pt/blog' },
+];
+
+// Ler parâmetro de categoria da URL
+const selectedCategory = Astro.url.searchParams.get('categoria') || null;
+
+// Use Content Collections for blog data
+const allArticles = await getArticlesForLocale(locale);
+
+// Filtrar artigos por categoria se houver parâmetro
+const articles = selectedCategory
+  ? allArticles.filter((article) => {
+      // Converter categoria do artigo para slug para comparação
+      const articleCategorySlug = article.category.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+      return articleCategorySlug === selectedCategory.toLowerCase();
+    })
+  : allArticles;
+
+const categories = await getCategories(locale);
+const popularPosts = await getPopularArticles(locale, 5);
+
+// Prepare search articles
+const searchArticles = articles.map((a) => ({
+  slug: a.slug,
+  title: a.title,
+  description: a.description,
+  category: a.category,
+  readTime: a.readTime,
+}));
+---
+
+<BaseLayout
+  title="Blog | Modern Face Institute | Dr. Robério Brandão"
+  description="Artigos técnicos sobre cirurgia facial, técnicas da Face Moderna, Endomidface, anatomia aplicada e educação médica continuada. Conteúdo para cirurgiões plásticos."
+  keywords={[
+    'blog cirurgia facial',
+    'artigos Face Moderna',
+    'Endomidface artigos',
+    'Dr Robério Brandão blog',
+  ]}
+  lang="pt"
+>
+  <!-- Hero Section - Clean & Minimal -->
+  <section class="pt-8 pb-12 md:pt-12 md:pb-16 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="mb-6" />
+
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 mb-4">Blog</h1>
+        <p class="text-lg text-warmGray leading-relaxed">
+          Artigos técnicos sobre cirurgia facial, filosofia Face Moderna, técnicas avançadas e
+          educação médica continuada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Grid + Sidebar -->
+  <section class="py-12 md:py-16 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0">
+          <BlogGrid articles={articles} showFeatured={true} locale="pt" />
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="w-full lg:w-80 flex-shrink-0">
+          <BlogSidebar
+            categories={categories}
+            popularPosts={popularPosts}
+            articles={searchArticles}
+            currentCategory={selectedCategory || undefined}
+            locale="pt"
+          />
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2-white mb-4">Aprenda Diretamente com Dr. Robério</h2>
+      <p class="body-large-light mb-8 max-w-xl mx-auto">
+        Os artigos são apenas o começo. A mentoria oferece aprendizado completo com casos ao vivo e
+        acompanhamento personalizado.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-flex items-center gap-2 px-8 py-4
+               bg-accent-600 text-white rounded-lg
+               text-sm font-medium uppercase tracking-wider
+               hover:bg-accent-500 hover:-translate-y-0.5
+               transition-all duration-300
+               focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900"
+      >
+        Ver Programas de Mentoria
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

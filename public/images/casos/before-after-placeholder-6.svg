@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradBefore6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f0"/>
+      <stop offset="100%" style="stop-color:#ebe9e2"/>
+    </linearGradient>
+    <linearGradient id="bgGradAfter6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <clipPath id="leftClip6">
+      <rect x="0" y="0" width="400" height="600"/>
+    </clipPath>
+    <clipPath id="rightClip6">
+      <rect x="400" y="0" width="400" height="600"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background Split -->
+  <rect fill="url(#bgGradBefore6)" x="0" y="0" width="400" height="600"/>
+  <rect fill="url(#bgGradAfter6)" x="400" y="0" width="400" height="600"/>
+
+  <!-- Title Bar -->
+  <rect fill="#1e293b" x="0" y="0" width="800" height="50"/>
+  <text x="400" y="32" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" fill="#b8956c" letter-spacing="0.1em">ENDOMIDFACE</text>
+
+  <!-- Center Divider with VS -->
+  <rect fill="#b8956c" x="396" y="50" width="8" height="550"/>
+  <circle cx="400" cy="300" r="28" fill="#1e293b"/>
+  <text x="400" y="308" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#b8956c">VS</text>
+
+  <!-- Before Face (Left) - Midface focus -->
+  <g clip-path="url(#leftClip6)">
+    <g transform="translate(200, 215)">
+      <!-- Face outline -->
+      <ellipse cx="0" cy="30" rx="86" ry="108" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes -->
+      <ellipse cx="-30" cy="5" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="30" cy="5" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose -->
+      <path d="M 0,-10 L 0,25" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <path d="M -12,25 Q 0,30 12,25" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Problem - Descended malar fat pad -->
+      <path d="M -52,20 Q -58,40 -55,60" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <path d="M 52,20 Q 58,40 55,60" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <!-- Problem - Deep tear troughs -->
+      <path d="M -22,12 Q -18,22 -15,28" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+      <path d="M 22,12 Q 18,22 15,28" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+      <!-- Problem - Deep nasolabial folds -->
+      <path d="M -12,25 Q -18,45 -22,65" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <path d="M 12,25 Q 18,45 22,65" fill="none" stroke="#dc2626" stroke-width="2.5" opacity="0.7"/>
+      <!-- Mouth -->
+      <path d="M -20,65 Q 0,70 20,65" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Problem - Marionette lines -->
+      <path d="M -20,68 L -23,88" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
+      <path d="M 20,68 L 23,88" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
+      <!-- Descent arrows -->
+      <path d="M -60,30 L -60,50" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.4"/>
+      <path d="M -64,45 L -60,53 L -56,45" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 60,30 L 60,50" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 56,45 L 60,53 L 64,45" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- After Face (Right) - Lifted midface -->
+  <g clip-path="url(#rightClip6)">
+    <g transform="translate(600, 215)">
+      <!-- Face outline - more defined -->
+      <ellipse cx="0" cy="28" rx="84" ry="106" fill="none" stroke="#1e293b" stroke-width="2" opacity="0.25"/>
+      <!-- Eyes - slightly more open -->
+      <ellipse cx="-30" cy="2" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <ellipse cx="30" cy="2" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Nose -->
+      <path d="M 0,-12 L 0,23" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <path d="M -12,23 Q 0,28 12,23" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Improvement - Elevated malar fat pad -->
+      <path d="M -54,12 Q -58,28 -55,45" fill="none" stroke="#16a34a" stroke-width="2.5" opacity="0.7"/>
+      <path d="M 54,12 Q 58,28 55,45" fill="none" stroke="#16a34a" stroke-width="2.5" opacity="0.7"/>
+      <!-- Improvement - Smooth tear troughs -->
+      <path d="M -22,8 Q -19,15 -16,20" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+      <path d="M 22,8 Q 19,15 16,20" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+      <!-- Improvement - Softened nasolabial folds -->
+      <path d="M -12,23 Q -15,38 -17,52" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+      <path d="M 12,23 Q 15,38 17,52" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+      <!-- Mouth - slightly lifted -->
+      <path d="M -18,58 Q 0,62 18,58" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+      <!-- Improvement - Reduced marionette -->
+      <path d="M -18,60 L -20,75" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 18,60 L 20,75" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+      <!-- Lift arrows -->
+      <path d="M -62,45 L -62,25" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+      <path d="M -66,30 L -62,22 L -58,30" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 62,45 L 62,25" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+      <path d="M 58,30 L 62,22 L 66,30" fill="none" stroke="#16a34a" stroke-width="1.5" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <text x="200" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">ANTES</text>
+  <text x="600" y="480" text-anchor="middle" font-family="'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="0.15em" fill="#b8956c">DEPOIS</text>
+
+  <!-- Decorative Lines -->
+  <line x1="100" y1="495" x2="300" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+  <line x1="500" y1="495" x2="700" y2="495" fill="none" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Subtle indicator legend -->
+  <g transform="translate(200, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#dc2626" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Queda</text>
+  </g>
+  <g transform="translate(600, 530)">
+    <circle cx="-35" cy="0" r="5" fill="#16a34a" opacity="0.7"/>
+    <text x="-20" y="4" font-family="'Inter', sans-serif" font-size="10" fill="#1e293b" opacity="0.6">Rejuvenescido</text>
+  </g>
+</svg>

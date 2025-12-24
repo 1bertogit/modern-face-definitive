@@ -1,0 +1,141 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'política privacidade Face Moderna',
+  'proteção dados pessoais',
+  'Dr Robério Brandão privacidade',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Política de Privacidade',
+  description: 'Política de privacidade do site Face Moderna® - Dr. Robério Brandão',
+};
+---
+
+<BaseLayout
+  title="Política de Privacidade"
+  description="Conheça como protegemos e tratamos seus dados pessoais no site Face Moderna®."
+  schema={schema}
+  keywords={keywords}
+>
+  <!-- Hero -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Legal</p>
+      <h1 class="text-5xl md:text-6xl font-serif text-primary-900 leading-tight mb-6">
+        Política de Privacidade
+      </h1>
+      <p class="text-xl text-warmGray leading-relaxed max-w-2xl mx-auto">
+        Transparência e segurança no tratamento dos seus dados pessoais.
+      </p>
+      <p class="text-sm text-softGray mt-6">
+        Última atualização: {
+          new Date().toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })
+        }
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Esta Política de Privacidade descreve como o site Face Moderna® ("nós", "nosso" ou "site")
+          coleta, usa e protege suas informações pessoais quando você utiliza nosso site.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">1. Informações que Coletamos</h2>
+        <p>Podemos coletar as seguintes informações quando você utiliza nosso site:</p>
+        <ul class="space-y-4">
+          <li>
+            <strong class="text-primary-900">Informações de contato:</strong> Nome, e-mail, telefone quando
+            você preenche formulários ou entra em contato conosco.
+          </li>
+          <li>
+            <strong class="text-primary-900">Dados de navegação:</strong> Endereço IP, tipo de navegador,
+            páginas visitadas, tempo de permanência, através de cookies e tecnologias similares.
+          </li>
+          <li>
+            <strong class="text-primary-900">Informações de uso:</strong> Como você interage com nosso
+            site, incluindo cliques, visualizações de páginas e preferências.
+          </li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">2. Como Usamos suas Informações</h2>
+        <p>Utilizamos suas informações para:</p>
+        <ul class="space-y-4">
+          <li>Responder suas solicitações e fornecer informações sobre nossos serviços</li>
+          <li>Melhorar a experiência de navegação em nosso site</li>
+          <li>Enviar comunicações relevantes sobre nossos serviços (com seu consentimento)</li>
+          <li>Cumprir obrigações legais e regulatórias</li>
+          <li>Analisar o uso do site para melhorias contínuas</li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">3. Compartilhamento de Informações</h2>
+        <p>
+          Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto:
+        </p>
+        <ul class="space-y-4">
+          <li>Quando necessário para fornecer serviços solicitados por você</li>
+          <li>Quando exigido por lei ou ordem judicial</li>
+          <li>
+            Com prestadores de serviços que nos auxiliam na operação do site (sob acordos de
+            confidencialidade)
+          </li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">4. Cookies e Tecnologias Similares</h2>
+        <p>
+          Utilizamos cookies e tecnologias similares para melhorar sua experiência, analisar o
+          tráfego do site e personalizar conteúdo. Você pode gerenciar suas preferências de cookies
+          através das configurações do seu navegador.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">5. Segurança dos Dados</h2>
+        <p>
+          Implementamos medidas de segurança técnicas e organizacionais apropriadas para proteger
+          suas informações pessoais contra acesso não autorizado, alteração, divulgação ou
+          destruição.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">6. Seus Direitos</h2>
+        <p>De acordo com a LGPD, você tem direito a:</p>
+        <ul class="space-y-4">
+          <li>Acessar seus dados pessoais</li>
+          <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+          <li>Solicitar a exclusão de dados desnecessários ou excessivos</li>
+          <li>Revogar seu consentimento a qualquer momento</li>
+          <li>Solicitar a portabilidade dos dados</li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">7. Retenção de Dados</h2>
+        <p>
+          Mantemos suas informações pessoais apenas pelo tempo necessário para cumprir os propósitos
+          descritos nesta política, salvo quando um período de retenção mais longo for exigido ou
+          permitido por lei.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">8. Alterações nesta Política</h2>
+        <p>
+          Podemos atualizar esta Política de Privacidade periodicamente. Recomendamos que você
+          revise esta página regularmente para se manter informado sobre como protegemos suas
+          informações.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">9. Contato</h2>
+        <p>
+          Se você tiver dúvidas sobre esta Política de Privacidade ou sobre o tratamento de seus
+          dados pessoais, entre em contato conosco através de:
+        </p>
+        <ul class="space-y-4">
+          <li><strong class="text-primary-900">E-mail:</strong> privacidade@facemoderna.com.br</li>
+          <li><strong class="text-primary-900">Telefone:</strong> (71) 99999-9999</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

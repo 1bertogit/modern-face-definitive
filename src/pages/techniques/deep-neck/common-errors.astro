@@ -1,0 +1,131 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck complications',
+  'neck surgery errors',
+  'submandibular gland preservation',
+  'digastric tendon plication',
+  'marginal nerve injury prevention',
+  'neck facelift safety',
+];
+
+const errors = [
+  {
+    e: 'Removing submandibular gland',
+    c: 'Severe complications (bleeding, nerve injury, sialocele)',
+    s: 'NEVER remove — non-negotiable principle',
+    g: 'high',
+  },
+  {
+    e: 'Plicating digastric tendon',
+    c: 'Gland anteriorization, making it MORE visible',
+    s: "Don't plicate — do belly shaving",
+    g: 'high',
+  },
+  {
+    e: 'Excessive platysmorraphy tension',
+    c: 'Pulls lateral platysma away from SCM, sabotages contour',
+    s: 'Moderate tension, mandible to hyoid only',
+    g: 'medium',
+  },
+  {
+    e: 'Skipping pre-hyoid fasciotomy',
+    c: "Neck doesn't lengthen, limited result",
+    s: 'Fasciotomy mandatory in 100% of cases',
+    g: 'medium',
+  },
+  {
+    e: 'Deep Neck on thin neck',
+    c: 'Skeletonized, unnatural result',
+    s: 'Thin neck = platysmorraphy + Crevassi only',
+    g: 'medium',
+  },
+  {
+    e: 'Too proximal deep dissection',
+    c: 'Marginal mandibular nerve injury',
+    s: 'Maintain safe distance from mandibular border',
+    g: 'high',
+  },
+];
+---
+
+<BaseLayout
+  title="Common Errors in Deep Neck"
+  description="Most frequent errors in Deep Neck and how to avoid them."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Prevention
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Common Errors</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Knowing the pitfalls is the first step to avoiding them.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-4">
+        {
+          errors.map((er) => (
+            <div
+              class={`p-6 border-l-4 ${er.g === 'high' ? 'border-red-500 bg-red-50' : 'border-orange-500 bg-orange-50'}`}
+            >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <>
+                  <div>
+                    <>
+                      <p
+                        class={`text-xs font-bold uppercase mb-1 ${er.g === 'high' ? 'text-red-600' : 'text-orange-600'}`}
+                      >
+                        Error
+                      </p>
+                      <p class="text-primary-900 font-medium">{er.e}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-warmGray uppercase mb-1">Consequence</p>
+                      <p class="text-sm text-warmGray">{er.c}</p>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <p class="text-xs font-bold text-green-600 uppercase mb-1">Solution</p>
+                      <p class="text-sm text-warmGray">{er.s}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Non-Negotiable Rules</h2><div
+        class="space-y-4 text-white"
+      >
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NEVER remove the submandibular gland</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NEVER plicate the digastric tendon</p>
+        </div><div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-red-400 text-2xl">✕</span><p>NEVER skip fasciotomy in heavy neck</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck/step-by-step" class="text-sm text-accent-600">← Step by Step</a
+      ><a href="/techniques/deep-neck/results" class="text-sm text-accent-600">Results →</a>
+    </div>
+  </section>
+</BaseLayout>

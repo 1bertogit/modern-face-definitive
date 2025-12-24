@@ -1,0 +1,152 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const principles = [
+  {
+    num: '01',
+    title: 'Safety First',
+    desc: 'No aesthetic result justifies a permanent injury. Our first obligation is to do no harm.',
+    details: [
+      'Zero tolerance for permanent nerve injuries',
+      'Techniques that prioritize direct vision',
+      'Careful planning that prevents complications',
+      'Honesty about limits and risks',
+    ],
+  },
+  {
+    num: '02',
+    title: 'Respect for Anatomy',
+    desc: "Anatomy doesn't lie. When we respect natural planes, results are more predictable and lasting.",
+    details: [
+      'Continuous study of facial anatomy',
+      'Working in correct surgical planes',
+      'Structure preservation whenever possible',
+      'Repositioning over resection',
+    ],
+  },
+  {
+    num: '03',
+    title: 'Natural Results',
+    desc: 'The best compliment is when no one notices there was surgery. We seek rejuvenation, not transformation.',
+    details: [
+      'Vectors that respect facial harmony',
+      'Refusing requests for artificial results',
+      'Individualization based on patient anatomy',
+      'Focus on durability, not just immediate impact',
+    ],
+  },
+  {
+    num: '04',
+    title: 'Honesty with Patient',
+    desc: 'The patient has the right to the truth about what we can and cannot do for them.',
+    details: [
+      'Clear communication about realistic expectations',
+      'Transparent photographic documentation',
+      'Open discussion about limitations',
+      'Refusing inadequate cases',
+    ],
+  },
+  {
+    num: '05',
+    title: 'Knowledge Sharing',
+    desc: "Knowledge that isn't shared dies with us. Teaching is perpetuating and multiplying impact.",
+    details: [
+      'Open technique sharing',
+      'Training new surgeons',
+      'Systematic documentation for teaching',
+      'Continuous learning community',
+    ],
+  },
+  {
+    num: '06',
+    title: 'Continuous Evolution',
+    desc: 'The day we stop questioning, we stop evolving. Every case is an opportunity to learn.',
+    details: [
+      'Constructive questioning of status quo',
+      'Openness to new evidence and techniques',
+      'Recording and analyzing results',
+      'Humility to recognize errors and improve',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Ethical Principles | The Values That Guide Us"
+  description="The fundamental ethical principles that guide practice and teaching at Modern Face Institute."
+  lang="en"
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/about" class="hover:text-white">About</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Ethical Principles</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Our Values</p>
+      <h1 class="heading-1-white">Ethical Principles</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        The non-negotiable values that underpin every decision, technique and interaction at Modern
+        Face Institute
+      </p>
+    </div>
+  </section>
+
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <div class="space-y-12">
+        {
+          principles.map((p) => (
+            <div class="bg-white border border-gray-100 overflow-hidden">
+              <div class="p-8">
+                <div class="flex items-start gap-6">
+                  <span class="text-5xl font-serif text-accent-600/20 flex-shrink-0">{p.num}</span>
+                  <div>
+                    <h3 class="heading-4 mb-3">{p.title}</h3>
+                    <p class="body-base mb-6">{p.desc}</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {p.details.map((d) => (
+                        <div class="flex items-start gap-2 body-small">
+                          <span class="material-symbols-outlined text-accent-600 text-sm flex-shrink-0">
+                            check
+                          </span>
+                          {d}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-8">Our Commitment</h2>
+      <p class="body-base-light">
+        These principles are not aspirations — they are commitments. When you train with us, you're
+        not just learning techniques: you're assuming these same commitments.
+      </p>
+      <div class="border-t border-white/20 pt-8 mt-8">
+        <p class="body-small-light text-accent-400 uppercase tracking-wider">
+          Maximum Safety • Elegant Results • Optimized Recovery
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/about/timeline" class="text-sm text-accent-600">← Timeline</a>
+      <a href="/about/future-vision" class="text-sm text-accent-600">Future Vision →</a>
+    </div>
+  </section>
+</BaseLayout>

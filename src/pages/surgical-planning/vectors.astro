@@ -1,0 +1,114 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const vectors = [
+  {
+    type: 'Vertical',
+    direction: '↑',
+    desc: 'Direct elevation against gravity. Preferred in Face Moderna.',
+    indication: 'Most cases',
+    color: 'bg-green-600',
+  },
+  {
+    type: 'Oblique',
+    direction: '↗',
+    desc: 'Vertical + lateral combination. For more severe ptosis.',
+    indication: 'Severe ptosis',
+    color: 'bg-amber-600',
+  },
+  {
+    type: 'Lateral',
+    direction: '→',
+    desc: "Pure lateral traction. Avoid - causes 'wind-swept' look.",
+    indication: 'Avoid',
+    color: 'bg-red-600',
+  },
+];
+
+const fixation = [
+  {
+    region: 'Midface',
+    point: 'Deep temporal fascia',
+    technique: 'Perpendicular suspension suture',
+  },
+  { region: 'Jowl', point: 'SMAS-platysma', technique: 'Plication + suspension to fixed SMAS' },
+  { region: 'Neck', point: 'Cervical fascia', technique: 'Platysmorraphy + Crevassi' },
+];
+---
+
+<BaseLayout
+  title="Vector Definition"
+  description="Traction direction and fixation points in facial surgery. Vertical vector preferred."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/surgical-planning" class="hover:text-white">Planning</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Vectors</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Step 03</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Vector Definition
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Traction direction defines result naturalness. Vertical vector is the Face Moderna standard.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">The 3 Vectors</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          vectors.map((v) => (
+            <div
+              class={`p-6 border ${v.color === 'bg-green-600' ? 'border-green-200 bg-green-50' : v.color === 'bg-amber-600' ? 'border-amber-200 bg-amber-50' : 'border-red-200 bg-red-50'}`}
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-4xl">{v.direction}</span>
+                <span class={`text-xs px-2 py-1 ${v.color} text-white`}>{v.indication}</span>
+              </div>
+              <h3 class="font-serif text-primary-900 text-xl mb-2">{v.type}</h3>
+              <p class="text-sm text-warmGray">{v.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Fixation Points</h2>
+      <div class="space-y-4">
+        {
+          fixation.map((f) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-medium text-primary-900">{f.region}</h3>
+                  <p class="text-sm text-warmGray">Point: {f.point}</p>
+                </div>
+                <p class="text-sm text-accent-600">{f.technique}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/surgical-planning/spe-m-system" class="text-sm text-accent-600">← SPE-M</a>
+      <a href="/surgical-planning/photography" class="text-sm text-accent-600">Photography →</a>
+    </div>
+  </section>
+</BaseLayout>

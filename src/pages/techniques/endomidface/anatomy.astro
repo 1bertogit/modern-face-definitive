@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface anatomy',
+  'pre-zygomatic space',
+  'pre-maxillary space',
+  'facial nerve protection',
+  'midface dissection planes',
+  'SOOF anatomy',
+];
+
+const spaces = [
+  {
+    n: 'Pre-zygomatic Space',
+    d: 'First space accessed. Entry perceived as sudden loss of resistance.',
+    c: 'Pre-zygomatic fat, SOOF',
+  },
+  {
+    n: 'Pre-maxillary Space',
+    d: 'Continuation of dissection toward corner of mouth.',
+    c: 'Deep medial fat, malar fat compartments',
+  },
+  {
+    n: 'Buccal Space',
+    d: 'Distal limit of dissection. Contains buccal fat pad (Bichat).',
+    c: 'Buccal fat pad',
+  },
+];
+const nobles = [
+  {
+    s: 'Frontal Branch',
+    l: 'In temporal space roof, in superficial temporal fascia',
+    p: 'Always dissect over deep temporal fascia; place sutures posterior to incision',
+  },
+  {
+    s: 'Zygomatic Branches',
+    l: 'In floor of pre-zygomatic and pre-maxillary spaces',
+    p: 'Tilt dissector toward surface (upward); never go deep',
+  },
+  {
+    s: 'Buccal Loop',
+    l: 'Below dissection plane, in floor',
+    p: 'Stay on SMAS roof; if you perforate to surface, no permanent damage',
+  },
+  {
+    s: 'Supraorbital Nerve',
+    l: 'At pupil level, superior orbital rim',
+    p: 'Sensory nerve, usually visualized; traction may cause transient numbness',
+  },
+];
+---
+
+<BaseLayout
+  title="Endomidface Anatomy"
+  description="Applied anatomy for Endomidface. Pre-zygomatic and pre-maxillary spaces, dissection planes, retaining ligaments."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Anatomical Foundations</p><h1 class="heading-1-white">
+        Applied Anatomy
+      </h1><p class="body-large-light max-w-2xl mx-auto">
+        The deep spaces, dissection planes, and noble structures you need to know for safe
+        operation.
+      </p>
+    </div>
+  </section>
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <p class="body-large drop-cap">
+        Understanding deep anatomy is crucial for Endomidface safety and efficacy. Surgery is
+        performed in delicate planes, near important nerves and vessels. The goal is to access and
+        mobilize pre-zygomatic and pre-maxillary spaces, always keeping the dissector tilted toward
+        the surface.
+      </p>
+    </div>
+  </section>
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-8 text-center">Anatomical Spaces Addressed</h2><div class="space-y-6">
+        {
+          spaces.map((s, i) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <>
+                  <span class="text-4xl font-serif text-accent-600/30">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <>
+                      <h3 class="heading-3 mb-3">{s.n}</h3>
+                      <p class="body-base mb-4">{s.d}</p>
+                      <p class="body-small text-accent-700">Contents: {s.c}</p>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section-md bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-6">The Golden Rule of Dissection</h2><p
+        class="body-large-light mb-8"
+      >
+        "Noble structures are below. If I tilt my dissector down and lose the plane, there will be
+        motor injury. If I tilt up and perforate the SMAS, I go to subcutaneous and skin —
+        everything's fine, no permanent damage."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-8 text-center">Noble Structures & Protection</h2><table
+        class="w-full text-sm"
+      >
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Structure</th><th class="text-left py-4 px-4"
+              >Location</th
+            ><th class="text-left py-4 px-4">How to Protect</th></tr
+          ></thead
+        ><tbody
+          >{
+            nobles.map((n) => (
+              <tr class="border-b border-gray-200">
+                <>
+                  <td class="py-4 px-4 font-medium text-primary-900">{n.s}</td>
+                  <td class="py-4 px-4 text-warmGray">{n.l}</td>
+                  <td class="py-4 px-4 text-warmGray">{n.p}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/indications" class="text-sm text-accent-600">← Indications</a
+      ><a href="/techniques/endomidface/vectors" class="text-sm text-accent-600">Vectors →</a>
+    </div>
+  </section>
+</BaseLayout>

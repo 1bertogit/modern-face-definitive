@@ -1,0 +1,412 @@
+---
+/**
+ * CLUSTER F - Treinamentos + Conversão
+ * Página: /en/training/application/
+ * Prioridade: P0
+ * Intenção: Captura de lead / aplicação
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Training', url: '/education' },
+  { name: 'Apply', url: '/education/application' },
+];
+
+const keywords = [
+  'apply ENDOMIDFACE course',
+  'facial surgery training application',
+  'Dr Robério Brandão training',
+  'Modern Face Institute application',
+];
+---
+
+<BaseLayout
+  title="Apply for Training — Modern Face Institute"
+  description="Apply for ENDOMIDFACE® Mentorship, Deep Neck Mentorship, or Combo Legacy training programs. Complete the surgical profile form to begin your training with Dr. Robério Brandão."
+  keywords={keywords}
+  noIndex={true}
+>
+  <!-- Hero -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="text-center text-white">
+        <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+          Training Application
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Apply for Mentorship</h1>
+        <p class="text-xl text-primary-200">
+          Complete this form to begin the application process. We'll review your profile and reach
+          out to discuss the best program for your goals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <form
+        class="bg-white rounded-2xl p-8 shadow-lg"
+        action="#"
+        method="POST"
+        id="applicationForm"
+      >
+        <!-- Personal Information -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-primary-900 mb-6 pb-2 border-b border-gray-200">
+            Personal Information
+          </h2>
+
+          <div class="space-y-4">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-warmGray mb-1"
+                  >First Name *</label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-warmGray mb-1"
+                  >Last Name *</label
+                >
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-warmGray mb-1">Email *</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-warmGray mb-1"
+                >WhatsApp / Phone *</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="+1 555 000 0000"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              />
+            </div>
+
+            <div>
+              <label for="country" class="block text-sm font-medium text-warmGray mb-1"
+                >Country *</label
+              >
+              <select
+                id="country"
+                name="country"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select your country</option>
+                <option value="BR">Brazil</option>
+                <option value="US">United States</option>
+                <option value="MX">Mexico</option>
+                <option value="CO">Colombia</option>
+                <option value="AR">Argentina</option>
+                <option value="CL">Chile</option>
+                <option value="PE">Peru</option>
+                <option value="ES">Spain</option>
+                <option value="PT">Portugal</option>
+                <option value="OTHER">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Background -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-primary-900 mb-6 pb-2 border-b border-gray-200">
+            Professional Background
+          </h2>
+
+          <div class="space-y-4">
+            <div>
+              <label for="specialty" class="block text-sm font-medium text-warmGray mb-1"
+                >Medical Specialty *</label
+              >
+              <select
+                id="specialty"
+                name="specialty"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select specialty</option>
+                <option value="plastic_surgery">Plastic Surgery</option>
+                <option value="facial_plastic">Facial Plastic Surgery</option>
+                <option value="ent">ENT / Otolaryngology</option>
+                <option value="dermatology">Dermatology</option>
+                <option value="oculoplastics">Oculoplastics</option>
+                <option value="general_surgery">General Surgery</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="yearsExperience" class="block text-sm font-medium text-warmGray mb-1"
+                >Years in Practice *</label
+              >
+              <select
+                id="yearsExperience"
+                name="yearsExperience"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select experience</option>
+                <option value="0-2">0-2 years</option>
+                <option value="3-5">3-5 years</option>
+                <option value="6-10">6-10 years</option>
+                <option value="11-20">11-20 years</option>
+                <option value="20+">20+ years</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="facialExperience" class="block text-sm font-medium text-warmGray mb-1"
+                >Facial Surgery Experience *</label
+              >
+              <select
+                id="facialExperience"
+                name="facialExperience"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select experience level</option>
+                <option value="none">No facial surgery experience</option>
+                <option value="basic">Basic (blepharoplasty, minor procedures)</option>
+                <option value="intermediate">Intermediate (some facelifts, SMAS)</option>
+                <option value="advanced">Advanced (deep plane, midface)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="monthlyVolume" class="block text-sm font-medium text-warmGray mb-1"
+                >Monthly Facial Surgery Volume</label
+              >
+              <select
+                id="monthlyVolume"
+                name="monthlyVolume"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select volume</option>
+                <option value="0">None currently</option>
+                <option value="1-5">1-5 procedures/month</option>
+                <option value="6-10">6-10 procedures/month</option>
+                <option value="11-20">11-20 procedures/month</option>
+                <option value="20+">20+ procedures/month</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Program Interest -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-primary-900 mb-6 pb-2 border-b border-gray-200">
+            Program Interest
+          </h2>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-warmGray mb-3"
+                >Which program interests you? *</label
+              >
+              <div class="space-y-3">
+                <label
+                  class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="radio"
+                    name="program"
+                    value="endomidface"
+                    required
+                    class="w-4 h-4 text-accent-600 focus:ring-accent-500"
+                  />
+                  <div>
+                    <span class="font-medium text-primary-900">ENDOMIDFACE® Mentorship</span>
+                    <span class="text-warmGray text-sm ml-2">$3,350 (2 months)</span>
+                  </div>
+                </label>
+                <label
+                  class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="radio"
+                    name="program"
+                    value="deep_neck"
+                    class="w-4 h-4 text-accent-600 focus:ring-accent-500"
+                  />
+                  <div>
+                    <span class="font-medium text-primary-900">Deep Neck Mentorship</span>
+                    <span class="text-warmGray text-sm ml-2">$3,100 (2 months)</span>
+                  </div>
+                </label>
+                <label
+                  class="flex items-center gap-3 p-4 border border-accent-200 bg-accent-50 rounded-lg cursor-pointer hover:bg-accent-100 transition-colors"
+                >
+                  <input
+                    type="radio"
+                    name="program"
+                    value="combo_legacy"
+                    class="w-4 h-4 text-accent-600 focus:ring-accent-500"
+                  />
+                  <div>
+                    <span class="font-medium text-primary-900">Combo Legacy</span>
+                    <span class="text-warmGray text-sm ml-2">$5,997 (6 months) — Best Value</span>
+                  </div>
+                </label>
+                <label
+                  class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="radio"
+                    name="program"
+                    value="not_sure"
+                    class="w-4 h-4 text-accent-600 focus:ring-accent-500"
+                  />
+                  <div>
+                    <span class="font-medium text-primary-900">Not sure yet</span>
+                    <span class="text-warmGray text-sm ml-2">— I'd like to discuss options</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="goals" class="block text-sm font-medium text-warmGray mb-1"
+                >What are your training goals? (Optional)</label
+              >
+              <textarea
+                id="goals"
+                name="goals"
+                rows="4"
+                placeholder="Tell us what you hope to achieve with this training..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="howHeard" class="block text-sm font-medium text-warmGray mb-1"
+                >How did you hear about us?</label
+              >
+              <select
+                id="howHeard"
+                name="howHeard"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 transition-colors"
+              >
+                <option value="">Select option</option>
+                <option value="google">Google Search</option>
+                <option value="instagram">Instagram</option>
+                <option value="youtube">YouTube</option>
+                <option value="colleague">Colleague Recommendation</option>
+                <option value="conference">Conference / Event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-6 border-t border-gray-200">
+          <button
+            type="submit"
+            class="w-full py-4 bg-accent-500 text-white font-semibold text-lg rounded-lg hover:bg-accent-600 transition-colors flex items-center justify-center gap-2"
+          >
+            Submit Application
+            <span class="material-symbols-outlined">send</span>
+          </button>
+          <p class="text-sm text-warmGray text-center mt-4">
+            We'll review your application and respond within 48 hours.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- What Happens Next -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">What Happens Next?</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-accent-700 font-bold text-lg">1</span>
+          </div>
+          <h3 class="font-bold text-primary-900 mb-2">Application Review</h3>
+          <p class="text-warmGray text-sm">
+            We review your background to ensure the program is appropriate for your experience
+            level.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-accent-700 font-bold text-lg">2</span>
+          </div>
+          <h3 class="font-bold text-primary-900 mb-2">Discovery Call</h3>
+          <p class="text-warmGray text-sm">
+            We schedule a brief call to discuss your goals and answer any questions about the
+            program.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div
+            class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-accent-700 font-bold text-lg">3</span>
+          </div>
+          <h3 class="font-bold text-primary-900 mb-2">Enrollment</h3>
+          <p class="text-warmGray text-sm">
+            Upon acceptance, you'll receive enrollment instructions and immediate access to begin.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Alternative -->
+  <section class="py-12 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-warmGray mb-4">Prefer to discuss before applying?</p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-primary-900 text-primary-900 rounded-lg hover:bg-primary-50 transition-colors"
+      >
+        <span class="material-symbols-outlined">mail</span>
+        Contact Us First
+      </a>
+    </div>
+  </section>
+</BaseLayout>

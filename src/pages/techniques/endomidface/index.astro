@@ -1,0 +1,326 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface direct vision',
+  'midface rejuvenation',
+  'biostimulator safe facelift',
+  'midface lifting technique',
+  'sub-SMAS midface',
+  'Dr Robério Brandão Endomidface',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface by Direct Vision',
+  description:
+    'Midface rejuvenation technique by direct vision, without endoscope, with superior safety in faces with biostimulators.',
+  procedureType: 'Surgical',
+  bodyLocation: 'Face - Midface',
+};
+
+const differentials = [
+  {
+    title: 'Direct Vision',
+    description:
+      'No endoscope. Simultaneous visual and tactile feedback. You see AND feel at the same time.',
+    icon: 'visibility',
+  },
+  {
+    title: 'Safety in Injected Faces',
+    description:
+      'Bypasses the fibrosis zone of the lateral fixed SMAS. Ideal for the 90% of faces with biostimulators.',
+    icon: 'shield',
+  },
+  {
+    title: 'Reduced Learning Curve',
+    description: '15-30 cases for safety, not 50-100. Systematic and reproducible method.',
+    icon: 'trending_up',
+  },
+  {
+    title: 'Accelerated Recovery',
+    description: 'Social return in 7-10 days. Less trauma, less edema, less downtime.',
+    icon: 'speed',
+  },
+];
+
+const subpages = [
+  {
+    href: '/techniques/endomidface/what-is-it',
+    title: 'Definition & Concept',
+    description: 'What it is and why it was developed',
+  },
+  {
+    href: '/techniques/endomidface/indications',
+    title: 'Indications',
+    description: 'Who is Endomidface ideal for',
+  },
+  {
+    href: '/techniques/endomidface/anatomy',
+    title: 'Applied Anatomy',
+    description: 'Pre-zygomatic and pre-maxillary spaces',
+  },
+  {
+    href: '/techniques/endomidface/vectors',
+    title: 'Vectors & Fixation',
+    description: 'Traction direction and anchoring points',
+  },
+  {
+    href: '/techniques/endomidface/step-by-step',
+    title: 'Conceptual Step-by-Step',
+    description: 'Logical sequence of the procedure',
+  },
+  {
+    href: '/techniques/endomidface/common-errors',
+    title: 'Common Errors',
+    description: 'What to avoid and how to correct',
+  },
+  {
+    href: '/techniques/endomidface/limitations',
+    title: 'Limitations',
+    description: 'What Endomidface does not correct',
+  },
+  {
+    href: '/techniques/endomidface/results',
+    title: 'Expected Results',
+    description: 'Benefits and durability',
+  },
+];
+
+const numbers = [
+  { value: '212', label: 'Consecutive Cases' },
+  { value: '0%', label: 'Permanent Nerve Injury' },
+  { value: '7-10', label: 'Days to Social Return' },
+  { value: '8-12', label: 'Years of Durability' },
+];
+---
+
+<BaseLayout
+  title="Endomidface by Direct Vision"
+  description="Midface rejuvenation technique by direct vision, without endoscope, with superior safety in faces with biostimulators."
+  keywords={keywords}
+  schema={schema}
+  lang="en"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/techniques" class="hover:text-white">Techniques</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Endomidface</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Main Technique • Midface
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Endomidface by Direct Vision
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Midface rejuvenation with maximum safety. No endoscope, no equipment dependency, no
+          minefield in faces with biostimulators.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {
+          numbers.map((item) => (
+            <div>
+              <p class="text-4xl font-serif text-white mb-1">{item.value}</p>
+              <p class="text-xs text-white/80 uppercase tracking-[0.1em]">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Endomidface by Direct Vision is the technical answer to a modern problem: how to operate
+          safely on faces that have already been treated with biostimulators? The technique abandons
+          the endoscope — not from rejection of technology, but from evolution. Direct vision means
+          seeing and feeling at the same time, in the same plane, without hand-eye dissociation.
+        </p>
+
+        <p>
+          Developed over 18 years and validated in more than 1,500 facial surgeries, the technique
+          works in the pre-zygomatic and pre-maxillary spaces, repositioning the malar block with a
+          vertical vector — lifting against gravity, not pulling backwards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        What Makes Endomidface Unique
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          differentials.map((item) => (
+            <div class="p-8 bg-ivory border border-gray-100">
+              <span class="material-symbols-outlined text-3xl text-accent-600 mb-4 block">
+                {item.icon}
+              </span>
+              <h3 class="text-lg font-serif text-primary-900 mb-3">{item.title}</h3>
+              <p class="text-warmGray text-sm leading-relaxed">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem It Solves -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">The Problem Endomidface Solves</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          Traditional Deep Plane was developed for native faces — without biostimulators, without
+          hyaluronic acid, without years of repeated fillers. Today, <strong
+            class="text-primary-900"
+            >90% of the faces we operate on have biostimulators in the lateral fixed SMAS</strong
+          >.
+        </p>
+
+        <p>
+          This creates a "minefield": dense fibrosis, altered planes, increased risk of nerve
+          injury. Deep Plane needs to cross this zone. Endomidface bypasses it.
+        </p>
+
+        <h3 class="font-serif text-primary-900">The Safe Route</h3>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Superior access:</strong> through the intracapillary Browlift
+            incision
+          </li>
+          <li>
+            <strong class="text-primary-900">Entry into mobile SMAS:</strong>
+            anteriorly, not laterally
+          </li>
+          <li>
+            <strong class="text-primary-900">Bypasses fibrosis:</strong> avoids the lateral fixed SMAS
+            where biostimulators are located
+          </li>
+          <li>
+            <strong class="text-primary-900">Works in safe spaces:</strong>
+            pre-zygomatic and pre-maxillary
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subpages -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Explore in Depth</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          subpages.map((page, index) => (
+            <a
+              href={page.href}
+              class="group flex items-start gap-6 p-6 bg-ivory border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <span class="text-3xl font-serif text-accent-600/30 group-hover:text-accent-600 transition-colors">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-1 group-hover:text-accent-600 transition-colors">
+                  {page.title}
+                </h3>
+                <p class="text-sm text-warmGray">{page.description}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "Endomidface is not a new technique — it's the natural evolution for the reality of modern
+          faces. When 90% of patients have biostimulators, you need a different route."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="text-xl font-serif text-primary-900 mb-4">Endomidface Course</h3>
+          <p class="text-warmGray mb-6">
+            Complete training in the technique, from concept to practice, with mentorship and
+            post-course support.
+          </p>
+          <a
+            href="/education/core-programs/endomidface-direct-vision"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            View program →
+          </a>
+        </div>
+
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="text-xl font-serif text-primary-900 mb-4">Applied Anatomy</h3>
+          <p class="text-warmGray mb-6">
+            Understand the anatomical foundations that make Endomidface possible and safe.
+          </p>
+          <a
+            href="/applied-anatomy"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Study anatomy →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/techniques" class="text-sm text-accent-600 hover:text-accent-700">
+          ← All Techniques
+        </a>
+        <a href="/techniques/deep-neck" class="text-sm text-accent-600 hover:text-accent-700">
+          Deep Neck →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

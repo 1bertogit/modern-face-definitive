@@ -1,0 +1,110 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const estadisticas = [
+  { categoria: 'Total de Cirugías Faciales', valor: '1.500+', periodo: '1995-2024' },
+  { categoria: 'Endomidface por Visión Directa', valor: '212+', periodo: '2019-2024' },
+  { categoria: 'Deep Neck', valor: '180+', periodo: '2018-2024' },
+  { categoria: 'Frontoplastia/Browlift', valor: '150+', periodo: '2016-2024' },
+];
+
+const seguridad = [
+  {
+    metrica: 'Lesiones nerviosas permanentes',
+    valor: '0',
+    desc: 'Cero casos de parálisis definitiva',
+  },
+  { metrica: 'Tasa de revisión', valor: '<3%', desc: 'Por debajo del promedio de la literatura' },
+  { metrica: 'Complicaciones mayores', valor: '<1%', desc: 'Hematomas, infecciones, necrosis' },
+  { metrica: 'Satisfacción del paciente', valor: '>95%', desc: 'En encuesta de follow-up' },
+];
+---
+
+<BaseLayout
+  title="Casuística | Resultados Documentados"
+  description="Números y estadísticas de cirugías faciales del Dr. Robério Brandão."
+  lang="es"
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li><li><span>/</span></li><li>
+            <a href="/es/sobre" class="hover:text-white">Sobre</a>
+          </li><li><span>/</span></li><li class="text-white">Casuística</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Resultados Documentados</p>
+      <h1 class="heading-1-white">Casuística</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Números que reflejan casi 20 años de dedicación a la cirugía facial con compromiso absoluto
+        con seguridad y resultados.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-12 text-center">Volumen Quirúrgico</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          estadisticas.map((e) => (
+            <div class="p-8 bg-white border border-gray-100 text-center">
+              <p class="text-5xl font-serif text-accent-600 mb-2">{e.valor}</p>
+              <h3 class="font-medium text-primary-900 mb-1">{e.categoria}</h3>
+              <p class="text-xs text-softGray">{e.periodo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <h2 class="heading-2 mb-12 text-center">Indicadores de Seguridad</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          seguridad.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="font-medium text-primary-900">{s.metrica}</h3>
+                <span class="text-2xl font-serif text-green-600">{s.valor}</span>
+              </div>
+              <p class="body-small">{s.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <p class="text-8xl font-serif text-accent-400 mb-4">0</p>
+      <h2 class="heading-2-white mb-4">Lesiones Nerviosas Permanentes</h2>
+      <p class="body-base-light">
+        En más de 212 casos documentados de Endomidface por Visión Directa, no hay registro de
+        ninguna lesión nerviosa permanente.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2 mb-6">Aprenda la Metodología</h2>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/sobre/dr-roberio-brandao" class="text-sm text-accent-600">← Dr. Robério</a>
+      <a href="/es/sobre/linea-del-tiempo" class="text-sm text-accent-600">Línea del Tiempo →</a>
+    </div>
+  </section>
+</BaseLayout>

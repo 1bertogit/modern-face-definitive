@@ -1,0 +1,135 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'what is Deep Neck',
+  'Deep Neck definition',
+  'neck facelift without gland removal',
+  'cervical rejuvenation philosophy',
+  'Modern Face neck surgery',
+  'submandibular preservation',
+];
+
+const diffs = [
+  { a: 'Submandibular Gland', trad: 'Routine removal', fm: 'NEVER removed' },
+  { a: 'Main Focus', trad: 'Gland treatment', fm: 'Fat + digastric + fasciotomy' },
+  {
+    a: 'Digastric Tendon',
+    trad: 'Plication to expose gland',
+    fm: 'No plication — prevents anteriorization',
+  },
+  { a: 'Risk Level', trad: 'High when removing gland', fm: 'Minimized' },
+];
+---
+
+<BaseLayout
+  title="What is Deep Neck"
+  description="Deep Neck Face Moderna definition. Cervical rejuvenation without submandibular gland removal."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Definition & Philosophy
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">What is Deep Neck</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Structural cervical rejuvenation with preservation philosophy. The submandibular gland is
+        NEVER removed.
+      </p>
+    </div>
+  </section>
+  <section class="py-8 bg-red-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-white font-medium">
+        ⚠️ Non-Negotiable Principle: The submandibular gland is NEVER removed in Face Moderna
+        protocol
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-warmGray text-lg drop-cap">
+        Face Moderna Deep Neck is a cervical rejuvenation technique that addresses deep neck
+        structures — subplatysmal fat, digastric muscle, and cervical fascia — without removing the
+        submandibular gland. This preservation philosophy represents a paradigm shift.
+      </p><h2 class="font-serif text-primary-900 mt-8 mb-4">The Preservation Philosophy</h2><p
+        class="text-warmGray"
+      >
+        Traditionally, the submandibular gland was considered the "villain" of the heavy neck. Dr.
+        Robério Brandão proposes: "Instead of exposing and resecting, we bypass and camouflage."
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        What Deep Neck Actually Treats
+      </h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Deep Fat</h3><p
+            class="text-sm text-warmGray"
+          >
+            Interplatysmal and subplatysmal fat removal under direct vision.
+          </p>
+        </div><div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Digastric Muscle</h3><p
+            class="text-sm text-warmGray"
+          >
+            Selective shaving of hypertrophied anterior belly.
+          </p>
+        </div><div class="p-8 bg-ivory text-center">
+          <h3 class="font-serif text-primary-900 mb-3">Pre-hyoid Fascia</h3><p
+            class="text-sm text-warmGray"
+          >
+            Mandatory horizontal fasciotomy. Lengthens the neck.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Traditional vs. Face Moderna
+      </h2><table class="w-full text-sm">
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Aspect</th><th class="text-left py-4 px-4"
+              >Traditional</th
+            ><th class="text-left py-4 px-4 text-accent-600">Face Moderna</th></tr
+          ></thead
+        ><tbody
+          >{
+            diffs.map((d) => (
+              <tr class="border-b border-gray-200">
+                <>
+                  <td class="py-4 px-4 font-medium">{d.a}</td>
+                  <td class="py-4 px-4 text-warmGray">{d.trad}</td>
+                  <td class="py-4 px-4 text-warmGray bg-accent-50">{d.fm}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "In many heavy necks, the true villain is the hypertrophied anterior belly of the digastric,
+        with finger-width thickness, while the platysma is thin as cardboard."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck" class="text-sm text-accent-600">← Overview</a><a
+        href="/techniques/deep-neck/pillars"
+        class="text-sm text-accent-600">4 Pillars →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

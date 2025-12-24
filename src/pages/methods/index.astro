@@ -1,0 +1,315 @@
+---
+/**
+ * CLUSTER C - Métodos
+ * Página: /en/methods/
+ * Prioridade: P0
+ * Intenção: Hub de métodos/técnicas
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Methods', url: '/methods' },
+];
+
+const keywords = [
+  'facial surgery techniques',
+  'ENDOMIDFACE technique',
+  'Deep Neck surgery',
+  'midface lift methods',
+  'facial rejuvenation techniques',
+  'Direct Vision surgery',
+  'Modern Face techniques',
+];
+
+const techniques = [
+  {
+    id: 'endomidface',
+    name: 'ENDOMIDFACE® by Direct Vision',
+    tagline: 'Midface Vertical Lifting',
+    description:
+      'Subperiosteal midface elevation using Direct Vision approach. The core technique for addressing malar descent, nasolabial deepening, and midface volume loss in the Modern Face patient.',
+    features: [
+      'Vertical vector elevation',
+      'No endoscopic equipment',
+      'Subperiosteal plane',
+      'Local anesthesia compatible',
+    ],
+    stats: { cases: '1,500+', safety: '0 permanent injuries' },
+    link: '/methods/endomidface-direct-vision',
+    color: 'accent',
+  },
+  {
+    id: 'deep-neck',
+    name: 'Deep Neck Without Gland Removal',
+    tagline: 'Cervical Rejuvenation',
+    description:
+      'Comprehensive neck rejuvenation that preserves the submandibular gland while achieving excellent cervical definition. Addresses platysmal bands, submental fullness, and cervicomental angle.',
+    features: [
+      'Gland preservation',
+      'Platysmal plication',
+      'Digastric management',
+      'Minimal scarring',
+    ],
+    stats: { cases: '800+', approach: 'Conservative' },
+    link: '/methods/deep-neck',
+    color: 'primary',
+  },
+];
+
+const comparisons = [
+  {
+    title: 'Direct Vision vs Endoscopic Tower',
+    desc: "Why a $150k tower isn't necessary for excellent midface results",
+    link: '/methods/endomidface/direct-vision-vs-endoscopic',
+  },
+  {
+    title: 'Direct Vision vs Traditional Deep Plane',
+    desc: 'Different techniques for different patient profiles',
+    link: '/methods/endomidface/direct-vision-vs-deep-plane',
+  },
+  {
+    title: 'Modern Face vs Classic Face',
+    desc: 'Why technique selection depends on patient history',
+    link: '/compare/modern-face-vs-classic-face',
+  },
+];
+---
+
+<BaseLayout
+  title="Surgical Methods — ENDOMIDFACE® & Deep Neck Techniques"
+  description="Overview of Modern Face Institute surgical techniques: ENDOMIDFACE® by Direct Vision for midface lifting and Deep Neck without gland removal for cervical rejuvenation. Evidence-based approaches for the contemporary patient."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="Surgical Methods — ENDOMIDFACE® & Deep Neck"
+    description="Complete overview of Modern Face Institute surgical techniques"
+    section="Surgical Methods"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="max-w-3xl">
+        <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+          Surgical Techniques
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Methods Overview</h1>
+        <p class="text-xl text-primary-200 mb-6">
+          Two core techniques built on the <a
+            href="/philosophy"
+            class="text-accent-400 hover:text-accent-300 underline">Modern Face® philosophy</a
+          >: midface elevation and cervical rejuvenation using Direct Vision approaches.
+        </p>
+        <p class="text-primary-300">
+          Both techniques are designed for the contemporary patient — faces that have been treated
+          with fillers and bioestimulators, not the "virgin tissue" of traditional textbooks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Techniques -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="space-y-12">
+        {
+          techniques.map((tech, index) => (
+            <div
+              class={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+            >
+              {/* Content */}
+              <div class={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <p
+                  class={`text-sm font-semibold tracking-wider uppercase mb-2 ${tech.color === 'accent' ? 'text-accent-600' : 'text-primary-600'}`}
+                >
+                  {tech.tagline}
+                </p>
+                <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-4">{tech.name}</h2>
+                <p class="text-lg text-warmGray mb-6">{tech.description}</p>
+
+                {/* Features */}
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  {tech.features.map((feature) => (
+                    <div class="flex items-center gap-2 text-sm text-warmGray">
+                      <span
+                        class={`material-symbols-outlined text-lg ${tech.color === 'accent' ? 'text-accent-500' : 'text-primary-500'}`}
+                      >
+                        check_circle
+                      </span>
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats */}
+                <div class="flex gap-6 mb-6">
+                  {Object.entries(tech.stats).map(([key, value]) => (
+                    <div>
+                      <p
+                        class={`text-2xl font-bold ${tech.color === 'accent' ? 'text-accent-600' : 'text-primary-600'}`}
+                      >
+                        {value}
+                      </p>
+                      <p class="text-xs text-softGray uppercase">
+                        {key.replace(/([A-Z])/g, ' $1').trim()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href={tech.link}
+                  class={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors ${tech.color === 'accent' ? 'bg-accent-500 text-white hover:bg-accent-600' : 'bg-primary-900 text-white hover:bg-primary-800'}`}
+                >
+                  Learn {tech.name.split(' ')[0]}
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+
+              {/* Visual */}
+              <div class={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div
+                  class={`aspect-[4/3] rounded-2xl flex items-center justify-center ${tech.color === 'accent' ? 'bg-accent-100' : 'bg-primary-100'}`}
+                >
+                  <div class="text-center">
+                    <span
+                      class={`material-symbols-outlined text-6xl mb-2 ${tech.color === 'accent' ? 'text-accent-400' : 'text-primary-400'}`}
+                    >
+                      {tech.id === 'endomidface' ? 'face_retouching_natural' : 'self_improvement'}
+                    </span>
+                    <p
+                      class={`text-sm ${tech.color === 'accent' ? 'text-accent-500' : 'text-primary-500'}`}
+                    >
+                      {tech.tagline}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Combined Approach -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-serif text-primary-900 mb-4">
+          Combined Approach: Full Facial Rejuvenation
+        </h2>
+        <p class="text-lg text-warmGray">
+          For comprehensive facial rejuvenation, ENDOMIDFACE® and Deep Neck are often performed
+          together — addressing the entire face from forehead to neck in a single session.
+        </p>
+      </div>
+
+      <div class="bg-ivory rounded-2xl p-8">
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div
+              class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="material-symbols-outlined text-accent-600 text-3xl">face</span>
+            </div>
+            <h3 class="font-bold text-primary-900 mb-2">Upper Third</h3>
+            <p class="text-sm text-warmGray">Browlift integration (when indicated)</p>
+          </div>
+          <div>
+            <div
+              class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="material-symbols-outlined text-accent-600 text-3xl"
+                >face_retouching_natural</span
+              >
+            </div>
+            <h3 class="font-bold text-primary-900 mb-2">Middle Third</h3>
+            <p class="text-sm text-warmGray">ENDOMIDFACE® by Direct Vision</p>
+          </div>
+          <div>
+            <div
+              class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="material-symbols-outlined text-accent-600 text-3xl"
+                >self_improvement</span
+              >
+            </div>
+            <h3 class="font-bold text-primary-900 mb-2">Lower Third + Neck</h3>
+            <p class="text-sm text-warmGray">Deep Neck without gland removal</p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a
+            href="/training/combo-legacy"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-primary-900 text-white rounded-lg hover:bg-primary-800 transition-colors font-semibold"
+          >
+            Combo Legacy Training — Learn Both
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparisons -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Technique Comparisons</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {
+          comparisons.map((comp) => (
+            <a
+              href={comp.link}
+              class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+            >
+              <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                {comp.title}
+              </h3>
+              <p class="text-warmGray text-sm mb-4">{comp.desc}</p>
+              <span class="inline-flex items-center text-accent-600 text-sm font-medium">
+                Compare
+                <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Master These Techniques</h2>
+      <p class="text-xl text-primary-200 mb-8">
+        Training programs designed to give you practical skills, not just theory. Learn from Dr.
+        Robério Brandão through structured mentorship.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          View All Training Programs
+        </a>
+        <a
+          href="/training/application"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

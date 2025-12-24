@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { name: 'Início', url: '/' },
+  { name: 'Legal', url: '/legal' },
+  { name: 'Política de Privacidade', url: '/legal/privacidade' },
+];
+
+const keywords = [
+  'política de privacidade',
+  'proteção de dados',
+  'LGPD',
+  'privacidade',
+  'Modern Face Institute',
+  'Dr. Robério Brandão',
+];
+---
+
+<BaseLayout
+  title="Política de Privacidade | Modern Face Institute"
+  description="Política de privacidade e proteção de dados do Modern Face Institute. Conheça como coletamos, usamos e protegemos suas informações pessoais."
+  keywords={keywords}
+>
+  <!-- Hero Editorial -->
+  <section class="relative py-24 md:py-32 bg-primary-900 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 opacity-90"
+    >
+    </div>
+    <div
+      class="absolute inset-0"
+      style="background-image: radial-gradient(circle at 30% 50%, rgba(184, 149, 108, 0.1) 0%, transparent 50%);"
+    >
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm uppercase tracking-widest text-accent-400 mb-6">LEGAL</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
+          Política de Privacidade
+        </h1>
+        <p class="text-lg text-primary-200 max-w-2xl mx-auto">
+          Compromisso com a transparência e proteção dos seus dados pessoais
+        </p>
+        <p class="text-sm text-primary-300 mt-4">Última atualização: Dezembro 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section class="bg-white border-b border-primary-100 py-4">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap text-lg leading-relaxed mb-8">
+          O Modern Face Institute está comprometido com a proteção da privacidade dos visitantes do
+          nosso site e participantes dos nossos programas. Esta política descreve como coletamos,
+          usamos e protegemos suas informações.
+        </p>
+
+        <div class="space-y-12">
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">1. Introdução</h2>
+            <p class="text-warmGray leading-relaxed">
+              O Modern Face Institute está comprometido com a proteção da privacidade dos visitantes
+              do nosso site e participantes dos nossos programas. Esta política descreve como
+              coletamos, usamos e protegemos suas informações.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">2. Dados Coletados</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              Podemos coletar os seguintes tipos de informações:
+            </p>
+            <ul class="space-y-3 text-warmGray">
+              <li>
+                <strong class="text-primary-900">Dados de identificação:</strong> nome, e-mail, telefone,
+              </li>
+              <li>
+                <strong class="text-primary-900">Dados profissionais:</strong> especialidade, instituição,
+                experiência
+              </li>
+              <li>
+                <strong class="text-primary-900">Dados de navegação:</strong> páginas visitadas, tempo
+                de permanência, dispositivo utilizado
+              </li>
+              <li>
+                <strong class="text-primary-900">Dados de comunicação:</strong> mensagens enviadas através
+                de formulários de contato
+              </li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">3. Finalidade do Uso</h2>
+            <p class="text-warmGray leading-relaxed mb-4">Utilizamos seus dados para:</p>
+            <ul class="space-y-3 text-warmGray">
+              <li>Processar inscrições em programas de formação</li>
+              <li>Enviar informações sobre cursos e eventos</li>
+              <li>Melhorar a experiência de navegação no site</li>
+              <li>Responder a solicitações de contato</li>
+              <li>Cumprir obrigações legais</li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">4. Compartilhamento de Dados</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              Não vendemos ou compartilhamos seus dados pessoais com terceiros, exceto:
+            </p>
+            <ul class="space-y-3 text-warmGray">
+              <li>
+                Quando necessário para prestação de serviços (ex: processamento de pagamentos)
+              </li>
+              <li>Quando exigido por lei ou ordem judicial</li>
+              <li>Com seu consentimento expresso</li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">5. Segurança</h2>
+            <p class="text-warmGray leading-relaxed">
+              Implementamos medidas técnicas e organizacionais para proteger seus dados contra
+              acesso não autorizado, perda ou alteração.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">6. Seus Direitos (LGPD)</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:
+            </p>
+            <ul class="space-y-3 text-warmGray">
+              <li>Acessar seus dados pessoais</li>
+              <li>Corrigir dados incompletos ou incorretos</li>
+              <li>Solicitar a exclusão de seus dados</li>
+              <li>Revogar consentimento</li>
+              <li>Solicitar portabilidade dos dados</li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">7. Cookies</h2>
+            <p class="text-warmGray leading-relaxed">
+              Utilizamos cookies para melhorar sua experiência de navegação. Você pode configurar
+              seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades do
+              site.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">8. Contato</h2>
+            <p class="text-warmGray leading-relaxed">
+              Para exercer seus direitos ou tirar dúvidas sobre privacidade, entre em contato:
+              <a
+                href="mailto:privacidade@drroberiobrandao.com"
+                class="text-accent-600 hover:text-accent-700 transition-colors"
+              >
+                privacidade@drroberiobrandao.com
+              </a>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Footer -->
+  <section class="py-12 bg-white border-t border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <a
+          href="/pt/legal/termos"
+          class="group flex items-center gap-2 text-accent-600 hover:text-accent-700 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span class="text-sm font-medium uppercase tracking-wide">Termos de Uso</span>
+        </a>
+        <div class="text-sm text-softGray">Documento Legal</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

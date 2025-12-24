@@ -1,0 +1,174 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Legal', url: '/legal' },
+  { name: 'Terms of Use', url: '/legal/terms' },
+];
+
+const keywords = [
+  'terms of use',
+  'terms and conditions',
+  'usage terms',
+  'Modern Face Institute',
+  'Dr. Robério Brandão',
+];
+---
+
+<BaseLayout
+  title="Terms of Use | Modern Face Institute"
+  description="Terms and conditions for using the Modern Face Institute website and services. Learn the rules and guidelines for using our content."
+  keywords={keywords}
+  lang="en"
+>
+  <!-- Hero Editorial -->
+  <section class="relative py-24 md:py-32 bg-primary-900 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 opacity-90"
+    >
+    </div>
+    <div
+      class="absolute inset-0"
+      style="background-image: radial-gradient(circle at 30% 50%, rgba(184, 149, 108, 0.1) 0%, transparent 50%);"
+    >
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm uppercase tracking-widest text-accent-400 mb-6">LEGAL</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
+          Terms of Use
+        </h1>
+        <p class="text-lg text-primary-200 max-w-2xl mx-auto">
+          Guidelines and conditions for using our website and services
+        </p>
+        <p class="text-sm text-primary-300 mt-4">Last updated: December 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section class="bg-white border-b border-primary-100 py-4">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap text-lg leading-relaxed mb-8">
+          By accessing and using the Modern Face Institute website, you agree to these Terms of Use.
+          If you do not agree with any part of these terms, you should not use our site.
+        </p>
+
+        <div class="space-y-12">
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">1. Acceptance of Terms</h2>
+            <p class="text-warmGray leading-relaxed">
+              By accessing and using the Modern Face Institute website, you agree to these Terms of
+              Use. If you do not agree with any part of these terms, you should not use our site.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">2. Description of Services</h2>
+            <p class="text-warmGray leading-relaxed">
+              The Modern Face Institute offers educational content about facial surgery, including
+              information about techniques, philosophy, and training programs for medical
+              professionals.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">3. Content Usage</h2>
+            <p class="text-warmGray leading-relaxed">
+              All content on this site, including texts, images, videos, graphics, and educational
+              materials, is protected by copyright. Unauthorized use, reproduction, or distribution
+              is strictly prohibited.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">4. Educational Content</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              Information provided on this site is exclusively educational and intended for medical
+              professionals. It does not replace:
+            </p>
+            <ul class="space-y-3 text-warmGray">
+              <li>Appropriate hands-on training</li>
+              <li>Professional supervision</li>
+              <li>Individual clinical judgment</li>
+              <li>Patient informed consent</li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">5. Limitation of Liability</h2>
+            <p class="text-warmGray leading-relaxed">
+              The Modern Face Institute is not responsible for clinical outcomes obtained by
+              professionals using information from this site. Each professional is responsible for
+              their own practices and clinical decisions.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">6. Intellectual Property</h2>
+            <p class="text-warmGray leading-relaxed">
+              The trademarks "Modern Face®", "Endomidface", "Modern Face Institute" and associated
+              logos are property of Dr. Robério Brandão and the Modern Face Institute.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">7. Modifications</h2>
+            <p class="text-warmGray leading-relaxed">
+              We reserve the right to modify these terms at any time. Significant changes will be
+              communicated through the website.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">8. Contact</h2>
+            <p class="text-warmGray leading-relaxed">
+              For questions about these terms, contact
+              <a
+                href="mailto:legal@drroberiobrandao.com"
+                class="text-accent-600 hover:text-accent-700 transition-colors"
+              >
+                legal@drroberiobrandao.com
+              </a>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Footer -->
+  <section class="py-12 bg-white border-t border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <a
+          href="/legal/privacy"
+          class="group flex items-center gap-2 text-accent-600 hover:text-accent-700 transition-colors"
+        >
+          <span class="text-sm font-medium uppercase tracking-wide">Privacy Policy</span>
+          <svg
+            class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+        <div class="text-sm text-softGray">Legal Document</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

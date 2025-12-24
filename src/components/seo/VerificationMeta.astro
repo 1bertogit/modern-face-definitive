@@ -1,0 +1,29 @@
+---
+/**
+ * Search Engine Verification Meta Tags
+ *
+ * Includes verification codes for:
+ * - Google Search Console
+ * - Bing Webmaster Tools
+ *
+ * Configure via environment variables:
+ * - PUBLIC_GSC_VERIFICATION: Google Search Console verification code
+ * - PUBLIC_BING_VERIFICATION: Bing Webmaster verification code
+ */
+
+const gscCode = import.meta.env.PUBLIC_GSC_VERIFICATION;
+const bingCode = import.meta.env.PUBLIC_BING_VERIFICATION;
+---
+
+{/* Google Search Console */}
+{gscCode && <meta name="google-site-verification" content={gscCode} />}
+
+{/* Bing Webmaster Tools */}
+{bingCode && <meta name="msvalidate.01" content={bingCode} />}
+
+{/* Yandex Webmaster (optional) */}
+{
+  import.meta.env.PUBLIC_YANDEX_VERIFICATION && (
+    <meta name="yandex-verification" content={import.meta.env.PUBLIC_YANDEX_VERIFICATION} />
+  )
+}

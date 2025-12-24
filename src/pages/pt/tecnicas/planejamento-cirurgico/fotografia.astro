@@ -1,0 +1,113 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'fotografia médica padronizada',
+  'documentação fotográfica cirurgia',
+  'incidências foto facial',
+  'foto frontal oblíqua perfil',
+  'especificações técnicas foto',
+  'antes depois cirurgia foto',
+];
+
+const incidencias = [
+  { nome: 'Frontal', desc: 'Olhar para câmera, expressão neutra', obrigatorio: true },
+  { nome: 'Oblíqua 45° D', desc: 'Rotação 45° para direita', obrigatorio: true },
+  { nome: 'Oblíqua 45° E', desc: 'Rotação 45° para esquerda', obrigatorio: true },
+  { nome: 'Perfil D', desc: 'Perfil completo direito', obrigatorio: true },
+  { nome: 'Perfil E', desc: 'Perfil completo esquerdo', obrigatorio: true },
+  { nome: 'Base do Nariz', desc: 'Incidência inferior nasal', obrigatorio: false },
+  { nome: 'Pescoço Estendido', desc: 'Hiperextensão cervical', obrigatorio: false },
+];
+
+const specs = [
+  { item: 'Fundo', valor: 'Neutro (azul ou cinza)' },
+  { item: 'Iluminação', valor: 'Ring light ou flash duplo' },
+  { item: 'Distância', valor: '1.5 metros padronizado' },
+  { item: 'Altura câmera', valor: 'Nível dos olhos' },
+  { item: 'Expressão', valor: 'Neutra, sem sorriso' },
+  { item: 'Cabelo', valor: 'Preso para trás' },
+];
+---
+
+<BaseLayout
+  title="Fotografia Padronizada"
+  description="Documentação fotográfica pré-operatória. Incidências obrigatórias e especificações técnicas."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li>
+            <a href="/pt/tecnicas/planejamento-cirurgico" class="hover:text-white">Planejamento</a>
+          </li>
+          <li><span>/</span></li>
+          <li class="text-white">Fotografia</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 04
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Fotografia Padronizada
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Documentação fotográfica é obrigatória. Padronização garante comparabilidade e proteção
+        legal.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Incidências</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          incidencias.map((i) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div>
+                <h3 class="font-medium text-primary-900">{i.nome}</h3>
+                <p class="text-sm text-warmGray">{i.desc}</p>
+              </div>
+              <span
+                class={`text-xs px-2 py-1 ${i.obrigatorio ? 'bg-accent-600' : 'bg-gray-400'} text-white`}
+              >
+                {i.obrigatorio ? 'Obrigatório' : 'Opcional'}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Especificações Técnicas</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {
+          specs.map((s) => (
+            <div class="p-4 bg-white border border-gray-100 text-center">
+              <p class="text-xs text-accent-600 uppercase tracking-wide mb-1">{s.item}</p>
+              <p class="text-warmGray font-medium">{s.valor}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/planejamento-cirurgico/vetores" class="text-sm text-accent-600"
+        >← Vetores</a
+      >
+      <a href="/pt/tecnicas/planejamento-cirurgico/consentimento" class="text-sm text-accent-600"
+        >Consentimento →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

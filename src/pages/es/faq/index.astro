@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const faqGeneral = [
+  {
+    p: '¿Qué es la Face Moderna®?',
+    r: 'Es una filosofía de cirugía facial desarrollada por el Dr. Robério Brandão que prioriza máxima seguridad, elegancia en los resultados y recuperación optimizada. Incluye técnicas como Endomidface por Visión Directa, Deep Neck conservador y Frontoplastia evolutiva.',
+  },
+  {
+    p: '¿Cuál es la diferencia con las técnicas tradicionales?',
+    r: 'La Face Moderna® trabaja en planos más seguros, utiliza visión directa (sin endoscopio), preserva estructuras anatómicas importantes y produce resultados más naturales con recuperación más rápida.',
+  },
+  {
+    p: '¿Las técnicas están validadas científicamente?',
+    r: 'Sí. Tenemos más de 212 casos documentados de Endomidface con cero lesiones nerviosas permanentes. Presentamos regularmente en congresos y estamos preparando publicaciones científicas.',
+  },
+];
+
+const faqCursos = [
+  {
+    p: '¿Quién puede hacer los cursos?',
+    r: 'Los programas están destinados a médicos cirujanos plásticos o en formación en la especialidad. No se requiere experiencia previa en cirugía facial.',
+  },
+  {
+    p: '¿Cuál es la inversión?',
+    r: 'Los valores varían según el programa. Contáctenos para información actualizada sobre inversión y condiciones de pago.',
+  },
+  {
+    p: '¿Los cursos son presenciales u online?',
+    r: 'Los programas combinan contenido teórico (accesible online) con entrenamiento práctico presencial, incluyendo cirugías en vivo.',
+  },
+  {
+    p: '¿Cuál es la carga horaria?',
+    r: 'Depende del programa elegido. El curso completo de Endomidface tiene aproximadamente 40 horas entre teoría y práctica.',
+  },
+  {
+    p: '¿Recibo certificado?',
+    r: 'Sí. Todos los participantes reciben certificado de conclusión emitido por el Modern Face Institute.',
+  },
+];
+
+const faqTecnico = [
+  {
+    p: '¿El Endomidface funciona en faces con bioestimuladores?',
+    r: 'Sí. La técnica fue desarrollada considerando la realidad actual donde aproximadamente el 90% de los pacientes ya utilizaron algún tipo de relleno o bioestimulador.',
+  },
+  {
+    p: '¿Por qué no usar endoscopio?',
+    r: 'La visión directa ofrece control superior, permite trabajar en planos más profundos con seguridad y elimina la curva de aprendizaje del equipo endoscópico.',
+  },
+  {
+    p: '¿Cuál es el tiempo de recuperación del paciente?',
+    r: 'La recuperación social típica es de 7-14 días. El edema residual puede persistir por algunas semanas, pero la mayoría de los pacientes retorna a las actividades normales en 2 semanas.',
+  },
+];
+---
+
+<BaseLayout
+  title="FAQ | Preguntas Frecuentes"
+  description="Preguntas frecuentes sobre la Face Moderna, programas de formación y técnicas quirúrgicas."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Preguntas Frecuentes
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Respuestas a las dudas más comunes sobre la Face Moderna® y nuestros programas
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Sobre la Face Moderna®</h2>
+      <div class="space-y-4">
+        {
+          faqGeneral.map((f) => (
+            <details class="group bg-white border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.p}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.r}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Sobre los Cursos</h2>
+      <div class="space-y-4">
+        {
+          faqCursos.map((f) => (
+            <details class="group bg-ivory border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.p}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.r}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Cuestiones Técnicas</h2>
+      <div class="space-y-4">
+        {
+          faqTecnico.map((f) => (
+            <details class="group bg-white border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.p}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.r}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">¿No encontró su respuesta?</h2>
+      <p class="text-primary-300 mb-8">Contáctenos. Será un placer ayudarle.</p>
+      <a
+        href="/es/contacto"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Contáctenos</a
+      >
+    </div>
+  </section>
+</BaseLayout>

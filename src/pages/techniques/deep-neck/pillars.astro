@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Deep Neck 4 pillars',
+  'digastric shaving technique',
+  'pre-hyoid fasciotomy',
+  'platysmorraphy technique',
+  'cervical fat removal',
+  'neck contour surgery',
+];
+
+const pillars = [
+  {
+    n: '01',
+    t: 'Deep Fat',
+    s: 'Floor Cleaning',
+    d: 'Interplatysmal and subplatysmal fat removal under direct vision.',
+    det: [
+      'Open platysma at midline',
+      'Remove fat with electrocautery under vision',
+      'Clean from hyoid upward',
+      'Preserve fat below hyoid',
+    ],
+    m: 'Empty the pillow before tightening the pillowcase',
+  },
+  {
+    n: '02',
+    t: 'Digastric Shaving',
+    s: 'The Turning Point',
+    d: 'Selective reduction of hypertrophied anterior belly — the true villain.',
+    det: [
+      'Identify anterior belly',
+      'Resect 50-60% of volume',
+      'Transform from cylindrical to flat',
+      'NEVER plicate the tendon',
+    ],
+    m: 'Prune the thick root from the garden',
+  },
+  {
+    n: '03',
+    t: 'Pre-hyoid Fasciotomy',
+    s: 'Mandatory in 100%',
+    d: 'Horizontal section of deep cervical fascia just above hyoid.',
+    det: [
+      'Horizontal incision above hyoid',
+      "Releases hyoid 'anchoring'",
+      'Increases mento-hyoid distance',
+      'Creates negative neck',
+    ],
+    m: 'Release the brake holding the neck',
+  },
+  {
+    n: '04',
+    t: 'Platysmorraphy + Crevassi',
+    s: 'Final Architecture',
+    d: 'Medial platysma suture and lateral fixation to SCM fascia.',
+    det: [
+      'Platysmorraphy from mandible to hyoid',
+      'Moderate tension',
+      'Crevassi on SCM fascia',
+      'Defines mandibular angle',
+    ],
+    m: 'Reinforce the structure',
+  },
+];
+---
+
+<BaseLayout
+  title="The 4 Pillars of Deep Neck"
+  description="The 4 pillars: Deep Fat, Digastric, Fasciotomy, Platysmorraphy."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Technical Structure
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        The 4 Pillars of Deep Neck
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Each pillar is essential. Together, they transform the heavy neck into defined contour.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-white italic">
+        "Treating only skin and platysma is trimming the grass. Deep Neck is renovating the entire
+        garden."
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="space-y-12">
+        {
+          pillars.map((p) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <div class="flex items-start gap-6">
+                <>
+                  <span class="text-5xl font-serif text-accent-600/20">{p.n}</span>
+                  <div>
+                    <>
+                      <p class="text-[10px] font-medium text-accent-600 uppercase mb-2">{p.s}</p>
+                      <h2 class="text-xl font-serif text-primary-900 mb-3">{p.t}</h2>
+                      <p class="text-warmGray mb-4">{p.d}</p>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <>
+                          <ul class="space-y-2">
+                            {p.det.map((d) => (
+                              <li class="text-sm text-warmGray">→ {d}</li>
+                            ))}
+                          </ul>
+                          <div class="bg-ivory p-4">
+                            <>
+                              <p class="text-xs text-accent-600 mb-1">Metaphor</p>
+                              <p class="text-sm italic">"{p.m}"</p>
+                            </>
+                          </div>
+                        </>
+                      </div>
+                    </>
+                  </div>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "Pre-hyoid fasciotomy is mandatory in 100% of Deep Neck surgeries."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/deep-neck/what-is-it" class="text-sm text-accent-600">← What Is It</a><a
+        href="/techniques/deep-neck/anatomy"
+        class="text-sm text-accent-600">Anatomy →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

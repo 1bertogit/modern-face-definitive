@@ -1,0 +1,167 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'what is Endomidface',
+  'Endomidface definition',
+  'midface lifting without endoscope',
+  'direct vision facelift',
+  'Modern Face technique',
+  'Dr Robério Brandão',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface Direct Vision',
+  description:
+    'Midface lifting technique through temporal access with direct vision, no endoscope.',
+};
+const diffs = [
+  {
+    a: 'Access',
+    trad: 'Endoscopic with camera/monitors',
+    fm: 'Direct vision, no special equipment',
+  },
+  { a: 'Plane', trad: 'Subperiosteal (on bone)', fm: 'Sub-SMAS (fat compartments)' },
+  { a: 'Vector', trad: 'Posterior (backward)', fm: 'Vertical (upward)' },
+  { a: 'Injected faces', trad: 'Contraindicated or risky', fm: 'Safe — bypasses SMAS fibrosis' },
+  {
+    a: 'Learning curve',
+    trad: 'Steep (equipment + technique)',
+    fm: 'Moderate (anatomy + tactile)',
+  },
+  { a: 'Operational cost', trad: 'High (equipment maintenance)', fm: 'Low (basic instruments)' },
+];
+---
+
+<BaseLayout
+  title="What is Endomidface"
+  description="Complete definition of Endomidface Direct Vision technique. Midface lifting without endoscope, developed by Dr. Robério Brandão."
+  keywords={keywords}
+  schema={schema}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li><li>/</li><li>
+            <a href="/techniques" class="hover:text-white">Techniques</a>
+          </li><li>/</li><li>
+            <a href="/techniques/endomidface" class="hover:text-white">Endomidface</a>
+          </li><li>/</li><li class="text-white">What Is It</li>
+        </ol>
+      </nav><p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Definition & Concept
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">What is Endomidface</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Midface lifting through direct vision, without endoscope. A technical evolution combining
+        safety, simplicity, and superior results.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Endomidface Direct Vision is a facial rejuvenation technique developed by Dr. Robério
+          Brandão that elevates the midface through a minimally invasive temporal access, using
+          direct amplified vision instead of endoscopic equipment.
+        </p><p>
+          The name "Endomidface" derives from "endo" (internal/deep) combined with "midface". Adding
+          "Direct Vision" differentiates this technique from traditional endoscopic approaches,
+          emphasizing that the entire procedure is performed under the surgeon's direct
+          visualization.
+        </p><h2 class="font-serif text-primary-900">The Problem It Solves</h2><p>
+          With aging, midface fat compartments descend due to gravity and weakening of retaining
+          ligaments. This results in: accentuation of the nasolabial fold, cheek ptosis and loss of
+          malar projection, vertical lengthening of the lower eyelid, and abrupt transition between
+          eyelid and cheek.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        The Direct Vision Principle
+      </h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-8 bg-ivory">
+          <span class="text-5xl font-serif text-accent-600/30 block mb-4">01</span><h3
+            class="font-serif text-primary-900 mb-3"
+          >
+            See to Protect
+          </h3><p class="text-sm text-warmGray">
+            Direct vision allows identification and preservation of noble structures — nerves,
+            vessels — in real time.
+          </p>
+        </div><div class="text-center p-8 bg-ivory">
+          <span class="text-5xl font-serif text-accent-600/30 block mb-4">02</span><h3
+            class="font-serif text-primary-900 mb-3"
+          >
+            Operational Simplicity
+          </h3><p class="text-sm text-warmGray">
+            No dependence on cameras, monitors, or equipment maintenance. Basic plastic surgery
+            instruments suffice.
+          </p>
+        </div><div class="text-center p-8 bg-ivory">
+          <span class="text-5xl font-serif text-accent-600/30 block mb-4">03</span><h3
+            class="font-serif text-primary-900 mb-3"
+          >
+            Modern Face Adaptation
+          </h3><p class="text-sm text-warmGray">
+            The technique bypasses fixed SMAS fibrosis (caused by biostimulators), accessing mobile
+            anterior SMAS safely.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Direct Vision vs. Endoscopic
+      </h2><table class="w-full text-sm">
+        <thead
+          ><tr class="border-b-2 border-primary-900"
+            ><th class="text-left py-4 px-4">Aspect</th><th class="text-left py-4 px-4"
+              >Traditional Endoscopic</th
+            ><th class="text-left py-4 px-4 text-accent-600">Direct Vision (Face Moderna)</th></tr
+          ></thead
+        ><tbody
+          >{
+            diffs.map((d) => (
+              <tr class="border-b border-gray-200">
+                <>
+                  <td class="py-4 px-4 font-medium">{d.a}</td>
+                  <td class="py-4 px-4 text-warmGray">{d.trad}</td>
+                  <td class="py-4 px-4 text-warmGray bg-accent-50">{d.fm}</td>
+                </>
+              </tr>
+            ))
+          }</tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <blockquote>
+        <p class="text-xl font-serif italic text-white mb-6">
+          "I abandoned the endoscope not because it's outdated, but because I discovered something
+          better. Direct vision gives me total control, without depending on a screen."
+        </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+      </blockquote>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface" class="text-sm text-accent-600">← Overview</a><a
+        href="/techniques/endomidface/indications"
+        class="text-sm text-accent-600">Indications →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

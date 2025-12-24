@@ -1,0 +1,417 @@
+---
+/**
+ * CLUSTER C - ENDOMIDFACE® por Visão Direta
+ * Página: /en/methods/endomidface-direct-vision/
+ * Prioridade: P0
+ * Intenção: Money page técnica principal
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Methods', url: '/methods' },
+  { name: 'ENDOMIDFACE® Direct Vision', url: '/methods/endomidface-direct-vision' },
+];
+
+const keywords = [
+  'ENDOMIDFACE technique',
+  'Direct Vision facelift',
+  'midface lift technique',
+  'vertical facelift',
+  'non-endoscopic midface',
+  'facial surgery without endoscope',
+  'Dr Robério Brandão technique',
+  'Modern Face surgery',
+];
+
+const techniqueFeatures = [
+  {
+    icon: 'visibility',
+    title: 'Direct Vision Approach',
+    desc: 'No endoscopic tower required. Direct visualization through optimized incision placement, surgical loupes, and headlight. You see what your hands are doing in real time.',
+  },
+  {
+    icon: 'arrow_upward',
+    title: 'Vertical Vector Lifting',
+    desc: 'True vertical elevation that counteracts gravitational descent. Not the lateral tension of traditional techniques that can create an unnatural "windswept" appearance.',
+  },
+  {
+    icon: 'layers',
+    title: 'Subperiosteal Plane',
+    desc: 'Works in the subperiosteal plane of the midface — below the periosteum, above the bone. A safe, defined space ideal for the Modern Face patient.',
+  },
+  {
+    icon: 'healing',
+    title: 'Minimal Dissection',
+    desc: 'Precise, targeted dissection means less tissue trauma. Result: reduced edema, faster recovery, earlier return to normal activities.',
+  },
+];
+
+const relatedPages = [
+  { title: 'Step-by-Step Overview', url: '/methods/endomidface/steps-overview', priority: 'P0' },
+  {
+    title: 'Indications: Who Benefits',
+    url: '/methods/endomidface/indications',
+    priority: 'P1',
+  },
+  { title: 'Applied Anatomy Map', url: '/methods/endomidface/anatomy-map', priority: 'P1' },
+  {
+    title: 'Direct Vision vs Endoscopic',
+    url: '/methods/endomidface/direct-vision-vs-endoscopic',
+    priority: 'P0',
+  },
+  {
+    title: 'Direct Vision vs Deep Plane',
+    url: '/methods/endomidface/direct-vision-vs-deep-plane',
+    priority: 'P0',
+  },
+  {
+    title: 'Complications & Prevention',
+    url: '/methods/endomidface/complications-prevention',
+    priority: 'P0',
+  },
+];
+---
+
+<BaseLayout
+  title="ENDOMIDFACE® by Direct Vision — Complete Technique Overview"
+  description="ENDOMIDFACE® by Direct Vision is a midface lifting technique that eliminates endoscopic equipment dependency. Learn about the vertical vector approach, subperiosteal plane dissection, and why Direct Vision provides superior control for the Modern Face patient."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="ENDOMIDFACE® by Direct Vision — Complete Technique Overview"
+    description="Comprehensive overview of the ENDOMIDFACE technique using Direct Vision approach"
+    section="Surgical Techniques"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+            Core Technique
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+            ENDOMIDFACE® by Direct Vision
+          </h1>
+          <p class="text-xl text-primary-200 mb-6">
+            A midface lifting technique that achieves what endoscopic surgery promised — <strong
+              class="text-white">without the $150,000 equipment</strong
+            >.
+          </p>
+          <p class="text-primary-300 mb-8">
+            Direct Vision provides superior anatomical control, eliminates equipment dependency, and
+            is specifically designed for the Modern Face patient with prior filler and
+            bioestimulator treatment.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/methods/endomidface/steps-overview"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
+            >
+              <span class="material-symbols-outlined">list_alt</span>
+              Step-by-Step
+            </a>
+            <a
+              href="/training/endomidface-mentorship"
+              class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <span class="material-symbols-outlined">school</span>
+              Training Program
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Placeholder -->
+        <div class="relative hidden lg:block">
+          <div class="aspect-[4/3] bg-primary-700/50 rounded-2xl flex items-center justify-center">
+            <div class="text-center text-primary-400">
+              <span class="material-symbols-outlined text-6xl mb-2">face_retouching_natural</span>
+              <p class="text-sm">ENDOMIDFACE® Technique</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Stats -->
+  <section class="py-8 bg-accent-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+        <div>
+          <p class="text-3xl md:text-4xl font-bold">1,500+</p>
+          <p class="text-sm opacity-90">Surgeries Performed</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold">0</p>
+          <p class="text-sm opacity-90">Permanent Nerve Injuries</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold">$0</p>
+          <p class="text-sm opacity-90">Endoscope Required</p>
+        </div>
+        <div>
+          <p class="text-3xl md:text-4xl font-bold">130+</p>
+          <p class="text-sm opacity-90">Surgeons Trained</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Is ENDOMIDFACE -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-8">What Is ENDOMIDFACE®?</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl leading-relaxed mb-6">
+          ENDOMIDFACE® by Direct Vision is a <strong>midface lifting technique</strong> developed by <a
+            href="/creator"
+            class="text-accent-600 hover:text-accent-700 underline">Dr. Robério Brandão</a
+          > beginning in 2006. The name refers to the anatomical approach — entering the subperiosteal
+          space of the midface — not to endoscopic equipment.
+        </p>
+
+        <div class="bg-white border-l-4 border-accent-500 p-6 my-8">
+          <p class="font-semibold text-primary-900 mb-2">Important Clarification</p>
+          <p class="text-warmGray">
+            Despite the "Endo" prefix, <strong>ENDOMIDFACE® is NOT an endoscopic procedure</strong>.
+            "Endo" refers to the internal (subperiosteal) approach, not to the use of cameras or
+            towers. This is perhaps the most common misconception about the technique.
+          </p>
+        </div>
+
+        <p class="mb-6">
+          The technique addresses a specific anatomical problem: <strong
+            >descent of the midface unit</strong
+          >. This includes the malar fat pad, the orbicularis muscle, and the soft tissue that
+          creates the nasolabial fold and contributes to lower eyelid appearance.
+        </p>
+
+        <p class="mb-6">
+          Traditional SMAS techniques don't adequately address the midface because they work in a
+          different plane and vector. Deep Plane techniques can address the midface but require
+          extensive dissection and work in planes that may be disrupted in the <a
+            href="/philosophy/modern-face-definition"
+            class="text-accent-600 hover:text-accent-700 underline">Modern Face patient</a
+          >.
+        </p>
+
+        <p class="mb-6">
+          ENDOMIDFACE® provides a <strong>direct approach to the midface</strong> using:
+        </p>
+
+        <ul class="space-y-2 mb-6">
+          <li>
+            <strong>Subperiosteal plane dissection</strong> — a defined, safe anatomical space
+          </li>
+          <li>
+            <strong>Vertical vector elevation</strong> — counteracting gravitational descent directly
+          </li>
+          <li><strong>Direct Vision</strong> — surgical loupes and headlight, no cameras</li>
+          <li><strong>Minimal incisions</strong> — temporal and sometimes intraoral</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technique Features -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-12 text-center">
+        Technical Characteristics
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          techniqueFeatures.map((feature) => (
+            <div class="p-8 bg-ivory rounded-2xl">
+              <div class="w-14 h-14 bg-accent-100 rounded-xl flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">
+                  {feature.icon}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-primary-900 mb-3">{feature.title}</h3>
+              <p class="text-warmGray">{feature.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Direct Vision -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Why Direct Vision? The Logic</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="mb-6">
+          Endoscopic facial surgery was developed to provide visualization in deep spaces without
+          large incisions. The camera allows the surgeon to see areas they couldn't otherwise access
+          visually.
+        </p>
+
+        <p class="mb-6">But endoscopes come with significant trade-offs:</p>
+
+        <ul class="space-y-3 mb-6">
+          <li><strong>Equipment cost:</strong> $100,000-$150,000 for a proper tower setup</li>
+          <li><strong>Equipment dependency:</strong> Malfunction = compromised procedure</li>
+          <li><strong>Learning curve:</strong> Hand-eye coordination with camera view</li>
+          <li><strong>2D limitation:</strong> Loss of stereoscopic (3D) vision</li>
+          <li><strong>Camera delay:</strong> Slight lag between movement and display</li>
+          <li>
+            <strong>No tactile feedback:</strong> You feel less through instruments designed for camera
+            work
+          </li>
+        </ul>
+
+        <p class="mb-6">
+          Dr. Brandão's insight was simple: <strong
+            >if you can achieve equivalent or better visualization without the camera, the
+            trade-offs aren't worth it.</strong
+          >
+        </p>
+
+        <p class="mb-6">
+          With proper incision placement in ENDOMIDFACE®, the temporal incision provides direct
+          line-of-sight to the subperiosteal plane of the midface. Surgical loupes provide
+          magnification. A headlight provides illumination. You see directly, in 3D, with zero
+          delay, and with full tactile feedback preserved.
+        </p>
+
+        <p class="mb-6">
+          The <a
+            href="/creator/case-series-safety"
+            class="text-accent-600 hover:text-accent-700 underline"
+            >safety record of 1,500+ surgeries with zero permanent nerve injuries</a
+          > validates that Direct Vision doesn't compromise outcomes — it may actually enhance them.
+        </p>
+
+        <p class="mb-6">
+          For a detailed comparison, see: <a
+            href="/methods/endomidface/direct-vision-vs-endoscopic"
+            class="text-accent-600 hover:text-accent-700 underline"
+            >Direct Vision vs Endoscopic Tower: Myth vs Reality</a
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal Patient -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Ideal Patient Profile</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-green-50 border border-green-200 rounded-xl">
+          <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">check_circle</span>
+            Ideal Candidates
+          </h3>
+          <ul class="space-y-2 text-green-700">
+            <li>• Age 45-65 years (primary demographic)</li>
+            <li>• Midface descent with malar flattening</li>
+            <li>• Nasolabial fold deepening</li>
+            <li>• Prior filler/bioestimulator treatment (Modern Face)</li>
+            <li>• Seeking natural, vertical rejuvenation</li>
+            <li>• Want faster recovery option</li>
+          </ul>
+        </div>
+
+        <div class="p-6 bg-red-50 border border-red-200 rounded-xl">
+          <h3 class="font-bold text-red-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">cancel</span>
+            Not Ideal For
+          </h3>
+          <ul class="space-y-2 text-red-700">
+            <li>• Patients over 70 with severe SMAS laxity</li>
+            <li>• Primary concern is jowl/jawline (consider Deep Plane)</li>
+            <li>• Severe neck skin excess</li>
+            <li>• Unrealistic expectations</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-8 text-warmGray text-center">
+        Detailed indications and contraindications: <a
+          href="/methods/endomidface/indications"
+          class="text-accent-600 hover:text-accent-700 underline"
+          >Who Benefits Most (and Who Doesn't)</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- Related Pages -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Explore ENDOMIDFACE® in Detail</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          relatedPages.map((page) => (
+            <a
+              href={page.url}
+              class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+            >
+              <div class="flex items-start justify-between mb-2">
+                <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600">
+                  {page.title}
+                </h3>
+                {page.priority === 'P0' && (
+                  <span class="text-xs bg-accent-100 text-accent-700 px-2 py-0.5 rounded-full">
+                    Essential
+                  </span>
+                )}
+              </div>
+              <span class="inline-flex items-center text-accent-600 text-sm font-medium mt-2">
+                Read more
+                <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">
+        Master ENDOMIDFACE® by Direct Vision
+      </h2>
+      <p class="text-xl text-primary-200 mb-8">
+        The 2-month mentorship program includes comprehensive training, live case discussions, and
+        ongoing support from Dr. Robério Brandão.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training/endomidface-mentorship"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          ENDOMIDFACE® Mentorship — $3,350
+        </a>
+        <a
+          href="/training/application"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

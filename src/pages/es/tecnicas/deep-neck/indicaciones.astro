@@ -1,0 +1,122 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'indicaciones Deep Neck',
+  'cuello pesado cirugía',
+  'papada tratamiento quirúrgico',
+  'contraindicaciones Deep Neck',
+  'selección pacientes cuello',
+  'cuello delgado vs pesado',
+];
+
+const indicaciones = [
+  {
+    t: 'Cuello Pesado',
+    d: 'Grasa profunda significativa, digástrico hipertrofiado, bandas platismales',
+  },
+  { t: 'Papada', d: 'Acumulación de grasa submentoniana y pérdida de definición cervical' },
+  { t: 'Pérdida del Ángulo Cérvico-mandibular', d: 'Transición cara-cuello indefinida' },
+  { t: 'Cuello Corto', d: "Fascia pre-hioidea 'trabada', distancia mento-hioides reducida" },
+];
+const contra = [
+  'Cuello delgado/hundido sin contenido profundo',
+  'Expectativas incompatibles',
+  'Coagulopatías no controladas',
+  'Comorbilidades descompensadas',
+];
+---
+
+<BaseLayout
+  title="Indicaciones del Deep Neck"
+  description="Cuándo indicar el Deep Neck Face Moderna. Cuello pesado, papada, pérdida de definición."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Selección de Pacientes
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Indicaciones y Contraindicaciones
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        Cuándo indicar el Deep Neck y cuándo preferir otros abordajes.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Indicaciones Principales</h2><div
+        class="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {
+          indicaciones.map((i) => (
+            <div class="bg-white p-6 border border-gray-100">
+              <>
+                <h3 class="font-serif text-primary-900 mb-2">{i.t}</h3>
+                <p class="text-sm text-warmGray">{i.d}</p>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">
+        Cuello Pesado vs. Cuello Delgado
+      </h2><div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-6 bg-accent-50 border-t-4 border-accent-600">
+          <h3 class="font-serif text-primary-900 mb-4">Cuello Pesado → Deep Neck Completo</h3><ul
+            class="space-y-2 text-sm text-warmGray"
+          >
+            <li>→ Grasa + digástrico + fasciotomía</li><li>→ Shaving del vientre anterior</li><li>
+              → Todos los 4 pilares
+            </li>
+          </ul>
+        </div><div class="p-6 bg-gray-50 border-t-4 border-gray-400">
+          <h3 class="font-serif text-primary-900 mb-4">Cuello Delgado → Abordaje Mínimo</h3><ul
+            class="space-y-2 text-sm text-warmGray"
+          >
+            <li>→ Plastismorrafia + Crevassi</li><li>→ Sin shaving de digástrico</li><li>
+              → Foco en piel y platisma
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Contraindicaciones</h2><ul
+        class="space-y-3"
+      >
+        {
+          contra.map((c) => (
+            <li class="flex items-start gap-3 text-warmGray">
+              <span class="text-red-500">✕</span>
+              {c}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-white mb-6">
+        "Cuello pesado → Deep Neck completo. Cuello delgado/hundido → foco en platisma y piel, sin
+        agresión profunda innecesaria."
+      </p><footer class="text-sm text-primary-400">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/deep-neck/anatomia" class="text-sm text-accent-600">← Anatomía</a><a
+        href="/es/tecnicas/deep-neck/paso-a-paso"
+        class="text-sm text-accent-600">Paso a Paso →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

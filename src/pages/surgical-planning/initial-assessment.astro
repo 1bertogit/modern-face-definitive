@@ -1,0 +1,112 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const history = [
+  'Chief complaint and expectations',
+  'History of prior facial surgeries',
+  'Comorbidities (diabetes, HTN, coagulopathies)',
+  'Current medications (anticoagulants, NSAIDs)',
+  'Known allergies',
+  'Smoking (stop 2-4 weeks before)',
+];
+
+const expectations = [
+  { question: 'What do you expect from surgery?', objective: 'Understand real motivation' },
+  { question: 'Do you have reference photos?', objective: 'Assess realism' },
+  { question: 'What results would be unacceptable?', objective: 'Identify red flags' },
+  { question: 'Did someone suggest the surgery?', objective: 'Detect external pressure' },
+];
+
+const redFlags = [
+  'Celebrity photos as reference',
+  'Multiple prior surgeries with dissatisfaction',
+  'Third-party pressure (spouse, family)',
+  'Expectations of life-changing results',
+  'Evident emotional instability',
+];
+---
+
+<BaseLayout
+  title="Initial Patient Assessment"
+  description="First consultation for facial surgery. History, expectations and contraindication identification."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/surgical-planning" class="hover:text-white">Planning</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Initial Assessment</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Step 01</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Initial Assessment
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The first consultation defines everything. Complete history, realistic expectations and
+        contraindications.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Directed History</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          history.map((item, i) => (
+            <div class="flex items-center gap-4 p-4 bg-white border border-gray-100">
+              <span class="w-8 h-8 bg-accent-600 text-white flex items-center justify-center text-sm flex-shrink-0">
+                {i + 1}
+              </span>
+              <span class="text-warmGray">{item}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Expectation Assessment</h2>
+      <div class="space-y-4">
+        {
+          expectations.map((e) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-medium text-primary-900 mb-2">"{e.question}"</h3>
+              <p class="text-sm text-accent-600">Objective: {e.objective}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ Red Flags</h2>
+      <div class="space-y-3">
+        {
+          redFlags.map((flag) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800">{flag}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/surgical-planning" class="text-sm text-accent-600">← Planning Index</a>
+      <a href="/surgical-planning/spe-m-system" class="text-sm text-accent-600">SPE-M System →</a>
+    </div>
+  </section>
+</BaseLayout>

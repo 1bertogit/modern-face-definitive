@@ -1,0 +1,289 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Evolutionary Browlift',
+  'intracapillary frontoplasty',
+  'brow elevation technique',
+  'vertical vector browlift',
+  'Modern Face browlift',
+  'Dr Robério Brandão browlift',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Evolutionary Browlift Modern Face',
+  description:
+    'Frontoplasty by direct vision with intracapillary incision. Safe portal to Endomidface. Vertical vector, natural result.',
+  procedureType: 'Surgical',
+  bodyLocation: 'Face - Upper Third',
+};
+
+const modalities = [
+  {
+    type: 'Isolated Browlift',
+    indication: 'When only the upper third needs treatment',
+    characteristics: [
+      'Access only through lateral portal (temporal)',
+      "Doesn't touch the glabella — avoids 'long' eyelid",
+      'Selective myotomies (orbicularis, frontalis)',
+      'Ideal for brow ptosis with well-positioned midface',
+    ],
+  },
+  {
+    type: 'Combined Browlift',
+    indication: 'Access portal for Endomidface',
+    characteristics: [
+      'Single intracapillary incision (~5cm)',
+      'Performs Frontoplasty and accesses midface',
+      'Modern Face gold standard',
+      'Upper and middle third rejuvenation simultaneously',
+    ],
+  },
+];
+
+const benefits = [
+  {
+    title: '100% Hidden Incision',
+    description: 'Completely intracapillary, invisible even with short or tied hair.',
+    icon: 'visibility_off',
+  },
+  {
+    title: 'True Vertical Vector',
+    description:
+      "Elevation against gravity, not lateral traction. Natural result, no 'surprised' look.",
+    icon: 'arrow_upward',
+  },
+  {
+    title: 'Multi-Purpose Portal',
+    description: 'The same incision serves for Browlift + Endomidface. Two procedures, one scar.',
+    icon: 'hub',
+  },
+  {
+    title: 'Fast Recovery',
+    description:
+      'Micropore for 3 days on forehead. Discharge in a few hours. Social return in 7-10 days.',
+    icon: 'schedule',
+  },
+];
+
+const commonErrors = [
+  {
+    error: 'Elevating glabella too much',
+    consequence: "Upper eyelid looks 'long', feminized look in men",
+    solution: 'Selective lateral access, no central portal when unnecessary',
+  },
+  {
+    error: 'Lateral vector instead of vertical',
+    consequence: "'Pulled' look, unnatural, short duration",
+    solution: 'Fixation to deep temporal fascia with superior vector',
+  },
+  {
+    error: 'Weak or mispositioned fixation',
+    consequence: 'Early recurrence, loss of result',
+    solution: 'Vicryl 2-0, sutures as posterior and superior as possible',
+  },
+  {
+    error: 'Not completely releasing orbital rim',
+    consequence: 'Limited elevation, persistent asymmetries',
+    solution: 'Aggressive lateral, superior and medial release',
+  },
+];
+---
+
+<BaseLayout
+  title="Evolutionary Browlift"
+  description="Frontoplasty by direct vision with intracapillary incision. Safe portal to Endomidface. Vertical vector, natural result."
+  keywords={keywords}
+  schema={schema}
+  lang="en"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/techniques" class="hover:text-white">Techniques</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Browlift</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Main Technique • Upper Third
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Evolutionary Browlift
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Frontoplasty by direct vision. Intracapillary incision. Vertical vector. Safe portal to
+          Endomidface. The upper third like never treated before.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Modern Face Browlift is not just an eyebrow elevation technique — it's the gateway to
+          complete facial rejuvenation. Through an intracapillary incision of only 5cm, we access
+          both the upper and middle third of the face, allowing integrated treatment with a single,
+          hidden scar.
+        </p>
+
+        <p>
+          The technique can be used in isolation, when only the upper third needs treatment, or
+          combined with Endomidface, which is the most common scenario in clinical practice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalities -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Two Modalities, One Philosophy
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          modalities.map((mod, index) => (
+            <div class="p-8 bg-ivory border border-gray-100">
+              <span class="text-5xl font-serif text-accent-600/20 block mb-4">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 class="text-xl font-serif text-primary-900 mb-2">{mod.type}</h3>
+              <p class="text-sm text-accent-600 mb-6">{mod.indication}</p>
+              <ul class="space-y-3">
+                {mod.characteristics.map((char) => (
+                  <li class="flex items-start gap-3 text-sm text-warmGray">
+                    <span class="text-accent-600 mt-1">→</span>
+                    {char}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Why Modern Face Browlift
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          benefits.map((item) => (
+            <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-2xl text-accent-600 flex-shrink-0">
+                {item.icon}
+              </span>
+              <div>
+                <h3 class="text-lg font-serif text-primary-900 mb-2">{item.title}</h3>
+                <p class="text-sm text-warmGray">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Errors -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Common Errors and How to Avoid Them
+      </h2>
+
+      <div class="space-y-6">
+        {
+          commonErrors.map((item) => (
+            <div class="bg-ivory p-6 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <p class="text-xs font-bold text-red-600 uppercase tracking-[0.1em] mb-2">
+                    Error
+                  </p>
+                  <p class="text-primary-900 font-medium">{item.error}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-orange-600 uppercase tracking-[0.1em] mb-2">
+                    Consequence
+                  </p>
+                  <p class="text-warmGray text-sm">{item.consequence}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-green-600 uppercase tracking-[0.1em] mb-2">
+                    Solution
+                  </p>
+                  <p class="text-warmGray text-sm">{item.solution}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">The Portal to the Complete Face</h2>
+      <p class="text-primary-300 mb-8 leading-relaxed">
+        In most cases, Browlift is not performed in isolation. It serves as an access portal for
+        Endomidface, allowing upper and middle third rejuvenation through a single intracapillary
+        incision.
+      </p>
+      <a
+        href="/techniques/endomidface"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+      >
+        Learn About Endomidface
+      </a>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-primary-900 leading-relaxed mb-6">
+          "Browlift is the main tool for treating heavy gaze and correcting eyebrow asymmetry. But
+          its greatest power lies in opening the safe path to Endomidface."
+        </p>
+        <footer class="text-sm text-softGray uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a href="/techniques/deep-neck" class="text-sm text-accent-600 hover:text-accent-700">
+          ← Deep Neck
+        </a>
+        <a href="/techniques" class="text-sm text-accent-600 hover:text-accent-700">
+          All Techniques →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

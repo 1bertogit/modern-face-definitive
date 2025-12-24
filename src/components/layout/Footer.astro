@@ -1,0 +1,131 @@
+---
+import { getFooterLinks, footerTranslations, type Locale } from '@lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'pt' } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const t = footerTranslations[locale];
+const footerLinks = getFooterLinks(locale);
+
+// Home link based on locale
+const homeLink = locale === 'pt' ? '/pt' : locale === 'en' ? '/' : `/${locale}`;
+
+// Privacy and terms links
+const privacyLink =
+  locale === 'pt'
+    ? '/legal/privacidade'
+    : locale === 'en'
+      ? '/legal/privacy'
+      : '/es/legal/privacidad';
+const termsLink =
+  locale === 'pt' ? '/legal/termos' : locale === 'en' ? '/legal/terms' : '/es/legal/terminos';
+---
+
+<footer class="bg-primary-900 text-white pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <!-- Brand Column -->
+      <div class="md:col-span-1">
+        <a href={homeLink} class="flex flex-col mb-6">
+          <span class="text-lg font-serif font-normal tracking-[0.05em]">DR. ROBÉRIO BRANDÃO</span>
+          <span class="text-[0.6rem] text-accent-400 font-normal tracking-[0.25em] uppercase mt-0.5"
+            >Face Moderna®</span
+          >
+        </a>
+        <p class="text-sm text-primary-200 leading-relaxed mb-6">
+          {t.description}
+        </p>
+        <p class="text-xs text-primary-300">CRM-RN 4136 | RQE 1955</p>
+      </div>
+
+      <!-- Links Columns -->
+      <div>
+        <h4 class="text-[10px] font-medium uppercase tracking-[0.2em] text-accent-400 mb-6">
+          {t.techniques}
+        </h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.tecnicas.map((link) => (
+              <li>
+                <a
+                  href={link.path}
+                  class="text-sm text-primary-200 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[10px] font-medium uppercase tracking-[0.2em] text-accent-400 mb-6">
+          {t.resources}
+        </h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.recursos.map((link) => (
+              <li>
+                <a
+                  href={link.path}
+                  class="text-sm text-primary-200 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[10px] font-medium uppercase tracking-[0.2em] text-accent-400 mb-6">
+          {t.institutional}
+        </h4>
+        <ul class="space-y-3">
+          {
+            footerLinks.institucional.map((link) => (
+              <li>
+                <a
+                  href={link.path}
+                  class="text-sm text-primary-200 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-800 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-primary-300">
+          © {currentYear} Dr. Robério Brandão. {t.allRightsReserved}.
+        </p>
+        <div class="flex items-center gap-6">
+          <a
+            href={privacyLink}
+            class="text-xs text-primary-300 hover:text-primary-200 transition-colors"
+          >
+            {t.privacyPolicy}
+          </a>
+          <a
+            href={termsLink}
+            class="text-xs text-primary-300 hover:text-primary-200 transition-colors"
+          >
+            {t.termsOfUse}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

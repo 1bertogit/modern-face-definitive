@@ -1,0 +1,85 @@
+---
+// sitemap-education.xml - Training Programs
+const siteUrl = 'https://drroberiobrandao.com';
+const lastmod = new Date().toISOString().split('T')[0];
+
+// Education pages with translations
+const educationPages = [
+  {
+    en: '/education',
+    pt: '/pt/educacao',
+    es: '/es/educacion',
+    priority: 0.9,
+    changefreq: 'monthly',
+  },
+  {
+    en: '/education/core-programs/endomidface-direct-vision',
+    pt: '/pt/educacao/programas-nucleo/endomidface-visao-direta',
+    es: '/es/educacion/programas-nucleo/endomidface-vision-directa',
+    priority: 0.85,
+    changefreq: 'monthly',
+  },
+  {
+    en: '/education/core-programs/deep-neck-mastery',
+    pt: '/pt/educacao/programas-nucleo/deep-neck-mastery',
+    es: '/es/educacion/programas-nucleo/deep-neck-mastery',
+    priority: 0.85,
+    changefreq: 'monthly',
+  },
+  {
+    en: '/education/advanced-training',
+    pt: '/pt/educacao/formacao-avancada',
+    es: '/es/educacion/formacion-avanzada',
+    priority: 0.7,
+    changefreq: 'monthly',
+  },
+  {
+    en: '/education/satellite-courses',
+    pt: '/pt/educacao/cursos-satelites',
+    es: '/es/educacion/cursos-satelites',
+    priority: 0.7,
+    changefreq: 'monthly',
+  },
+];
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {educationPages.map((page) => (
+    <>
+      {/* English version */}
+      <url>
+        <loc>{siteUrl}{page.en}</loc>
+        <lastmod>{lastmod}</lastmod>
+        <changefreq>{page.changefreq}</changefreq>
+        <priority>{page.priority}</priority>
+        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.en}`} />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.pt}`} />
+        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.es}`} />
+        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.en}`} />
+      </url>
+      {/* Portuguese version */}
+      <url>
+        <loc>{siteUrl}{page.pt}</loc>
+        <lastmod>{lastmod}</lastmod>
+        <changefreq>{page.changefreq}</changefreq>
+        <priority>{page.priority}</priority>
+        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.en}`} />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.pt}`} />
+        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.es}`} />
+        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.en}`} />
+      </url>
+      {/* Spanish version */}
+      <url>
+        <loc>{siteUrl}{page.es}</loc>
+        <lastmod>{lastmod}</lastmod>
+        <changefreq>{page.changefreq}</changefreq>
+        <priority>{page.priority}</priority>
+        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.en}`} />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.pt}`} />
+        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.es}`} />
+        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.en}`} />
+      </url>
+    </>
+  ))}
+</urlset>

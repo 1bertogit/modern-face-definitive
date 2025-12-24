@@ -1,0 +1,338 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Font Display Optimization for Core Web Vitals
+ * =============================================
+ * Strategy:
+ * 1. font-display: swap - shows system font immediately, swaps when loaded
+ * 2. System font fallbacks - provides acceptable FOUT (Flash of Unstyled Text)
+ * 3. Size-adjust - minimizes layout shift during font swap (CLS optimization)
+ *
+ * Note: Actual font files loaded via Google Fonts in BaseLayout.astro
+ * These @font-face rules provide fallback behavior and display settings
+ */
+
+/* Inter - Sans-serif body text */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: local('Inter'), local('Inter-Regular');
+  /* System font fallback stack */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Playfair Display - Serif headings */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local('Playfair Display'), local('PlayfairDisplay-Regular');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Playfair Display Italic */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400 500;
+  font-display: swap;
+  src: local('Playfair Display Italic'), local('PlayfairDisplay-Italic');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Material Symbols - Icons (loaded async, not critical) */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Material Symbols Outlined');
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-ivory text-warmGray antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Playfair Display", Georgia, serif;
+    @apply text-primary-900 font-normal;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  a,
+  button {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Component Classes */
+@layer components {
+  /* Section label - used for category/section indicators */
+  .section-label {
+    @apply text-[10px] font-medium text-accent-700 uppercase tracking-[0.2em];
+  }
+
+  /* Stat label - used for statistics captions */
+  .stat-label {
+    @apply text-[10px] text-warmGray uppercase tracking-[0.2em] font-light;
+  }
+
+  /* CTA button base */
+  .cta-button {
+    @apply text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-300;
+  }
+
+  /* Drop cap for editorial content */
+  .drop-cap::first-letter {
+    float: left;
+    font-family: "Playfair Display", serif;
+    font-size: 4.5rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    color: theme("colors.accent.700");
+    -webkit-initial-letter: 3 2;
+    initial-letter: 3 2;
+  }
+
+  /* Desaturated image effect */
+  .desaturated-img {
+    filter: grayscale(80%) brightness(105%) contrast(105%);
+    @apply transition-all duration-300;
+  }
+
+  .desaturated-img:hover {
+    filter: grayscale(0%) brightness(100%) contrast(100%);
+  }
+
+  /* Hide scrollbar utility */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Container utilities */
+  .container-narrow {
+    @apply max-w-3xl mx-auto px-4;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-accent-600 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest;
+    @apply hover:bg-accent-700 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply border border-primary-900 text-primary-900 px-8 py-4 text-sm font-bold uppercase tracking-widest;
+    @apply hover:bg-primary-900 hover:text-white transition-colors duration-300;
+  }
+
+  /* ============================================
+   * DESIGN SYSTEM - Typography Scale
+   * ============================================
+   * Sistema padronizado de tipografia para garantir
+   * consistência visual em todo o site.
+   */
+
+  /* Headings - Serif (Playfair Display) - Responsivo mobile-first */
+  .heading-1 {
+    @apply text-4xl md:text-5xl font-serif text-primary-900 font-normal leading-tight mb-6 md:mb-8;
+  }
+
+  .heading-1-white {
+    @apply text-4xl md:text-5xl font-serif text-white font-normal leading-tight mb-6 md:mb-8;
+  }
+
+  .heading-2 {
+    @apply text-3xl md:text-4xl font-serif text-primary-900 font-normal leading-tight mb-5 md:mb-6;
+  }
+
+  .heading-2-white {
+    @apply text-3xl md:text-4xl font-serif text-white font-normal leading-tight mb-5 md:mb-6;
+  }
+
+  .heading-3 {
+    @apply text-xl md:text-2xl font-serif text-primary-900 font-normal leading-snug mb-4;
+  }
+
+  .heading-3-white {
+    @apply text-xl md:text-2xl font-serif text-white font-normal leading-snug mb-4;
+  }
+
+  .heading-4 {
+    @apply text-lg md:text-xl font-serif text-primary-900 font-normal leading-snug mb-3;
+  }
+
+  /* Body Text - Sans-serif (Inter) - Responsivo mobile-first */
+  .body-large {
+    @apply text-base md:text-lg text-warmGray leading-relaxed mb-5 md:mb-6;
+  }
+
+  .body-base {
+    @apply text-sm md:text-base text-warmGray leading-relaxed mb-4 md:mb-5;
+  }
+
+  .body-small {
+    @apply text-sm text-warmGray leading-relaxed mb-4;
+  }
+
+  /* Body Text - Light variants (para fundos escuros) */
+  .body-large-light {
+    @apply text-base md:text-lg text-primary-300 leading-relaxed mb-5 md:mb-6;
+  }
+
+  .body-base-light {
+    @apply text-sm md:text-base text-primary-300 leading-relaxed mb-4 md:mb-5;
+  }
+
+  .body-small-light {
+    @apply text-sm text-primary-300 leading-relaxed mb-4;
+  }
+
+  /* Labels & UI Elements - Responsivo mobile-first */
+  .label-eyebrow {
+    @apply text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-3 md:mb-4;
+  }
+
+  .label-eyebrow-white {
+    @apply text-[10px] font-medium text-accent-400 uppercase tracking-[0.2em] mb-3 md:mb-4;
+  }
+
+  .label-caption {
+    @apply text-xs text-softGray mb-2;
+  }
+
+  /* ============================================
+   * DESIGN SYSTEM - Spacing Scale
+   * ============================================
+   * Sistema de espaçamento vertical padronizado
+   * (múltiplos de 4px para consistência)
+   */
+
+  /* Section Spacing - Responsivo mobile-first */
+  .section-xs {
+    @apply py-6 md:py-8; /* 24px mobile, 32px desktop - seções compactas */
+  }
+
+  .section-sm {
+    @apply py-8 md:py-12; /* 32px mobile, 48px desktop - seções padrão */
+  }
+
+  .section-md {
+    @apply py-12 md:py-16; /* 48px mobile, 64px desktop - seções principais */
+  }
+
+  .section-lg {
+    @apply py-16 md:py-20; /* 64px mobile, 80px desktop - seções destacadas */
+  }
+
+  .section-xl {
+    @apply py-20 md:py-32; /* 80px mobile, 128px desktop - heroes */
+  }
+
+  /* ============================================
+   * DESIGN SYSTEM - Container Widths
+   * ============================================
+   * Larguras máximas padronizadas para legibilidade
+   */
+
+  .prose-narrow {
+    @apply max-w-3xl mx-auto px-4 sm:px-6; /* ~768px - texto corrido longo */
+  }
+
+  .prose-base {
+    @apply max-w-4xl mx-auto px-4 sm:px-6; /* ~896px - conteúdo editorial */
+  }
+
+  .prose-wide {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8; /* ~1024px - conteúdo com imagens */
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      theme("colors.primary.900"),
+      theme("colors.accent.600")
+    );
+  }
+
+  /* Subtle animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-700 focus:ring-offset-2;
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .desaturated-img {
+    transition: none;
+  }
+
+  /* Disable hover scale effects */
+  .group-hover\:scale-105,
+  .hover\:scale-105 {
+    transform: none !important;
+  }
+}

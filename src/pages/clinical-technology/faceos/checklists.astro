@@ -1,0 +1,115 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const checklists = [
+  { name: 'Pre-Consultation', items: 8, desc: 'First evaluation preparation' },
+  { name: 'Initial Assessment', items: 15, desc: 'First consultation checklist' },
+  { name: 'Planning', items: 12, desc: 'Technique and approach definition' },
+  { name: 'Pre-Operative', items: 20, desc: 'Patient and team preparation' },
+  { name: 'Room Setup', items: 18, desc: 'Operating room preparation' },
+  { name: 'Intraoperative', items: 25, desc: 'Technical steps by procedure' },
+  { name: 'Immediate Post-Op', items: 10, desc: 'First 24-48 hours' },
+  { name: 'Follow-up', items: 8, desc: 'Structured monitoring' },
+];
+---
+
+<BaseLayout
+  title="Surgical Checklists | FaceOS"
+  description="Standardized checklists for each stage of facial surgery. Error reduction and process standardization."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li><li><span>/</span></li><li>
+            <a href="/clinical-technology" class="hover:text-white">Technology</a>
+          </li><li><span>/</span></li><li>
+            <a href="/clinical-technology/faceos" class="hover:text-white">FaceOS</a>
+          </li><li><span>/</span></li><li class="text-white">Checklists</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-gray-500 text-white text-xs uppercase tracking-wider mb-6"
+        >Planned</span
+      >
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Surgical Checklists
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Step-by-step protocols for each stage. Error reduction, standardization and safety.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "Checklists aren't for those who don't know. They ensure those who know don't forget."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Why Checklists?</h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Aviation and intensive care have proven it: checklists save lives. In facial surgery,
+          where every detail matters, standardized protocols ensure nothing is forgotten, even under
+          pressure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Available Checklists</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          checklists.map((c, i) => (
+            <div class="flex items-start gap-4 p-6 bg-ivory border border-gray-100">
+              <span class="w-10 h-10 bg-primary-900 text-white text-sm flex items-center justify-center flex-shrink-0">
+                {i + 1}
+              </span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <>
+                    <h3 class="font-medium text-primary-900">{c.name}</h3>
+                    <span class="text-xs text-accent-600">{c.items} items</span>
+                  </>
+                </div>
+                <p class="text-sm text-warmGray">{c.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">In Development</h2>
+      <p class="text-primary-300 mb-8">
+        Surgical Checklists are being digitized. Program students already have access to PDF
+        versions.
+      </p>
+      <a
+        href="/education"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >View Programs</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/clinical-technology/faceos/vector-planning" class="text-sm text-accent-600"
+        >← Vectors</a
+      >
+      <a href="/clinical-technology/ai-copilot" class="text-sm text-accent-600">AI Copilot →</a>
+    </div>
+  </section>
+</BaseLayout>

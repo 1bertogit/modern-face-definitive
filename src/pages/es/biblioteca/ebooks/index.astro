@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const ebooks = [
+  {
+    titulo: 'Fundamentos del Endomidface por Visión Directa',
+    desc: 'Guía completa sobre la técnica que revolucionó el rejuvenecimiento del tercio medio facial.',
+    paginas: 87,
+    capitulos: 12,
+    acceso: 'Alumnos',
+    destaque: true,
+  },
+  {
+    titulo: 'Deep Neck: El Abordaje Conservador',
+    desc: '¿Por qué no remover la glándula? Anatomía, técnica y resultados del abordaje que preserva estructuras.',
+    paginas: 64,
+    capitulos: 8,
+    acceso: 'Alumnos',
+    destaque: false,
+  },
+  {
+    titulo: 'Anatomía Aplicada a la Cirugía Facial',
+    desc: 'Atlas visual de espacios, planos y estructuras críticas. Referencia esencial para el cirujano facial.',
+    paginas: 120,
+    capitulos: 15,
+    acceso: 'Alumnos',
+    destaque: true,
+  },
+];
+
+const proximamente = [
+  'Frontoplastia Evolutiva: Del Endoscopio a la Visión Directa',
+  'SPE-M en la Práctica: Guía de Evaluación Preoperatoria',
+  'Filosofía Face Moderna®: Principios y Aplicaciones',
+];
+---
+
+<BaseLayout
+  title="E-books | Biblioteca"
+  description="E-books sobre cirugía facial: Endomidface, Deep Neck, anatomía aplicada y filosofía Face Moderna."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li><li><span>/</span></li><li>
+            <a href="/es/biblioteca" class="hover:text-white">Biblioteca</a>
+          </li><li><span>/</span></li><li class="text-white">E-books</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">E-books</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Guías completas y profundas sobre técnicas y filosofía de la Face Moderna®
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-6">
+        {
+          ebooks.map((e) => (
+            <div
+              class={`p-6 bg-white border ${e.destaque ? 'border-accent-600' : 'border-gray-100'}`}
+            >
+              {e.destaque && (
+                <span class="inline-block px-2 py-1 bg-accent-600 text-white text-xs uppercase tracking-wider mb-4">
+                  Destacado
+                </span>
+              )}
+              <h3 class="font-serif text-xl text-primary-900 mb-2">{e.titulo}</h3>
+              <p class="text-warmGray mb-4">{e.desc}</p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4 text-sm text-softGray">
+                  <>
+                    <span>{e.paginas} páginas</span>
+                    <span>•</span>
+                    <span>{e.capitulos} capítulos</span>
+                  </>
+                </div>
+                <span class="text-xs px-3 py-1 bg-accent-100 text-accent-700">{e.acceso}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">En Desarrollo</h2>
+      <div class="space-y-3">
+        {
+          proximamente.map((t) => (
+            <div class="flex items-center gap-3 p-4 bg-ivory border border-gray-100">
+              <>
+                <span class="material-symbols-outlined text-primary-400">hourglass_empty</span>
+                <span class="text-warmGray">{t}</span>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Acceso a los E-books</h2>
+      <p class="text-primary-300 mb-8">
+        Todos los e-books están disponibles para alumnos de los programas de formación.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/biblioteca" class="text-sm text-accent-600">← Biblioteca</a>
+      <a href="/es/biblioteca/publicaciones" class="text-sm text-accent-600">Publicaciones →</a>
+    </div>
+  </section>
+</BaseLayout>

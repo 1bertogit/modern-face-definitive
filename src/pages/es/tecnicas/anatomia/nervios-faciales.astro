@@ -1,0 +1,176 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'nervios faciales cirugía',
+  'nervio marginal mandíbula',
+  'ramo frontal facial',
+  'protección nerviosa lifting',
+  'lesión nerviosa complicación',
+  'anatomía nervio VII facial',
+];
+
+const nerviosMotores = [
+  {
+    nombre: 'Ramo Temporal/Frontal',
+    funcion: 'Frontalis, orbicular superior',
+    riesgo: 'Alto',
+    zona: 'Arco cigomático',
+  },
+  {
+    nombre: 'Ramo Cigomático',
+    funcion: 'Orbicular del ojo',
+    riesgo: 'Medio',
+    zona: 'Protegido por SMAS',
+  },
+  {
+    nombre: 'Ramo Bucal',
+    funcion: 'Elevadores del labio, cigomático',
+    riesgo: 'Alto',
+    zona: 'Midface - mayor atención',
+  },
+  {
+    nombre: 'Ramo Marginal',
+    funcion: 'Depresores del labio',
+    riesgo: 'Muy Alto',
+    zona: 'Borde mandibular',
+  },
+  { nombre: 'Ramo Cervical', funcion: 'Platisma', riesgo: 'Bajo', zona: 'Cuello' },
+];
+
+const nerviosSensitivos = [
+  { nombre: 'Supraorbitario', origen: 'V1', area: 'Frente y cuero cabelludo anterior' },
+  { nombre: 'Supratroclear', origen: 'V1', area: 'Glabela y parte medial de la frente' },
+  {
+    nombre: 'Infraorbitario',
+    origen: 'V2',
+    area: 'Párpado inferior, nariz lateral, labio superior',
+  },
+  { nombre: 'Mentoniano', origen: 'V3', area: 'Labio inferior y mentón' },
+];
+---
+
+<BaseLayout
+  title="Nervios de la Cara | Anatomía Quirúrgica"
+  description="Nervios motores y sensitivos de la cara. Lo que proteger a toda costa en cirugía facial."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/tecnicas/anatomia" class="hover:text-white">Anatomía</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Nervios Faciales</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Seguridad Máxima
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Nervios Faciales
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Lo que proteger a toda costa. Lesión nerviosa es la complicación más temida.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-red-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "No puedes proteger lo que no conoces. Y no puedes conocer lo que no ves."
+      </p>
+      <p class="text-white/80 text-sm mt-2">— Principio de Visión Directa</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Nervio Facial (VII) — Ramos Motores
+      </h2>
+      <div class="space-y-4">
+        {
+          nerviosMotores.map((n) => (
+            <div class="flex flex-col md:flex-row md:items-center gap-4 p-6 bg-ivory border border-gray-100">
+              <div class="flex-1">
+                <h3 class="font-serif text-primary-900 mb-1">{n.nombre}</h3>
+                <p class="text-sm text-warmGray">Función: {n.funcion}</p>
+                <p class="text-xs text-softGray">Zona crítica: {n.zona}</p>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 self-start md:self-center text-white ${n.riesgo === 'Muy Alto' ? 'bg-red-700' : n.riesgo === 'Alto' ? 'bg-red-600' : n.riesgo === 'Medio' ? 'bg-amber-600' : 'bg-green-600'}`}
+              >
+                Riesgo {n.riesgo}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">⚠️ El Ramo Marginal</h2>
+      <div class="bg-white p-8 border border-red-200">
+        <p class="text-warmGray mb-4">
+          El ramo marginal de la mandíbula es responsable de la <strong class="text-primary-900"
+            >mayoría de complicaciones</strong
+          >
+          en cirugía facial. Su lesión causa asimetría labial — la "sonrisa torcida" que identifica complicación
+          quirúrgica.
+        </p>
+        <ul class="space-y-2 text-sm text-warmGray">
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span>Cruza la mandíbula en posición variable</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span
+              >En 20% de casos, pasa por debajo del borde inferior mandibular</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-red-600">•</span><span
+              >La visión directa permite identificarlo antes de lesionarlo</span
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Trigémino (V) — Ramos Sensitivos
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          nerviosSensitivos.map((n) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-serif text-primary-900">{n.nombre}</h3>
+                <span class="text-xs px-2 py-1 bg-accent-100 text-accent-800">{n.origen}</span>
+              </div>
+              <p class="text-sm text-warmGray">Área: {n.area}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/tecnicas/anatomia/ligamentos-retentores" class="text-sm text-accent-600"
+        >← Ligamentos Retentores</a
+      >
+      <a href="/es/tecnicas/anatomia" class="text-sm text-accent-600">Volver al Índice →</a>
+    </div>
+  </section>
+</BaseLayout>

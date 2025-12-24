@@ -1,0 +1,127 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'termos de uso Face Moderna',
+  'condições de uso site',
+  'Dr Robério Brandão legal',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Termos de Uso',
+  description: 'Termos de uso do site Face Moderna® - Dr. Robério Brandão',
+};
+---
+
+<BaseLayout
+  title="Termos de Uso"
+  description="Termos e condições de uso do site Face Moderna® - Dr. Robério Brandão."
+  schema={schema}
+  keywords={keywords}
+>
+  <!-- Hero -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Legal</p>
+      <h1 class="text-5xl md:text-6xl font-serif text-primary-900 leading-tight mb-6">
+        Termos de Uso
+      </h1>
+      <p class="text-xl text-warmGray leading-relaxed max-w-2xl mx-auto">
+        Condições de acesso e utilização do site Face Moderna®.
+      </p>
+      <p class="text-sm text-softGray mt-6">
+        Última atualização: {
+          new Date().toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })
+        }
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Ao acessar e utilizar o site Face Moderna® ("Site"), você concorda em cumprir e estar
+          vinculado aos seguintes Termos de Uso. Se você não concorda com qualquer parte destes
+          termos, não deve utilizar nosso site.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">1. Aceitação dos Termos</h2>
+        <p>
+          Ao acessar este site, você confirma que leu, compreendeu e concorda em cumprir estes
+          Termos de Uso e todas as leis e regulamentos aplicáveis.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">2. Uso do Site</h2>
+        <p>Você concorda em utilizar o site apenas para fins legais e de maneira que não:</p>
+        <ul class="space-y-4">
+          <li>Viole qualquer lei ou regulamento aplicável</li>
+          <li>Infrinja direitos de propriedade intelectual de terceiros</li>
+          <li>Transmita conteúdo ofensivo, difamatório ou ilegal</li>
+          <li>Interfira ou interrompa o funcionamento do site</li>
+          <li>Tente acessar áreas restritas ou não autorizadas do site</li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">3. Propriedade Intelectual</h2>
+        <p>
+          Todo o conteúdo deste site, incluindo textos, imagens, logotipos, gráficos, vídeos e
+          software, é propriedade do Dr. Robério Brandão ou de seus licenciadores e está protegido
+          por leis de direitos autorais e outras leis de propriedade intelectual.
+        </p>
+        <p>
+          Você não pode reproduzir, distribuir, modificar, criar obras derivadas, exibir
+          publicamente ou utilizar qualquer conteúdo deste site sem autorização prévia por escrito.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">4. Informações Médicas</h2>
+        <p>
+          O conteúdo deste site é fornecido apenas para fins informativos e educacionais. As
+          informações apresentadas não constituem aconselhamento médico, diagnóstico ou tratamento.
+          Sempre consulte um profissional de saúde qualificado para questões relacionadas à sua
+          saúde.
+        </p>
+        <p>
+          O Dr. Robério Brandão e o site Face Moderna® não se responsabilizam por decisões médicas
+          tomadas com base nas informações deste site.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">5. Links para Sites de Terceiros</h2>
+        <p>
+          Nosso site pode conter links para sites de terceiros. Não temos controle sobre o conteúdo
+          ou práticas desses sites e não assumimos responsabilidade por eles. A inclusão de links
+          não implica endosso do conteúdo ou serviços oferecidos.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">6. Limitação de Responsabilidade</h2>
+        <p>
+          Na máxima extensão permitida por lei, o Dr. Robério Brandão e o site Face Moderna® não
+          serão responsáveis por quaisquer danos diretos, indiretos, incidentais, especiais ou
+          consequenciais resultantes do uso ou incapacidade de usar este site.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">7. Modificações dos Termos</h2>
+        <p>
+          Reservamo-nos o direito de modificar estes Termos de Uso a qualquer momento. As alterações
+          entrarão em vigor imediatamente após a publicação no site. É sua responsabilidade revisar
+          periodicamente estes termos.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">8. Lei Aplicável</h2>
+        <p>
+          Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil. Qualquer
+          disputa relacionada a estes termos será resolvida nos tribunais competentes do Brasil.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">9. Contato</h2>
+        <p>Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco através de:</p>
+        <ul class="space-y-4">
+          <li><strong class="text-primary-900">E-mail:</strong> contato@facemoderna.com.br</li>
+          <li><strong class="text-primary-900">Telefone:</strong> (71) 99999-9999</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

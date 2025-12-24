@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Os Princípios Técnicos da Face Moderna®',
+  description:
+    'Fundamentos técnicos que diferenciam a Face Moderna: visão direta, vetores verticais, preservação estrutural.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const principios = [
+  {
+    numero: '01',
+    titulo: 'Visão Direta sobre Endoscopia',
+    resumo: 'O olho treinado supera a câmera.',
+    descricao:
+      'A visão direta oferece feedback tátil e visual simultâneo. Você sente o que vê. Isso reduz a curva de aprendizado e aumenta a segurança em estruturas nobres.',
+  },
+  {
+    numero: '02',
+    titulo: 'Vetor Vertical, Não Lateral',
+    resumo: 'A gravidade puxa para baixo. Nós elevamos.',
+    descricao:
+      "Vetores laterais criam tensão horizontal — o aspecto 'puxado'. O vetor vertical restaura a posição anatômica original, com resultado natural.",
+  },
+  {
+    numero: '03',
+    titulo: 'Preservação sobre Ressecção',
+    resumo: 'Remover menos. Reposicionar mais.',
+    descricao:
+      'A glândula submandibular não precisa ser removida para definir o pescoço. Gordura não precisa ser aspirada agressivamente. Estruturas preservadas cicatrizam melhor.',
+  },
+  {
+    numero: '04',
+    titulo: 'Plano Profundo Seguro',
+    resumo: 'Profundo não significa perigoso.',
+    descricao:
+      'O plano sub-SMAS é mais seguro que o plano subcutâneo quando você conhece a anatomia. Menos sangramento, menos tensão na pele, resultado mais duradouro.',
+  },
+  {
+    numero: '05',
+    titulo: 'Recuperação como Métrica',
+    resumo: 'O melhor resultado é o que o paciente vive.',
+    descricao:
+      'Técnica refinada = menos trauma = recuperação em 7 dias. Se o paciente sofre 30 dias para voltar à vida normal, a técnica precisa evoluir.',
+  },
+  {
+    numero: '06',
+    titulo: 'Reprodutibilidade Sistemática',
+    resumo: 'Se não pode ser ensinado, não é método.',
+    descricao:
+      'Cada passo documentado. Cada decisão justificada. O que funciona para um cirurgião experiente precisa funcionar para quem está aprendendo.',
+  },
+];
+---
+
+<BaseLayout
+  title="Princípios Técnicos"
+  description="Os fundamentos técnicos que diferenciam a Face Moderna®: visão direta, vetores verticais, preservação estrutural e recuperação otimizada."
+  schema={schema}
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-base">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/pt" class="hover:text-primary-900">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Princípios</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-20 max-w-3xl">
+        <p class="label-eyebrow">Face Moderna®</p>
+        <h1 class="heading-1">Os Princípios Técnicos</h1>
+        <p class="body-large">
+          Seis fundamentos que guiam cada decisão cirúrgica. Não são regras arbitrárias — são
+          conclusões de 18 anos e 1.500 cirurgias.
+        </p>
+      </header>
+
+      <!-- Lista de Princípios -->
+      <div class="space-y-16">
+        {
+          principios.map((p) => (
+            <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-2">
+                <span class="text-6xl font-serif text-accent-600/30">{p.numero}</span>
+              </div>
+              <div class="md:col-span-10">
+                <h2 class="heading-3 mb-2">{p.titulo}</h2>
+                <p class="body-small text-accent-700 font-medium mb-4">{p.resumo}</p>
+                <p class="body-base">{p.descricao}</p>
+              </div>
+            </section>
+          ))
+        }
+      </div>
+
+      <!-- Citação -->
+      <div class="my-20 py-16 border-y border-gray-200">
+        <blockquote class="text-center max-w-2xl mx-auto">
+          <p class="heading-2 font-serif italic leading-relaxed mb-6">
+            "Princípios não são restrições. São a liberdade de operar sem medo."
+          </p>
+          <cite class="label-caption not-italic">— Dr. Robério Brandão</cite>
+        </blockquote>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-primary-900 p-12 text-center">
+        <h3 class="heading-2-white mb-4">Veja os princípios em ação</h3>
+        <p class="body-base-light mb-8 max-w-xl mx-auto">
+          Cada técnica da Face Moderna® é uma aplicação direta desses fundamentos.
+        </p>
+        <a
+          href="/pt/tecnicas"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Explorar Técnicas
+        </a>
+      </div>
+
+      <!-- Navegação -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/pt/face-moderna/filosofia"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← A Filosofia
+          </a>
+          <a
+            href="/pt/face-moderna/por-que-visao-direta"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            Por Que Visão Direta? →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

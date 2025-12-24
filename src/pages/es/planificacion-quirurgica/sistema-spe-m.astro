@@ -1,0 +1,135 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const dominios = [
+  {
+    letra: 'S',
+    nombre: 'Skin',
+    traduccion: 'Piel',
+    items: [
+      'Calidad general',
+      'Fotodaño (manchas, arrugas)',
+      'Elastosis',
+      'Arrugas dinámicas vs estáticas',
+    ],
+  },
+  {
+    letra: 'P',
+    nombre: 'Ptosis',
+    traduccion: 'Ptosis',
+    items: [
+      'Ceja (ptosis lateral)',
+      'Párpado (dermatocalasis)',
+      'Midface (surco nasoyugal)',
+      'Jowl (borde mandibular)',
+      'Cuello (bandas platismales)',
+    ],
+  },
+  {
+    letra: 'E',
+    nombre: 'Estructura',
+    traduccion: 'Estructura',
+    items: ['Proyección malar', 'Retrognatia', 'Ángulo cervicomentoniano', 'Asimetrías faciales'],
+  },
+  {
+    letra: 'M',
+    nombre: 'Masa',
+    traduccion: 'Músculo/Masa',
+    items: ['Hipertrofia masetero', 'Bandas platismales', 'Grasa submentoniana', 'Volumen malar'],
+  },
+];
+
+const escala = [
+  { grado: '0', desc: 'Ausente', color: 'bg-green-600' },
+  { grado: '1', desc: 'Leve', color: 'bg-yellow-600' },
+  { grado: '2', desc: 'Moderado', color: 'bg-orange-600' },
+  { grado: '3', desc: 'Severo', color: 'bg-red-600' },
+];
+---
+
+<BaseLayout
+  title="Sistema SPE-M de Evaluación"
+  description="Evaluación sistemática preoperatoria: Skin, Ptosis, Estructura y Masa. Protocolo estandarizado."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">SPE-M</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 02
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Sistema SPE-M</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Evaluación sistemática en 4 dominios: Skin, Ptosis, Estructura y Masa.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Los 4 Dominios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          dominios.map((d) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="w-12 h-12 bg-accent-600 text-white flex items-center justify-center text-2xl font-serif">
+                  {d.letra}
+                </span>
+                <div>
+                  <h3 class="font-serif text-primary-900 text-lg">{d.nombre}</h3>
+                  <p class="text-sm text-accent-600">{d.traduccion}</p>
+                </div>
+              </div>
+              <ul class="space-y-2">
+                {d.items.map((item) => (
+                  <li class="flex items-center gap-2 text-sm text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Escala de Graduación</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          escala.map((e) => (
+            <div class="flex items-center gap-2 p-3 bg-white border border-gray-100">
+              <span
+                class={`w-8 h-8 ${e.color} text-white flex items-center justify-center font-bold`}
+              >
+                {e.grado}
+              </span>
+              <span class="text-warmGray">{e.desc}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica/evaluacion-inicial" class="text-sm text-accent-600"
+        >← Evaluación Inicial</a
+      >
+      <a href="/es/planificacion-quirurgica/vectores" class="text-sm text-accent-600">Vectores →</a>
+    </div>
+  </section>
+</BaseLayout>

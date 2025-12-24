@@ -1,0 +1,213 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const dominios = [
+  {
+    letra: 'S',
+    nome: 'Skin',
+    traducao: 'Pele',
+    desc: 'Qualidade, elasticidade, espessura e dano solar',
+    escala: ['Normal', 'Leve alteração', 'Moderada', 'Severa'],
+  },
+  {
+    letra: 'P',
+    nome: 'Ptose',
+    traducao: 'Ptose',
+    desc: 'Grau de queda tecidual em cada região facial',
+    escala: ['Ausente', 'Leve', 'Moderada', 'Severa'],
+  },
+  {
+    letra: 'E',
+    nome: 'Estrutura',
+    traducao: 'Estrutura',
+    desc: 'Arcabouço ósseo e projeções faciais',
+    escala: ['Adequada', 'Leve deficiência', 'Moderada', 'Severa'],
+  },
+  {
+    letra: 'M',
+    nome: 'Massa',
+    traducao: 'Massa',
+    desc: 'Volume de tecido mole e distribuição de gordura',
+    escala: ['Normal', 'Leve excesso/déficit', 'Moderado', 'Severo'],
+  },
+];
+
+const aplicacoes = [
+  'Avaliação inicial padronizada',
+  'Comunicação objetiva entre profissionais',
+  'Definição de indicação cirúrgica',
+  'Planejamento de abordagem',
+  'Comparação pré e pós-operatória',
+  'Base para discussão com paciente',
+];
+---
+
+<BaseLayout
+  title="Sistema SPE-M | Avaliação Pré-Operatória"
+  description="SPE-M: Sistema padronizado de avaliação pré-operatória para cirurgia facial. Avalia Skin, Ptose, Estrutura e Massa."
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica" class="hover:text-white">Tecnologia</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica/faceos" class="hover:text-white">FaceOS</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">SPE-M</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-green-600 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Disponível
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Sistema SPE-M</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Protocolo padronizado de avaliação pré-operatória para cirurgia facial. Quatro domínios,
+        escala objetiva, comunicação clara.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "O que não pode ser medido, não pode ser melhorado."
+      </p>
+    </div>
+  </section>
+
+  <!-- O que é -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">O que é o SPE-M?</h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O SPE-M é um sistema de avaliação desenvolvido para padronizar a análise pré-operatória em
+          cirurgia facial. O acrônimo representa os quatro domínios avaliados: <strong>S</strong>kin
+          (Pele), <strong>P</strong>tose,
+          <strong>E</strong>strutura e <strong>M</strong>assa.
+        </p>
+        <p>
+          Cada domínio é avaliado em uma escala de 0 a 3, permitindo uma classificação objetiva que
+          facilita a comunicação entre profissionais, o planejamento cirúrgico e a discussão de
+          expectativas com o paciente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domínios -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Os Quatro Domínios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          dominios.map((d) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-center gap-4 mb-4">
+                <span class="w-12 h-12 bg-accent-600 text-white text-2xl font-serif flex items-center justify-center">
+                  {d.letra}
+                </span>
+                <div>
+                  <h3 class="font-serif text-primary-900">{d.nome}</h3>
+                  <p class="text-xs text-accent-600">{d.traducao}</p>
+                </div>
+              </div>
+              <p class="text-sm text-warmGray mb-4">{d.desc}</p>
+              <div class="flex flex-wrap gap-2">
+                {d.escala.map((nivel, i) => (
+                  <span
+                    class={`text-xs px-2 py-1 ${i === 0 ? 'bg-green-100 text-green-700' : i === 1 ? 'bg-yellow-100 text-yellow-700' : i === 2 ? 'bg-orange-100 text-orange-700' : 'bg-red-100 text-red-700'}`}
+                  >
+                    {i}: {nivel}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Exemplo -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Exemplo de Aplicação</h2>
+      <div class="bg-white p-8 border border-gray-100">
+        <p class="text-warmGray mb-6">
+          Paciente feminina, 52 anos, queixa de flacidez facial e pescoço:
+        </p>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+          <div class="text-center p-4 bg-ivory">
+            <p class="text-3xl font-serif text-accent-600">S2</p>
+            <p class="text-xs text-warmGray">Pele com dano solar moderado</p>
+          </div>
+          <div class="text-center p-4 bg-ivory">
+            <p class="text-3xl font-serif text-accent-600">P2</p>
+            <p class="text-xs text-warmGray">Ptose moderada de terço médio</p>
+          </div>
+          <div class="text-center p-4 bg-ivory">
+            <p class="text-3xl font-serif text-accent-600">E1</p>
+            <p class="text-xs text-warmGray">Leve deficiência malar</p>
+          </div>
+          <div class="text-center p-4 bg-ivory">
+            <p class="text-3xl font-serif text-accent-600">M1</p>
+            <p class="text-xs text-warmGray">Leve excesso submentoniano</p>
+          </div>
+        </div>
+        <p class="text-sm text-warmGray">
+          <strong>Classificação:</strong> SPE-M 2-2-1-1 → Indica candidata a Endomidface + possível complementação
+          de Deep Neck.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aplicações -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Aplicações Práticas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          aplicacoes.map((a) => (
+            <div class="flex items-center gap-3 p-4 bg-ivory border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{a}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Aprenda o Sistema Completo</h2>
+      <p class="text-primary-300 mb-8">
+        O SPE-M é ensinado em detalhes nos programas de formação, com casos práticos e aplicação
+        orientada.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnologia-clinica/faceos" class="text-sm text-accent-600">← FaceOS</a>
+      <a href="/pt/tecnologia-clinica/faceos/planejamento-vetores" class="text-sm text-accent-600"
+        >Planejamento de Vetores →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

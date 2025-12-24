@@ -1,0 +1,234 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Por Que Visão Direta?',
+  description:
+    'A escolha técnica que define a Face Moderna®: por que abandonamos o endoscópio e o que ganhamos com isso.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const comparativo = [
+  {
+    aspecto: 'Feedback',
+    endoscopio: 'Visual apenas (2D)',
+    visaoDireta: 'Visual + tátil simultâneo',
+  },
+  {
+    aspecto: 'Curva de aprendizado',
+    endoscopio: '50-100 casos',
+    visaoDireta: '15-30 casos',
+  },
+  {
+    aspecto: 'Custo de equipamento',
+    endoscopio: 'R$ 80.000 - 150.000',
+    visaoDireta: 'Instrumental básico',
+  },
+  {
+    aspecto: 'Dependência técnica',
+    endoscopio: 'Alta (câmera, monitor, assistente)',
+    visaoDireta: 'Baixa (cirurgião autônomo)',
+  },
+  {
+    aspecto: 'Tempo cirúrgico',
+    endoscopio: '90-120 min',
+    visaoDireta: '60-90 min',
+  },
+  {
+    aspecto: 'Adaptação intraoperatória',
+    endoscopio: 'Limitada',
+    visaoDireta: 'Imediata',
+  },
+];
+---
+
+<BaseLayout
+  title="Por Que Visão Direta?"
+  description="A escolha técnica que define a Face Moderna®: por que abandonamos o endoscópio e o que ganhamos com isso."
+  schema={schema}
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/pt" class="hover:text-primary-900">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Por Que Visão Direta?</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Face Moderna®</p>
+        <h1 class="heading-1">Por Que Visão Direta?</h1>
+        <p class="body-large">
+          A pergunta que todo cirurgião faz — e a resposta que mudou minha prática.
+        </p>
+      </header>
+
+      <!-- Conteúdo -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Quando apresento o Endomidface por Visão Direta, a primeira reação é sempre a mesma: "Mas
+          Dr. Robério, isso não é um retrocesso? Abandonar o endoscópio não é voltar no tempo?"
+        </p>
+
+        <p>É uma pergunta justa. E merece uma resposta honesta.</p>
+
+        <h2 class="heading-3">O Mito do Progresso Linear</h2>
+
+        <p>
+          Existe uma crença implícita na medicina de que "mais tecnologia = melhor resultado". O
+          endoscópio parece moderno. A torre de vídeo impressiona. O paciente sente que está
+          recebendo "o que há de mais avançado".
+        </p>
+
+        <p>
+          Mas tecnologia é ferramenta, não fim. A pergunta certa não é "qual equipamento usar?" — é <strong
+            class="text-primary-900">"o que me dá o melhor resultado com máxima segurança?"</strong
+          >
+        </p>
+
+        <h2 class="font-serif text-primary-900">O Que Perdi com o Endoscópio</h2>
+
+        <p>
+          Durante anos, operei com endoscopia. Dominei a técnica. Tinha resultados consistentes. Mas
+          algo me incomodava:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Dissociação mão-olho:</strong> Você olha para um monitor
+            enquanto suas mãos trabalham em outro lugar. O cérebro precisa traduzir constantemente.
+          </li>
+          <li>
+            <strong class="text-primary-900">Perda do feedback tátil:</strong> A câmera mostra, mas não
+            sente. A diferença entre "quase no nervo" e "no nervo" às vezes é milimétrica.
+          </li>
+          <li>
+            <strong class="text-primary-900">Dependência de equipamento:</strong> Torre com defeito? Câmera
+            embaçou? Cirurgia comprometida.
+          </li>
+          <li>
+            <strong class="text-primary-900">Curva de aprendizado cruel:</strong> 50, 80, 100 casos para
+            sentir segurança real. Quantas complicações evitáveis nesse caminho?
+          </li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900">O Que Ganhei com a Visão Direta</h2>
+
+        <p>
+          A transição não foi imediata. Foi uma evolução técnica de anos, refinando acessos,
+          iluminação, posicionamento. Até chegar em um método que oferece:
+        </p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong class="text-primary-900">Feedback tátil + visual simultâneo:</strong> Você vê E sente.
+            Ao mesmo tempo. No mesmo plano.
+          </li>
+          <li>
+            <strong class="text-primary-900">Curva de aprendizado reduzida:</strong> 15-30 casos para
+            segurança. Não 100.
+          </li>
+          <li>
+            <strong class="text-primary-900">Autonomia total:</strong> Não dependo de equipamento caro,
+            assistente treinado em câmera, ou sorte com a tecnologia.
+          </li>
+          <li>
+            <strong class="text-primary-900">Adaptação imediata:</strong> Anatomia inesperada? Ajusto
+            na hora. Sem perder tempo reposicionando câmera.
+          </li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900">Os Números Falam</h2>
+
+        <p>
+          212 casos consecutivos de Endomidface por Visão Direta.
+          <strong class="text-primary-900">Zero lesão nervosa permanente.</strong>
+        </p>
+
+        <p>
+          Isso não é sorte. É método. É a consequência lógica de uma técnica que prioriza segurança
+          sobre impressão.
+        </p>
+      </div>
+
+      <!-- Tabela Comparativa -->
+      <div class="my-16">
+        <h3 class="heading-3 mb-8 text-center">Comparativo: Endoscopia vs. Visão Direta</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-primary-900">
+                <th class="text-left py-4 pr-4 font-medium text-primary-900">Aspecto</th>
+                <th class="text-left py-4 px-4 font-medium text-softGray">Endoscopia</th>
+                <th class="text-left py-4 pl-4 font-medium text-accent-600">Visão Direta</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                comparativo.map((item) => (
+                  <tr class="border-b border-gray-200">
+                    <td class="py-4 pr-4 font-medium text-primary-900">{item.aspecto}</td>
+                    <td class="py-4 px-4 text-softGray">{item.endoscopio}</td>
+                    <td class="py-4 pl-4 text-warmGray">{item.visaoDireta}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conclusão -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="font-serif text-primary-900">A Pergunta Certa</h2>
+
+        <p>
+          Então não, visão direta não é retrocesso. É evolução. É entender que o melhor instrumento
+          é aquele que te conecta ao paciente — não o que te separa dele.
+        </p>
+
+        <p>
+          A pergunta não é "endoscópio ou não?". É: <strong class="text-primary-900"
+            >"o que me permite operar com máxima segurança e resultado consistente?"</strong
+          >
+        </p>
+
+        <p>Para mim, depois de 18 anos, a resposta é clara.</p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "A essência da cirurgia plástica está na conexão entre as mãos do cirurgião e os tecidos
+            do paciente. Qualquer coisa que interrompa essa conexão é um obstáculo, não um avanço."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- Navegação -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/pt/face-moderna/principios"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← Os Princípios Técnicos
+          </a>
+          <a href="/pt/tecnicas/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+            Técnica Endomidface →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

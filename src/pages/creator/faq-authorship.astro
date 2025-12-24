@@ -1,0 +1,247 @@
+---
+/**
+ * CLUSTER A - Autoria & Provas
+ * Página: /en/creator/faq-authorship/
+ * Prioridade: P0
+ * Intenção: Anti-sequestro + captura de buscas
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Creator', url: '/creator' },
+  { name: 'FAQ: Authorship', url: '/creator/faq-authorship' },
+];
+
+const keywords = [
+  'who created ENDOMIDFACE',
+  'ENDOMIDFACE inventor',
+  'is ENDOMIDFACE endoscopic',
+  'ENDOMIDFACE vs deep plane',
+  'Direct Vision creator',
+  'Modern Face inventor',
+  'Dr Robério Brandão technique',
+];
+
+// FAQ items for both display and schema
+const faqItems = [
+  {
+    question: 'Who created ENDOMIDFACE® by Direct Vision?',
+    answer:
+      'ENDOMIDFACE® by Direct Vision was created by Dr. Robério Brandão, a Brazilian facial plastic surgeon based in Natal, Rio Grande do Norte. Development began in 2006, with the technique being systematically refined over 18 years. Dr. Brandão is also the founder of the Modern Face® surgical philosophy. The ENDOMIDFACE® trademark is registered intellectual property.',
+  },
+  {
+    question: 'Is ENDOMIDFACE® an endoscopic procedure?',
+    answer:
+      "No. Despite the 'Endo' prefix in the name, ENDOMIDFACE® by Direct Vision is NOT an endoscopic procedure. The name refers to the anatomical approach (entering the subperiosteal space of the midface), not to the use of endoscopic equipment. The technique specifically uses Direct Vision — direct visualization with surgical loupes and headlight — rather than camera-based endoscopy. This is a fundamental distinction that Dr. Brandão emphasizes in all training.",
+  },
+  {
+    question: 'Is ENDOMIDFACE® the same as Deep Plane facelift?',
+    answer:
+      'No. ENDOMIDFACE® and Deep Plane are different techniques with different anatomical planes, vectors, and indications. ENDOMIDFACE® by Direct Vision works in the subperiosteal plane of the midface, focusing on vertical elevation of the midface unit. Traditional Deep Plane works in the sub-SMAS plane, typically with more lateral vectors. While both are valid techniques, they solve different problems and have different ideal patient profiles. Dr. Brandão teaches when each approach is appropriate.',
+  },
+  {
+    question: 'When was ENDOMIDFACE® developed?',
+    answer:
+      "Development began in 2006 in Natal, Brazil. Dr. Robério Brandão was working without access to expensive endoscopic equipment (the $100,000-$150,000 towers) and developed Direct Vision techniques out of clinical necessity. In 2007, he became a pioneer in facial videoendoscopy in Rio Grande do Norte — which paradoxically validated his hypothesis that camera-based surgery wasn't necessary for excellent midface results. The technique has been continuously refined over 18 years based on clinical outcomes from over 1,500 surgeries.",
+  },
+  {
+    question: 'What is the Modern Face® philosophy?',
+    answer:
+      "Modern Face® is a surgical philosophy founded by Dr. Robério Brandão that recognizes a fundamental shift in facial surgery: the majority of patients today (estimated 70-90%) have received facial fillers or bioestimulators before seeking surgical rejuvenation. These treatments alter tissue planes, create fibrosis, and change the surgical landscape. Modern Face® adapts surgical techniques for these contemporary patients rather than assuming 'virgin' tissue. ENDOMIDFACE® by Direct Vision is designed specifically for the Modern Face patient.",
+  },
+  {
+    question: "Why doesn't ENDOMIDFACE® require endoscopic equipment?",
+    answer:
+      "The Direct Vision approach achieves adequate visualization through optimized incision placement, proper surgical loupes (magnification), and headlight illumination. What the endoscope provides — magnified visualization of the surgical field — can be achieved without a camera when the incision allows direct line-of-sight. Benefits include: no equipment dependency (zero malfunction risk), no camera delay, true stereoscopic vision, tactile feedback preserved, and dramatically lower costs. Dr. Brandão's 1,500+ case safety record validates that Direct Vision doesn't compromise outcomes.",
+  },
+  {
+    question: 'How many surgeons has Dr. Brandão trained?',
+    answer:
+      "Over 130 surgeons from 7+ countries have been trained in the ENDOMIDFACE® and Deep Neck techniques through Dr. Brandão's mentorship programs. Training is conducted through the Modern Face Institute via structured online courses with live case discussions and ongoing mentorship. The technique's reproducibility across multiple surgeons validates that the safety record and outcomes aren't solely dependent on Dr. Brandão's individual skill.",
+  },
+  {
+    question: 'Is ENDOMIDFACE® appropriate for all facelift patients?',
+    answer:
+      'No. Dr. Brandão is specific about patient selection. ENDOMIDFACE® is ideal for patients aged 45-65 with midface descent, particularly those with prior filler/bioestimulator treatment (the Modern Face patient). It is NOT recommended for patients over 70 with severe SMAS redundancy — these patients are better served by traditional Deep Plane techniques. Proper case selection is essential for optimal outcomes. Training includes extensive guidance on when to use ENDOMIDFACE versus alternative approaches.',
+  },
+  {
+    question: "What proof exists of Dr. Brandão's authorship?",
+    answer:
+      'Multiple forms of documentation establish authorship: (1) Dated development timeline from 2006-2024, (2) ENDOMIDFACE® registered trademark, (3) Pioneer status in facial videoendoscopy in RN (2007), (4) Invited speaker recognition at SBCP National Congress 2023 and Full Face Global Summit 2024, (5) Published case series of 1,500+ surgeries, (6) 130+ surgeons trained internationally who can verify the source of their training. This documentation exists specifically to establish clear provenance in a field where technique attribution is sometimes unclear.',
+  },
+  {
+    question: 'Can I learn ENDOMIDFACE® from sources other than Dr. Brandão?',
+    answer:
+      "We cannot control how information spreads, but we can advise: the authentic technique, with its specific anatomical approach, vector mathematics, and safety protocols, is taught through the Modern Face Institute by Dr. Brandão and certified instructors. Derivative versions or techniques that borrow elements may differ significantly. For surgeons serious about learning ENDOMIDFACE® correctly, training from the original source ensures you're learning the complete, validated methodology — not a partial or modified version.",
+  },
+];
+---
+
+<BaseLayout
+  title="FAQ: ENDOMIDFACE® Authorship — Who Created It? Is It Endoscopic?"
+  description="Answers to common questions about ENDOMIDFACE® by Direct Vision: Who created it? Is it endoscopic? How does it differ from Deep Plane? Learn the facts about Dr. Robério Brandão's technique."
+  keywords={keywords}
+>
+  <SchemaFAQ items={faqItems} />
+  <SchemaArticle
+    title="FAQ: ENDOMIDFACE® Authorship and Common Questions"
+    description="Comprehensive FAQ addressing questions about ENDOMIDFACE technique origin, methodology, and distinction from other approaches"
+    section="FAQ"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+        Frequently Asked Questions
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">FAQ: ENDOMIDFACE® Authorship</h1>
+      <p class="text-xl text-primary-200">
+        Clear answers to common questions about the technique's origin, methodology, and how it
+        differs from other approaches. <strong class="text-white"
+          >Accurate information matters.</strong
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-6">
+        {
+          faqItems.map((item, index) => (
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-primary-900 mb-4 flex items-start gap-3">
+                  <span class="inline-flex items-center justify-center w-8 h-8 bg-accent-100 text-accent-600 rounded-full text-sm font-bold flex-shrink-0">
+                    {index + 1}
+                  </span>
+                  {item.question}
+                </h2>
+                <div class="pl-11">
+                  <p class="text-warmGray leading-relaxed whitespace-pre-line">{item.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Why These Questions Matter -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Why Authorship Clarity Matters</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>Medical technique attribution matters for several reasons beyond ego or credit:</p>
+
+        <ul class="space-y-3">
+          <li>
+            <strong>Training Quality:</strong> When you learn from the original source, you get the complete
+            methodology — not fragments or derivatives that may miss crucial elements.
+          </li>
+          <li>
+            <strong>Safety Protocols:</strong> Safety data is tied to specific technique execution. A
+            modified version may not carry the same safety profile.
+          </li>
+          <li>
+            <strong>Ongoing Support:</strong> Training from the creator means access to ongoing mentorship,
+            updates as the technique evolves, and a community of practitioners using the same methodology.
+          </li>
+          <li>
+            <strong>Intellectual Integrity:</strong> Medicine advances through proper attribution. Acknowledging
+            who developed a technique allows proper evaluation of its origins, evolution, and evidence
+            base.
+          </li>
+        </ul>
+
+        <p>
+          This FAQ page exists not to gatekeep information, but to ensure that surgeons researching
+          ENDOMIDFACE® have access to accurate information from the source. In an era of content
+          proliferation, clear provenance helps practitioners make informed decisions about their
+          training.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Links -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Learn More</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a
+          href="/creator"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Dr. Robério Brandão — Full Profile
+          </h3>
+          <p class="text-warmGray text-sm">Complete background on the creator of ENDOMIDFACE®.</p>
+        </a>
+        <a
+          href="/creator/timeline"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Development Timeline
+          </h3>
+          <p class="text-warmGray text-sm">Chronological history from 2006 to 2024.</p>
+        </a>
+        <a
+          href="/methods/endomidface-direct-vision"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            ENDOMIDFACE® Technical Overview
+          </h3>
+          <p class="text-warmGray text-sm">Understanding the technique itself.</p>
+        </a>
+        <a
+          href="/philosophy"
+          class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+        >
+          <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+            Modern Face® Philosophy
+          </h3>
+          <p class="text-warmGray text-sm">The surgical philosophy behind the techniques.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl font-serif text-white mb-4">Have More Questions?</h2>
+      <p class="text-xl text-primary-200 mb-8">
+        Contact us directly for detailed information about training programs or the technique.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          Training Programs
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

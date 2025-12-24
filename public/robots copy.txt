@@ -1,0 +1,101 @@
+# =============================================================================
+# robots.txt - Modern Face Institute
+# https://modernfaceinstitute.com
+# Última atualização: 2025-01-15
+# =============================================================================
+
+# === REGRAS PARA TODOS OS BOTS ===
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://modernfaceinstitute.com/sitemap-index.xml
+
+# Arquivo para sistemas de IA (LLMs)
+# Veja: https://modernfaceinstitute.com/llms.txt
+
+# === ÁREAS BLOQUEADAS ===
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /preview/
+Disallow: /*.json$
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+Disallow: /*?*fbclid=
+
+# === PERMITIR EXPLICITAMENTE (páginas principais) ===
+Allow: /face-moderna/
+Allow: /tecnicas/
+Allow: /educacao/
+Allow: /blog/
+Allow: /sobre/
+Allow: /contato/
+Allow: /faq/
+Allow: /en/
+Allow: /es/
+
+# === BOTS DE IA / LLMs ===
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llms.txt
+
+User-agent: Perplexity-User
+Allow: /
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+Allow: /llms.txt
+
+# === BOTS DE BUSCA PRINCIPAIS ===
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+
+# === BOTS DE REDES SOCIAIS ===
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# === BLOQUEAR BOTS INDESEJADOS ===
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# === INFORMAÇÕES ===
+# Site: https://modernfaceinstitute.com
+# Fundador: Dr. Robério Brandão
+# Técnicas: Endomidface, Deep Neck, Browlift
+# Idiomas: PT-BR, EN, ES

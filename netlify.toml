@@ -1,0 +1,183 @@
+# =============================================================================
+# netlify.toml - Dr. Robério Brandão | Modern Face Institute
+# https://drroberiobrandao.com
+# Last Updated: 2025-12-23
+# =============================================================================
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# === GLOBAL HEADERS ===
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+
+# === STATIC ASSETS ===
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# === MAIN CONTENT ===
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow, max-image-preview:large"
+
+[[headers]]
+  for = "/techniques/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow, max-image-preview:large"
+
+[[headers]]
+  for = "/modern-face/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow, max-image-preview:large"
+
+[[headers]]
+  for = "/education/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    X-Robots-Tag = "index, follow, max-image-preview:large"
+
+# === MULTILINGUAL PAGES ===
+[[headers]]
+  for = "/pt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    Content-Language = "pt-BR"
+
+[[headers]]
+  for = "/es/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+    Content-Language = "es"
+
+# === SEO FILES ===
+[[headers]]
+  for = "/sitemap*.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/xml"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "text/plain"
+
+# === REDIRECTS ===
+# Old PT structure (root) -> new PT structure (/pt)
+[[redirects]]
+  from = "/face-moderna"
+  to = "/pt/face-moderna"
+  status = 301
+
+[[redirects]]
+  from = "/tecnicas"
+  to = "/pt/tecnicas"
+  status = 301
+
+[[redirects]]
+  from = "/educacao"
+  to = "/pt/educacao"
+  status = 301
+
+[[redirects]]
+  from = "/sobre"
+  to = "/pt/sobre"
+  status = 301
+
+[[redirects]]
+  from = "/contato"
+  to = "/pt/contato"
+  status = 301
+
+[[redirects]]
+  from = "/privacidade"
+  to = "/pt/privacidade"
+  status = 301
+
+[[redirects]]
+  from = "/termos"
+  to = "/pt/termos"
+  status = 301
+
+# Old EN structure (/en prefix) -> new EN structure (root)
+[[redirects]]
+  from = "/en"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/en/*"
+  to = "/:splat"
+  status = 301
+
+# Privacy pages normalization
+[[redirects]]
+  from = "/pt/privacy"
+  to = "/pt/privacidade"
+  status = 301
+
+[[redirects]]
+  from = "/es/privacy"
+  to = "/es/privacidad"
+  status = 301
+
+# Old domain redirect (if applicable)
+[[redirects]]
+  from = "https://modernfaceinstitute.com/*"
+  to = "https://drroberiobrandao.com/:splat"
+  status = 301
+  force = true
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.drroberiobrandao.com/*"
+  to = "https://drroberiobrandao.com/:splat"
+  status = 301
+  force = true
+
+# Trailing slash consistency (remove)
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+
+# === ERROR PAGES ===
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404

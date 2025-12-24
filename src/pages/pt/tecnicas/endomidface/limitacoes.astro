@@ -1,0 +1,290 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'limitações Endomidface',
+  'o que Endomidface não corrige',
+  'indicações lifting completo',
+  'jowls tratamento',
+  'quando combinar técnicas lifting',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Limitações da Técnica',
+  description:
+    'O que o Endomidface não corrige. Jowls, excesso cervical, casos que exigem técnicas complementares.',
+  procedureType: 'Surgical',
+};
+
+const naoCorrige = [
+  {
+    problema: 'Jowls (Bulldog)',
+    descricao:
+      'A flacidez na linha da mandíbula não é tratada pelo Endomidface. A tração atua no terço médio superior, até a região da boca.',
+    solucao: 'Deep Neck + incisão pré-auricular com plicatura e ressecção de pele',
+  },
+  {
+    problema: 'Excesso Cervical Importante',
+    descricao:
+      'Pescoço flácido com múltiplas dobras ou excesso de pele significativo não responde ao Endomidface isolado.',
+    solucao: 'Deep Neck completo (gordura + digástrico + fasciotomia + platismorrafia)',
+  },
+  {
+    problema: 'Ptose Mandibular Severa',
+    descricao: 'Queda acentuada dos tecidos abaixo da mandíbula requer abordagem mais ampla.',
+    solucao: 'Lifting com incisão pré-auricular, descolamento do ramo da mandíbula',
+  },
+  {
+    problema: 'Redundância Cutânea Severa',
+    descricao:
+      'Pacientes >70 anos com SMAS muito redundante não obtêm resultado adequado com Endomidface.',
+    solucao: 'Deep Plane tradicional com ressecção de pele',
+  },
+  {
+    problema: 'Bandas Platismais Marcadas',
+    descricao: 'Bandas verticais no pescoço não são corrigidas pela abordagem do terço médio.',
+    solucao: 'Platismorrafia medial via acesso submentoniano',
+  },
+];
+
+const quandoCombinar = [
+  {
+    cenario: 'Face + Pescoço Flácidos',
+    combinacao: 'Endomidface + Deep Neck + incisões retroauriculares (se necessário)',
+    beneficio: 'Rejuvenescimento completo de terços médio e inferior',
+  },
+  {
+    cenario: 'Terço Superior + Médio',
+    combinacao: 'Browlift + Endomidface (mesmo portal temporal)',
+    beneficio: 'Padrão-ouro da Face Moderna, cicatriz única',
+  },
+  {
+    cenario: 'Pálpebra Inferior Longa + Bolsas',
+    combinacao: "Endomidface + Blefaroplastia 'No Touch'",
+    beneficio: 'Elevação do terço médio reposiciona bolsas naturalmente',
+  },
+  {
+    cenario: 'Jowls + Terço Médio',
+    combinacao: 'Endomidface + Plicaturas + Ressecção de Pele',
+    beneficio: 'Resultado equivalente ao Deep Plane com menor morbidade',
+  },
+];
+---
+
+<BaseLayout
+  title="Limitações do Endomidface"
+  description="O que o Endomidface não corrige e quando combinar com outras técnicas. Jowls, excesso cervical e casos que exigem abordagens complementares."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Limitações</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Honestidade Técnica
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Limitações da Técnica
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          A transparência sobre o que a técnica pode e não pode fazer é fundamental para
+          expectativas alinhadas e resultados satisfatórios.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O Endomidface é uma técnica poderosa para o rejuvenescimento do terço médio facial, mas
+          não é universal. Reconhecer suas limitações é tão importante quanto dominar sua execução.
+          A comunicação clara dessas restrições ao paciente é parte essencial do processo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Que Não Corrige -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        O Que o Endomidface NÃO Corrige
+      </h2>
+      <p class="text-center text-warmGray mb-12 max-w-2xl mx-auto">
+        Estas situações clínicas exigem técnicas complementares ou alternativas.
+      </p>
+
+      <div class="space-y-6">
+        {
+          naoCorrige.map((item) => (
+            <div class="bg-ivory p-8 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <p class="text-xs font-bold text-red-600 uppercase tracking-[0.1em] mb-2">
+                    Não Corrige
+                  </p>
+                  <h3 class="text-lg font-serif text-primary-900">{item.problema}</h3>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-warmGray uppercase tracking-[0.1em] mb-2">
+                    Por Quê
+                  </p>
+                  <p class="text-sm text-warmGray">{item.descricao}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-green-600 uppercase tracking-[0.1em] mb-2">
+                    Alternativa
+                  </p>
+                  <p class="text-sm text-warmGray">{item.solucao}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "Nos casos de maior flacidez do terço médio e jowls, o Deep Plane consegue um melhor
+          resultado. Esta é uma limitação objetiva para casos de flacidez extrema, especialmente no
+          terço inferior."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Quando Combinar -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Quando Combinar Técnicas
+      </h2>
+      <p class="text-center text-warmGray mb-12 max-w-2xl mx-auto">
+        A indicação costuma ser combinada, de acordo com o padrão de envelhecimento.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          quandoCombinar.map((item) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <h3 class="text-lg font-serif text-primary-900 mb-3">{item.cenario}</h3>
+              <p class="text-sm text-accent-600 mb-4">{item.combinacao}</p>
+              <p class="text-sm text-warmGray">{item.beneficio}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitações Anatômicas -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Limitações Anatômicas do Método</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h3 class="font-serif text-primary-900">Vetor de Tração</h3>
+        <p>
+          O Endomidface promove elevação estritamente vertical. Isso significa que problemas que
+          requerem tração posterior (para trás) não são adequadamente tratados. A técnica passa na
+          frente dos ligamentos zigomático e massetérico, sem liberá-los.
+        </p>
+
+        <h3 class="font-serif text-primary-900">Área de Atuação</h3>
+        <p>
+          O descolamento atinge o canto da boca, mas não avança significativamente para o terço
+          inferior. A linha da mandíbula e a região cervical estão fora do alcance direto da
+          técnica.
+        </p>
+
+        <h3 class="font-serif text-primary-900">Qualidade Tecidual</h3>
+        <p>
+          Pacientes com SMAS muito redundante, qualidade cutânea comprometida ou grande excesso de
+          pele não obtêm resultado satisfatório. A técnica depende de certa elasticidade e qualidade
+          tecidual para funcionar adequadamente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Em Resumo -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Em Resumo</h2>
+
+      <div class="bg-white p-8 border border-gray-100">
+        <p class="text-warmGray mb-6">O Endomidface é ideal para o terço médio, mas:</p>
+
+        <ul class="space-y-3 text-warmGray">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span>Não corrige jowls — exige abordagem do terço inferior</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span>Não corrige pescoço flácido — exige Deep Neck</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span>
+            <span>Não é adequado para SMAS muito redundante — considerar Deep Plane</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">✓</span>
+            <span>Pode ser combinado com outras técnicas para resultado abrangente</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">✓</span>
+            <span>A comunicação clara dessas limitações é essencial</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/erros-comuns"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Erros Comuns
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/resultados"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Resultados →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

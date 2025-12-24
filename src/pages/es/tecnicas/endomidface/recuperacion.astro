@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'recuperación Endomidface',
+  'postoperatorio lifting facial',
+  'retorno social 7 días',
+  'edema equimosis lifting',
+  'alta cirugía facial',
+  'cronograma recuperación',
+];
+
+const timeline = [
+  {
+    t: '0-2h',
+    titulo: 'Centro Quirúrgico',
+    d: 'Observación postoperatoria, monitoreo de signos vitales',
+  },
+  { t: '2h', titulo: 'Alta', d: 'Paciente liberado a casa con acompañante' },
+  { t: '24h', titulo: 'Primer Retorno', d: 'Evaluación, cambio de apósito si necesario' },
+  { t: '72h', titulo: 'Retiro de Micropore', d: 'Se retira micropore de frente' },
+  { t: '7 días', titulo: 'Retiro de Suturas', d: 'Suturas o grapas del cuero cabelludo' },
+  { t: '7-10 días', titulo: 'Retorno Social', d: 'Paciente presentable, edema residual mínimo' },
+  { t: '2 semanas', titulo: 'Resultado Inicial', d: 'Fotos de seguimiento, resultado ya evidente' },
+  { t: '6 meses', titulo: 'Resultado Final', d: 'Estabilización completa, resultado definitivo' },
+];
+---
+
+<BaseLayout
+  title="Recuperación del Endomidface"
+  description="Protocolo completo de recuperación postoperatoria del Endomidface. Alta en 2h, retorno social 7-10 días."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Postoperatorio
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Recuperación</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Uno de los grandes diferenciales del Endomidface es la recuperación acelerada.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div><p class="text-3xl font-serif">2h</p><p class="text-xs uppercase">Alta</p></div><div>
+          <p class="text-3xl font-serif">72h</p><p class="text-xs uppercase">Micropore</p>
+        </div><div>
+          <p class="text-3xl font-serif">7-10d</p><p class="text-xs uppercase">Retorno Social</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Línea de Tiempo de Recuperación
+      </h2><div class="space-y-6">
+        {
+          timeline.map((item) => (
+            <div class="flex items-start gap-6 bg-white p-6 border border-gray-100">
+              <>
+                <div class="w-16 flex-shrink-0">
+                  <p class="text-accent-600 font-serif text-lg">{item.t}</p>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-1">{item.titulo}</h3>
+                    <p class="text-sm text-warmGray">{item.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Edema y Equimosis</h2><p
+        class="text-warmGray mb-6"
+      >
+        Endomidface se caracteriza por <strong>significativamente menos edema</strong> comparado con técnicas
+        más extensas. Esto se debe al abordaje focalizado en el tercio medio y preservación del drenaje
+        linfático.
+      </p><h3 class="font-serif text-primary-900 mb-4">Qué Esperar</h3><ul
+        class="space-y-2 text-warmGray"
+      >
+        <li>
+          <strong>Primeras 48h:</strong> Edema más pronunciado, principalmente periorbitario
+        </li><li><strong>3-5 días:</strong> Pico de edema, inicio de resolución</li><li>
+          <strong>7-10 días:</strong> Edema residual mínimo, paciente presentable
+        </li><li><strong>2-4 semanas:</strong> Resolución completa en la mayoría de casos</li>
+      </ul>
+    </div>
+  </section>
+  <section class="py-16 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif italic text-primary-900 mb-6">
+        "Fue dada de alta del centro quirúrgico 2 horas después de terminar. Foto a las 2 semanas ya
+        mostrando resultado significativo. Esta estrategia me permitió ahorrar tiempo, continuar con
+        anestesia local y sedación, y tener mucho menos edema."
+      </p><footer class="text-sm text-softGray">— Dr. Robério Brandão</footer>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/resultados" class="text-sm text-accent-600">← Resultados</a
+      ><a href="/es/tecnicas/endomidface" class="text-sm text-accent-600">Visión General →</a>
+    </div>
+  </section>
+</BaseLayout>

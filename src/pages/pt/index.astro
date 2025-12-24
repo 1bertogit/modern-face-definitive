@@ -1,0 +1,179 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import EditorialHero from '@components/ui/EditorialHero.astro';
+
+const keywords = [
+  'Face Moderna',
+  'Dr Robério Brandão',
+  'Endomidface visão direta',
+  'curso cirurgia facial',
+  'lifting facial Natal',
+  'Deep Neck técnica',
+];
+
+const quotes = [
+  'Excelência em cirurgia facial não deveria ser um segredo guardado por poucos. Nossa missão é socializá-la.',
+];
+
+const techniques = [
+  {
+    title: 'Endomidface',
+    description:
+      'A técnica revolucionária por visão direta. Segurança máxima sem necessidade de vídeo.',
+    image: '/images/techniques/endomidface-hero.png',
+    href: '/pt/tecnicas/endomidface',
+  },
+  {
+    title: 'Browlift Evolutivo',
+    description: 'Reposicionamento natural sem o aspecto de "surpresa". Cicatrizes imperceptíveis.',
+    image: '/images/techniques/browlift-hero.png',
+    href: '/pt/tecnicas/browlift',
+  },
+  {
+    title: 'Deep Neck',
+    description:
+      'Definição cervical HD sem remover a glândula submandibular. Segurança e estética.',
+    image: '/images/techniques/deep-neck-hero.png',
+    href: '/pt/tecnicas/deep-neck',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Dr. Robério Brandão',
+  alternateName: 'Criador da Face Moderna',
+  jobTitle: 'Cirurgião Plástico',
+  description:
+    'Criador da Face Moderna® e Endomidface por Visão Direta. 18+ anos, 1500+ cirurgias, 0% lesão nervosa permanente.',
+  knowsAbout: ['Endomidface', 'Face Moderna', 'Lifting Facial', 'Browlift', 'Deep Neck'],
+  url: 'https://drroberiobrandao.com',
+};
+---
+
+<BaseLayout
+  title="Início"
+  description="Domine em 30 Casos, Não em 10 Anos. Face Moderna® por Dr. Robério Brandão. Endomidface por Visão Direta."
+  schema={schema}
+  keywords={keywords}
+>
+  <!-- Hero Section -->
+  <EditorialHero />
+
+  <!-- Authority Stats Section -->
+  <section class="section-xl bg-ivory relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+        <div class="p-8 border-r border-gray-200 last:border-0">
+          <p class="text-6xl font-light text-primary-900 mb-4 font-serif">0%</p>
+          <p class="label-caption">
+            Lesão Nervosa<br />(212 Casos)
+          </p>
+        </div>
+        <div class="p-8 border-r border-gray-200 last:border-0 md:border-r-0 lg:border-r">
+          <p class="text-6xl font-light text-primary-900 mb-4 font-serif">1.5k+</p>
+          <p class="label-caption">
+            Cirurgias<br />Realizadas
+          </p>
+        </div>
+        <div class="p-8 border-r border-gray-200 last:border-0">
+          <p class="text-6xl font-light text-primary-900 mb-4 font-serif">7 d</p>
+          <p class="label-caption">
+            Recuperação<br />Média
+          </p>
+        </div>
+        <div class="p-8">
+          <p class="text-6xl font-light text-primary-900 mb-4 font-serif">30</p>
+          <p class="label-caption">
+            Casos para<br />Maestria
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="section-lg bg-ivory border-t border-gray-100">
+    <div class="prose-base text-center">
+      <span class="material-symbols-outlined text-5xl text-accent-600 mb-10 opacity-40"
+        >format_quote</span
+      >
+      <h2 class="heading-2 italic text-warmGray">
+        "{quotes[0]}"
+      </h2>
+      <div class="flex flex-col items-center gap-4 mt-12">
+        <div class="w-12 h-px bg-accent-600 mb-2"></div>
+        <p class="label-eyebrow text-primary-900">Dr. Robério Brandão</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Techniques Preview -->
+  <section class="section-lg bg-white">
+    <div class="prose-wide">
+      <div class="text-center mb-32">
+        <p class="label-eyebrow">Metodologia</p>
+        <h3 class="heading-1">A Era da Face Moderna</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+        {
+          techniques.map((tech) => (
+            <div class="group flex flex-col items-center text-center">
+              <div class="w-full aspect-[4/5] overflow-hidden mb-10 relative bg-gray-100">
+                <img
+                  src={tech.image}
+                  alt={tech.title}
+                  class="w-full h-full object-cover grayscale brightness-90 contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  width="400"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="px-4">
+                <h4 class="heading-4 mb-6">{tech.title}</h4>
+                <p class="body-small text-softGray mb-10 font-light max-w-xs mx-auto">
+                  {tech.description}
+                </p>
+                <a
+                  href={tech.href}
+                  class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-primary-900 pb-2 border-b border-primary-900 hover:text-accent-600 hover:border-accent-600 transition-all"
+                >
+                  Descobrir
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-lg bg-primary-900 relative overflow-hidden">
+    <!-- Abstract Background Shape -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10">
+      <div
+        class="absolute -top-[50%] -left-[20%] w-[1000px] h-[1000px] rounded-full border border-white/20"
+      >
+      </div>
+    </div>
+
+    <div class="relative z-10 prose-base text-center">
+      <h2 class="heading-1-white text-5xl md:text-7xl mb-10">Domine a Técnica</h2>
+      <p class="body-large-light mb-16 max-w-2xl mx-auto">
+        Junte-se ao grupo seleto de cirurgiões que estão redefinindo o padrão ouro do
+        rejuvenescimento facial.
+      </p>
+      <div class="flex justify-center">
+        <a
+          href="/pt/educacao"
+          class="px-10 py-4 bg-accent-600 text-white uppercase tracking-[0.15em] text-[11px] font-medium hover:bg-white hover:text-primary-900 transition-colors duration-300"
+        >
+          Iniciar Formação
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+
+const breadcrumbs = [
+  { name: 'Início', url: '/' },
+  { name: 'Legal', url: '/legal' },
+  { name: 'Termos de Uso', url: '/legal/termos' },
+];
+
+const keywords = [
+  'termos de uso',
+  'condições de uso',
+  'termos e condições',
+  'Modern Face Institute',
+  'Dr. Robério Brandão',
+];
+---
+
+<BaseLayout
+  title="Termos de Uso | Modern Face Institute"
+  description="Termos e condições de uso do site e serviços do Modern Face Institute. Conheça as regras e diretrizes para utilização do nosso conteúdo."
+  keywords={keywords}
+>
+  <!-- Hero Editorial -->
+  <section class="relative py-24 md:py-32 bg-primary-900 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 opacity-90"
+    >
+    </div>
+    <div
+      class="absolute inset-0"
+      style="background-image: radial-gradient(circle at 30% 50%, rgba(184, 149, 108, 0.1) 0%, transparent 50%);"
+    >
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm uppercase tracking-widest text-accent-400 mb-6">LEGAL</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
+          Termos de Uso
+        </h1>
+        <p class="text-lg text-primary-200 max-w-2xl mx-auto">
+          Diretrizes e condições para utilização do nosso site e serviços
+        </p>
+        <p class="text-sm text-primary-300 mt-4">Última atualização: Dezembro 2024</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section class="bg-white border-b border-primary-100 py-4">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumb items={breadcrumbs} />
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap text-lg leading-relaxed mb-8">
+          Ao acessar e utilizar o site do Modern Face Institute, você concorda com estes Termos de
+          Uso. Se você não concordar com qualquer parte destes termos, não deverá utilizar nosso
+          site.
+        </p>
+
+        <div class="space-y-12">
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">1. Aceitação dos Termos</h2>
+            <p class="text-warmGray leading-relaxed">
+              Ao acessar e utilizar o site do Modern Face Institute, você concorda com estes Termos
+              de Uso. Se você não concordar com qualquer parte destes termos, não deverá utilizar
+              nosso site.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">2. Descrição dos Serviços</h2>
+            <p class="text-warmGray leading-relaxed">
+              O Modern Face Institute oferece conteúdo educacional sobre cirurgia facial, incluindo
+              informações sobre técnicas, filosofia e programas de formação para profissionais
+              médicos.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">3. Uso do Conteúdo</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              Todo o conteúdo deste site, incluindo textos, imagens, vídeos, gráficos e materiais
+              didáticos, é protegido por direitos autorais. O uso não autorizado, reprodução ou
+              distribuição é estritamente proibido.
+            </p>
+            <p class="text-warmGray leading-relaxed">
+              Profissionais médicos podem utilizar o conteúdo para fins de estudo pessoal, mas não
+              podem reproduzir, publicar ou comercializar o material sem autorização expressa.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">4. Conteúdo Educacional</h2>
+            <p class="text-warmGray leading-relaxed mb-4">
+              As informações disponibilizadas neste site têm caráter exclusivamente educacional e
+              são destinadas a profissionais médicos. Não substituem:
+            </p>
+            <ul class="space-y-3 text-warmGray">
+              <li>Treinamento presencial adequado</li>
+              <li>Supervisão profissional</li>
+              <li>Julgamento clínico individual</li>
+              <li>Consentimento informado do paciente</li>
+            </ul>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">
+              5. Limitação de Responsabilidade
+            </h2>
+            <p class="text-warmGray leading-relaxed">
+              O Modern Face Institute não se responsabiliza por resultados clínicos obtidos por
+              profissionais que utilizem as informações deste site. Cada profissional é responsável
+              por suas próprias práticas e decisões clínicas.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">6. Propriedade Intelectual</h2>
+            <p class="text-warmGray leading-relaxed">
+              As marcas "Face Moderna®", "Endomidface", "Modern Face Institute" e logotipos
+              associados são propriedade do Dr. Robério Brandão e do Modern Face Institute. O uso
+              não autorizado destas marcas é proibido.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">7. Modificações</h2>
+            <p class="text-warmGray leading-relaxed">
+              Reservamo-nos o direito de modificar estes termos a qualquer momento. Alterações
+              significativas serão comunicadas através do site.
+            </p>
+          </article>
+
+          <article>
+            <h2 class="font-serif text-primary-900 text-3xl mb-4">8. Contato</h2>
+            <p class="text-warmGray leading-relaxed">
+              Para dúvidas sobre estes termos, entre em contato através de
+              <a
+                href="mailto:legal@drroberiobrandao.com"
+                class="text-accent-600 hover:text-accent-700 transition-colors"
+              >
+                legal@drroberiobrandao.com
+              </a>.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Footer -->
+  <section class="py-12 bg-white border-t border-primary-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <a
+          href="/pt/legal/privacidade"
+          class="group flex items-center gap-2 text-accent-600 hover:text-accent-700 transition-colors"
+        >
+          <span class="text-sm font-medium uppercase tracking-wide">Política de Privacidade</span>
+          <svg
+            class="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+        <div class="text-sm text-softGray">Documento Legal</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

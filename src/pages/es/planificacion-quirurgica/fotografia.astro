@@ -1,0 +1,102 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const incidencias = [
+  { nombre: 'Frontal', desc: 'Mirando a cámara, expresión neutra', obligatorio: true },
+  { nombre: 'Oblicua 45° D', desc: 'Rotación 45° a derecha', obligatorio: true },
+  { nombre: 'Oblicua 45° I', desc: 'Rotación 45° a izquierda', obligatorio: true },
+  { nombre: 'Perfil D', desc: 'Perfil completo derecho', obligatorio: true },
+  { nombre: 'Perfil I', desc: 'Perfil completo izquierdo', obligatorio: true },
+  { nombre: 'Base Nasal', desc: 'Incidencia inferior nasal', obligatorio: false },
+  { nombre: 'Cuello Extendido', desc: 'Hiperextensión cervical', obligatorio: false },
+];
+
+const specs = [
+  { item: 'Fondo', valor: 'Neutro (azul o gris)' },
+  { item: 'Iluminación', valor: 'Ring light o flash doble' },
+  { item: 'Distancia', valor: '1.5 metros estandarizado' },
+  { item: 'Altura cámara', valor: 'Nivel de ojos' },
+  { item: 'Expresión', valor: 'Neutra, sin sonrisa' },
+  { item: 'Cabello', valor: 'Recogido hacia atrás' },
+];
+---
+
+<BaseLayout
+  title="Fotografía Estandarizada"
+  description="Documentación fotográfica preoperatoria. Incidencias obligatorias y especificaciones técnicas."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Fotografía</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 04
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Fotografía Estandarizada
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La documentación fotográfica es obligatoria. Estandarización garantiza comparabilidad y
+        protección legal.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Incidencias</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          incidencias.map((i) => (
+            <div class="flex items-center justify-between p-4 bg-ivory border border-gray-100">
+              <div>
+                <h3 class="font-medium text-primary-900">{i.nombre}</h3>
+                <p class="text-sm text-warmGray">{i.desc}</p>
+              </div>
+              <span
+                class={`text-xs px-2 py-1 ${i.obligatorio ? 'bg-accent-600' : 'bg-gray-400'} text-white`}
+              >
+                {i.obligatorio ? 'Obligatorio' : 'Opcional'}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Especificaciones Técnicas
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {
+          specs.map((s) => (
+            <div class="p-4 bg-white border border-gray-100 text-center">
+              <p class="text-xs text-accent-600 uppercase tracking-wide mb-1">{s.item}</p>
+              <p class="text-warmGray font-medium">{s.valor}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica/vectores" class="text-sm text-accent-600">← Vectores</a>
+      <a href="/es/planificacion-quirurgica/consentimiento" class="text-sm text-accent-600"
+        >Consentimiento →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

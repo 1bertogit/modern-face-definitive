@@ -1,0 +1,53 @@
+---
+/**
+ * SchemaBreadcrumb - Rich Snippets para navegação
+ * Ajuda Google a entender hierarquia do site
+ */
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: (items || []).map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name || '',
+    item: item.url?.startsWith('http') ? item.url : `${siteUrl}${item.url || ''}`,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<!-- Visual Breadcrumb (opcional - incluir no layout da página) --><!--
+<nav aria-label="Breadcrumb" class="text-sm text-softGray">
+  <ol class="flex items-center space-x-2">
+    {items.map((item, index) => (
+      <>
+        {index > 0 && <span class="mx-2">/</span>}
+        {index === items.length - 1 ? (
+          <li class="text-primary-900 font-medium">{item.name}</li>
+        ) : (
+          <li>
+            <a href={item.url} class="hover:text-primary-600 transition-colors">
+              {item.name}
+            </a>
+          </li>
+        )}
+      </>
+    ))}
+  </ol>
+</nav>
+-->

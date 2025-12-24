@@ -1,0 +1,124 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Procedure Information',
+    items: [
+      'Technical description of surgery',
+      'Expected realistic outcomes',
+      'Alternatives to procedure',
+      'Estimated surgical time',
+    ],
+  },
+  {
+    title: 'Risks and Complications',
+    items: [
+      'Hematoma (most common)',
+      'Infection (rare)',
+      'Temporary nerve injury',
+      'Permanent nerve injury (rare)',
+      'Asymmetry',
+      'Hypertrophic scar',
+      'Need for revision',
+    ],
+  },
+  {
+    title: 'Post-Operative',
+    items: [
+      'Expected recovery time',
+      'Activity restrictions',
+      'Warning signs',
+      'Follow-up schedule',
+    ],
+  },
+];
+
+const principles = [
+  'Consent is not just a legal document',
+  "It's a communication process with the patient",
+  'Patient must understand, not just sign',
+  'Document should be signed in advance',
+];
+---
+
+<BaseLayout
+  title="Informed Consent"
+  description="Consent form for facial surgery. Clear communication of risks and expectations."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/surgical-planning" class="hover:text-white">Planning</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Consent</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Step 05</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Informed Consent
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Transparent communication is fundamental. The patient must fully understand what to expect.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "The best consent is one the patient can explain back to you."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Form Content</h2>
+      <div class="space-y-8">
+        {
+          sections.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-4">{s.title}</h3>
+              <ul class="space-y-2">
+                {s.items.map((item) => (
+                  <li class="flex items-center gap-2 text-warmGray">
+                    <span class="w-1.5 h-1.5 bg-accent-600 rounded-full flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Consent Principles</h2>
+      <div class="space-y-3">
+        {
+          principles.map((p) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{p}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/surgical-planning/photography" class="text-sm text-accent-600">← Photography</a>
+      <a href="/surgical-planning/checklist" class="text-sm text-accent-600">Checklist →</a>
+    </div>
+  </section>
+</BaseLayout>

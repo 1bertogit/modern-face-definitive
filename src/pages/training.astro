@@ -1,0 +1,211 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+
+const keywords = [
+  'Modern Face course',
+  'facial surgery training',
+  'Endomidface course',
+  'facelift training',
+  'Dr Robério Brandão course',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Modern Face® Training',
+  description: 'Intensive 3-day in-person course to master Modern Face® techniques',
+  provider: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const modules = [
+  {
+    day: 'Day 1',
+    title: 'Foundations & Anatomy',
+    topics: [
+      'Applied anatomy: SMAS, ligaments and spaces',
+      'Tactile GPS: sensitivity training',
+      'Cadaver surgical demonstration',
+      'Personalized surgical planning',
+    ],
+  },
+  {
+    day: 'Day 2',
+    title: 'Techniques in Action',
+    topics: [
+      'Endomidface by Direct Vision (hands-on)',
+      'Evolutionary Browlift',
+      'Deep Neck without gland removal',
+      'Complex cases and anatomical variants',
+    ],
+  },
+  {
+    day: 'Day 3',
+    title: 'Integration & Mentorship',
+    topics: [
+      'Live surgery with discussion',
+      'Complications and how to avoid them',
+      'Accelerated postoperative recovery',
+      'Ongoing mentorship: next steps',
+    ],
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "After 10 years doing traditional facelifts, the course completely changed my approach. I've already operated 15 cases with the technique and the results are consistent.",
+    author: 'Dr. Carlos M.',
+    role: 'São Paulo, Brazil',
+  },
+  {
+    quote:
+      "Tactile GPS is a game changer. I've never felt afraid of the deep plane again. The confidence I have today is incomparable.",
+    author: 'Dr. Amanda L.',
+    role: 'Rio de Janeiro, Brazil',
+  },
+];
+---
+
+<BaseLayout
+  title="Modern Face® Training"
+  description="Intensive 3-day in-person course to master Modern Face® techniques. Learn from Dr. Robério Brandão."
+  schema={schema}
+  keywords={keywords}
+  lang="en"
+>
+  <!-- Hero -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+            In-Person Training
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-primary-900 leading-tight mb-6">
+            Master It in 30 Cases,<br />Not in 10 Years.
+          </h1>
+          <p class="text-lg text-warmGray leading-relaxed mb-8">
+            Intensive 3-day course with theory, cadaver hands-on and live surgery. Leave ready to
+            operate safely in the deep plane.
+          </p>
+
+          <div class="flex flex-wrap gap-8 py-6 border-y border-gray-200 mb-8">
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">3 Days</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">
+                Duration
+              </p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">8</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">
+                Spots/Class
+              </p>
+            </div>
+            <div class="text-center">
+              <p class="text-3xl font-normal text-primary-900 font-serif">100%</p>
+              <p class="text-[10px] text-softGray uppercase tracking-[0.2em] font-light">
+                Practical
+              </p>
+            </div>
+          </div>
+
+          <Button href="#registration" variant="primary" size="lg"> Reserve My Spot </Button>
+        </div>
+
+        <div class="relative">
+          <img
+            src="/images/techniques/formacao-hero.png"
+            alt="Advanced Modern Face Training Course - Dr. Robério Brandão"
+            class="rounded-lg desaturated-img"
+            width="800"
+            height="600"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Program
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-serif text-primary-900">What You Will Learn</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          modules.map((module) => (
+            <div class="bg-ivory p-8 rounded-lg border border-gray-100">
+              <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-2">
+                {module.day}
+              </p>
+              <h4 class="text-xl font-serif font-normal text-primary-900 mb-6">{module.title}</h4>
+              <ul class="space-y-3">
+                {module.topics.map((topic) => (
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-accent-600 text-sm mt-1">
+                      arrow_right
+                    </span>
+                    <span class="text-warmGray text-sm">{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Testimonials
+        </h2>
+        <h3 class="text-4xl font-serif text-primary-900">What Students Say</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          testimonials.map((testimonial) => (
+            <div class="bg-white p-8 rounded-lg border border-gray-100">
+              <span class="material-symbols-outlined text-3xl text-accent-600 mb-4">
+                format_quote
+              </span>
+              <p class="text-warmGray leading-relaxed mb-6 italic">"{testimonial.quote}"</p>
+              <div>
+                <p class="font-medium text-primary-900 text-sm">{testimonial.author}</p>
+                <p class="text-xs text-softGray font-light">{testimonial.role}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="registration" class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Next Class: January 2025</h2>
+      <p class="text-lg text-primary-400 mb-12 max-w-xl mx-auto">
+        Limited to 8 surgeons per class to ensure maximum benefit.
+      </p>
+      <Button href="https://wa.me/5571999999999" variant="primary" size="lg">
+        Contact Our Team
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

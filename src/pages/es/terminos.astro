@@ -1,0 +1,134 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'términos de uso Face Moderna',
+  'condiciones de uso sitio',
+  'Dr Robério Brandão legal',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Términos de Uso',
+  description: 'Términos de uso del sitio Face Moderna® - Dr. Robério Brandão',
+};
+---
+
+<BaseLayout
+  title="Términos de Uso"
+  description="Términos y condiciones de uso del sitio Face Moderna® - Dr. Robério Brandão."
+  schema={schema}
+  keywords={keywords}
+  lang="es"
+>
+  <!-- Hero -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Legal</p>
+      <h1 class="text-5xl md:text-6xl font-serif text-primary-900 leading-tight mb-6">
+        Términos de Uso
+      </h1>
+      <p class="text-xl text-warmGray leading-relaxed max-w-2xl mx-auto">
+        Condiciones de acceso y utilización del sitio Face Moderna®.
+      </p>
+      <p class="text-sm text-softGray mt-6">
+        Última actualización: {
+          new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
+        }
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Al acceder y utilizar el sitio Face Moderna® ("Sitio"), usted acepta cumplir y estar
+          vinculado a los siguientes Términos de Uso. Si no está de acuerdo con alguna parte de
+          estos términos, no debe utilizar nuestro sitio web.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">1. Aceptación de los Términos</h2>
+        <p>
+          Al acceder a este sitio web, usted confirma que ha leído, comprendido y acepta cumplir con
+          estos Términos de Uso y todas las leyes y regulaciones aplicables.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">2. Uso del Sitio</h2>
+        <p>Usted acepta utilizar el sitio web solo para fines legales y de manera que no:</p>
+        <ul class="space-y-4">
+          <li>Viole ninguna ley o regulación aplicable</li>
+          <li>Infrinja los derechos de propiedad intelectual de terceros</li>
+          <li>Transmita contenido ofensivo, difamatorio o ilegal</li>
+          <li>Interfiera o interrumpa el funcionamiento del sitio web</li>
+          <li>Intente acceder a áreas restringidas o no autorizadas del sitio web</li>
+        </ul>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">3. Propiedad Intelectual</h2>
+        <p>
+          Todo el contenido de este sitio web, incluyendo textos, imágenes, logotipos, gráficos,
+          videos y software, es propiedad del Dr. Robério Brandão o de sus licenciantes y está
+          protegido por leyes de derechos de autor y otras leyes de propiedad intelectual.
+        </p>
+        <p>
+          No puede reproducir, distribuir, modificar, crear obras derivadas, mostrar públicamente o
+          utilizar cualquier contenido de este sitio web sin autorización previa por escrito.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">4. Información Médica</h2>
+        <p>
+          El contenido de este sitio web se proporciona únicamente con fines informativos y
+          educativos. La información presentada no constituye asesoramiento médico, diagnóstico o
+          tratamiento. Siempre consulte a un profesional de la salud calificado para preguntas
+          relacionadas con su salud.
+        </p>
+        <p>
+          El Dr. Robério Brandão y el sitio Face Moderna® no se hacen responsables de decisiones
+          médicas tomadas basándose en la información de este sitio web.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">5. Enlaces a Sitios de Terceros</h2>
+        <p>
+          Nuestro sitio web puede contener enlaces a sitios web de terceros. No tenemos control
+          sobre el contenido o las prácticas de estos sitios web y no asumimos responsabilidad por
+          ellos. La inclusión de enlaces no implica respaldo del contenido o servicios ofrecidos.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">6. Limitación de Responsabilidad</h2>
+        <p>
+          En la máxima medida permitida por la ley, el Dr. Robério Brandão y el sitio Face Moderna®
+          no serán responsables de ningún daño directo, indirecto, incidental, especial o
+          consecuencial resultante del uso o la incapacidad de usar este sitio web.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">7. Modificaciones de los Términos</h2>
+        <p>
+          Nos reservamos el derecho de modificar estos Términos de Uso en cualquier momento. Los
+          cambios entrarán en vigor inmediatamente después de la publicación en el sitio web. Es su
+          responsabilidad revisar periódicamente estos términos.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">8. Ley Aplicable</h2>
+        <p>
+          Estos Términos de Uso se rigen por las leyes de la República Federativa de Brasil.
+          Cualquier disputa relacionada con estos términos se resolverá en los tribunales
+          competentes de Brasil.
+        </p>
+
+        <h2 class="font-serif text-primary-900 mt-12 mb-6">9. Contacto</h2>
+        <p>
+          Si tiene preguntas sobre estos Términos de Uso, póngase en contacto con nosotros a través
+          de:
+        </p>
+        <ul class="space-y-4">
+          <li>
+            <strong class="text-primary-900">Correo electrónico:</strong> contacto@facemoderna.com.br
+          </li>
+          <li><strong class="text-primary-900">Teléfono:</strong> +55 71 99999-9999</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

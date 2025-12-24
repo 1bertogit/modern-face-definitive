@@ -1,0 +1,142 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const secoes = [
+  { nome: 'Identificação', campos: ['Dados pessoais', 'Contato', 'Profissão', 'Indicação'] },
+  {
+    nome: 'Anamnese Dirigida',
+    campos: ['Queixa principal', 'Expectativas', 'Histórico estético', 'Comorbidades'],
+  },
+  {
+    nome: 'Avaliação SPE-M',
+    campos: ['Skin score', 'Ptose score', 'Estrutura score', 'Massa score'],
+  },
+  {
+    nome: 'Planejamento',
+    campos: ['Técnica indicada', 'Vetores definidos', 'Complementações', 'Riscos específicos'],
+  },
+  {
+    nome: 'Documentação',
+    campos: ['Fotos padronizadas', 'Termo de consentimento', 'Orientações', 'Checklist pré-op'],
+  },
+  {
+    nome: 'Cirúrgico',
+    campos: ['Descrição técnica', 'Intercorrências', 'Tempo cirúrgico', 'Observações'],
+  },
+  {
+    nome: 'Follow-up',
+    campos: ['Evolução por data', 'Fotos comparativas', 'Satisfação', 'Complicações'],
+  },
+];
+---
+
+<BaseLayout
+  title="Prontuário Digital | FaceOS"
+  description="Prontuário digital especializado para cirurgia facial. Documentação estruturada da anamnese ao follow-up."
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica" class="hover:text-white">Tecnologia</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnologia-clinica/faceos" class="hover:text-white">FaceOS</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Prontuário</li>
+        </ol>
+      </nav>
+      <span
+        class="inline-block px-4 py-1 bg-amber-500 text-white text-xs uppercase tracking-wider mb-6"
+      >
+        Em Desenvolvimento
+      </span>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Prontuário Digital
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Documentação estruturada especificamente para cirurgia facial. Da primeira consulta ao
+        follow-up de longo prazo.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Por que um Prontuário Específico?
+      </h2>
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Prontuários genéricos não atendem às necessidades específicas da cirurgia facial. Campos
+          importantes ficam em "observações", informações críticas se perdem, e a comparação entre
+          casos se torna impossível.
+        </p>
+        <p>
+          O Prontuário FaceOS foi desenhado com campos específicos para cada etapa do processo,
+          integrando avaliação SPE-M, planejamento de vetores e documentação fotográfica
+          padronizada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Estrutura do Prontuário
+      </h2>
+      <div class="space-y-4">
+        {
+          secoes.map((s, i) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <div class="flex items-start gap-4">
+                <span class="w-8 h-8 bg-accent-600 text-white text-sm flex items-center justify-center flex-shrink-0">
+                  {i + 1}
+                </span>
+                <div class="flex-1">
+                  <h3 class="font-medium text-primary-900 mb-2">{s.nome}</h3>
+                  <div class="flex flex-wrap gap-2">
+                    {s.campos.map((c) => (
+                      <span class="text-xs px-2 py-1 bg-white text-warmGray border border-gray-200">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Em Breve</h2>
+      <p class="text-primary-300 mb-8">
+        O Prontuário Digital FaceOS está em desenvolvimento ativo. Alunos dos programas terão acesso
+        prioritário.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnologia-clinica/faceos/spe-m" class="text-sm text-accent-600"
+        >← Sistema SPE-M</a
+      >
+      <a href="/pt/tecnologia-clinica/faceos/planejamento-vetores" class="text-sm text-accent-600"
+        >Planejamento de Vetores →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

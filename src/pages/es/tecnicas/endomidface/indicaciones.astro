@@ -1,0 +1,161 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'indicaciones Endomidface',
+  'paciente ideal lifting',
+  'contraindicaciones cirugía facial',
+  'ptosis malar tratamiento',
+  'bioestimuladores rostro cirugía',
+  'selección pacientes lifting',
+];
+
+const indicaciones = [
+  {
+    t: 'Flacidez del Tercio Medio',
+    d: 'Ptosis malar, pérdida de proyección, inicio de pliegue nasolabial.',
+  },
+  {
+    t: 'Alteraciones del Párpado Inferior',
+    d: 'Párpado verticalizado, vector negativo, exposición escleral leve a moderada.',
+  },
+  {
+    t: 'Caras con Bioestimuladores',
+    d: 'Pacientes con fibrosis del SMAS lateral fijo. El acceso superior evita zona de riesgo.',
+  },
+  {
+    t: 'Recuperación Rápida Deseada',
+    d: 'Pacientes que valoran poco tiempo de inactividad y cicatrices intracapilares discretas.',
+  },
+];
+const contraAbs = [
+  'Tabaquismo activo sin pausa previa (mínimo 30 días)',
+  'Exceso de piel severo en cara y cuello',
+  'Jowls como queja principal aislada',
+  'Calvicie total (para frontoplastia asociada)',
+  'Blefaroespasmo esencial',
+  'Pacientes >70 años con redundancia cutánea severa',
+];
+---
+
+<BaseLayout
+  title="Indicaciones Endomidface"
+  description="Criterios de selección de pacientes para Endomidface. Perfil ideal 45-50 años, contraindicaciones."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Selección de Pacientes
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+        Indicaciones y Contraindicaciones
+      </h1><p class="text-xl text-primary-300 max-w-2xl mx-auto">
+        La selección adecuada del caso es tan importante como la técnica misma.
+      </p>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white p-10 border border-accent-200">
+        <h2 class="text-2xl font-serif text-primary-900 mb-6">El Paciente Ideal</h2><div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          <div>
+            <p class="text-warmGray mb-6">Basado en 200+ casos documentados:</p><ul
+              class="space-y-3 text-warmGray"
+            >
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Rango de edad 45-50 años
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Flacidez moderada del tercio
+                medio
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Calidad cutánea preservada
+              </li><li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-accent-600 rounded-full"></span>Expectativas realistas
+              </li>
+            </ul>
+          </div><div class="bg-accent-50 p-6">
+            <p class="text-[10px] font-medium text-accent-600 uppercase mb-3">Datos Clínicos</p><p
+              class="text-3xl font-serif text-primary-900 mb-2"
+            >
+              80%
+            </p><p class="text-sm text-warmGray">
+              de los pacientes operados están en el rango 45-50 años.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        Indicaciones Principales
+      </h2><div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          indicaciones.map((i) => (
+            <div class="flex items-start gap-6 p-8 bg-ivory">
+              <div>
+                <>
+                  <h3 class="font-serif text-primary-900 mb-2">{i.t}</h3>
+                  <p class="text-sm text-warmGray">{i.d}</p>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Contraindicaciones Absolutas</h2><div
+        class="p-8 bg-red-50 border border-red-100"
+      >
+        <ul class="space-y-3">
+          {
+            contraAbs.map((c) => (
+              <li class="flex items-start gap-3 text-sm text-red-700">
+                <span class="text-red-400 mt-1">✕</span>
+                {c}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="bg-white p-8 border-l-4 border-accent-600">
+        <h2 class="text-xl font-serif text-primary-900 mb-4">Lo que Endomidface NO Corrige</h2><ul
+          class="space-y-3 text-warmGray"
+        >
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Jowls marcados</strong
+            > — la flacidez mandibular no se corrige
+          </li><li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Exceso cervical significativo</strong
+            > — cuello flácido requiere Deep Neck asociado
+          </li><li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold">✕</span><strong class="text-primary-900"
+              >Ptosis mandibular severa</strong
+            > — puede requerir incisión preauricular
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/que-es" class="text-sm text-accent-600">← Qué Es</a><a
+        href="/es/tecnicas/endomidface/anatomia"
+        class="text-sm text-accent-600">Anatomía →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,133 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomia terço superior face',
+  'fronte anatomia cirúrgica',
+  'têmpora anatomia',
+  'nervo supraorbital',
+  'gálea aponeurótica',
+  'espaço subgaleal',
+];
+
+const camadas = [
+  { num: '1', camada: 'Pele', desc: 'Mais espessa na glabela, fina na têmpora' },
+  { num: '2', camada: 'Subcutâneo', desc: 'Contém vasos superficiais' },
+  { num: '3', camada: 'Gálea/FTS', desc: 'Gálea central, Fáscia Temporal Superficial lateral' },
+  { num: '4', camada: 'Espaço Subgaleal', desc: 'Plano avascular de dissecção' },
+  { num: '5', camada: 'Periósteo', desc: 'Aderido firmemente ao osso' },
+];
+
+const estruturas = [
+  {
+    nome: 'Nervo Supraorbital',
+    desc: 'Emerge do forame supraorbital. Sensitivo para fronte.',
+    protecao: 'Identificar posição antes de dissecção',
+  },
+  {
+    nome: 'Nervo Supratroclear',
+    desc: 'Medial ao supraorbital. Sensitivo para glabela.',
+    protecao: 'Preservar durante acesso temporal',
+  },
+  {
+    nome: 'Ramo Frontal do Facial',
+    desc: 'Motor para frontalis. Cruza o arco zigomático.',
+    protecao: 'Dissecção subperiosteal no arco',
+  },
+  {
+    nome: 'Fáscia Temporal Superficial',
+    desc: 'Continuação do SMAS na têmpora.',
+    protecao: 'Plano de dissecção seguro',
+  },
+];
+---
+
+<BaseLayout
+  title="Anatomia do Terço Superior | Fronte e Têmpora"
+  description="Anatomia aplicada do terço superior facial. Região frontal, temporal e periorbitária para Browlift."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/anatomia" class="hover:text-white">Anatomia</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Terço Superior</li>
+        </ol>
+      </nav>
+
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Fronte & Têmpora
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Terço Superior Facial
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        A região frontal e temporal. Base anatômica para Browlift e acesso ao midface.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O terço superior da face compreende a fronte, a região temporal e a área periorbitária
+          superior. É a porta de entrada para o Browlift evolutivo e também serve como acesso para o
+          Endomidface por visão direta.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Camadas Anatômicas</h2>
+      <div class="space-y-4">
+        {
+          camadas.map((c) => (
+            <div class="flex items-center gap-6 p-4 bg-ivory border border-gray-100">
+              <span class="w-10 h-10 bg-accent-600 text-white flex items-center justify-center font-serif text-lg flex-shrink-0">
+                {c.num}
+              </span>
+              <div>
+                <h3 class="font-medium text-primary-900">{c.camada}</h3>
+                <p class="text-sm text-warmGray">{c.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Estruturas Críticas</h2>
+      <div class="space-y-6">
+        {
+          estruturas.map((e) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{e.nome}</h3>
+              <p class="text-warmGray mb-4">{e.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Proteção:</span>{' '}
+                <span class="text-warmGray">{e.protecao}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/anatomia" class="text-sm text-accent-600">← Anatomia Index</a>
+      <a href="/pt/tecnicas/anatomia/terco-medio" class="text-sm text-accent-600">Terço Médio →</a>
+    </div>
+  </section>
+</BaseLayout>

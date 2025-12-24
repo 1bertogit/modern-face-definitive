@@ -1,0 +1,163 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Principios Técnicos de Face Moderna®',
+  description:
+    'Los 6 fundamentos técnicos que guían cada decisión quirúrgica en la metodología Face Moderna®.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const principios = [
+  {
+    numero: '01',
+    titulo: 'Visión Directa Sobre Endoscopía',
+    descripcion:
+      'La visión directa proporciona feedback táctil y visual simultáneo. Ves Y sientes. Al mismo tiempo. En el mismo plano. El endoscopio crea una disociación entre ojo y mano que aumenta el riesgo y extiende la curva de aprendizaje.',
+    clave: 'Feedback simultáneo',
+  },
+  {
+    numero: '02',
+    titulo: 'Vector Vertical, No Lateral',
+    descripcion:
+      'La gravedad tira hacia abajo. La solución es elevar verticalmente. Los vectores laterales crean tensión antinatural y comprometen la durabilidad. El vector vertical respeta la anatomía facial y produce resultados que duran.',
+    clave: 'Elevar contra la gravedad',
+  },
+  {
+    numero: '03',
+    titulo: 'Preservación Sobre Resección',
+    descripcion:
+      'Remover menos, reposicionar más. La resección agresiva crea problemas irreversibles. El reposicionamiento inteligente preserva tejido y permite ajustes. Lo que se remueve no puede volver.',
+    clave: 'Reposicionar, no remover',
+  },
+  {
+    numero: '04',
+    titulo: 'Plano Profundo Seguro',
+    descripcion:
+      'El plano sub-SMAS es más seguro de lo que parece — cuando conoces la anatomía. El peligro no está en el plano, sino en la ignorancia. Con conocimiento correcto, el plano profundo ofrece resultados superiores y más seguros.',
+    clave: 'Conocimiento es seguridad',
+  },
+  {
+    numero: '05',
+    titulo: 'Recuperación Como Métrica',
+    descripcion:
+      'La recuperación rápida no es un lujo — es señal de buena técnica. Menos trauma, menos edema, retorno más rápido. Si tu paciente necesita 30 días para recuperarse, la técnica puede refinarse.',
+    clave: '7 días, no 30',
+  },
+  {
+    numero: '06',
+    titulo: 'Reproducibilidad Sistemática',
+    descripcion:
+      'Si no puede enseñarse, no es método. La reproducibilidad es la prueba de verdad. El talento no es escalable; el método sí. Lo que funciona para uno debe funcionar para muchos.',
+    clave: 'Método sobre talento',
+  },
+];
+---
+
+<BaseLayout
+  title="Principios Técnicos de Face Moderna®"
+  description="Los 6 fundamentos técnicos que guían cada decisión quirúrgica en la metodología Face Moderna®."
+  schema={schema}
+  lang="es"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-base">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/es" class="hover:text-primary-900">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/face-moderna" class="hover:text-primary-900">Face Moderna®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">Principios</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16 max-w-3xl">
+        <p class="label-eyebrow">Fundamentos</p>
+        <h1 class="heading-1">Los Principios Técnicos</h1>
+        <p class="body-large">
+          Seis fundamentos que guían cada decisión quirúrgica. No reglas para seguir ciegamente —
+          principios para entender y aplicar.
+        </p>
+      </header>
+
+      <!-- Introducción -->
+      <div class="prose prose-lg max-w-none text-warmGray mb-16">
+        <p>
+          Los principios no son restricciones. Son libertades. Cuando entiendes
+          <em>por qué</em> hacemos algo, no necesitas memorizar cada paso. Puedes adaptar, improvisar,
+          evolucionar — siempre dentro de límites que garantizan seguridad.
+        </p>
+      </div>
+
+      <!-- Grid de Principios -->
+      <div class="space-y-12">
+        {
+          principios.map((principio) => (
+            <div class="grid grid-cols-12 gap-8 items-start">
+              <div class="col-span-12 md:col-span-2">
+                <span class="text-6xl font-serif text-accent-600/20">{principio.numero}</span>
+              </div>
+              <div class="col-span-12 md:col-span-10 bg-white p-8 border border-gray-100">
+                <h2 class="heading-3 mb-4">{principio.titulo}</h2>
+                <p class="body-base mb-6">{principio.descripcion}</p>
+                <p class="body-small text-accent-700 font-medium uppercase tracking-[0.1em]">
+                  {principio.clave}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Cita -->
+      <div class="my-20">
+        <div class="border-l-4 border-accent-600 pl-8">
+          <p class="heading-2 font-serif italic leading-relaxed">
+            "Los principios no son restricciones. Son libertad para operar sin miedo."
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-white border border-gray-100 text-center">
+        <h3 class="heading-2 mb-4">Vea los Principios en Acción</h3>
+        <p class="body-base mb-8 max-w-lg mx-auto">
+          Explore las técnicas específicas que aplican estos principios.
+        </p>
+        <a
+          href="/es/tecnicas"
+          class="inline-block px-8 py-4 bg-primary-900 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-accent-600 transition-colors"
+        >
+          Explorar Técnicas
+        </a>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a
+            href="/es/face-moderna/filosofia"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ← La Filosofía
+          </a>
+          <a
+            href="/es/face-moderna/por-que-vision-directa"
+            class="text-sm text-accent-600 hover:text-accent-700"
+          >
+            ¿Por Qué Visión Directa? →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

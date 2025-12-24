@@ -1,0 +1,173 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'anatomia cervical cirurgia',
+  'região cervical pescoço',
+  'platisma anatomia',
+  'digástrico músculo',
+  'glândula submandibular preservação',
+  'Deep Neck anatomia',
+];
+
+const estruturas = [
+  {
+    nome: 'Platisma',
+    desc: 'Músculo superficial do pescoço. Bandas mediais visíveis no envelhecimento.',
+    camada: 'Superficial',
+  },
+  {
+    nome: 'Glândula Submandibular',
+    desc: 'Glândula salivar maior. NUNCA removida na Face Moderna.',
+    camada: 'Profundo',
+  },
+  {
+    nome: 'Ventre Anterior do Digástrico',
+    desc: 'Músculo do assoalho da boca. Pode ser shaved 50-60%.',
+    camada: 'Profundo',
+  },
+  { nome: 'Fáscia Cervical Superficial', desc: 'Envoltório do platisma.', camada: 'Superficial' },
+  {
+    nome: 'Fáscia Cervical Profunda',
+    desc: 'Contém estruturas nobres - carótida, jugular, nervos.',
+    camada: 'Profundo',
+  },
+];
+
+const pilares = [
+  {
+    num: '1',
+    nome: 'Gordura Profunda',
+    desc: 'Gordura pré-platismal profunda. Acessada abaixo do platisma.',
+  },
+  {
+    num: '2',
+    nome: 'Shaving Digástrico',
+    desc: 'Redução de 50-60% do ventre anterior. Nunca 100%.',
+  },
+  {
+    num: '3',
+    nome: 'Fasciotomia',
+    desc: 'Incisão na fáscia pré-hioidea. Obrigatória em 100% dos casos.',
+  },
+  { num: '4', nome: 'Platismorrafia', desc: 'Plicatura do platisma na linha média + Crevassi.' },
+];
+
+const alertas = [
+  'Nunca remover glândula submandibular',
+  'Shaving digástrico máximo 60%',
+  'Fasciotomia obrigatória para resultado ótimo',
+  'Identificar marginal antes de dissecar',
+];
+---
+
+<BaseLayout
+  title="Anatomia Cervical | Pescoço"
+  description="Anatomia aplicada da região cervical. Estruturas do pescoço para Deep Neck: platisma, digástrico, glândula."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/anatomia" class="hover:text-white">Anatomia</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Região Cervical</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">Pescoço</p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Região Cervical</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        A anatomia profunda do pescoço. Base para o Deep Neck seguro e eficaz.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Estruturas Principais</h2>
+      <div class="space-y-4">
+        {
+          estruturas.map((e) => (
+            <div class="flex items-center gap-6 p-6 bg-white border border-gray-100">
+              <span
+                class={`text-xs px-3 py-1 flex-shrink-0 ${e.camada === 'Superficial' ? 'bg-primary-700' : 'bg-purple-600'} text-white`}
+              >
+                {e.camada}
+              </span>
+              <div>
+                <h3 class="font-serif text-primary-900">{e.nome}</h3>
+                <p class="text-sm text-warmGray">{e.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-4 text-center">
+        Os 4 Pilares do Deep Neck
+      </h2>
+      <p class="text-warmGray text-center mb-12">Correlação anatômica com a técnica</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          pilares.map((p) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <span class="text-4xl font-serif text-accent-600/30 block mb-2">{p.num}</span>
+              <h3 class="font-serif text-primary-900 mb-2">{p.nome}</h3>
+              <p class="text-sm text-warmGray">{p.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">
+        ⚠️ Princípios Invioláveis
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          alertas.map((a) => (
+            <div class="flex items-center gap-3 p-4 bg-white border border-red-200">
+              <span class="material-symbols-outlined text-red-600">warning</span>
+              <span class="text-red-800 text-sm">{a}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Por que Preservar a Glândula?</h2>
+      <p class="text-primary-300 mb-4">
+        A remoção da glândula submandibular já foi defendida para melhorar contorno cervical. Mas os
+        riscos superam qualquer benefício: lesão do nervo marginal, lesão do ducto de Wharton,
+        xerostomia, depressão cicatricial.
+      </p>
+      <p class="text-accent-400 text-sm">
+        Com os 4 pilares do Deep Neck, você consegue resultado excelente preservando a glândula.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/anatomia/terco-inferior" class="text-sm text-accent-600"
+        >← Terço Inferior</a
+      >
+      <a href="/pt/tecnicas/anatomia/espacos-cirurgicos" class="text-sm text-accent-600"
+        >Espaços Cirúrgicos →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

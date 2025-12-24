@@ -1,0 +1,240 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'What is Modern Face®?',
+  description:
+    'Modern Face® is an integrated facial surgery methodology that combines advanced techniques with a philosophy of maximum safety and natural results.',
+  author: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+const pillars = [
+  {
+    icon: 'shield',
+    title: 'Uncompromising Safety',
+    description:
+      '0% permanent nerve injury in 212 consecutive cases. Every technical decision passes through the safety filter.',
+  },
+  {
+    icon: 'auto_awesome',
+    title: 'Elegant Results',
+    description:
+      "Natural results, without the 'operated' look. The face rejuvenated, not transformed.",
+  },
+  {
+    icon: 'speed',
+    title: 'Optimized Recovery',
+    description: 'Refined technique means less trauma. Social return in 7-10 days, not 30.',
+  },
+  {
+    icon: 'school',
+    title: 'Shared Knowledge',
+    description:
+      'Surgical excellence should not be a secret. Documented, reproducible, teachable method.',
+  },
+];
+
+const techniques = [
+  {
+    name: 'Endomidface by Direct Vision',
+    area: 'Midface',
+    differentiator: 'No endoscope, with superior safety',
+  },
+  {
+    name: 'Modern Face Deep Neck',
+    area: 'Neck and cervical region',
+    differentiator: 'Without submandibular gland removal',
+  },
+  {
+    name: 'Evolutionary Browlift',
+    area: 'Upper third and eyebrows',
+    differentiator: "Natural, without the 'surprised' look",
+  },
+];
+---
+
+<BaseLayout
+  title="What is Modern Face®?"
+  description="Modern Face® is an integrated facial surgery methodology that combines advanced techniques with a philosophy of maximum safety and natural results."
+  schema={schema}
+  lang="en"
+>
+  <article class="section-xl bg-ivory">
+    <div class="prose-narrow">
+      <!-- Breadcrumb -->
+      <nav class="mb-12">
+        <ol class="flex items-center space-x-2 label-caption">
+          <li><a href="/en" class="hover:text-primary-900">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/modern-face" class="hover:text-primary-900">Modern Face®</a></li>
+          <li><span>/</span></li>
+          <li class="text-primary-900">What Is It</li>
+        </ol>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-16">
+        <p class="label-eyebrow">Definition</p>
+        <h1 class="heading-1">What is Modern Face®?</h1>
+        <p class="body-large">
+          More than technique. A way of thinking — and practicing — facial surgery.
+        </p>
+      </header>
+
+      <!-- Main Content -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Modern Face® is not an isolated technique. It's an integrated facial rejuvenation
+          methodology developed over 18 years and more than 1,500 surgeries. It combines advanced
+          deep plane techniques with a clear philosophy: maximum safety, natural results, optimized
+          recovery.
+        </p>
+
+        <p>
+          The name "Modern Face" reflects two fundamental aspects. First, the technical adaptation
+          for today's reality — where 90% of faces already have biostimulators and fillers that
+          alter traditional anatomical planes. Second, the democratization of knowledge — taking
+          surgical excellence from the domain of a few and making it accessible to committed
+          surgeons.
+        </p>
+
+        <h2 class="heading-3">The Problem We Solve</h2>
+
+        <p>Traditional facial surgery faces three critical challenges:</p>
+
+        <ol class="space-y-4">
+          <li>
+            <strong class="text-primary-900">Brutal learning curve:</strong>
+            Deep plane techniques require 50-100 cases for minimum safety. How many patients suffer along
+            the way?
+          </li>
+          <li>
+            <strong class="text-primary-900">Modern faces, old techniques:</strong>
+            Patients with biostimulators have altered anatomy. Techniques developed 30 years ago don't
+            account for this reality.
+          </li>
+          <li>
+            <strong class="text-primary-900">Concentrated knowledge:</strong>
+            The best techniques remain restricted to a few centers, creating a surgical elite while most
+            operate with limitations.
+          </li>
+        </ol>
+
+        <p>Modern Face® was born to solve these three problems simultaneously.</p>
+      </div>
+
+      <!-- Pillars -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-12 text-center">The Four Pillars</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {
+            pillars.map((pillar) => (
+              <div class="bg-white p-8 border border-gray-100">
+                <span class="material-symbols-outlined text-3xl text-accent-600 mb-4 block">
+                  {pillar.icon}
+                </span>
+                <h3 class="heading-4 mb-3">{pillar.title}</h3>
+                <p class="body-small">{pillar.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Techniques -->
+      <div class="my-20">
+        <h2 class="heading-2 mb-8">Modern Face® Techniques</h2>
+        <div class="space-y-6">
+          {
+            techniques.map((tech) => (
+              <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+                <div class="w-1 h-full bg-accent-600 flex-shrink-0" />
+                <div>
+                  <h3 class="heading-4 mb-1">{tech.name}</h3>
+                  <p class="body-small text-accent-700 mb-2">{tech.area}</p>
+                  <p class="body-small">{tech.differentiator}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-8 text-center">
+          <a
+            href="/techniques/endomidface"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Explore all techniques →
+          </a>
+        </div>
+      </div>
+
+      <!-- Content Continuation -->
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <h2 class="font-serif text-primary-900">Who is Modern Face® For?</h2>
+
+        <p>
+          <strong class="text-primary-900">For surgeons</strong> who feel they can do more. Who have mastered
+          the basics but want safety in the deep plane. Who seek consistent results, not occasional ones.
+        </p>
+
+        <p>
+          <strong class="text-primary-900">For patients</strong> who value naturalness over radical transformation.
+          Who want to rejuvenate, not look "operated." Who prioritize safety and quick recovery.
+        </p>
+
+        <h2 class="font-serif text-primary-900">What Modern Face® Is Not</h2>
+
+        <ul class="space-y-3">
+          <li>It's not a magic technique that replaces study and practice</li>
+          <li>It's not a weekend course that transforms beginners into specialists</li>
+          <li>It's not a promise of effortless results</li>
+          <li>It's not a franchise or rigid method</li>
+        </ul>
+
+        <p>
+          It's a path. A method. A way of thinking about facial surgery that prioritizes what really
+          matters: patient safety, quality of results, constant surgeon evolution.
+        </p>
+
+        <div class="border-l-4 border-accent-600 pl-6 my-12 not-prose">
+          <p class="body-large font-serif italic leading-relaxed">
+            "Modern Face® is what happens when you stop asking 'which technique to use?' and start
+            asking 'what's the best possible result with maximum safety?'"
+          </p>
+          <p class="label-caption mt-4">— Dr. Robério Brandão</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="my-16 p-12 bg-primary-900 text-center">
+        <h3 class="heading-2-white mb-4">Discover the Complete Philosophy</h3>
+        <p class="body-base-light mb-8 max-w-lg mx-auto">
+          Understand the principles that guide every technical decision in Modern Face®.
+        </p>
+        <a
+          href="/modern-face/philosophy"
+          class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+        >
+          Read About the Philosophy
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="mt-16 pt-8 border-t border-gray-200">
+        <div class="flex justify-between">
+          <a href="/modern-face" class="text-sm text-accent-600 hover:text-accent-700">
+            ← Back to Modern Face®
+          </a>
+          <a href="/modern-face/philosophy" class="text-sm text-accent-600 hover:text-accent-700">
+            The Philosophy →
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

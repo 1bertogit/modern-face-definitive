@@ -1,0 +1,305 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'resultados Endomidface',
+  'antes e depois lifting midface',
+  'durabilidade lifting facial',
+  'volume malar cirurgia',
+  'sulco nasogeniano tratamento cirúrgico',
+  'Dr Robério Brandão resultados',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Resultados Esperados',
+  description:
+    'Resultados do Endomidface: volume malar superior, encurtamento palpebral, durabilidade de 8-12 anos. Dados de 212 casos.',
+  procedureType: 'Surgical',
+};
+
+const resultados = [
+  {
+    area: 'Volume Malar',
+    antes: 'Bochechas caídas, perda de projeção',
+    depois: 'Restauração do volume e projeção malar',
+    durabilidade: '8-12 anos',
+  },
+  {
+    area: 'Pálpebra Inferior',
+    antes: 'Alongada verticalmente, transição abrupta',
+    depois: 'Encurtamento vertical, suavização da transição',
+    durabilidade: '8-12 anos',
+  },
+  {
+    area: 'Sulco Nasogeniano',
+    antes: "Início de acentuação ('bigode chinês')",
+    depois: 'Suavização do sulco superior',
+    durabilidade: '8-12 anos',
+  },
+  {
+    area: 'Vetor Negativo',
+    antes: "Olhar 'cansado', pálpebra projetada",
+    depois: 'Neutralização ou melhora do vetor',
+    durabilidade: '8-12 anos',
+  },
+];
+
+const numeros = [
+  { valor: '212', label: 'Casos Documentados' },
+  { valor: '0%', label: 'Lesão Nervosa Permanente' },
+  { valor: '7-10', label: 'Dias para Retorno Social' },
+  { valor: '8-12', label: 'Anos de Durabilidade' },
+];
+---
+
+<BaseLayout
+  title="Resultados do Endomidface"
+  description="Resultados esperados do Endomidface. Volume malar superior ao Deep Plane, 0% de lesão nervosa permanente, durabilidade de 8-12 anos."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Resultados</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Evidências & Dados
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Resultados Esperados
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          O que você pode esperar do Endomidface, baseado em mais de 200 casos documentados pelo Dr.
+          Robério Brandão.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {
+          numeros.map((item) => (
+            <div>
+              <p class="text-3xl md:text-4xl font-serif">{item.valor}</p>
+              <p class="text-xs uppercase tracking-wider opacity-80 mt-1">{item.label}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultados por Área -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Resultados por Área Anatômica
+      </h2>
+
+      <div class="space-y-6">
+        {
+          resultados.map((item) => (
+            <div class="bg-white p-8 border border-gray-100">
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+                <div>
+                  <h3 class="text-lg font-serif text-primary-900">{item.area}</h3>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-red-600 uppercase tracking-[0.1em] mb-1">
+                    Antes
+                  </p>
+                  <p class="text-sm text-warmGray">{item.antes}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-green-600 uppercase tracking-[0.1em] mb-1">
+                    Depois
+                  </p>
+                  <p class="text-sm text-warmGray">{item.depois}</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-1">
+                    Durabilidade
+                  </p>
+                  <p class="text-sm text-warmGray">{item.durabilidade}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Volume Malar Superior -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Volume Malar Superior</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          Um dos resultados mais notáveis do Endomidface é a qualidade do volume malar obtido.
+          Cirurgiões com experiência em ambas as técnicas observam que:
+        </p>
+
+        <blockquote class="border-l-4 border-accent-600 pl-6 italic">
+          "O Endomidface consegue um volume malar muito bom e superior ao Deep Plane, ao meu ver."
+        </blockquote>
+
+        <p>
+          Este resultado volumétrico superior deve-se à abordagem específica do compartimento
+          pré-zigomático com vetorização otimizada desenvolvida pelo Dr. Robério.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segurança -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">Segurança Comprovada</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">0%</p>
+          <p class="text-white font-medium mb-4">Lesão Nervosa Permanente</p>
+          <p class="text-primary-300 text-sm">
+            Em 212 casos documentados, nenhuma lesão nervosa permanente foi registrada. Parestesias
+            transitórias podem ocorrer, resolvendo em 1-3 meses.
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-8">
+          <p class="text-4xl font-serif text-accent-400 mb-2">&lt;3%</p>
+          <p class="text-white font-medium mb-4">Taxa de Complicações</p>
+          <p class="text-primary-300 text-sm">
+            Complicações menores (equimose, edema prolongado) são raras e autolimitadas. Não há
+            registro de complicações maiores na série.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recuperação -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Recuperação Acelerada</h2>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-lg">2h</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Alta do Centro Cirúrgico</h3>
+            <p class="text-sm text-warmGray">
+              Pacientes recebem alta aproximadamente 2 horas após o término do procedimento, podendo
+              ir para casa no mesmo dia.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-lg">3d</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Micropore na Frente</h3>
+            <p class="text-sm text-warmGray">
+              Curativo com micropore por 72 horas para auxiliar a fixação. Após isso, cuidados
+              mínimos são necessários.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-lg">7-10d</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Retorno Social</h3>
+            <p class="text-sm text-warmGray">
+              A maioria dos pacientes está apresentável para atividades sociais em 7-10 dias, com
+              edema residual mínimo.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 bg-white border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-lg">2sem</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Resultado Visível</h3>
+            <p class="text-sm text-warmGray">
+              Com duas semanas, o resultado já é significativo. Fotos de acompanhamento mostram
+              melhora evidente neste marco.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-primary-900 leading-relaxed mb-6">
+          "Ela recebeu alta do centro cirúrgico após 2 horas do término. Foto com 2 semanas já
+          mostrando resultado significativo. Essa estratégia de descolar e elevar o terço médio me
+          fez ganhar tempo, continuar fazendo com anestesia local e sedação, e ter bem menos edema."
+        </p>
+        <footer class="text-sm text-softGray uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/limitacoes"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Limitações
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/recuperacao"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Recuperação →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

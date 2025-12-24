@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const timeline = [
+  {
+    period: '2005-2010',
+    title: 'The Early Years',
+    events: [
+      'Beginning of exclusive dedication to facial surgery',
+      'Traditional training in rhytidoplasty',
+      'First experiences with endoscopic techniques',
+      'Observation of conventional approach limitations',
+    ],
+  },
+  {
+    period: '2011-2015',
+    title: 'The Questioning',
+    events: [
+      'Questioning the need for endoscope',
+      'Deep facial anatomy studies',
+      'First direct vision access attempts',
+      'Development of vertical vector concept',
+    ],
+  },
+  {
+    period: '2016-2018',
+    title: 'The Transition',
+    events: [
+      'Progressive abandonment of endoscope',
+      'Refinement of direct vision technique',
+      'Development of Deep Neck without gland resection',
+      'First consistent documented results',
+    ],
+  },
+  {
+    period: '2019-2021',
+    title: 'The Systematization',
+    events: [
+      "Birth of 'Endomidface Direct Vision' term",
+      'Creation of SPE-M assessment system',
+      'Systematic case documentation begins',
+      'First congress presentations',
+    ],
+  },
+  {
+    period: '2022-2023',
+    title: 'Modern Face®',
+    events: [
+      'Modern Face philosophy consolidation',
+      'Technique integration (Midface, Deep Neck, Browlift)',
+      'Formal teaching to other surgeons begins',
+      'First mentorship classes',
+    ],
+  },
+  {
+    period: '2024+',
+    title: 'The Institute',
+    events: [
+      'Modern Face Institute foundation',
+      'Training program structuring',
+      'International expansion',
+      'Clinical technology development (FaceOS)',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Timeline | The Evolution of Modern Face®"
+  description="The nearly 20-year trajectory that led to the development of the Modern Face® methodology."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/about" class="hover:text-white">About</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Timeline</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Our History
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Timeline</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Nearly 20 years of evolution, questioning and refinement that resulted in the Modern Face®
+        methodology
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-12">
+        {
+          timeline.map((periodo) => (
+            <div class="relative">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-shrink-0 md:w-24">
+                  <span class="inline-block px-4 py-2 bg-accent-600 text-white text-sm font-medium">
+                    {periodo.period}
+                  </span>
+                </div>
+                <div class="flex-shrink-0 w-px bg-accent-600/30 self-stretch hidden md:block" />
+                <div class="flex-1 bg-white p-6 border border-gray-100">
+                  <h3 class="text-xl font-serif text-primary-900 mb-4">{periodo.title}</h3>
+                  <ul class="space-y-2">
+                    {periodo.events.map((evento) => (
+                      <li class="flex items-start gap-2 text-warmGray text-sm">
+                        <span class="material-symbols-outlined text-accent-600 text-sm flex-shrink-0 mt-0.5">
+                          arrow_right
+                        </span>
+                        {evento}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-8">The Journey Continues</h2>
+      <p class="text-primary-300 leading-relaxed">
+        This timeline has no end. We continue questioning, refining and evolving.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/about/case-studies" class="text-sm text-accent-600">← Case Studies</a>
+      <a href="/about/ethical-principles" class="text-sm text-accent-600">Ethical Principles →</a>
+    </div>
+  </section>
+</BaseLayout>

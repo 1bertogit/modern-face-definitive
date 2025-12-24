@@ -1,0 +1,199 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import GlossaryEditorial from '@components/islands/GlossaryEditorial';
+import { LocalizedErrorBoundary } from '@components/islands/ErrorBoundary';
+
+const keywords = [
+  'glossário cirurgia facial',
+  'termos técnicos lifting',
+  'SMAS definição',
+  'Deep Neck glossário',
+  'Endomidface significado',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'Glossário Face Moderna®',
+  description: 'Dicionário de termos técnicos da cirurgia facial moderna',
+};
+
+const termosDestaque = [
+  {
+    term: 'Endomidface',
+    category: 'Técnica Exclusiva',
+    subcategory: 'Terço Médio',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuBOD1I0VavoO9gjtebVif1TUbP3jTBAm6yGlbkFS4WuOS3QJzBQ732HFcMFSu7jJjCup0D6kF51LPbDpSbnN-xZ2g7HPLf0Gr85juIQV_keDVQGDsCtFl9btsNb0EaBEg3gN8ZBviSzD8UKe4HGZ2-LLGe0pB8YzHW-ikEHDQ7perFssbUHxSrk1R6Kcj5Tygj_TA6gqSFNIfr2Uyt7FvOQuPOVrnBhnBvjmMlYQdO_Bxud5ppylArB1O6iCoKdBmIubrw492Oi0al0',
+    description: `Técnica inovadora de rejuvenescimento do terço médio da face por <strong class="text-[#1e293b] font-medium">visão direta</strong>, desenvolvida e aprimorada pelo Dr. Robério Brandão. Diferente dos métodos tradicionais endoscópicos, o Endomidface por visão direta permite o reposicionamento vertical dos tecidos com maior precisão e controle sobre a anatomia profunda, resultando em um rejuvenescimento mais natural e duradouro. A metodologia enfatiza a harmonia facial e a recuperação acelerada, minimizando o inchaço e o desconforto pós-operatório.`,
+    benefits: [
+      'Correção do sulco nasogeniano (bigode chinês) de forma eficaz.',
+      'Elevação da maçã do rosto (região malar), restaurando o contorno jovem da face.',
+      'Menor tempo de recuperação comparado a liftings faciais mais invasivos.',
+      'Resultados naturais sem o aspecto "esticado" ou artificial.',
+    ],
+  },
+  {
+    term: 'SMAS (Sistema Musculoaponeurótico Superficial)',
+    category: 'Anatomia',
+    subcategory: 'Estrutura de Sustentação',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAz9Vyg5yG_NDXWWKIL-fhoPTUozsmHn-JQDoMV9IUAh84fNaUO52hi5YQZ0gV76dAxK4_FaZwUmiRt14HjICaOlA9eORWoOEOekriRArRBXr7Yw5sMxIuautBgzj16GowvD1BDP-NqDRXk6kVJEMnqMhFUvYcEGZhB8_rEeh1CAdNsUGVGheGqUOpQ0VM6DuM8xhGqMpyeBcgjvPX-Er4CmLuk1imMpJ4EHO6pK3_1bDw1_dRN2iQuYtevnX--DmfuPR32jc6oPRZR',
+    description: `O SMAS é uma camada contínua e organizada de tecido fibroso e muscular que conecta os músculos da face e do pescoço à pele. É a estrutura fundamental manipulada durante um facelift moderno (ritidoplastia) para alcançar resultados mais duradouros e naturais. Ele desempenha um papel crucial na sustentação e na dinâmica dos tecidos faciais.`,
+    additionalText: `Ao tracionar e reposicionar o SMAS e não apenas a pele, o cirurgião consegue um resultado que aborda a causa subjacente da flacidez facial e cervical. Isso evita o aspecto "esticado" (wind-tunnel look) que ocorria em técnicas antigas restritas à pele, promovendo um contorno facial e cervical mais definido e rejuvenescido, com expressões faciais preservadas.`,
+  },
+  {
+    term: 'Deep Plane Facelift',
+    category: 'Técnica Cirúrgica',
+    subcategory: 'Avançado',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuCC94_IMhLdoYq72GRbGw_rP4c306xRozVUFFCn9J9oy47sM-BpWM0ItGL6nmk5NYPfQyKw76HToIKWLWK8fOW2sW1aMohuyvt5OnmuHBEW2HJ5iXEW_U_aiWRBbT09rEqSoqMRCSysg285ohOS2vObDjlDloiw0J0Q9_FIbwb8rND5jrmI23iAKmK6tvuMr2tr3-lJ5HvNDRi29m15EdHRNrM3yPueLp4e-3A1caERn0vVMXb8acj6Kciwiv4wKPqXe-EkkfMAdg8n',
+    description: `O <em>Deep Plane Facelift</em> (Lifting em Plano Profundo) é considerado o padrão ouro em rejuvenescimento facial. Nesta técnica, o cirurgião acessa um plano anatômico abaixo do SMAS, soltando os ligamentos que prendem os tecidos faciais. Isso permite reposicionar gordura e músculos em bloco, sem tensão na pele, garantindo naturalidade extrema e maior longevidade ao procedimento. É uma abordagem que visa restaurar a anatomia facial para uma posição mais jovem e harmônica.`,
+    additionalText: `Ao contrário de outras técnicas que apenas esticam a pele ou o SMAS superficialmente, o Deep Plane lida com as camadas mais profundas, resultando em uma elevação mais abrangente e coesa de todo o volume facial. Essa metodologia é ideal para pacientes que buscam uma correção significativa da flacidez e rugas profundas, com resultados que parecem inteiramente naturais e duram por muitos anos.`,
+  },
+];
+
+const glossarioGeral = [
+  {
+    term: 'Blefaroplastia',
+    letter: 'B',
+    description:
+      'Cirurgia plástica das pálpebras destinada a remover o excesso de pele e bolsas de gordura, rejuvenescendo o olhar e melhorando o campo visual em casos funcionais. Um procedimento delicado que exige precisão para resultados naturais.',
+    link: '#blefaroplastia',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Browlift',
+    letter: 'B',
+    description:
+      'Lifting de sobrancelhas. Técnica para reposicionar o terço superior, abrindo o olhar e reduzindo a sensação de peso nas pálpebras. Pode ser realizado por diferentes abordagens cirúrgicas.',
+    link: '/tecnicas',
+    linkText: 'Ver técnica',
+  },
+  {
+    term: 'Cervicoplastia',
+    letter: 'C',
+    description:
+      'Também conhecida como lifting de pescoço, é o procedimento focado em tratar a flacidez, excesso de pele e bandas do platisma na região cervical. Visa restaurar um contorno de pescoço mais jovem e definido.',
+    link: '#cervicoplastia',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Deep Neck',
+    letter: 'D',
+    description:
+      'Abordagem avançada do pescoço que trata as estruturas profundas (gordura subplatismal, digástricos, glândulas) para definir o ângulo cervico-mental. Técnica exclusiva da metodologia Face Moderna®.',
+    link: '/tecnicas',
+    linkText: 'Ver técnica',
+  },
+  {
+    term: 'Espaço Pré-Zigomático',
+    letter: 'E',
+    description:
+      'Espaço virtual avascular localizado entre o osso zigomático e o SMAS. Sua dissecção segura é fundamental para a liberação e elevação do terço médio na técnica Endomidface.',
+    link: '#espaco-pre-zigomatico',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Face Moderna®',
+    letter: 'F',
+    description:
+      'Conceito integrado desenvolvido pelo Dr. Robério Brandão que une técnicas cirúrgicas de visão direta, preservação anatômica e recuperação acelerada para resultados naturais e duradouros na cirurgia facial.',
+    link: '/face-moderna',
+    linkText: 'Conhecer filosofia',
+  },
+  {
+    term: 'GPS Tátil',
+    letter: 'G',
+    description:
+      'Habilidade treinada de identificar estruturas nobres (nervos, vasos) através da percepção da resistência tecidual na ponta do instrumento, antes mesmo da visualização. Pilar de segurança da Face Moderna®.',
+    link: '/face-moderna',
+    linkText: 'Conhecer conceito',
+  },
+  {
+    term: 'Ligamento Órbito-Malar',
+    letter: 'L',
+    description:
+      'Ligamento osteocutâneo que retém a pele da região malar ao rebordo orbital. É o principal responsável pela separação entre a pálpebra e a bochecha (tear trough).',
+    link: '#ligamento-orbito-malar',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Lip Lift',
+    letter: 'L',
+    description:
+      'Lifting labial. Procedimento que encurta a distância entre o nariz e o lábio superior, evertendo o vermelhão do lábio e conferindo uma aparência mais jovem e sensual. Ideal para quem busca proporções labiais harmoniosas.',
+    link: '#lip-lift',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Nervo Facial',
+    letter: 'N',
+    description:
+      'O 7º par craniano, responsável pela inervação motora dos músculos da expressão facial. A identificação e preservação de seus ramos é o pilar de segurança da Face Moderna®.',
+    link: '#nervo-facial',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Platisma',
+    letter: 'P',
+    description:
+      'Músculo superficial do pescoço. Com o envelhecimento, ele pode se tornar flácido ou formar bandas verticais ("cordas" no pescoço), sendo o foco principal da cirurgia cervical. Sua correção é fundamental para um pescoço liso e definido.',
+    link: '#platisma',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Ritidoplastia',
+    letter: 'R',
+    description:
+      'Termo técnico para o Facelift. Cirurgia destinada a melhorar os sinais visíveis de envelhecimento na face e no pescoço. Engloba diversas técnicas que visam restaurar a juventude e a harmonia facial de forma natural.',
+    link: '#ritidoplastia',
+    linkText: 'Ver detalhes',
+  },
+  {
+    term: 'Três Pilares',
+    letter: 'T',
+    description:
+      'A base da técnica Face Moderna®: 1) GPS Tátil (segurança), 2) Visão Direta (precisão), 3) Vetor Vertical (naturalidade). Conceitos fundamentais que garantem resultados superiores.',
+    link: '/face-moderna',
+    linkText: 'Conhecer filosofia',
+  },
+  {
+    term: 'Vetor Vertical',
+    letter: 'V',
+    description:
+      'Direção de tração dos tecidos que combate a gravidade diretamente (para cima), evitando o estigma de "rosto esticado" para trás (wind tunnel). Princípio fundamental para resultados naturais.',
+    link: '/face-moderna',
+    linkText: 'Conhecer conceito',
+  },
+  {
+    term: 'Visão Direta',
+    letter: 'V',
+    description:
+      'Filosofia cirúrgica que prioriza a visualização direta das estruturas anatômicas (túneis iluminados ou open sky) em vez do uso de vídeo-endoscopia. Permite maior controle e segurança.',
+    link: '/face-moderna',
+    linkText: 'Conhecer filosofia',
+  },
+];
+---
+
+<BaseLayout
+  title="Glossário Face Moderna®"
+  description="Dicionário completo de termos técnicos da cirurgia facial moderna. Anatomia, técnicas e conceitos."
+  schema={schema}
+  keywords={keywords}
+>
+  <LocalizedErrorBoundary locale = 'pt' client:load>
+    <GlossaryEditorial termosDestaque={termosDestaque} glossarioGeral={glossarioGeral} />
+  </LocalizedErrorBoundary>
+</BaseLayout>
+
+<style is:global>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

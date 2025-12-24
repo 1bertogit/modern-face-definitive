@@ -1,0 +1,336 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'recuperação Endomidface',
+  'pós-operatório lifting facial',
+  'retorno social lifting',
+  'cuidados após lifting midface',
+  'downtime Endomidface',
+  'alta hospitalar lifting',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Recuperação Pós-operatória',
+  description:
+    'Protocolo de recuperação do Endomidface. Alta em 2h, micropore 72h, retorno social 7-10 dias.',
+  procedureType: 'Surgical',
+};
+
+const timeline = [
+  {
+    tempo: '0-2h',
+    titulo: 'Centro Cirúrgico',
+    descricao: 'Observação pós-operatória, controle de sinais vitais',
+  },
+  { tempo: '2h', titulo: 'Alta', descricao: 'Paciente liberado para casa com acompanhante' },
+  {
+    tempo: '24h',
+    titulo: 'Primeiro Retorno',
+    descricao: 'Avaliação, troca de curativo se necessário',
+  },
+  { tempo: '72h', titulo: 'Retirada do Micropore', descricao: 'Micropore da fronte é removido' },
+  {
+    tempo: '7 dias',
+    titulo: 'Remoção de Pontos',
+    descricao: 'Pontos ou grampos do couro cabeludo',
+  },
+  {
+    tempo: '7-10 dias',
+    titulo: 'Retorno Social',
+    descricao: 'Paciente apresentável, edema residual mínimo',
+  },
+  {
+    tempo: '2 semanas',
+    titulo: 'Resultado Inicial',
+    descricao: 'Fotos de acompanhamento, resultado já evidente',
+  },
+  {
+    tempo: '1-3 meses',
+    titulo: 'Resolução de Parestesias',
+    descricao: 'Dormência transitória (se houver) resolve',
+  },
+  {
+    tempo: '6 meses',
+    titulo: 'Resultado Final',
+    descricao: 'Estabilização completa, resultado definitivo',
+  },
+];
+
+const cuidados = [
+  {
+    categoria: 'Curativos',
+    itens: [
+      'Micropore na fronte por 72 horas (puxar para trás)',
+      'Curativo compressivo leve nas primeiras 24h',
+      'Manter cabelo limpo e seco por 48h',
+    ],
+  },
+  {
+    categoria: 'Medicações',
+    itens: [
+      'Analgésicos conforme prescrição',
+      'Anti-inflamatórios por 5-7 dias',
+      'Antibiótico profilático (se prescrito)',
+    ],
+  },
+  {
+    categoria: 'Restrições',
+    itens: [
+      'Evitar esforço físico por 2-3 semanas',
+      'Não abaixar a cabeça nas primeiras 48h',
+      'Dormir com cabeceira elevada (30°) por 1 semana',
+      'Evitar exposição solar direta por 30 dias',
+    ],
+  },
+  {
+    categoria: 'Sinais de Alerta',
+    itens: [
+      'Dor intensa não controlada com medicação',
+      'Sangramento ativo após 24h',
+      'Febre acima de 38°C',
+      'Assimetria facial súbita',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Recuperação do Endomidface"
+  description="Protocolo completo de recuperação pós-operatória do Endomidface. Timeline detalhada, cuidados e orientações."
+  schema={schema}
+  keywords={keywords}
+  lang="pt"
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Recuperação</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Pós-operatório
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Recuperação</h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          Um dos grandes diferenciais do Endomidface é a recuperação acelerada. Conheça o protocolo
+          completo pós-operatório.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaque -->
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">2h</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">Alta</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif">72h</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">Micropore</p>
+        </div>
+        <div>
+          <p class="text-3xl font-serif">7-10d</p>
+          <p class="text-xs uppercase tracking-wider opacity-80">Retorno Social</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Linha do Tempo da Recuperação
+      </h2>
+
+      <div class="relative">
+        <!-- Linha vertical -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-accent-200"></div>
+
+        <div class="space-y-8">
+          {
+            timeline.map((item) => (
+              <div class="relative flex items-start gap-6 pl-20">
+                {/* Marcador */}
+                <div class="absolute left-6 w-4 h-4 bg-accent-600 rounded-full border-4 border-ivory" />
+
+                <div class="flex-1 bg-white p-6 border border-gray-100">
+                  <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.1em] mb-1">
+                    {item.tempo}
+                  </p>
+                  <h3 class="font-serif text-primary-900 mb-2">{item.titulo}</h3>
+                  <p class="text-sm text-warmGray">{item.descricao}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuidados -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Cuidados Pós-operatórios
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          cuidados.map((cat) => (
+            <div
+              class={`p-8 border ${
+                cat.categoria === 'Sinais de Alerta'
+                  ? 'bg-red-50 border-red-200'
+                  : 'bg-ivory border-gray-100'
+              }`}
+            >
+              <h3
+                class={`text-lg font-serif mb-6 ${
+                  cat.categoria === 'Sinais de Alerta' ? 'text-red-800' : 'text-primary-900'
+                }`}
+              >
+                {cat.categoria}
+              </h3>
+              <ul class="space-y-3">
+                {cat.itens.map((item) => (
+                  <li
+                    class={`flex items-start gap-3 text-sm ${
+                      cat.categoria === 'Sinais de Alerta' ? 'text-red-700' : 'text-warmGray'
+                    }`}
+                  >
+                    <span
+                      class={
+                        cat.categoria === 'Sinais de Alerta' ? 'text-red-500' : 'text-accent-600'
+                      }
+                    >
+                      {cat.categoria === 'Sinais de Alerta' ? '!' : '→'}
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Edema e Equimose -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Edema e Equimose</h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p>
+          O Endomidface caracteriza-se por <strong>edema significativamente menor</strong> em comparação
+          com técnicas mais extensas. Isso se deve à abordagem focalizada no terço médio e à preservação
+          da drenagem linfática.
+        </p>
+
+        <h3 class="font-serif text-primary-900">O Que Esperar</h3>
+
+        <ul class="space-y-2">
+          <li>
+            <strong>Primeiras 48h:</strong> Edema mais pronunciado, principalmente periorbital
+          </li>
+          <li><strong>3-5 dias:</strong> Pico do edema, início da resolução</li>
+          <li><strong>7-10 dias:</strong> Edema residual mínimo, paciente apresentável</li>
+          <li><strong>2-4 semanas:</strong> Resolução completa na maioria dos casos</li>
+        </ul>
+
+        <h3 class="font-serif text-primary-900">Quimose (Edema Palpebral)</h3>
+
+        <p>
+          Se o descolamento se estender para a região orbital (próxima à pálpebra), a quimose pode
+          durar mais de um mês. Por isso, a técnica enfatiza direcionar o descolamento para a asa do
+          nariz e canto da boca,
+          <strong>evitando a área próxima à borda palpebral inferior</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dicas -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-white mb-8 text-center">
+        Dicas para Otimizar a Recuperação
+      </h2>
+
+      <div class="space-y-4 text-white">
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span>
+          <p>Aplicar compressas frias nas primeiras 48h (20 min on/off)</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span>
+          <p>Manter cabeceira elevada mesmo durante o dia</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span>
+          <p>Evitar sal em excesso (contribui para retenção de líquidos)</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span>
+          <p>Não usar maquiagem na área operada por 7-10 dias</p>
+        </div>
+        <div class="flex items-start gap-4 p-4 bg-white/10">
+          <span class="text-accent-400 text-xl">✓</span>
+          <p>Comparecer a todas as consultas de acompanhamento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-primary-900 leading-relaxed mb-6">
+          "Essa estratégia de descolar, elevar o terço médio me fez ganhar tempo, me fez continuar
+          fazendo com anestesia local e sedação e ter bem menos edema. A recuperação é realmente
+          diferenciada."
+        </p>
+        <footer class="text-sm text-softGray uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/resultados"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Resultados
+        </a>
+        <a href="/pt/tecnicas/endomidface" class="text-sm text-accent-600 hover:text-accent-700">
+          Visão Geral →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

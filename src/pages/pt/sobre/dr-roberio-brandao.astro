@@ -1,0 +1,225 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const marcos = [
+  {
+    ano: '2005',
+    titulo: 'Início da Jornada',
+    desc: 'Primeiras cirurgias faciais e dedicação exclusiva ao rejuvenescimento',
+  },
+  {
+    ano: '2012',
+    titulo: 'Questionamento do Status Quo',
+    desc: 'Percepção das limitações do endoscópio e busca por alternativas',
+  },
+  {
+    ano: '2016',
+    titulo: 'Nascimento da Visão Direta',
+    desc: 'Desenvolvimento das primeiras técnicas sem endoscópio',
+  },
+  {
+    ano: '2019',
+    titulo: 'Sistematização do Endomidface',
+    desc: 'Protocolo estruturado e início da documentação de casos',
+  },
+  {
+    ano: '2022',
+    titulo: 'Face Moderna®',
+    desc: 'Consolidação da filosofia e início do ensino formal',
+  },
+  {
+    ano: '2024',
+    titulo: 'Modern Face Institute',
+    desc: 'Institucionalização e expansão internacional',
+  },
+];
+
+const contribuicoes = [
+  'Técnica Endomidface por Visão Direta',
+  'Protocolo Deep Neck sem ressecção glandular',
+  'Sistema de avaliação SPE-M',
+  'Frontoplastia evolutiva',
+  'Filosofia da Face Moderna®',
+];
+---
+
+<BaseLayout
+  title="Dr. Robério Brandão | Criador da Face Moderna®"
+  description="Conheça a trajetória do Dr. Robério Brandão, pioneiro em cirurgia facial por visão direta e criador da metodologia Face Moderna®."
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/sobre" class="hover:text-white">Sobre</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Dr. Robério Brandão</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Fundador</p>
+      <h1 class="heading-1-white">Dr. Robério Brandão</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Criador da Face Moderna® e pioneiro em técnicas de cirurgia facial por visão direta
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large-light font-serif italic">
+        "Não basta operar bem. É preciso ensinar bem. O conhecimento que não é compartilhado morre
+        conosco."
+      </p>
+    </div>
+  </section>
+
+  <!-- Introdução -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Dr. Robério Brandão dedicou quase duas décadas de sua vida à cirurgia facial. Não apenas
+          operando, mas questionando, refinando e, eventualmente, reinventando a forma como
+          abordamos o rejuvenescimento do rosto.
+        </p>
+        <p>
+          Sua trajetória é marcada por uma insatisfação construtiva com o status quo. Enquanto a
+          maioria dos cirurgiões seguia fielmente as técnicas estabelecidas, Dr. Robério
+          questionava: <em
+            >"Por que precisamos de um endoscópio para ver o que podemos ver diretamente? Por que
+            remover estruturas quando podemos reposicioná-las?"</em
+          >
+        </p>
+        <p>
+          Essas perguntas levaram ao desenvolvimento de uma filosofia completa de cirurgia facial —
+          a Face Moderna® — que hoje é ensinada a cirurgiões de todo o Brasil e começa a alcançar
+          reconhecimento internacional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Números -->
+  <section class="section-md bg-white">
+    <div class="prose-wide">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center p-6 bg-ivory border border-gray-100">
+          <p class="text-4xl font-serif text-accent-600 mb-2">1.500+</p>
+          <p class="body-small">Cirurgias faciais</p>
+        </div>
+        <div class="text-center p-6 bg-ivory border border-gray-100">
+          <p class="text-4xl font-serif text-accent-600 mb-2">212+</p>
+          <p class="body-small">Casos Endomidface</p>
+        </div>
+        <div class="text-center p-6 bg-ivory border border-gray-100">
+          <p class="text-4xl font-serif text-accent-600 mb-2">0</p>
+          <p class="body-small">Lesões permanentes</p>
+        </div>
+        <div class="text-center p-6 bg-ivory border border-gray-100">
+          <p class="text-4xl font-serif text-accent-600 mb-2">~20</p>
+          <p class="body-small">Anos de dedicação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline resumida -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-base">
+      <h2 class="heading-2 text-center mb-12">Marcos da Trajetória</h2>
+      <div class="space-y-6">
+        {
+          marcos.map((m) => (
+            <div class="flex gap-6 items-start">
+              <div class="flex-shrink-0 w-20 text-right">
+                <span class="text-2xl font-serif text-accent-600">{m.ano}</span>
+              </div>
+              <div class="flex-shrink-0 w-px bg-accent-600/30 self-stretch" />
+              <div class="pb-6">
+                <h3 class="font-medium text-primary-900 mb-1">{m.titulo}</h3>
+                <p class="body-small">{m.desc}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="text-center mt-8">
+        <a href="/pt/sobre/linha-do-tempo" class="text-sm text-accent-600 hover:text-accent-700">
+          Ver linha do tempo completa →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contribuições -->
+  <section class="section-lg bg-white">
+    <div class="prose-base">
+      <h2 class="heading-2 mb-8 text-center">Contribuições à Cirurgia Facial</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          contribuicoes.map((c) => (
+            <div class="flex items-center gap-3 p-4 bg-ivory border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600">check_circle</span>
+              <span class="text-warmGray">{c}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Filosofia -->
+  <section class="section-lg bg-primary-900">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2-white mb-8">Filosofia de Trabalho</h2>
+      <div class="space-y-6 text-left">
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Segurança Antes de Tudo</h3>
+          <p class="body-small-light">
+            "Nenhum resultado estético justifica uma lesão permanente. Nossa primeira obrigação é
+            não causar dano."
+          </p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Respeito à Anatomia</h3>
+          <p class="body-small-light">
+            "A anatomia não mente. Quando respeitamos os planos naturais, os resultados são mais
+            previsíveis e duradouros."
+          </p>
+        </div>
+        <div class="p-6 bg-white/10">
+          <h3 class="font-medium text-accent-400 mb-2">Socialização do Conhecimento</h3>
+          <p class="body-small-light">
+            "O conhecimento que não é compartilhado morre conosco. Ensinar é perpetuar."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-narrow text-center">
+      <h2 class="heading-2 mb-6">Aprenda com o Dr. Robério</h2>
+      <p class="body-base mb-8">
+        Conheça os programas de formação e tenha acesso direto ao conhecimento desenvolvido ao longo
+        de quase 20 anos.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+      >
+        Ver Programas
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/sobre" class="text-sm text-accent-600">← Sobre</a>
+      <a href="/pt/sobre/casuistica" class="text-sm text-accent-600">Casuística →</a>
+    </div>
+  </section>
+</BaseLayout>

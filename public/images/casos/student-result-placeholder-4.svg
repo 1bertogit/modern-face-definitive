@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bgGradStudent4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f8f8f5"/>
+    </linearGradient>
+    <linearGradient id="successGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#bgGradStudent4)"/>
+  <rect x="30" y="30" width="540" height="540" rx="4" fill="#ffffff" stroke="#f0efe8" stroke-width="1"/>
+
+  <!-- Badge -->
+  <g transform="translate(50, 50)">
+    <rect width="130" height="28" rx="14" fill="#1e293b"/>
+    <text x="65" y="18" font-family="'Inter', Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">CASO ALUNO</text>
+  </g>
+
+  <!-- Success indicator circle -->
+  <circle cx="300" cy="265" r="120" fill="url(#successGrad4)"/>
+  <circle cx="300" cy="265" r="120" fill="none" stroke="#16a34a" stroke-width="2" opacity="0.3"/>
+
+  <!-- Face illustration - Full face with neck -->
+  <g transform="translate(300, 250)">
+    <!-- Face outline -->
+    <ellipse cx="0" cy="25" rx="98" ry="118" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Elevated brows -->
+    <path d="M -48,-12 Q -33,-20 -18,-18" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+    <path d="M 18,-18 Q 33,-20 48,-12" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+
+    <!-- Eyes -->
+    <ellipse cx="-30" cy="5" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+    <ellipse cx="30" cy="5" rx="13" ry="8" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.25"/>
+
+    <!-- Nose -->
+    <path d="M 0,-5 L 0,28" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+    <path d="M -11,28 Q 0,33 11,28" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Improved midface contours -->
+    <path d="M -11,28 Q -15,42 -18,56" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 11,28 Q 15,42 18,56" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Elevated malar -->
+    <path d="M -60,25 Q -68,42 -65,58" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+    <path d="M 60,25 Q 68,42 65,58" stroke="#16a34a" stroke-width="2" opacity="0.6"/>
+
+    <!-- Mouth -->
+    <path d="M -20,60 Q 0,65 20,60" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Improved jawline and neck -->
+    <path d="M -62,95 Q -52,112 0,118 Q 52,112 62,95" stroke="#16a34a" stroke-width="2" opacity="0.7"/>
+
+    <!-- Smooth neck contour -->
+    <path d="M -35,118 Q -30,145 -28,175" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 35,118 Q 30,145 28,175" stroke="#16a34a" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 0,122 L 0,175" stroke="#16a34a" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Success checkmark -->
+  <g transform="translate(450, 100)">
+    <circle r="22" fill="#16a34a" opacity="0.9"/>
+    <path d="M -8,0 L -3,6 L 9,-6" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="300" y="485" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="600" fill="#b8956c" text-anchor="middle" letter-spacing="2">METODOLOGIA VALIDADA</text>
+
+  <!-- Decorative line -->
+  <line x1="165" y1="500" x2="435" y2="500" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(540, 540)">
+    <circle r="16" fill="#b8956c" opacity="0.8"/>
+    <rect x="-6" y="-2" width="12" height="4" fill="#ffffff"/>
+    <rect x="-2" y="-6" width="4" height="12" fill="#ffffff"/>
+  </g>
+</svg>

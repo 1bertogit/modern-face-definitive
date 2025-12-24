@@ -1,0 +1,320 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'vetores Endomidface',
+  'fixação lifting facial',
+  'vetor vertical face',
+  'pontos de ancoragem midface',
+  'fáscia temporal profunda fixação',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  name: 'Endomidface - Vetores de Fixação',
+  description:
+    'Vetorização vertical no Endomidface. Pontos de fixação, materiais de sutura e estratégias para resultados duradouros.',
+  procedureType: 'Surgical',
+};
+---
+
+<BaseLayout
+  title="Vetores de Fixação"
+  description="Vetorização vertical no Endomidface. Pontos de fixação na fáscia temporal profunda, materiais de sutura e estratégias para resultados duradouros."
+  schema={schema}
+  lang="pt"
+  keywords={keywords}
+>
+  <!-- Breadcrumb + Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <nav class="mb-8">
+        <ol class="flex items-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Início</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas" class="hover:text-white">Técnicas</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/tecnicas/endomidface" class="hover:text-white">Endomidface</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Vetores</li>
+        </ol>
+      </nav>
+
+      <div class="text-center">
+        <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Fixação & Sustentação
+        </p>
+        <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+          Vetores de Fixação
+        </h1>
+        <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+          O vetor vertical é a assinatura do Endomidface. Entenda a lógica da fixação e como
+          garantir resultados duradouros.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Princípio do Vetor Vertical -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          Diferente das técnicas tradicionais de facelift que tracionam os tecidos para trás (vetor
+          posterior), o Endomidface promove uma elevação vertical — para cima, contra a gravidade.
+          Essa decisão técnica tem duas consequências fundamentais.
+        </p>
+
+        <h2 class="font-serif text-primary-900">Por Que Vertical?</h2>
+
+        <ol class="space-y-4">
+          <li>
+            <strong class="text-primary-900"
+              >Não precisamos soltar os ligamentos laterais fortes</strong
+            > — principalmente o ligamento zigomático, o mais robusto da face.
+          </li>
+          <li>
+            <strong class="text-primary-900">Reduzimos a manipulação de zonas perigosas</strong> — com
+            mais segurança e menos morbidade.
+          </li>
+        </ol>
+
+        <p>
+          O resultado é um rejuvenescimento que respeita a dinâmica natural da face, sem criar
+          tensão lateral excessiva ou a aparência "esticada" comum em técnicas que puxam para trás.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pontos de Fixação -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Pontos de Fixação</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 bg-ivory border border-gray-100">
+          <span class="text-5xl font-serif text-accent-600/30 block mb-4">01</span>
+          <h3 class="text-xl font-serif text-primary-900 mb-3">Fixação Lateral</h3>
+          <p class="text-warmGray mb-4">
+            Pontos na fáscia temporal profunda, o mais posterior e superior possível.
+          </p>
+          <ul class="space-y-2 text-sm text-warmGray">
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Material: Vicryl 2-0
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Objetivo: elevar o retalho de SMAS mobilizado
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Proteção: posicionar posterior à incisão para evitar nervo frontal
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-8 bg-ivory border border-gray-100">
+          <span class="text-5xl font-serif text-accent-600/30 block mb-4">02</span>
+          <h3 class="text-xl font-serif text-primary-900 mb-3">Fixação Medial</h3>
+          <p class="text-warmGray mb-4">
+            Retalho de músculo temporal para ancorar a porção medial do terço médio.
+          </p>
+          <ul class="space-y-2 text-sm text-warmGray">
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Retalho de ~0,5 a 1 cm de músculo temporal
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Permite tração vertical adequada
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-accent-600">→</span>
+              Essencial onde não há músculo temporal diretamente
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direção do Vetor -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Direção do Vetor</h2>
+
+      <div class="bg-white p-10 border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-serif text-red-600 mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined">close</span>
+              Vetor Lateral (Incorreto)
+            </h3>
+            <ul class="space-y-3 text-sm text-warmGray">
+              <li>Tração para trás, em direção à orelha</li>
+              <li>Mirada "estirada", antinatural</li>
+              <li>Curta duração do resultado</li>
+              <li>Requer liberação de ligamentos fortes</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-serif text-green-600 mb-4 flex items-center gap-2">
+              <span class="material-symbols-outlined">check</span>
+              Vetor Vertical (Correto)
+            </h3>
+            <ul class="space-y-3 text-sm text-warmGray">
+              <li>Elevação para cima, contra a gravidade</li>
+              <li>Resultado natural, "top model look"</li>
+              <li>Durabilidade de 8-12 anos</li>
+              <li>Não requer soltar ligamentos laterais</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materiais de Sutura -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Materiais de Sutura</h2>
+
+      <div class="space-y-6">
+        <div class="flex items-start gap-6 p-6 bg-ivory border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-xl">2-0</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Vicryl 2-0</h3>
+            <p class="text-sm text-warmGray">
+              Fio absorvível para fixação na fáscia temporal profunda e periostio frontal. Oferece
+              sustentação adequada durante a fase de cicatrização (4-6 semanas) até a fibrose
+              estabilizar o resultado.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-6 p-6 bg-ivory border border-gray-100">
+          <div
+            class="w-16 h-16 bg-accent-600/10 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <span class="text-accent-600 font-serif text-xl">4-0</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-primary-900 mb-2">Nylon ou Mononylon 4-0</h3>
+            <p class="text-sm text-warmGray">
+              Para fechamento do couro cabeludo. Sutura intradérmica ou pontos simples. Alternativa:
+              grampos de pele para rapidez.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação -->
+  <section class="py-16 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <blockquote>
+        <p class="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+          "A nossa intenção é passar na frente dos ligamentos, descolar tudo aqui à frente e repor
+          para cima — e não para trás. Por isso que é possível. Por isso que é seguro."
+        </p>
+        <footer class="text-sm text-primary-400 uppercase tracking-[0.15em]">
+          — Dr. Robério Brandão
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Erros de Fixação -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Erros Comuns na Fixação</h2>
+
+      <div class="space-y-4">
+        <div class="bg-white p-6 border-l-4 border-red-500">
+          <h3 class="font-serif text-primary-900 mb-2">Pontos muito baixos ou anteriores</h3>
+          <p class="text-sm text-warmGray">
+            Risco de pinçamento ou irritação do nervo frontal. Sempre posicionar o mais posterior e
+            superior possível.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 border-l-4 border-red-500">
+          <h3 class="font-serif text-primary-900 mb-2">Tensão excessiva no fechamento</h3>
+          <p class="text-sm text-warmGray">
+            A tração deve estar nas camadas profundas, não no couro cabeludo. Fechar com tensão
+            causa necrose, alopecia e cicatriz alargada.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 border-l-4 border-red-500">
+          <h3 class="font-serif text-primary-900 mb-2">Vetor incorreto</h3>
+          <p class="text-sm text-warmGray">
+            Fixar com vetor lateral em vez de vertical resulta em mirada "esticada", resultado
+            antinatural e recidiva precoce.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Em Resumo -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Em Resumo</h2>
+
+      <div class="bg-ivory p-8 border border-gray-100">
+        <ul class="space-y-4 text-warmGray">
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">→</span>
+            <span>O vetor é vertical (para cima), não posterior (para trás)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">→</span>
+            <span>Fixação lateral na fáscia temporal profunda com Vicryl 2-0</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">→</span>
+            <span>Pontos o mais posterior e superior possível</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">→</span>
+            <span>Retalho de músculo para fixação medial</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-600 font-bold">→</span>
+            <span>Nunca fechar couro cabeludo com tensão</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação -->
+  <section class="py-8 bg-ivory border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between">
+        <a
+          href="/pt/tecnicas/endomidface/anatomia"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          ← Anatomia
+        </a>
+        <a
+          href="/pt/tecnicas/endomidface/passo-a-passo"
+          class="text-sm text-accent-600 hover:text-accent-700"
+        >
+          Passo a Passo →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

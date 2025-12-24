@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const structures = [
+  {
+    name: 'Mandibular Ligament',
+    desc: 'Bone insertion at inferior mandibular border. Main cause of jowl.',
+    management: 'Obligatory release in lifting',
+  },
+  {
+    name: 'Jowl Fat',
+    desc: 'Fat herniating over the mandibular ligament with aging.',
+    management: 'Repositioning, not removal',
+  },
+  {
+    name: 'Marginal Nerve',
+    desc: 'Motor branch of facial nerve. Innervates lip depressors.',
+    management: 'Absolute protection - identify first',
+  },
+  {
+    name: 'Platysma',
+    desc: 'Superficial neck muscle inserting at mandible.',
+    management: 'Plication and repositioning',
+  },
+];
+
+const zones = [
+  {
+    zone: 'Zone I',
+    desc: 'Central submental region',
+    risk: 'Low',
+    structures: 'Digastric, platysma',
+  },
+  {
+    zone: 'Zone II',
+    desc: 'Lateral submandibular region',
+    risk: 'High',
+    structures: 'Marginal nerve, facial vessels',
+  },
+  {
+    zone: 'Zone III',
+    desc: 'Pre-auricular region',
+    risk: 'Medium',
+    structures: 'Facial branches, SMAS',
+  },
+];
+---
+
+<BaseLayout
+  title="Lower Third Anatomy | Mandible"
+  description="Applied anatomy of the lower facial third. Mandibular region, jowl and cervicofacial transition."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/applied-anatomy" class="hover:text-white">Anatomy</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Lower Third</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Mandible
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">Lower Third</h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        The mandibular region and neck transition. Jowl anatomy and critical structures.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Key Structures</h2>
+      <div class="space-y-6">
+        {
+          structures.map((s) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <h3 class="font-serif text-primary-900 text-lg mb-2">{s.name}</h3>
+              <p class="text-warmGray mb-4">{s.desc}</p>
+              <p class="text-sm">
+                <span class="text-accent-600 font-medium">Management:</span>{' '}
+                <span class="text-warmGray">{s.management}</span>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Risk Zones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          zones.map((z) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-primary-900">{z.zone}</h3>
+                <span
+                  class={`text-xs px-2 py-1 ${z.risk === 'High' ? 'bg-red-600' : z.risk === 'Medium' ? 'bg-amber-600' : 'bg-green-600'} text-white`}
+                >
+                  {z.risk} Risk
+                </span>
+              </div>
+              <p class="text-warmGray text-sm mb-4">{z.desc}</p>
+              <p class="text-xs text-softGray">
+                <strong>Structures:</strong> {z.structures}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/applied-anatomy/middle-third" class="text-sm text-accent-600">← Middle Third</a>
+      <a href="/applied-anatomy/cervical-region" class="text-sm text-accent-600"
+        >Cervical Region →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

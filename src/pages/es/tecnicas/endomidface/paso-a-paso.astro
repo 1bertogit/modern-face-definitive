@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'paso a paso Endomidface',
+  'protocolo quirúrgico facial',
+  'disección tercio medio',
+  'incisión intracapilar',
+  'fijación SMAS técnica',
+  'cirugía facial 90 minutos',
+];
+
+const pasos = [
+  {
+    n: '01',
+    t: 'Marcación Preoperatoria',
+    tm: '5-10 min',
+    d: 'Diseño de incisión intracapilar (~5cm), puntos anatómicos.',
+  },
+  {
+    n: '02',
+    t: 'Anestesia e Infiltración',
+    tm: '10-15 min',
+    d: 'Anestesia local con sedación. Infiltración tumescente.',
+  },
+  {
+    n: '03',
+    t: 'Incisión y Acceso Temporal',
+    tm: '5 min',
+    d: 'Incisión intracapilar y entrada al plano entre fascias temporales.',
+  },
+  {
+    n: '04',
+    t: 'Disección Temporal',
+    tm: '15-20 min',
+    d: 'Disección sobre fascia temporal profunda hasta cresta temporal.',
+  },
+  {
+    n: '05',
+    t: 'Disección Frontal (Subperióstica)',
+    tm: '10-15 min',
+    d: 'Progresión a región frontal, liberación del reborde orbitario.',
+  },
+  {
+    n: '06',
+    t: 'Disección del Tercio Medio (Sub-SMAS)',
+    tm: '15-20 min',
+    d: 'Entrada a espacios pre-cigomático y pre-maxilar.',
+  },
+  {
+    n: '07',
+    t: 'Miotomías (Opcional)',
+    tm: '5-10 min',
+    d: 'Debilitamiento de músculos mímicos bajo visión directa.',
+  },
+  {
+    n: '08',
+    t: 'Fijación',
+    tm: '10-15 min',
+    d: 'Anclaje de tejidos movilizados con vector vertical.',
+  },
+  { n: '09', t: 'Cierre', tm: '10-15 min', d: 'Sutura del cuero cabelludo sin tensión.' },
+];
+---
+
+<BaseLayout
+  title="Paso a Paso del Endomidface"
+  description="Protocolo quirúrgico completo de Endomidface en 9 pasos."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Protocolo Quirúrgico
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Paso a Paso</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Protocolo completo en 9 pasos. Tiempo promedio: 90-120 minutos.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">90-120</p><p class="text-xs uppercase">Minutos</p>
+        </div><div>
+          <p class="text-3xl font-serif">9</p><p class="text-xs uppercase">Pasos</p>
+        </div><div>
+          <p class="text-3xl font-serif">Local</p><p class="text-xs uppercase">+ Sedación</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-6">
+        {
+          pasos.map((p) => (
+            <div class="bg-white p-6 border border-gray-100 flex items-start gap-6">
+              <>
+                <div class="flex-shrink-0">
+                  <>
+                    <span class="text-3xl font-serif text-accent-600/30">{p.n}</span>
+                    <p class="text-xs text-accent-600">{p.tm}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-2">{p.t}</h3>
+                    <p class="text-sm text-warmGray">{p.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Consejos Críticos</h2><div
+        class="space-y-4"
+      >
+        <div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Pérdida de resistencia:</strong> Cuando el descolador "se hunde" súbitamente, entró
+            al espacio pre-cigomático. Incline hacia arriba y continúe.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Dirección del descolador:</strong> Apuntar de canto del ojo hacia ala nasal. Nunca
+            disecar hacia párpado inferior (riesgo de quemosis).
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Inclinar hacia superficie:</strong> En tercio medio, siempre inclinar descolador hacia
+            arriba. Los nervios motores están en el piso.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/endomidface/vectores" class="text-sm text-accent-600">← Vectores</a><a
+        href="/es/tecnicas/endomidface/errores-comunes"
+        class="text-sm text-accent-600">Errores Comunes →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

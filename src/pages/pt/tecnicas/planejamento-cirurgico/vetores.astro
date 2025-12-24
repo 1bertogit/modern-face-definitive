@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'vetores cirurgia facial',
+  'direção tração lifting',
+  'vetor vertical face',
+  'pontos fixação SMAS',
+  'naturalidade resultado lifting',
+  'técnica Face Moderna vetores',
+];
+
+const vetores = [
+  {
+    tipo: 'Vertical',
+    direcao: '↑',
+    desc: 'Elevação direta contra a gravidade. Preferencial na Face Moderna.',
+    indicacao: 'Maioria dos casos',
+    cor: 'bg-green-600',
+  },
+  {
+    tipo: 'Oblíquo',
+    direcao: '↗',
+    desc: 'Combinação vertical + lateral. Para ptose mais severa.',
+    indicacao: 'Ptose severa',
+    cor: 'bg-amber-600',
+  },
+  {
+    tipo: 'Lateral',
+    direcao: '→',
+    desc: "Tração lateral pura. Evitar - causa aspecto 'wind-swept'.",
+    indicacao: 'Evitar',
+    cor: 'bg-red-600',
+  },
+];
+
+const fixacao = [
+  {
+    regiao: 'Midface',
+    ponto: 'Fáscia temporal profunda',
+    tecnica: 'Sutura de sustentação perpendicular',
+  },
+  { regiao: 'Jowl', ponto: 'SMAS-platisma', tecnica: 'Plicatura + suspensão ao SMAS fixo' },
+  { regiao: 'Pescoço', ponto: 'Fascia cervical', tecnica: 'Platismorrafia + Crevassi' },
+];
+---
+
+<BaseLayout
+  title="Definição de Vetores"
+  description="Direção da tração e pontos de fixação na cirurgia facial. Vetor vertical preferencial."
+  keywords={keywords}
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li>
+            <a href="/pt/tecnicas/planejamento-cirurgico" class="hover:text-white">Planejamento</a>
+          </li>
+          <li><span>/</span></li>
+          <li class="text-white">Vetores</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 03
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Definição de Vetores
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        A direção da tração define a naturalidade do resultado. Vetor vertical é o padrão Face
+        Moderna.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="drop-cap">
+          O envelhecimento facial é fundamentalmente gravitacional — os tecidos descem. A lógica do
+          rejuvenescimento é elevar de volta. Por isso o vetor vertical é o mais natural:
+          contrabalança diretamente a gravidade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Os 3 Vetores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          vetores.map((v) => (
+            <div
+              class={`p-6 border ${v.cor === 'bg-green-600' ? 'border-green-200 bg-green-50' : v.cor === 'bg-amber-600' ? 'border-amber-200 bg-amber-50' : 'border-red-200 bg-red-50'}`}
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-4xl">{v.direcao}</span>
+                <span class={`text-xs px-2 py-1 ${v.cor} text-white`}>{v.indicacao}</span>
+              </div>
+              <h3 class="font-serif text-primary-900 text-xl mb-2">{v.tipo}</h3>
+              <p class="text-sm text-warmGray">{v.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Pontos de Fixação</h2>
+      <div class="space-y-4">
+        {
+          fixacao.map((f) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-medium text-primary-900">{f.regiao}</h3>
+                  <p class="text-sm text-warmGray">Ponto: {f.ponto}</p>
+                </div>
+                <p class="text-sm text-accent-600">{f.tecnica}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/tecnicas/planejamento-cirurgico/sistema-spe-m" class="text-sm text-accent-600"
+        >← SPE-M</a
+      >
+      <a href="/pt/tecnicas/planejamento-cirurgico/fotografia" class="text-sm text-accent-600"
+        >Fotografia →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { casesContent, getCasesSchema } from '@lib/content/cases';
+
+const locale = 'en';
+const content = casesContent[locale];
+const schema = getCasesSchema(locale);
+
+const keywords = [
+  'Face Moderna surgical cases',
+  'ENDOMIDFACE results',
+  'Deep Neck before after',
+  'Browlift results',
+  'full face surgery',
+  'Dr Robério Brandão gallery',
+];
+
+// Placeholder - will be dynamic in the future
+const cases = [
+  {
+    id: 1,
+    title: 'Endomidface + Deep Neck',
+    description: 'Patient 58 years old, severe midface ptosis, cervical laxity',
+    techniques: ['Endomidface', 'Deep Neck'],
+    age: 58,
+    time: '180 min',
+    image: '/images/casos/before-after/before-after-1.png',
+  },
+  {
+    id: 2,
+    title: 'Endomidface Isolated',
+    description: 'Patient 52 years old, deep nasolabial fold, ptotic malar',
+    techniques: ['Endomidface'],
+    age: 52,
+    time: '120 min',
+    image: '/images/casos/before-after/before-after-2.png',
+  },
+  {
+    id: 3,
+    title: 'Full Face',
+    description: 'Patient 62 years old, browlift + endomidface + deep neck',
+    techniques: ['Browlift', 'Endomidface', 'Deep Neck'],
+    age: 62,
+    time: '240 min',
+    image: '/images/casos/before-after/before-after-3.png',
+  },
+  {
+    id: 4,
+    title: 'Deep Neck + Endomidface',
+    description: 'Patient 55 years old, prominent platysmal bands, ptotic malar',
+    techniques: ['Deep Neck', 'Endomidface'],
+    age: 55,
+    time: '200 min',
+    image: '/images/casos/before-after/before-after-4.png',
+  },
+  {
+    id: 5,
+    title: 'Endoscopic Browlift',
+    description: 'Patient 48 years old, bilateral brow ptosis, forehead lines',
+    techniques: ['Browlift'],
+    age: 48,
+    time: '90 min',
+    image: '/images/casos/before-after/before-after-5.png',
+  },
+  {
+    id: 6,
+    title: 'Bilateral Endomidface',
+    description: 'Patient 60 years old, deep folds, loss of malar projection',
+    techniques: ['Endomidface'],
+    age: 60,
+    time: '140 min',
+    image: '/images/casos/before-after/before-after-6.png',
+  },
+];
+---
+
+<BaseLayout
+  title="Surgical Cases | Dr. Robério Brandão"
+  description="Gallery of surgical cases performed by Dr. Robério Brandão using the Face Moderna® methodology."
+  keywords={keywords}
+  schema={schema}
+  lang={locale}
+>
+  <!-- Breadcrumb -->
+  <section class="pt-28 pb-4 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-softGray">
+        <a href="/en" class="hover:text-accent-600">{content.ui.breadcrumb.home}</a>
+        <span>/</span>
+        <a href="/cases" class="hover:text-accent-600">{content.ui.breadcrumb.cases}</a>
+        <span>/</span>
+        <span class="text-primary-900">{content.ui.breadcrumb.surgical}</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="section-md bg-ivory">
+    <div class="prose-wide">
+      <p class="label-eyebrow">
+        {content.stats.documented.value} Documented Cases
+      </p>
+      <h1 class="heading-1">{content.ui.breadcrumb.surgical}</h1>
+      <p class="body-base max-w-2xl">
+        Results from procedures performed by Dr. Robério Brandão. Each case includes complete
+        documentation with planning, technique, and outcome.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filters (future) -->
+  <section class="section-xs bg-white border-y border-gray-100">
+    <div class="prose-wide">
+      <div class="flex flex-wrap gap-3">
+        <button class="px-4 py-2 text-xs font-medium bg-primary-900 text-white rounded-full">
+          {content.ui.allFilter}
+        </button>
+        <button
+          class="px-4 py-2 text-xs font-medium bg-gray-100 text-warmGray hover:bg-gray-200 rounded-full transition-colors"
+        >
+          Endomidface
+        </button>
+        <button
+          class="px-4 py-2 text-xs font-medium bg-gray-100 text-warmGray hover:bg-gray-200 rounded-full transition-colors"
+        >
+          Deep Neck
+        </button>
+        <button
+          class="px-4 py-2 text-xs font-medium bg-gray-100 text-warmGray hover:bg-gray-200 rounded-full transition-colors"
+        >
+          Browlift
+        </button>
+        <button
+          class="px-4 py-2 text-xs font-medium bg-gray-100 text-warmGray hover:bg-gray-200 rounded-full transition-colors"
+        >
+          Full Face
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases List -->
+  <section class="section-md bg-ivory">
+    <div class="prose-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          cases.map((caseItem) => (
+            <div class="group bg-white border border-gray-100 hover:border-accent-600 hover:shadow-lg transition-all cursor-pointer">
+              {/* Case Image */}
+              <div class="aspect-[4/3] bg-ivory relative overflow-hidden">
+                <img
+                  src={caseItem.image}
+                  alt={caseItem.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute top-3 left-3 flex gap-2">
+                  {caseItem.techniques.map((tech) => (
+                    <span class="px-2 py-1 bg-primary-900/90 text-white text-[10px] uppercase tracking-wider">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div class="p-5">
+                <h3 class="heading-4 mb-2 group-hover:text-accent-600 transition-colors">
+                  {caseItem.title}
+                </h3>
+                <p class="body-small mb-4">{caseItem.description}</p>
+                <div class="flex items-center gap-4 text-xs text-softGray">
+                  <span>{caseItem.age} years</span>
+                  <span>•</span>
+                  <span>{caseItem.time}</span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- More cases coming soon -->
+      <div class="mt-12 text-center">
+        <p class="body-base mb-4">
+          Complete gallery in development. {content.stats.documented.value} cases will be added progressively.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

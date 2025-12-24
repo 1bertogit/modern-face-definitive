@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="96" fill="#1e293b"/>
+  
+  <!-- Face silhouette (simplified) -->
+  <g transform="translate(256, 256)">
+    <!-- Face outline -->
+    <ellipse cx="0" cy="0" rx="140" ry="170" stroke="#b8956c" stroke-width="20" fill="none"/>
+    <!-- Eyes -->
+    <ellipse cx="-60" cy="-40" rx="25" ry="15" fill="#b8956c" opacity="0.9"/>
+    <ellipse cx="60" cy="-40" rx="25" ry="15" fill="#b8956c" opacity="0.9"/>
+    <!-- Nose -->
+    <path d="M 0 -20 L 0 40" stroke="#b8956c" stroke-width="12" stroke-linecap="round"/>
+    <!-- Mouth -->
+    <path d="M -70 80 Q 0 100 70 80" stroke="#b8956c" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Lift line (subtle) -->
+    <path d="M -120 100 Q -80 80 -40 100" stroke="#b8956c" stroke-width="8" fill="none" opacity="0.5"/>
+  </g>
+</svg>

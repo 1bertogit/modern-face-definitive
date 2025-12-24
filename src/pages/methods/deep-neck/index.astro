@@ -1,0 +1,368 @@
+---
+/**
+ * CLUSTER D - Deep Neck
+ * Página: /en/methods/deep-neck/
+ * Prioridade: P0
+ * Intenção: Money page Deep Neck
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Methods', url: '/methods' },
+  { name: 'Deep Neck', url: '/methods/deep-neck' },
+];
+
+const keywords = [
+  'Deep Neck surgery',
+  'neck lift without gland removal',
+  'cervical rejuvenation',
+  'platysma surgery',
+  'submandibular gland preservation',
+  'neck lift technique',
+  'cervicomental angle',
+];
+
+const techniqueFeatures = [
+  {
+    icon: 'healing',
+    title: 'Gland Preservation',
+    desc: 'The submandibular gland is preserved, avoiding the hollow appearance that can result from gland removal and reducing complication risk.',
+  },
+  {
+    icon: 'straighten',
+    title: 'Platysmorraphy',
+    desc: 'Precise platysmal muscle plication to recreate the cervicomental angle and address platysmal bands without excessive tension.',
+  },
+  {
+    icon: 'content_cut',
+    title: 'Digastric Shaving',
+    desc: 'When indicated, careful digastric muscle management to improve submental contour while respecting functional anatomy.',
+  },
+  {
+    icon: 'visibility',
+    title: 'Direct Vision Access',
+    desc: 'Clear visualization through submental approach allows safe navigation of the complex cervical anatomy with its vessels and nerves.',
+  },
+];
+
+const relatedPages = [
+  { title: 'Indications & Patient Selection', url: '/methods/deep-neck/indications' },
+  { title: 'Anatomy & Danger Zones', url: '/methods/deep-neck/anatomy-danger-zones' },
+  { title: 'Surgical Approaches', url: '/methods/deep-neck/approaches' },
+  { title: 'Why Deep Neck Is Not Endoscopic', url: '/methods/deep-neck/why-not-endoscopic' },
+  { title: 'Complications & Prevention', url: '/methods/deep-neck/complications-prevention' },
+  { title: 'Deep Neck FAQ', url: '/methods/deep-neck/faq' },
+];
+---
+
+<BaseLayout
+  title="Deep Neck Without Gland Removal — Cervical Rejuvenation Technique"
+  description="Deep Neck surgery without submandibular gland removal: a conservative approach to cervical rejuvenation that preserves natural anatomy while achieving excellent neck definition. Learn about platysmorraphy, digastric management, and the Modern Face approach to neck surgery."
+  keywords={keywords}
+>
+  <SchemaArticle
+    title="Deep Neck Without Gland Removal — Cervical Rejuvenation"
+    description="Comprehensive overview of the Deep Neck technique that preserves the submandibular gland"
+    section="Surgical Techniques"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
+
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+            Cervical Technique
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-white mb-6">
+            Deep Neck Without Gland Removal
+          </h1>
+          <p class="text-xl text-primary-200 mb-6">
+            Comprehensive cervical rejuvenation that <strong class="text-white"
+              >preserves the submandibular gland</strong
+            > — achieving excellent results without the hollowing that aggressive approaches can create.
+          </p>
+          <p class="text-primary-300 mb-8">
+            A conservative philosophy applied to neck surgery: address what needs addressing,
+            preserve what should be preserved. The result is natural-looking neck definition with
+            lower complication risk.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/methods/deep-neck/anatomy-danger-zones"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
+            >
+              <span class="material-symbols-outlined">anatomy</span>
+              Anatomy & Safety
+            </a>
+            <a
+              href="/training/deep-neck-mentorship"
+              class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <span class="material-symbols-outlined">school</span>
+              Training Program
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="relative hidden lg:block">
+          <div class="aspect-[4/3] bg-primary-700/50 rounded-2xl flex items-center justify-center">
+            <div class="text-center text-primary-400">
+              <span class="material-symbols-outlined text-6xl mb-2">self_improvement</span>
+              <p class="text-sm">Deep Neck Technique</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Principle -->
+  <section class="py-8 bg-accent-500">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center text-white">
+      <p class="text-xl md:text-2xl font-serif italic">
+        "The submandibular gland exists for a reason. Removing it creates problems we then have to
+        solve. Better to work with the anatomy, not against it."
+      </p>
+      <p class="mt-2 text-accent-200">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Why Preserve the Gland -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-serif text-primary-900 mb-8">
+        Why Preserve the Submandibular Gland?
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl leading-relaxed mb-6">
+          Some neck lift techniques advocate for submandibular gland removal (submandibular gland
+          excision) to achieve a more defined cervicomental angle. While this can produce dramatic
+          initial results, it comes with significant trade-offs that Dr. Brandão's approach avoids.
+        </p>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">Problems with Gland Removal</h3>
+
+        <ul class="space-y-3 mb-6">
+          <li>
+            <strong>Hollowing:</strong> The gland occupies volume in the submandibular triangle. Removing
+            it can create an unnatural hollow appearance, especially as patients age and lose additional
+            volume.
+          </li>
+          <li>
+            <strong>Dry mouth risk:</strong> The submandibular gland contributes significantly to saliva
+            production. Removal can cause xerostomia (dry mouth) in some patients.
+          </li>
+          <li>
+            <strong>Marginal nerve risk:</strong> The marginal mandibular branch of the facial nerve runs
+            in close proximity to the gland. Gland removal increases manipulation near this nerve.
+          </li>
+          <li>
+            <strong>Irreversibility:</strong> Unlike other aspects of neck surgery, gland removal cannot
+            be undone. If the aesthetic result is poor, there's no way to restore the volume.
+          </li>
+        </ul>
+
+        <h3 class="text-2xl font-serif text-primary-900 mt-10 mb-4">
+          The Conservative Alternative
+        </h3>
+
+        <p class="mb-6">
+          Dr. Brandão's Deep Neck technique achieves excellent neck definition through:
+        </p>
+
+        <ul class="space-y-3 mb-6">
+          <li>
+            <strong>Platysmorraphy:</strong> Precise plication (folding and suturing) of the platysma
+            muscle to recreate the cervicomental angle
+          </li>
+          <li>
+            <strong>Fat management:</strong> Selective lipectomy of submental and subplatysmal fat when
+            indicated
+          </li>
+          <li>
+            <strong>Digastric attention:</strong> When the digastric muscle contributes to fullness, careful
+            shaving can improve contour without functional compromise
+          </li>
+          <li>
+            <strong>Glandular loop:</strong> Creating a "sling" that repositions rather than removes the
+            gland
+          </li>
+        </ul>
+
+        <p class="mb-6">
+          The result is a defined neck without the risks of gland removal — and without the
+          unnatural hollowing that can occur years later.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technique Features -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-12 text-center">Technical Components</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          techniqueFeatures.map((feature) => (
+            <div class="p-8 bg-ivory rounded-2xl">
+              <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-primary-600 text-3xl">
+                  {feature.icon}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-primary-900 mb-3">{feature.title}</h3>
+              <p class="text-warmGray">{feature.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Patient Selection -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8">Patient Selection</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-6 bg-green-50 border border-green-200 rounded-xl">
+          <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">check_circle</span>
+            Ideal Candidates
+          </h3>
+          <ul class="space-y-2 text-green-700">
+            <li>• Platysmal banding (vertical neck bands)</li>
+            <li>• Submental fullness ("double chin")</li>
+            <li>• Loss of cervicomental angle definition</li>
+            <li>• Neck skin laxity (moderate)</li>
+            <li>• Combined with ENDOMIDFACE® for full face</li>
+            <li>• Age 45-70 (typical range)</li>
+          </ul>
+        </div>
+
+        <div class="p-6 bg-red-50 border border-red-200 rounded-xl">
+          <h3 class="font-bold text-red-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">cancel</span>
+            Consider Alternatives When
+          </h3>
+          <ul class="space-y-2 text-red-700">
+            <li>• Severe skin excess requiring excision</li>
+            <li>• Prior neck surgery with scarring</li>
+            <li>• Unrealistic expectations</li>
+            <li>• Primary concern is jowl (may need facelift)</li>
+            <li>• Significant weight fluctuation expected</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-8 text-warmGray text-center">
+        Detailed selection criteria: <a
+          href="/methods/deep-neck/indications"
+          class="text-accent-600 hover:text-accent-700 underline">Indications & Patient Selection</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- Integration with ENDOMIDFACE -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-primary-50 rounded-2xl p-8">
+        <div class="flex items-start gap-6">
+          <div
+            class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0"
+          >
+            <span class="material-symbols-outlined text-primary-600 text-3xl">link</span>
+          </div>
+          <div>
+            <h2 class="text-2xl font-serif text-primary-900 mb-4">Combined with ENDOMIDFACE®</h2>
+            <p class="text-warmGray mb-4">
+              Deep Neck is often performed in conjunction with <a
+                href="/methods/endomidface-direct-vision"
+                class="text-accent-600 hover:text-accent-700 underline"
+                >ENDOMIDFACE® by Direct Vision</a
+              > for comprehensive facial rejuvenation. The techniques share the same philosophical approach
+              — Direct Vision, conservative tissue handling, and respect for natural anatomy.
+            </p>
+            <p class="text-warmGray mb-6">
+              When combined, patients receive full facial treatment: midface elevation, jowl
+              improvement, and neck definition in a single surgical session.
+            </p>
+            <a
+              href="/training/combo-legacy"
+              class="inline-flex items-center gap-2 text-accent-600 font-semibold hover:text-accent-700"
+            >
+              Learn both techniques: Combo Legacy Program
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Pages -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Explore Deep Neck in Detail</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          relatedPages.map((page) => (
+            <a
+              href={page.url}
+              class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
+            >
+              <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                {page.title}
+              </h3>
+              <span class="inline-flex items-center text-accent-600 text-sm font-medium mt-2">
+                Read more
+                <span class="material-symbols-outlined text-lg ml-1 group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif text-white mb-6">Master Deep Neck Surgery</h2>
+      <p class="text-xl text-primary-200 mb-8">
+        The 2-month Deep Neck mentorship includes comprehensive training in cervical anatomy,
+        platysmorraphy techniques, and complication management.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/training/deep-neck-mentorship"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+        >
+          Deep Neck Mentorship — $3,100
+        </a>
+        <a
+          href="/training/application"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors text-lg"
+        >
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

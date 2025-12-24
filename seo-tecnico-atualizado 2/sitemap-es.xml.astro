@@ -1,0 +1,64 @@
+---
+// sitemap-es.xml - Spanish Pages
+const siteUrl = 'https://drroberiobrandao.com';
+const lastmod = new Date().toISOString().split('T')[0];
+
+const esPages = [
+  // Home
+  { url: '/es', priority: 1.0, changefreq: 'weekly' },
+  
+  // Sobre
+  { url: '/es/sobre', priority: 0.8, changefreq: 'monthly' },
+  { url: '/es/sobre/dr-roberio-brandao', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/sobre/instituto', priority: 0.7, changefreq: 'monthly' },
+  
+  // Cara Moderna
+  { url: '/es/cara-moderna', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/cara-moderna/que-es', priority: 0.8, changefreq: 'monthly' },
+  { url: '/es/cara-moderna/filosofia', priority: 0.8, changefreq: 'monthly' },
+  
+  // Técnicas
+  { url: '/es/tecnicas', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/tecnicas/endomidface', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/tecnicas/deep-neck', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/tecnicas/browlift', priority: 0.8, changefreq: 'monthly' },
+  
+  // Educación
+  { url: '/es/educacion', priority: 0.9, changefreq: 'weekly' },
+  { url: '/es/educacion/endomidface', priority: 0.9, changefreq: 'weekly' },
+  { url: '/es/educacion/deep-neck', priority: 0.9, changefreq: 'weekly' },
+  { url: '/es/educacion/combo-legacy', priority: 0.9, changefreq: 'weekly' },
+  
+  // Blog
+  { url: '/es/blog', priority: 0.8, changefreq: 'weekly' },
+  { url: '/es/blog/dr-roberio-brandao-creador-endomidface', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/blog/endomidface-guia-completa', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/blog/deep-neck-guia-completa', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/blog/endomidface-vs-deep-plane', priority: 0.9, changefreq: 'monthly' },
+  { url: '/es/blog/cara-moderna-concepto-filosofia', priority: 0.9, changefreq: 'monthly' },
+  
+  // Contacto y FAQ
+  { url: '/es/contacto', priority: 0.7, changefreq: 'monthly' },
+  { url: '/es/faq', priority: 0.7, changefreq: 'monthly' },
+  
+  // Legal
+  { url: '/es/privacidad', priority: 0.3, changefreq: 'yearly' },
+  { url: '/es/terminos', priority: 0.3, changefreq: 'yearly' },
+];
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {esPages.map((page) => (
+    <url>
+      <loc>{siteUrl}{page.url}</loc>
+      <lastmod>{lastmod}</lastmod>
+      <changefreq>{page.changefreq}</changefreq>
+      <priority>{page.priority}</priority>
+      <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.url}`} />
+      <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.url.replace('/es', '')}`} />
+      <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.url.replace('/es', '/pt')}`} />
+      <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.url.replace('/es', '')}`} />
+    </url>
+  ))}
+</urlset>

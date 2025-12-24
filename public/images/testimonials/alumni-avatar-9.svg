@@ -1,0 +1,42 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f5"/>
+      <stop offset="100%" style="stop-color:#f0efe8"/>
+    </linearGradient>
+    <clipPath id="circleClip9">
+      <circle cx="100" cy="100" r="90"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGrad9)"/>
+
+  <!-- Content clipped to circle -->
+  <g clip-path="url(#circleClip9)">
+    <!-- Head - Male, bald/very short hair -->
+    <ellipse cx="100" cy="78" rx="38" ry="42" fill="#1e293b"/>
+    <!-- Very short hair/bald top -->
+    <ellipse cx="100" cy="55" rx="30" ry="15" fill="#1e293b" opacity="0.6"/>
+    <!-- Shoulders - formal suit -->
+    <path d="M 28 168 Q 55 135 100 130 Q 145 135 172 168 L 180 200 L 20 200 Z" fill="#1e293b"/>
+    <!-- Suit collar -->
+    <path d="M 70 145 L 80 175" fill="none" stroke="#f5f5f0" stroke-width="2" opacity="0.3"/>
+    <path d="M 130 145 L 120 175" fill="none" stroke="#f5f5f0" stroke-width="2" opacity="0.3"/>
+    <!-- Tie -->
+    <path d="M 95 145 L 100 180 L 105 145" fill="#b8956c" opacity="0.5"/>
+    <!-- Shirt collar -->
+    <path d="M 85 145 L 95 145" fill="none" stroke="#f5f5f0" stroke-width="1.5" opacity="0.4"/>
+    <path d="M 105 145 L 115 145" fill="none" stroke="#f5f5f0" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Border ring -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#b8956c" stroke-width="2.5"/>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(160, 160)">
+    <circle r="15" fill="#b8956c"/>
+    <rect x="-6" y="-2" width="12" height="4" fill="#ffffff"/>
+    <rect x="-2" y="-6" width="4" height="12" fill="#ffffff"/>
+  </g>
+</svg>

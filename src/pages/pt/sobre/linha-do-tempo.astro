@@ -1,0 +1,162 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const timeline = [
+  {
+    ano: '2005-2010',
+    titulo: 'Os Primeiros Anos',
+    eventos: [
+      'Início da dedicação exclusiva à cirurgia facial',
+      'Formação tradicional em ritidoplastia',
+      'Primeiras experiências com técnicas endoscópicas',
+      'Observação das limitações das abordagens convencionais',
+    ],
+  },
+  {
+    ano: '2011-2015',
+    titulo: 'O Questionamento',
+    eventos: [
+      'Questionamento da necessidade do endoscópio',
+      'Estudos aprofundados de anatomia facial',
+      'Primeiras tentativas de acesso por visão direta',
+      'Desenvolvimento do conceito de vetor vertical',
+    ],
+  },
+  {
+    ano: '2016-2018',
+    titulo: 'A Transição',
+    eventos: [
+      'Abandono progressivo do endoscópio',
+      'Refinamento da técnica de visão direta',
+      'Desenvolvimento do Deep Neck sem ressecção glandular',
+      'Primeiros resultados consistentes documentados',
+    ],
+  },
+  {
+    ano: '2019-2021',
+    titulo: 'A Sistematização',
+    eventos: [
+      "Nascimento do termo 'Endomidface por Visão Direta'",
+      'Criação do sistema de avaliação SPE-M',
+      'Início da documentação sistemática de casos',
+      'Primeiras apresentações em congressos',
+    ],
+  },
+  {
+    ano: '2022-2023',
+    titulo: 'A Face Moderna®',
+    eventos: [
+      'Consolidação da filosofia Face Moderna',
+      'Integração das técnicas (Midface, Deep Neck, Browlift)',
+      'Início do ensino formal a outros cirurgiões',
+      'Primeiras turmas de mentoria',
+    ],
+  },
+  {
+    ano: '2024+',
+    titulo: 'O Instituto',
+    eventos: [
+      'Fundação do Modern Face Institute',
+      'Estruturação dos programas de formação',
+      'Expansão para alcance internacional',
+      'Desenvolvimento de tecnologia clínica (FaceOS)',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Linha do Tempo | A Evolução da Face Moderna®"
+  description="A trajetória de quase 20 anos que levou ao desenvolvimento da metodologia Face Moderna® e do Modern Face Institute."
+>
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 label-caption text-primary-400">
+          <li><a href="/pt" class="hover:text-white">Home</a></li>
+          <li><span>/</span></li>
+          <li><a href="/pt/sobre" class="hover:text-white">Sobre</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Linha do Tempo</li>
+        </ol>
+      </nav>
+      <p class="label-eyebrow-white">Nossa História</p>
+      <h1 class="heading-1-white">Linha do Tempo</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        Quase 20 anos de evolução, questionamento e refinamento que resultaram na metodologia Face
+        Moderna®
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large-light font-serif italic">
+        "Cada técnica que desenvolvemos nasceu de uma pergunta: existe uma forma melhor de fazer
+        isso?"
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-12">
+        {
+          timeline.map((periodo, index) => (
+            <div class="relative">
+              {/* Linha conectora */}
+              {index < timeline.length - 1 && (
+                <div class="absolute left-12 top-20 w-0.5 h-full bg-accent-600/20 hidden md:block" />
+              )}
+
+              <div class="flex flex-col md:flex-row gap-6">
+                {/* Ano */}
+                <div class="flex-shrink-0 md:w-24">
+                  <span class="inline-block px-4 py-2 bg-accent-600 text-white text-sm font-medium">
+                    {periodo.ano}
+                  </span>
+                </div>
+
+                {/* Conteúdo */}
+                <div class="flex-1 bg-white p-6 border border-gray-100">
+                  <h3 class="heading-4 mb-4">{periodo.titulo}</h3>
+                  <ul class="space-y-2">
+                    {periodo.eventos.map((evento) => (
+                      <li class="flex items-start gap-2 body-small">
+                        <span class="material-symbols-outlined text-accent-600 text-sm flex-shrink-0 mt-0.5">
+                          arrow_right
+                        </span>
+                        {evento}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Mensagem -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="heading-2-white mb-8">A Jornada Continua</h2>
+      <p class="body-base-light mb-8">
+        Esta linha do tempo não tem um fim. Continuamos questionando, refinando e evoluindo. Cada
+        novo caso, cada feedback de aluno, cada resultado observado alimenta o ciclo contínuo de
+        melhoria que define a Face Moderna®.
+      </p>
+      <p class="text-accent-400 italic">"O dia que pararmos de questionar, paramos de evoluir."</p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/pt/sobre/casuistica" class="text-sm text-accent-600">← Casuística</a>
+      <a href="/pt/sobre/principios-eticos" class="text-sm text-accent-600">Princípios Éticos →</a>
+    </div>
+  </section>
+</BaseLayout>

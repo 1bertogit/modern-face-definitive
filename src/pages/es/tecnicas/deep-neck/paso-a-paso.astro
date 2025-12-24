@@ -1,0 +1,153 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'paso a paso Deep Neck',
+  'protocolo quirúrgico Deep Neck',
+  'técnica operatoria cuello',
+  'plastismorrafia paso a paso',
+  'fasciotomía técnica quirúrgica',
+  'shaving digástrico protocolo',
+];
+
+const pasos = [
+  {
+    n: '01',
+    t: 'Marcación e Infiltración',
+    tm: '10min',
+    d: 'Marcación submentoniana, infiltración tumescente',
+  },
+  {
+    n: '02',
+    t: 'Incisión Submentoniana',
+    tm: '5min',
+    d: 'Incisión de ~3-4cm en pliegue submentoniano',
+  },
+  { n: '03', t: 'Disección Subcutánea', tm: '10min', d: 'Disección hasta visualizar platisma' },
+  {
+    n: '04',
+    t: 'Apertura del Platisma',
+    tm: '5min',
+    d: 'Incisión en línea media para acceso al plano profundo',
+  },
+  {
+    n: '05',
+    t: 'Remoción de Grasa Profunda',
+    tm: '15min',
+    d: 'Limpieza de grasa inter y subplatismal hasta visualizar digástrico',
+  },
+  {
+    n: '06',
+    t: 'Shaving del Digástrico',
+    tm: '10min',
+    d: 'Reducción de 50-60% del vientre anterior si hipertrofiado',
+  },
+  {
+    n: '07',
+    t: 'Fasciotomía Pre-hioidea',
+    tm: '5min',
+    d: 'Sección horizontal de la fascia sobre el hioides',
+  },
+  {
+    n: '08',
+    t: 'Plastismorrafia',
+    tm: '10min',
+    d: 'Sutura medial del platisma de mandíbula a hioides',
+  },
+  {
+    n: '09',
+    t: 'Crevassi Lateral',
+    tm: '10min',
+    d: 'Fijación del platisma a fascia del ECOM bilateral',
+  },
+  { n: '10', t: 'Cierre', tm: '10min', d: 'Sutura por planos, drenaje si necesario' },
+];
+---
+
+<BaseLayout
+  title="Paso a Paso del Deep Neck"
+  description="Protocolo quirúrgico completo del Deep Neck en 10 pasos."
+  keywords={keywords}
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Protocolo Quirúrgico
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Paso a Paso</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Protocolo completo en 10 pasos. Tiempo promedio: 90-120 minutos.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">90-120</p><p class="text-xs uppercase">Minutos</p>
+        </div><div>
+          <p class="text-3xl font-serif">10</p><p class="text-xs uppercase">Pasos</p>
+        </div><div>
+          <p class="text-3xl font-serif">Local</p><p class="text-xs uppercase">+ Sedación</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-6">
+        {
+          pasos.map((p) => (
+            <div class="bg-white p-6 border border-gray-100 flex items-start gap-6">
+              <>
+                <div class="flex-shrink-0">
+                  <>
+                    <span class="text-3xl font-serif text-accent-600/30">{p.n}</span>
+                    <p class="text-xs text-accent-600">{p.tm}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-2">{p.t}</h3>
+                    <p class="text-sm text-warmGray">{p.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Consejos Críticos</h2><div
+        class="space-y-4"
+      >
+        <div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Límite de grasa:</strong> Remover del hioides hacia arriba. Preservar debajo del hioides.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Shaving:</strong> 50-60% del vientre. Nunca plicar el tendón del digástrico.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Fasciotomía:</strong> Obligatoria en 100% de los casos de cuello pesado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-ivory border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/es/tecnicas/deep-neck/indicaciones" class="text-sm text-accent-600"
+        >← Indicaciones</a
+      ><a href="/es/tecnicas/deep-neck/errores-comunes" class="text-sm text-accent-600"
+        >Errores Comunes →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

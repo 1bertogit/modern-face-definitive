@@ -1,0 +1,355 @@
+---
+/**
+ * CLUSTER F - Treinamentos + Conversão
+ * Página: /en/training/combo-legacy/
+ * Prioridade: P0
+ * Intenção: High ticket - programa completo
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumb from '@components/ui/Breadcrumb.astro';
+import SchemaCourse from '@components/seo/SchemaCourse.astro';
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Training', url: '/education' },
+  { name: 'Combo Legacy', url: '/education/advanced-training' },
+];
+
+const keywords = [
+  'complete facial surgery training',
+  'ENDOMIDFACE Deep Neck course',
+  'facial rejuvenation training',
+  'Dr Robério Brandão mentorship',
+  'Modern Face certification',
+  'advanced facelift training',
+];
+
+const includedPrograms = [
+  {
+    name: 'ENDOMIDFACE® Mentorship',
+    value: '$3,350',
+    highlights: [
+      'Direct Vision midface technique',
+      'Subperiosteal approach mastery',
+      'Vertical vector lifting',
+    ],
+  },
+  {
+    name: 'Deep Neck Mentorship',
+    value: '$3,100',
+    highlights: [
+      'Gland-preserving cervical technique',
+      'Platysma management',
+      'Comprehensive neck definition',
+    ],
+  },
+];
+
+const bonuses = [
+  {
+    icon: 'schedule',
+    title: 'Extended Duration',
+    desc: '6 months of structured learning vs 2 months — more time to absorb, practice, and refine',
+  },
+  {
+    icon: 'star',
+    title: 'Priority Case Review',
+    desc: 'Your cases get priority attention in live sessions with Dr. Brandão',
+  },
+  {
+    icon: 'auto_awesome',
+    title: 'Advanced Technique Modules',
+    desc: 'Additional content on complex cases and technique combinations',
+  },
+  {
+    icon: 'all_inclusive',
+    title: 'Lifetime Community Access',
+    desc: 'Permanent access to the private mentorship community',
+  },
+  {
+    icon: 'workspace_premium',
+    title: 'Legacy Certificate',
+    desc: 'Enhanced certification recognizing complete Modern Face® training',
+  },
+];
+---
+
+<BaseLayout
+  title="Combo Legacy (6 months) — $5,997 | Complete Modern Face® Training"
+  description="The complete Modern Face® training: ENDOMIDFACE® + Deep Neck in a 6-month comprehensive program. Save $447 vs separate courses. Priority mentorship access, advanced modules, lifetime community. Master full facial rejuvenation with Dr. Robério Brandão."
+  keywords={keywords}
+>
+  <SchemaCourse
+    name="Combo Legacy — Complete Modern Face® Training"
+    description="6-month comprehensive program combining ENDOMIDFACE and Deep Neck training with extended mentorship and advanced modules"
+    duration="P6M"
+    price={5997}
+    currency="USD"
+    skillLevel="Advanced"
+  />
+
+  <!-- Hero -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 to-primary-800 relative overflow-hidden">
+    <!-- Badge -->
+    <div
+      class="absolute top-6 right-6 bg-accent-500 text-white text-sm font-bold px-4 py-2 rounded-full"
+    >
+      Best Value — Save $447
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+            Premium Program
+          </p>
+          <h1 class="text-4xl md:text-5xl font-serif text-white mb-4">Combo Legacy</h1>
+          <p class="text-2xl text-primary-200 mb-2">Complete Modern Face® Training</p>
+          <p class="text-3xl text-accent-400 font-bold mb-6">6 Months • $5,997</p>
+          <p class="text-xl text-primary-300 mb-8">
+            Master <strong class="text-white">both ENDOMIDFACE® and Deep Neck</strong> techniques in one
+            comprehensive program. Extended mentorship, priority access, advanced modules.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/training/application"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-lg"
+            >
+              Apply Now
+            </a>
+            <a
+              href="#included"
+              class="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
+            >
+              What's Included
+            </a>
+          </div>
+        </div>
+
+        <!-- Value Comparison -->
+        <div class="bg-white rounded-2xl p-8">
+          <h3 class="text-primary-900 font-bold text-lg mb-6">The Complete Package</h3>
+
+          {
+            includedPrograms.map((program) => (
+              <div class="mb-6 pb-6 border-b border-gray-100 last:border-0 last:mb-0 last:pb-0">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-bold text-primary-900">{program.name}</span>
+                  <span class="text-accent-600 font-semibold">{program.value}</span>
+                </div>
+                <ul class="space-y-1">
+                  {program.highlights.map((h) => (
+                    <li class="flex items-center gap-2 text-warmGray text-sm">
+                      <span class="material-symbols-outlined text-green-500 text-base">check</span>
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+
+          <div class="bg-accent-50 rounded-lg p-4 mt-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-warmGray">Individual Purchase Total</span>
+              <span class="text-warmGray line-through">$6,450</span>
+            </div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-warmGray">Combo Legacy Price</span>
+              <span class="text-accent-600 font-bold text-xl">$5,997</span>
+            </div>
+            <div class="flex justify-between items-center pt-2 border-t border-accent-200">
+              <span class="text-green-700 font-semibold">You Save</span>
+              <span class="text-green-700 font-bold">$453 + Extended Benefits</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Combo -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8 text-center">
+        Why Learn Both Techniques Together?
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-warmGray">
+        <p class="text-xl mb-6">
+          Comprehensive facial rejuvenation rarely involves the midface OR the neck — it involves <strong
+            >both</strong
+          >. The <a href="/philosophy" class="text-accent-600 hover:text-accent-700 underline"
+            >Modern Face® philosophy</a
+          > treats the face as an integrated unit.
+        </p>
+
+        <p class="mb-6">Learning ENDOMIDFACE® and Deep Neck together provides:</p>
+
+        <ul class="space-y-3 mb-6">
+          <li>
+            <strong>Unified understanding:</strong> Both techniques share the same philosophical foundation,
+            anatomical approach, and safety principles. Learning them together reinforces the concepts.
+          </li>
+          <li>
+            <strong>Integrated planning:</strong> You'll learn how to plan procedures that address midface
+            and cervical concerns in the same session, with seamless technique integration.
+          </li>
+          <li>
+            <strong>Complete offering:</strong> Your patients seeking facial rejuvenation can receive
+            comprehensive treatment — you're not limited to partial solutions.
+          </li>
+          <li>
+            <strong>Efficiency:</strong> Six months of dedicated learning is more efficient than two separate
+            2-month programs with context-switching between.
+          </li>
+        </ul>
+
+        <p class="mb-6">
+          Most graduates report that understanding both techniques makes each individual technique
+          clearer — the anatomy, vectors, and philosophy reinforce each other.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section id="included" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-4 text-center">
+        Everything Included in Combo Legacy
+      </h2>
+      <p class="text-xl text-warmGray text-center mb-12 max-w-2xl mx-auto">
+        Both core programs plus exclusive benefits only available in the combined offering.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- Core Programs -->
+        <div class="p-8 bg-primary-50 rounded-2xl">
+          <h3 class="font-bold text-xl text-primary-900 mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-600">school</span>
+            Core Programs
+          </h3>
+
+          <div class="space-y-6">
+            <div class="p-4 bg-white rounded-lg">
+              <h4 class="font-bold text-primary-900 mb-2">ENDOMIDFACE® Mentorship</h4>
+              <p class="text-warmGray text-sm mb-2">Complete midface lifting via Direct Vision</p>
+              <a
+                href="/training/endomidface-mentorship"
+                class="text-accent-600 text-sm hover:underline">View curriculum →</a
+              >
+            </div>
+
+            <div class="p-4 bg-white rounded-lg">
+              <h4 class="font-bold text-primary-900 mb-2">Deep Neck Mentorship</h4>
+              <p class="text-warmGray text-sm mb-2">Cervical rejuvenation preserving the gland</p>
+              <a
+                href="/training/deep-neck-mentorship"
+                class="text-accent-600 text-sm hover:underline">View curriculum →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Exclusive Benefits -->
+        <div class="p-8 bg-accent-50 rounded-2xl">
+          <h3 class="font-bold text-xl text-primary-900 mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-600">stars</span>
+            Combo Legacy Exclusives
+          </h3>
+
+          <ul class="space-y-4">
+            {
+              bonuses.map((bonus) => (
+                <li class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-accent-600 flex-shrink-0">
+                    {bonus.icon}
+                  </span>
+                  <div>
+                    <p class="font-semibold text-primary-900">{bonus.title}</p>
+                    <p class="text-warmGray text-sm">{bonus.desc}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Is This For -->
+  <section class="py-16 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-serif text-primary-900 mb-8 text-center">
+        Who Is Combo Legacy For?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-white rounded-xl border-2 border-green-200">
+          <h3 class="font-bold text-green-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">check_circle</span>
+            Ideal For
+          </h3>
+          <ul class="space-y-2 text-warmGray">
+            <li>• Surgeons committed to complete facial rejuvenation mastery</li>
+            <li>• Practitioners wanting a full Modern Face® toolkit</li>
+            <li>• Those who learn better with extended, comprehensive programs</li>
+            <li>• Surgeons planning to offer combined midface + neck procedures</li>
+            <li>• Career-minded practitioners building long-term capabilities</li>
+          </ul>
+        </div>
+
+        <div class="p-6 bg-white rounded-xl border-2 border-amber-200">
+          <h3 class="font-bold text-amber-800 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">info</span>
+            Consider Alternatives If
+          </h3>
+          <ul class="space-y-2 text-warmGray">
+            <li>• You only need one technique for now</li>
+            <li>• 6-month commitment is too long</li>
+            <li>• Budget constraints require starting smaller</li>
+            <li>• You want to test with one program first</li>
+          </ul>
+          <p class="mt-4 text-sm text-warmGray">
+            <a href="/training" class="text-accent-600 hover:underline"
+              >View individual programs →</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-accent-400 text-sm font-semibold tracking-wider uppercase mb-4">
+        Complete Modern Face® Training
+      </p>
+      <h2 class="text-4xl font-serif text-white mb-4">Combo Legacy</h2>
+      <p class="text-5xl font-bold text-accent-400 mb-2">$5,997</p>
+      <p class="text-primary-200 mb-8">
+        6 months • ENDOMIDFACE® + Deep Neck • Priority access • Lifetime community
+      </p>
+
+      <a
+        href="/training/application"
+        class="inline-flex items-center gap-2 px-10 py-5 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold text-xl"
+      >
+        Apply for Combo Legacy
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+
+      <p class="text-primary-300 mt-6 text-sm">
+        Questions? <a href="/contact" class="text-accent-400 hover:text-accent-300 underline"
+          >Contact us</a
+        > to discuss your training goals.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

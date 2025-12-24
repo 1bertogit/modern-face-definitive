@@ -1,0 +1,107 @@
+---
+/**
+ * SchemaCourse - Schema para cursos e programas de treinamento
+ * Melhora visibilidade em buscas por cursos médicos
+ */
+
+interface Props {
+  name: string;
+  description: string;
+  duration?: string;
+  price?: number;
+  currency?: string;
+  url?: string;
+  image?: string;
+  language?: string[];
+  skillLevel?: 'Beginner' | 'Intermediate' | 'Advanced';
+}
+
+const {
+  name,
+  description,
+  duration,
+  price,
+  currency = 'USD',
+  url,
+  image,
+  language = ['en', 'pt', 'es'],
+  skillLevel = 'Advanced',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+const pageUrl = url || Astro.url.pathname;
+const fullUrl = pageUrl.startsWith('http') ? pageUrl : `${siteUrl}${pageUrl}`;
+
+const courseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: name,
+  description: description,
+  url: fullUrl,
+  provider: {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Modern Face Institute',
+    sameAs: siteUrl,
+  },
+  instructor: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person-dr-roberio`,
+    name: 'Dr. Robério Brandão',
+  },
+  educationalLevel: skillLevel,
+  inLanguage: language,
+  courseMode: ['online', 'blended'],
+  isAccessibleForFree: false,
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    courseWorkload: duration || 'PT60H',
+    instructor: {
+      '@type': 'Person',
+      name: 'Dr. Robério Brandão',
+    },
+  },
+  ...(image && {
+    image: image.startsWith('http') ? image : `${siteUrl}${image}`,
+  }),
+  ...(price && {
+    offers: {
+      '@type': 'Offer',
+      price: price,
+      priceCurrency: currency,
+      availability: 'https://schema.org/InStock',
+      url: fullUrl,
+      validFrom: new Date().toISOString().split('T')[0],
+    },
+  }),
+  about: [
+    {
+      '@type': 'Thing',
+      name: 'Facial Surgery',
+    },
+    {
+      '@type': 'Thing',
+      name: 'ENDOMIDFACE',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Deep Neck Surgery',
+    },
+  ],
+  teaches: [
+    'ENDOMIDFACE by Direct Vision technique',
+    'Deep Neck surgery without gland removal',
+    'Facial anatomy for surgeons',
+    'Patient selection criteria',
+    'Complication prevention',
+  ],
+  competencyRequired: 'Medical degree with surgical training',
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Plastic Surgeons, Facial Surgeons, ENT Surgeons',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(courseSchema)} />

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const productos = [
+  {
+    titulo: 'FaceOS',
+    subtitulo: 'Sistema Operativo de la Face Moderna',
+    desc: 'Plataforma integrada para gestión clínica, evaluación y planificación quirúrgica',
+    href: '/es/tecnologia-clinica/faceos',
+    icono: 'desktop_windows',
+    status: 'En Desarrollo',
+  },
+  {
+    titulo: 'SPE-M',
+    subtitulo: 'Sistema de Evaluación Preoperatoria',
+    desc: 'Protocolo estandarizado para evaluar Skin, Ptosis, Estructura y Masa',
+    href: '/es/tecnologia-clinica/faceos/spe-m',
+    icono: 'assessment',
+    status: 'Disponible',
+  },
+  {
+    titulo: 'AI Copilot',
+    subtitulo: 'Asistente Inteligente',
+    desc: 'IA para soporte a planificación, documentación y toma de decisiones',
+    href: '/es/tecnologia-clinica/ai-copilot',
+    icono: 'smart_toy',
+    status: 'En Desarrollo',
+  },
+];
+
+const funcionalidades = [
+  {
+    icono: 'edit_note',
+    titulo: 'Prontuario Digital',
+    desc: 'Documentación estructurada para cirugía facial',
+  },
+  {
+    icono: 'photo_camera',
+    titulo: 'Gestión de Imágenes',
+    desc: 'Estandarización fotográfica y comparativos',
+  },
+  {
+    icono: 'analytics',
+    titulo: 'Evaluación SPE-M',
+    desc: 'Scoring automatizado y recomendaciones',
+  },
+  {
+    icono: 'route',
+    titulo: 'Planificación de Vectores',
+    desc: 'Visualización y definición de direcciones',
+  },
+  {
+    icono: 'checklist',
+    titulo: 'Checklists Quirúrgicos',
+    desc: 'Protocolos paso a paso integrados',
+  },
+  {
+    icono: 'history',
+    titulo: 'Follow-up Estructurado',
+    desc: 'Acompañamiento y evolución documentados',
+  },
+];
+---
+
+<BaseLayout
+  title="Tecnología Clínica | FaceOS y SPE-M"
+  description="Tecnología para cirugía facial: FaceOS, Sistema SPE-M de evaluación y AI Copilot para planificación."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Tecnología Clínica
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Herramientas digitales desarrolladas para estandarizar, documentar y optimizar cada etapa de
+        la cirugía facial
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-xl font-serif text-white italic">
+        "La tecnología debe liberar al cirujano para lo que realmente importa: pensar, decidir y
+        ejecutar con excelencia."
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Nuestras Soluciones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          productos.map((p) => (
+            <a
+              href={p.href}
+              class="group p-6 bg-white border border-gray-100 hover:border-accent-600 transition-all"
+            >
+              <div class="flex items-start justify-between mb-4">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">{p.icono}</span>
+                <span
+                  class={`text-xs px-2 py-1 ${p.status === 'Disponible' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}
+                >
+                  {p.status}
+                </span>
+              </div>
+              <h3 class="font-serif text-xl text-primary-900 group-hover:text-accent-600 transition-colors mb-1">
+                {p.titulo}
+              </h3>
+              <p class="text-xs text-accent-600 mb-3">{p.subtitulo}</p>
+              <p class="text-sm text-warmGray">{p.desc}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">
+        Funcionalidades Integradas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          funcionalidades.map((f) => (
+            <div class="p-6 bg-ivory border border-gray-100">
+              <span class="material-symbols-outlined text-accent-600 text-2xl mb-3 block">
+                {f.icono}
+              </span>
+              <h3 class="font-medium text-primary-900 mb-2">{f.titulo}</h3>
+              <p class="text-sm text-warmGray">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-8">Nuestra Visión</h2>
+      <p class="text-primary-300 leading-relaxed">
+        Creemos que la tecnología debe servir al cirujano, no al contrario. Cada herramienta que
+        desarrollamos nace de una necesidad real observada en casi 20 años de práctica clínica y
+        enseñanza.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">¿Quiere Acceso Anticipado?</h2>
+      <p class="text-warmGray mb-8">
+        Los alumnos de los programas de formación tendrán acceso prioritario a las herramientas
+        conforme sean lanzadas.
+      </p>
+      <a
+        href="/es/educacion"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Ver Programas de Formación</a
+      >
+    </div>
+  </section>
+</BaseLayout>

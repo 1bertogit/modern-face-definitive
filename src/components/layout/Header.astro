@@ -1,0 +1,178 @@
+---
+import MobileMenu from '@components/islands/MobileMenu';
+import { getNavLinks, locales, localeNames, translatePath, type Locale } from '@lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'pt' } = Astro.props;
+
+const navLinks = getNavLinks(locale);
+const currentPath = Astro.url.pathname;
+
+// Logo subtitle translations
+const logoSubtitle: Record<Locale, string> = {
+  'pt': 'Instituto da Face Moderna',
+  en: 'Modern Face Institute',
+  es: 'Instituto de Face Moderna',
+};
+
+// CTA text translations
+const ctaText: Record<Locale, string> = {
+  'pt': 'Ver Programas',
+  en: 'View Programs',
+  es: 'Ver Programas',
+};
+
+// CTA path
+const ctaPath: Record<Locale, string> = {
+  'pt': '/pt/educacao',
+  en: '/education',
+  es: '/es/educacion',
+};
+
+// Generate language switcher links preserving localized slugs
+const languageSwitcher = locales.map((loc) => ({
+  locale: loc,
+  name: localeNames[loc],
+  path: translatePath(currentPath, loc),
+  isActive: locale === loc,
+}));
+---
+
+<header
+  class="transition-all z-50 backdrop-blur-sm bg-ivory/95 border-b border-gray-100/50 duration-300 fixed w-full"
+>
+  <div class="mx-auto lg:px-8 max-w-7xl px-4 sm:px-6">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a 
+        href={locale === 'pt' ? '/pt' : locale === 'en' ? '/' : `/${locale}`} 
+        class="flex flex-col group"
+      >
+        <span class="text-primary-900 font-serif font-normal text-base tracking-[0.05em] whitespace-nowrap">
+          DR. ROBÉRIO BRANDÃO
+        </span>
+        <span class="transition-colors uppercase font-normal group-hover:text-primary-800 mt-0.5 text-[0.55rem] text-accent-700 tracking-[0.25em]">
+          {logoSubtitle[locale]}
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden items-center xl:flex">
+        {
+          navLinks.map((link) => (
+            <div class="relative group shrink-0">
+              <a
+                href={link.path}
+                class:list={[
+                  'transition-colors text-xs py-2 hover:text-primary-900 text-warmGray flex gap-1 items-center duration-300 px-3 tracking-wide whitespace-nowrap',
+                  currentPath === link.path ||
+                  (link.path !== '/' && currentPath.startsWith(link.path))
+                    ? 'text-accent-700'
+                    : '',
+                ]}
+              >
+                {link.label}
+                {link.children && link.children.length > 0 && (
+                  <span class="text-sm group-hover:opacity-100 material-symbols-outlined opacity-50 transition-opacity">
+                    expand_more
+                  </span>
+                )}
+              </a>
+
+              {/* Dropdown */}
+              {link.children && link.children.length > 0 && (
+                <div class="group-hover:opacity-100 absolute duration-200 group-hover:visible invisible opacity-0 pt-2 top-full transition-all z-50 left-0">
+                  <div class="py-2 bg-white border border-gray-100 rounded-lg shadow-xl min-w-[220px]">
+                    {link.children.map((child) => (
+                      <a
+                        href={child.path}
+                        class:list={[
+                          'transition-colors text-xs py-2 hover:text-primary-900 text-warmGray block hover:bg-ivory px-4',
+                          currentPath === child.path
+                            ? 'bg-ivory text-accent-700 font-medium'
+                            : '',
+                        ]}
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))
+        }
+
+        <!-- Language Switcher -->
+        <div class="relative group ml-2 shrink-0">
+          <button
+            class="transition-colors text-xs py-2 hover:text-primary-900 text-warmGray flex gap-1 items-center px-2 whitespace-nowrap"
+          >
+            <span class="text-base material-symbols-outlined">language</span>
+            <span class="uppercase">{locale === 'pt' ? 'PT' : locale.toUpperCase()}</span>
+          </button>
+          <div
+            class="group-hover:opacity-100 absolute duration-200 group-hover:visible invisible opacity-0 pt-2 top-full transition-all z-50 right-0"
+          >
+            <div class="py-2 bg-white border border-gray-100 rounded-lg shadow-xl min-w-[120px]">
+              {
+                languageSwitcher.map((lang) => (
+                  <a
+                    href={lang.path}
+                    class:list={[
+                      'transition-colors text-xs py-2 block px-4',
+                      lang.isActive
+                        ? 'bg-ivory font-medium text-accent-700'
+                        : 'text-warmGray hover:bg-ivory hover:text-primary-900',
+                    ]}
+                  >
+                    {lang.name}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <a
+          href={ctaPath[locale]}
+          class="transition-colors text-xs py-2 font-medium bg-accent-600 hover:bg-primary-900 ml-4 px-5 rounded-sm text-white tracking-wider uppercase whitespace-nowrap shrink-0 inline-flex items-center"
+        >
+          {ctaText[locale]}
+        </a>
+      </nav>
+
+      <!-- Mobile Menu (React Island) -->
+      <div class="xl:hidden">
+        <MobileMenu
+          client:idle
+          navLinks={navLinks}
+          currentPath={currentPath}
+          locale={locale}
+          languageSwitcher={languageSwitcher}
+        />
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Sticky CTA -->
+<div class="fixed bottom-0 left-0 right-0 bg-accent-600 xl:hidden z-40 safe-area-pb">
+  <a
+    href={ctaPath[locale]}
+    class="flex items-center justify-center py-4 text-white text-sm font-medium uppercase tracking-wider"
+  >
+    {ctaText[locale]}
+    <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
+  </a>
+</div>
+
+<style>
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+</style>

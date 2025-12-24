@@ -1,0 +1,142 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'casos clínicos Face Moderna',
+  'resultados cirurgia facial',
+  'antes depois lifting',
+  'casos Dr Robério Brandão',
+  'galeria cirurgias faciais',
+  'evidência clínica Face Moderna',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Casos Clínicos - Face Moderna®',
+  description: 'Galeria de casos cirúrgicos e resultados de alunos da metodologia Face Moderna®',
+};
+
+const categorias = [
+  {
+    titulo: 'Casos Cirúrgicos',
+    descricao:
+      'Resultados de procedimentos realizados pelo Dr. Robério Brandão. Documentação completa com antes, durante e depois.',
+    href: '/pt/casos/cirurgicos',
+    icone: 'medical_services',
+    stats: '212+ casos documentados',
+  },
+  {
+    titulo: 'Casos de Alunos',
+    descricao:
+      'Resultados de cirurgiões formados na metodologia Face Moderna®. Prova da reprodutibilidade da técnica.',
+    href: '/pt/casos/alunos',
+    icone: 'school',
+    stats: 'Múltiplos cirurgiões',
+  },
+];
+---
+
+<BaseLayout
+  title="Casos Clínicos | Resultados Face Moderna®"
+  description="Galeria de casos cirúrgicos da Face Moderna®. Resultados do Dr. Robério Brandão e de cirurgiões formados na metodologia."
+  keywords={keywords}
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="section-xl bg-primary-900">
+    <div class="prose-base text-center">
+      <p class="label-eyebrow-white">Evidência Clínica</p>
+      <h1 class="heading-1-white">Casos Clínicos</h1>
+      <p class="body-large-light max-w-2xl mx-auto">
+        A melhor prova de uma técnica é sua reprodutibilidade. Veja os resultados do criador e de
+        seus alunos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-sm bg-accent-600">
+    <div class="prose-base text-center">
+      <p class="body-large font-serif text-white italic">
+        "212 casos documentados. Zero lesões nervosas permanentes. A segurança não é acaso — é
+        método."
+      </p>
+      <p class="body-small-light mt-2">— Dr. Robério Brandão</p>
+    </div>
+  </section>
+
+  <!-- Categorias -->
+  <section class="section-lg bg-ivory">
+    <div class="prose-wide">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          categorias.map((cat) => (
+            <a
+              href={cat.href}
+              class="group block p-10 bg-white border border-gray-100 hover:border-accent-600 hover:shadow-xl transition-all"
+            >
+              <div class="flex items-center gap-4 mb-6">
+                <span class="material-symbols-outlined text-4xl text-accent-600">{cat.icone}</span>
+                <span class="label-eyebrow">{cat.stats}</span>
+              </div>
+
+              <h2 class="heading-2 mb-4 group-hover:text-accent-600 transition-colors">
+                {cat.titulo}
+              </h2>
+              <p class="body-base mb-6">{cat.descricao}</p>
+
+              <span class="inline-flex items-center text-sm text-accent-600 font-medium">
+                Ver casos
+                <span class="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform">
+                  arrow_forward
+                </span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section-lg bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">0%</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">Lesão Nervosa Permanente</p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">212+</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">Casos Documentados</p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">7d</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">Recuperação Média</p>
+        </div>
+        <div class="p-6">
+          <p class="text-5xl font-serif text-primary-900 mb-2">18+</p>
+          <p class="text-xs text-softGray uppercase tracking-wider">Anos de Experiência</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-lg bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="heading-3-white mb-4">Aprenda a Técnica</h3>
+      <p class="body-base-light mb-8 max-w-lg mx-auto">
+        Junte-se aos cirurgiões que estão alcançando estes resultados com a metodologia Face
+        Moderna®.
+      </p>
+      <a
+        href="/pt/educacao"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-xs font-bold uppercase tracking-[0.15em] hover:bg-white hover:text-primary-900 transition-colors"
+      >
+        Ver Programas de Formação
+      </a>
+    </div>
+  </section>
+</BaseLayout>

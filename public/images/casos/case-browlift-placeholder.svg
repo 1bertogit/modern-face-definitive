@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGradCaseBrow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f8f5"/>
+      <stop offset="100%" style="stop-color:#f0efe8"/>
+    </linearGradient>
+    <linearGradient id="focusGradBrow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8956c;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#b8956c;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradCaseBrow)"/>
+  <rect x="40" y="40" width="720" height="520" rx="4" fill="#ffffff"/>
+
+  <!-- Face illustration with browlift focus -->
+  <g transform="translate(400, 240)">
+    <!-- Face outline -->
+    <ellipse cx="0" cy="25" rx="105" ry="130" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.2"/>
+
+    <!-- Focus Area: Upper face/Brow region (highlighted) -->
+    <ellipse cx="0" cy="-40" rx="110" ry="55" fill="url(#focusGradBrow)"/>
+    <ellipse cx="0" cy="-40" rx="110" ry="55" fill="none" stroke="#b8956c" stroke-width="2.5" opacity="0.8"/>
+
+    <!-- Forehead lines (problem area) -->
+    <path d="M -65,-60 Q 0,-68 65,-60" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+    <path d="M -60,-75 Q 0,-83 60,-75" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+    <path d="M -55,-90 Q 0,-98 55,-90" stroke="#b8956c" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- Brows (highlighted) -->
+    <path d="M -58,-35 Q -42,-48 -22,-45" stroke="#b8956c" stroke-width="3" opacity="0.9"/>
+    <path d="M 22,-45 Q 42,-48 58,-35" stroke="#b8956c" stroke-width="3" opacity="0.9"/>
+
+    <!-- Glabellar region -->
+    <path d="M -15,-45 L -10,-35" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+    <path d="M 15,-45 L 10,-35" stroke="#b8956c" stroke-width="2" opacity="0.6"/>
+
+    <!-- Eyes -->
+    <ellipse cx="-35" cy="-15" rx="15" ry="9" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.3"/>
+    <ellipse cx="35" cy="-15" rx="15" ry="9" fill="none" stroke="#1e293b" stroke-width="1.5" opacity="0.3"/>
+    <!-- Upper eyelid -->
+    <path d="M -50,-12 Q -35,-18 -20,-12" stroke="#1e293b" stroke-width="1" opacity="0.25"/>
+    <path d="M 20,-12 Q 35,-18 50,-12" stroke="#1e293b" stroke-width="1" opacity="0.25"/>
+
+    <!-- Nose -->
+    <path d="M 0,-10 L 0,20" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Mouth -->
+    <path d="M -22,50 Q 0,55 22,50" stroke="#1e293b" stroke-width="1" opacity="0.2"/>
+
+    <!-- Jawline -->
+    <path d="M -65,95 Q -55,115 0,120 Q 55,115 65,95" stroke="#1e293b" stroke-width="1" opacity="0.15"/>
+
+    <!-- Lift direction arrows -->
+    <g opacity="0.7">
+      <path d="M -70,-40 L -70,-65" stroke="#b8956c" stroke-width="2"/>
+      <path d="M -76,-58 L -70,-70 L -64,-58" stroke="#b8956c" stroke-width="2" fill="none"/>
+      <path d="M 70,-40 L 70,-65" stroke="#b8956c" stroke-width="2"/>
+      <path d="M 64,-58 L 70,-70 L 76,-58" stroke="#b8956c" stroke-width="2" fill="none"/>
+    </g>
+
+    <!-- Focus label -->
+    <text x="0" y="-105" font-family="'Inter', Arial, sans-serif" font-size="10" fill="#b8956c" text-anchor="middle" letter-spacing="2" opacity="0.8">ÁREA DE FOCO</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="480" font-family="'Playfair Display', Georgia, serif" font-size="24" fill="#1e293b" text-anchor="middle">Browlift</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="508" font-family="'Inter', Arial, sans-serif" font-size="11" fill="#b8956c" text-anchor="middle" letter-spacing="3">FOCO: TERÇO SUPERIOR E SOBRANCELHAS</text>
+
+  <!-- Decorative line -->
+  <line x1="230" y1="525" x2="570" y2="525" stroke="#b8956c" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Medical cross accent -->
+  <g transform="translate(720, 520)">
+    <circle r="18" fill="#b8956c" opacity="0.8"/>
+    <rect x="-7" y="-2.5" width="14" height="5" fill="#ffffff"/>
+    <rect x="-2.5" y="-7" width="5" height="14" fill="#ffffff"/>
+  </g>
+</svg>

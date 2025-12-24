@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const guides = [
+  { title: 'Complete Pre-Operative Checklist', type: 'Checklist', pages: 4, access: 'Students' },
+  { title: 'SPE-M Assessment Protocol', type: 'Protocol', pages: 8, access: 'Students' },
+  { title: 'Photographic Documentation Guide', type: 'Guide', pages: 12, access: 'Students' },
+  { title: 'Patient Post-Operative Instructions', type: 'Handout', pages: 2, access: 'Students' },
+  { title: 'Consent Form Template', type: 'Document', pages: 4, access: 'Students' },
+  { title: 'Endomidface Operative Sequence', type: 'Protocol', pages: 6, access: 'Students' },
+  { title: 'Complication Management', type: 'Guide', pages: 10, access: 'Students' },
+  { title: 'Quick Reference: Facial Anatomy', type: 'Reference', pages: 2, access: 'Public' },
+];
+
+const formats = [
+  { icon: 'picture_as_pdf', format: 'PDF', desc: 'For printing' },
+  { icon: 'edit_document', format: 'Editable', desc: 'Customizable' },
+  { icon: 'smartphone', format: 'Mobile', desc: 'Quick access' },
+];
+---
+
+<BaseLayout
+  title="Practical Guides | Library"
+  description="Protocols, checklists and quick reference materials for facial surgery."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/en" class="hover:text-white">Home</a></li><li><span>/</span></li><li>
+            <a href="/library" class="hover:text-white">Library</a>
+          </li><li><span>/</span></li><li class="text-white">Practical Guides</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Practical Guides
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Protocols, checklists and quick reference materials
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="flex justify-center gap-8">
+        {
+          formats.map((f) => (
+            <div class="flex items-center gap-2 text-white">
+              <>
+                <span class="material-symbols-outlined">{f.icon}</span>
+                <div>
+                  <>
+                    <p class="text-sm font-medium">{f.format}</p>
+                    <p class="text-xs text-white/70">{f.desc}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="space-y-4">
+        {
+          guides.map((g) => (
+            <div class="flex items-center justify-between p-4 bg-white border border-gray-100">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-accent-600">description</span>
+                <div>
+                  <>
+                    <h3 class="font-medium text-primary-900">{g.title}</h3>
+                    <p class="text-xs text-warmGray">
+                      {g.type} • {g.pages} pages
+                    </p>
+                  </>
+                </div>
+              </div>
+              <span
+                class={`text-xs px-3 py-1 ${g.access === 'Public' ? 'bg-green-100 text-green-700' : 'bg-accent-100 text-accent-700'}`}
+              >
+                {g.access}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Ready-to-Use Materials</h2>
+      <p class="text-warmGray">
+        All guides were developed for immediate use in clinical practice. They can be printed,
+        adapted to your reality and shared with your team.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Guide Access</h2>
+      <p class="text-primary-300 mb-8">
+        All practical guides are available to training program students.
+      </p>
+      <a
+        href="/education"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >View Programs</a
+      >
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/library/infographics" class="text-sm text-accent-600">← Infographics</a>
+      <a href="/library" class="text-sm text-accent-600">Library →</a>
+    </div>
+  </section>
+</BaseLayout>

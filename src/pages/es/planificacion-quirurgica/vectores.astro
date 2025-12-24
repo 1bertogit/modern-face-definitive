@@ -1,0 +1,121 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const vectores = [
+  {
+    tipo: 'Vertical',
+    direccion: '↑',
+    desc: 'Elevación directa contra la gravedad. Preferencial en Face Moderna.',
+    indicacion: 'Mayoría de casos',
+    color: 'bg-green-600',
+  },
+  {
+    tipo: 'Oblicuo',
+    direccion: '↗',
+    desc: 'Combinación vertical + lateral. Para ptosis más severa.',
+    indicacion: 'Ptosis severa',
+    color: 'bg-amber-600',
+  },
+  {
+    tipo: 'Lateral',
+    direccion: '→',
+    desc: "Tracción lateral pura. Evitar - causa aspecto 'wind-swept'.",
+    indicacion: 'Evitar',
+    color: 'bg-red-600',
+  },
+];
+
+const fijacion = [
+  {
+    region: 'Midface',
+    punto: 'Fascia temporal profunda',
+    tecnica: 'Sutura de sustentación perpendicular',
+  },
+  { region: 'Jowl', punto: 'SMAS-platisma', tecnica: 'Plicatura + suspensión al SMAS fijo' },
+  { region: 'Cuello', punto: 'Fascia cervical', tecnica: 'Platismorrafia + Crevassi' },
+];
+---
+
+<BaseLayout
+  title="Definición de Vectores"
+  description="Dirección de tracción y puntos de fijación en cirugía facial. Vector vertical preferencial."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/planificacion-quirurgica" class="hover:text-white">Planificación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Vectores</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Etapa 03
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Definición de Vectores
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        La dirección de tracción define la naturalidad del resultado. Vector vertical es el estándar
+        Face Moderna.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-12 text-center">Los 3 Vectores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          vectores.map((v) => (
+            <div
+              class={`p-6 border ${v.color === 'bg-green-600' ? 'border-green-200 bg-green-50' : v.color === 'bg-amber-600' ? 'border-amber-200 bg-amber-50' : 'border-red-200 bg-red-50'}`}
+            >
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-4xl">{v.direccion}</span>
+                <span class={`text-xs px-2 py-1 ${v.color} text-white`}>{v.indicacion}</span>
+              </div>
+              <h3 class="font-serif text-primary-900 text-xl mb-2">{v.tipo}</h3>
+              <p class="text-sm text-warmGray">{v.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Puntos de Fijación</h2>
+      <div class="space-y-4">
+        {
+          fijacion.map((f) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h3 class="font-medium text-primary-900">{f.region}</h3>
+                  <p class="text-sm text-warmGray">Punto: {f.punto}</p>
+                </div>
+                <p class="text-sm text-accent-600">{f.tecnica}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/planificacion-quirurgica/sistema-spe-m" class="text-sm text-accent-600"
+        >← SPE-M</a
+      >
+      <a href="/es/planificacion-quirurgica/fotografia" class="text-sm text-accent-600"
+        >Fotografía →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

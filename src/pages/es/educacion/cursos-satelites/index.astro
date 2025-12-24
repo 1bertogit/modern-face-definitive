@@ -1,0 +1,159 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const cursos = [
+  {
+    titulo: 'Blefaroplastia y Cantopexia',
+    desc: 'Técnicas avanzadas para párpados superiores e inferiores con cantopexia integrada',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Browlift / Frontoplastia',
+    desc: 'Elevación de cejas por técnicas evolutivas sin endoscopio',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Cara Fibrosada',
+    desc: 'Manejo quirúrgico de caras con bioestimuladores y rellenos previos',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Complicaciones y Revisiones',
+    desc: 'Identificación, manejo y corrección de complicaciones en cirugía facial',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Planificación y Fotografía',
+    desc: 'Sistema SPE-M, documentación fotográfica y planificación de vectores',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Setup de Quirófano',
+    desc: 'Configuración ideal de centro quirúrgico, equipos e instrumental',
+    status: 'Próximamente',
+    disponible: false,
+  },
+  {
+    titulo: 'Postoperatorio',
+    desc: 'Protocolos de recuperación, curaciones y manejo de complicaciones',
+    status: 'Próximamente',
+    disponible: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Cursos Satélites | Módulos Complementarios"
+  description="Módulos complementarios de especialización en áreas específicas de la cirugía facial."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li>
+          <li><span>/</span></li>
+          <li><a href="/es/educacion" class="hover:text-white">Educación</a></li>
+          <li><span>/</span></li>
+          <li class="text-white">Cursos Satélites</li>
+        </ol>
+      </nav>
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Módulos Complementarios
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Cursos Satélites
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Profundización en áreas específicas para complementar su formación en la Face Moderna®
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          cursos.map((curso) => (
+            <div
+              class={`p-6 border ${curso.disponible ? 'bg-white border-gray-100 hover:border-accent-600' : 'bg-gray-50 border-gray-200'} transition-all`}
+            >
+              <div class="flex items-start justify-between mb-4">
+                <h3
+                  class={`font-serif text-lg ${curso.disponible ? 'text-primary-900' : 'text-softGray'}`}
+                >
+                  {curso.titulo}
+                </h3>
+                <span
+                  class={`text-xs px-2 py-1 ${curso.disponible ? 'bg-green-600 text-white' : 'bg-gray-300 text-softGray'}`}
+                >
+                  {curso.status}
+                </span>
+              </div>
+              <p class={`text-sm ${curso.disponible ? 'text-warmGray' : 'text-primary-400'}`}>
+                {curso.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">¿Quiere Ser Avisado?</h2>
+      <p class="text-warmGray mb-8">
+        Los cursos satélites están en desarrollo. Contáctenos para ser notificado cuando estén
+        disponibles.
+      </p>
+      <a
+        href="https://wa.me/5531999999999"
+        target="_blank"
+        class="inline-block px-8 py-4 border-2 border-primary-900 text-primary-900 text-sm uppercase tracking-[0.15em] hover:bg-primary-900 hover:text-white transition-colors"
+      >
+        Quiero Ser Avisado
+      </a>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Mientras Tanto...</h2>
+      <p class="text-warmGray mb-8">
+        Conozca nuestros programas principales y comience su jornada en la Face Moderna®
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/educacion/programas-nucleo/endomidface-vision-directa"
+          class="px-6 py-3 bg-accent-600 text-white text-sm hover:bg-accent-700 transition-colors"
+        >
+          ENDOMIDFACE®
+        </a>
+        <a
+          href="/es/educacion/programas-nucleo/deep-neck-mastery"
+          class="px-6 py-3 bg-accent-600 text-white text-sm hover:bg-accent-700 transition-colors"
+        >
+          Deep Neck
+        </a>
+        <a
+          href="/es/educacion/formacion-avanzada"
+          class="px-6 py-3 bg-primary-900 text-white text-sm hover:bg-primary-800 transition-colors"
+        >
+          Formación Avanzada
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-center">
+      <a href="/es/educacion" class="text-sm text-accent-600">← Volver a Educación</a>
+    </div>
+  </section>
+</BaseLayout>

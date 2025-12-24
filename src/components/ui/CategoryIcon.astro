@@ -1,0 +1,21 @@
+---
+import { getCategoryIcon } from '@lib/icons';
+
+interface Props {
+  category: string;
+  className?: string;
+  size?: number;
+}
+
+const { category, className = '', size = 24 } = Astro.props;
+const iconPath = getCategoryIcon(category);
+---
+
+<img
+  src={iconPath}
+  alt={`Ícone da categoria ${category}`}
+  width={size}
+  height={size}
+  class={className}
+  loading="lazy"
+/>

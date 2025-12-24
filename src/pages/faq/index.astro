@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const faqGeneral = [
+  {
+    q: 'What is Modern Face®?',
+    a: "It's a facial surgery philosophy developed by Dr. Robério Brandão that prioritizes maximum safety, elegant results and optimized recovery. It includes techniques like Direct Vision Endomidface, conservative Deep Neck and evolutionary Browlift.",
+  },
+  {
+    q: "What's different from traditional techniques?",
+    a: 'Modern Face® works in safer planes, uses direct vision (no endoscope), preserves important anatomical structures and produces more natural results with faster recovery.',
+  },
+  {
+    q: 'Are the techniques scientifically validated?',
+    a: 'Yes. We have over 212 documented Endomidface cases with zero permanent nerve injuries. We regularly present at conferences and are preparing scientific publications.',
+  },
+];
+
+const faqCourses = [
+  {
+    q: 'Who can take the courses?',
+    a: 'Programs are designed for plastic surgeons or those in residency. Previous experience in facial surgery is not required.',
+  },
+  {
+    q: "What's the investment?",
+    a: 'Values vary by program. Contact us for updated information on investment and payment terms.',
+  },
+  {
+    q: 'Are courses in-person or online?',
+    a: 'Programs combine theoretical content (accessible online) with hands-on practical training, including live surgeries.',
+  },
+  {
+    q: "What's the course duration?",
+    a: 'Depends on the chosen program. The complete Endomidface course has approximately 40 hours between theory and practice.',
+  },
+  {
+    q: 'Do I receive a certificate?',
+    a: 'Yes. All participants receive a completion certificate issued by the Modern Face Institute.',
+  },
+];
+
+const faqTechnical = [
+  {
+    q: 'Does Endomidface work on faces with biostimulators?',
+    a: "Yes. The technique was developed considering today's reality where approximately 90% of patients have already used some type of filler or biostimulator.",
+  },
+  {
+    q: 'Why not use an endoscope?',
+    a: 'Direct vision offers superior control, allows working in deeper planes safely, and eliminates the learning curve of endoscopic equipment.',
+  },
+  {
+    q: "What's the patient recovery time?",
+    a: 'Typical social recovery is 7-14 days. Residual swelling may persist for a few weeks, but most patients return to normal activities in 2 weeks.',
+  },
+];
+---
+
+<BaseLayout
+  title="FAQ | Frequently Asked Questions"
+  description="Frequently asked questions about Modern Face, training programs and surgical techniques."
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Modern Face Institute
+      </p>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Answers to the most common questions about Modern Face® and our programs
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">About Modern Face®</h2>
+      <div class="space-y-4">
+        {
+          faqGeneral.map((f) => (
+            <details class="group bg-white border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.q}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.a}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">About Courses</h2>
+      <div class="space-y-4">
+        {
+          faqCourses.map((f) => (
+            <details class="group bg-ivory border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.q}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.a}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Technical Questions</h2>
+      <div class="space-y-4">
+        {
+          faqTechnical.map((f) => (
+            <details class="group bg-white border border-gray-100">
+              <summary class="p-4 cursor-pointer flex items-center justify-between font-medium text-primary-900">
+                {f.q}
+                <span class="material-symbols-outlined text-accent-600 group-open:rotate-180 transition-transform">
+                  expand_more
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-warmGray">{f.a}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Didn't find your answer?</h2>
+      <p class="text-primary-300 mb-8">Contact us. We'll be happy to help.</p>
+      <a
+        href="/contact"
+        class="inline-block px-8 py-4 bg-accent-600 text-white text-sm uppercase tracking-[0.15em] hover:bg-accent-700 transition-colors"
+        >Contact Us</a
+      >
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const presentaciones = [
+  {
+    titulo: 'Endomidface por Visión Directa: Un Nuevo Abordaje',
+    evento: 'Congreso Brasileño de Cirugía Plástica',
+    ano: 2023,
+  },
+  {
+    titulo: 'Deep Neck sin Resección Glandular: Resultados de 180 Casos',
+    evento: 'Jornada de Cirugía Facial',
+    ano: 2023,
+  },
+  {
+    titulo: 'Face Moderna®: Filosofía y Técnica',
+    evento: 'Simposio de Rejuvenecimiento Facial',
+    ano: 2024,
+  },
+];
+
+const enPreparacion = [
+  'Serie de casos: Endomidface en 212 pacientes',
+  'Análisis comparativo: Visión directa vs. endoscopía',
+  'Estudio retrospectivo: Complicaciones y curva de aprendizaje',
+];
+---
+
+<BaseLayout
+  title="Publicaciones Científicas | Biblioteca"
+  description="Publicaciones científicas, presentaciones en congresos y contribuciones académicas del Dr. Robério Brandão."
+  lang="es"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <nav class="mb-8">
+        <ol class="flex items-center justify-center space-x-2 text-sm text-primary-400">
+          <li><a href="/es" class="hover:text-white">Inicio</a></li><li><span>/</span></li><li>
+            <a href="/es/biblioteca" class="hover:text-white">Biblioteca</a>
+          </li><li><span>/</span></li><li class="text-white">Publicaciones</li>
+        </ol>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-serif text-white leading-tight mb-6">
+        Publicaciones Científicas
+      </h1>
+      <p class="text-xl text-primary-300 leading-relaxed max-w-2xl mx-auto">
+        Artículos, presentaciones en congresos y contribuciones académicas
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">Presentaciones en Congresos</h2>
+      <div class="space-y-4">
+        {
+          presentaciones.map((a) => (
+            <div class="p-6 bg-white border border-gray-100">
+              <div class="flex items-start justify-between">
+                <>
+                  <div>
+                    <>
+                      <h3 class="font-medium text-primary-900 mb-1">{a.titulo}</h3>
+                      <p class="text-sm text-warmGray">{a.evento}</p>
+                    </>
+                  </div>
+                  <span class="text-accent-600 font-medium">{a.ano}</span>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8">En Preparación</h2>
+      <p class="text-warmGray mb-6">
+        Artículos en desarrollo para publicación en revistas científicas:
+      </p>
+      <div class="space-y-3">
+        {
+          enPreparacion.map((p) => (
+            <div class="flex items-center gap-3 p-4 bg-ivory border border-gray-100">
+              <>
+                <span class="material-symbols-outlined text-amber-500">edit_note</span>
+                <span class="text-warmGray">{p}</span>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-primary-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-serif text-white mb-6">Compromiso con la Evidencia</h2>
+      <p class="text-primary-300 leading-relaxed">
+        Creemos que las técnicas innovadoras necesitan ser validadas por datos. Por eso, mantenemos
+        documentación rigurosa de todos los casos y trabajamos para publicar nuestros resultados en
+        vehículos científicos reconocidos.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between">
+      <a href="/es/biblioteca/ebooks" class="text-sm text-accent-600">← E-books</a>
+      <a href="/es/biblioteca/estudios-clinicos" class="text-sm text-accent-600"
+        >Estudios Clínicos →</a
+      >
+    </div>
+  </section>
+</BaseLayout>

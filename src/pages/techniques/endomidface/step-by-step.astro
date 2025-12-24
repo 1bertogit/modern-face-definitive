@@ -1,0 +1,182 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const keywords = [
+  'Endomidface step by step',
+  'Endomidface surgical protocol',
+  'midface surgery steps',
+  'Endomidface learning curve',
+  'midface dissection technique',
+  'temporal access facelift',
+];
+
+const steps = [
+  {
+    n: '01',
+    t: 'Pre-operative Marking',
+    tm: '5-10 min',
+    d: 'Intracapillary incision design (~5cm), anatomical landmarks.',
+  },
+  {
+    n: '02',
+    t: 'Anesthesia & Infiltration',
+    tm: '10-15 min',
+    d: 'Local anesthesia with sedation. Tumescent infiltration in temporal/frontal regions.',
+  },
+  {
+    n: '03',
+    t: 'Incision & Temporal Access',
+    tm: '5 min',
+    d: 'Intracapillary incision and entry into plane between temporal fasciae.',
+  },
+  {
+    n: '04',
+    t: 'Temporal Dissection',
+    tm: '15-20 min',
+    d: 'Dissection over deep temporal fascia until temporal crest.',
+  },
+  {
+    n: '05',
+    t: 'Frontal Dissection (Subperiosteal)',
+    tm: '10-15 min',
+    d: 'Progression to frontal region, orbital rim release.',
+  },
+  {
+    n: '06',
+    t: 'Midface Dissection (Sub-SMAS)',
+    tm: '15-20 min',
+    d: 'Entry into pre-zygomatic and pre-maxillary spaces.',
+  },
+  {
+    n: '07',
+    t: 'Myotomies (Optional)',
+    tm: '5-10 min',
+    d: 'Weakening of mimic muscles under direct vision.',
+  },
+  { n: '08', t: 'Fixation', tm: '10-15 min', d: 'Anchor mobilized tissues with vertical vector.' },
+  { n: '09', t: 'Closure', tm: '10-15 min', d: 'Scalp suture without tension.' },
+];
+---
+
+<BaseLayout
+  title="Endomidface Step by Step"
+  description="Complete Endomidface surgical protocol in 9 steps. Average time: 90-120 minutes."
+  keywords={keywords}
+  lang="en"
+>
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        Surgical Protocol
+      </p><h1 class="text-4xl md:text-5xl font-serif text-white mb-6">Step by Step</h1><p
+        class="text-xl text-primary-300 max-w-2xl mx-auto"
+      >
+        Complete Endomidface protocol in 9 steps. Average surgical time: 90-120 minutes.
+      </p>
+    </div>
+  </section>
+  <section class="py-12 bg-accent-600">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-8 text-center text-white">
+        <div>
+          <p class="text-3xl font-serif">90-120</p><p class="text-xs uppercase">Minutes</p>
+        </div><div>
+          <p class="text-3xl font-serif">9</p><p class="text-xs uppercase">Steps</p>
+        </div><div>
+          <p class="text-3xl font-serif">Local</p><p class="text-xs uppercase">+ Sedation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="space-y-6">
+        {
+          steps.map((s) => (
+            <div class="bg-white p-6 border border-gray-100 flex items-start gap-6">
+              <>
+                <div class="flex-shrink-0">
+                  <>
+                    <span class="text-3xl font-serif text-accent-600/30">{s.n}</span>
+                    <p class="text-xs text-accent-600">{s.tm}</p>
+                  </>
+                </div>
+                <div>
+                  <>
+                    <h3 class="font-serif text-primary-900 mb-2">{s.t}</h3>
+                    <p class="text-sm text-warmGray">{s.d}</p>
+                  </>
+                </div>
+              </>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-6">Critical Tips</h2><div
+        class="space-y-4"
+      >
+        <div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Loss of resistance:</strong> When the dissector suddenly "sinks", you've entered pre-zygomatic
+            space. Tilt upward and continue.
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Dissector direction:</strong> Aim from eye corner toward nasal ala. Never dissect
+            toward lower eyelid (chemosis risk).
+          </p>
+        </div><div class="p-4 bg-accent-50 border-l-4 border-accent-600">
+          <p class="text-warmGray">
+            <strong>Tilt toward surface:</strong> In midface, always tilt dissector upward. Motor nerves
+            are in the floor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-serif text-primary-900 mb-8 text-center">Learning Curve</h2><div
+        class="grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        <div class="p-6 bg-white text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase mb-2">
+            Phase 1: Initiation
+          </p><p class="text-2xl font-serif text-primary-900 mb-2">Cases 1-5</p><p
+            class="text-sm text-warmGray"
+          >
+            ~150 minutes
+          </p>
+        </div><div class="p-6 bg-white text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase mb-2">
+            Phase 2: Consolidation
+          </p><p class="text-2xl font-serif text-primary-900 mb-2">Cases 6-15</p><p
+            class="text-sm text-warmGray"
+          >
+            ~120 minutes
+          </p>
+        </div><div class="p-6 bg-white text-center">
+          <p class="text-[10px] font-medium text-accent-600 uppercase mb-2">
+            Phase 3: Proficiency
+          </p><p class="text-2xl font-serif text-primary-900 mb-2">Cases 16-30</p><p
+            class="text-sm text-warmGray"
+          >
+            90-100 minutes
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 bg-white border-t">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between">
+      <a href="/techniques/endomidface/vectors" class="text-sm text-accent-600">← Vectors</a><a
+        href="/techniques/endomidface/common-errors"
+        class="text-sm text-accent-600">Common Errors →</a
+      >
+    </div>
+  </section>
+</BaseLayout>
