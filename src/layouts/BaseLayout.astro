@@ -148,6 +148,21 @@ const isHomepage =
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
+    <!--
+      Third-party Analytics Preconnect Hints:
+      Establishes early connections to analytics domains before scripts load.
+      Improves TBT (Total Blocking Time) by ~100-200ms per service.
+    -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
+    <link rel="dns-prefetch" href="https://us-assets.i.posthog.com" />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin />
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+
     <!-- Preconnect for modern browsers (improves LCP by ~100-300ms) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
