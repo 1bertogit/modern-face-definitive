@@ -20,7 +20,7 @@ export default function GlossaryEditorial({
 }: GlossaryEditorialProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleTermCount, setVisibleTermCount] = useState(6);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Keyboard shortcut Ctrl+K
@@ -36,7 +36,7 @@ export default function GlossaryEditorial({
   }, []);
 
   // Memoize filtered featured terms for performance
-  const filteredDestaque = useMemo(() => {
+  const filteredFeaturedTerms = useMemo(() => {
     return termosDestaque.filter((termo) => {
       const matchesSearch =
         searchTerm === '' ||
@@ -49,7 +49,7 @@ export default function GlossaryEditorial({
   }, [termosDestaque, searchTerm, selectedLetter]);
 
   // Memoize filtered general terms for performance
-  const filteredGeral = useMemo(() => {
+  const filteredGeneralTerms = useMemo(() => {
     return glossarioGeral.filter((item) => {
       const matchesSearch =
         searchTerm === '' ||
@@ -60,25 +60,25 @@ export default function GlossaryEditorial({
     });
   }, [glossarioGeral, searchTerm, selectedLetter]);
 
-  const visibleGeral = filteredGeral.slice(0, visibleCount);
-  const hasMore = filteredGeral.length > visibleCount;
+  const visibleGeneralTerms = filteredGeneralTerms.slice(0, visibleTermCount);
+  const hasMoreTermsToLoad = filteredGeneralTerms.length > visibleTermCount;
 
   const handleLetterClick = (letter: string | null) => {
     setSelectedLetter(letter);
-    setVisibleCount(6);
+    setVisibleTermCount(6);
   };
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 6);
+    setVisibleTermCount((prev) => prev + 6);
   };
 
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedLetter(null);
-    setVisibleCount(6);
+    setVisibleTermCount(6);
   };
 
-  const totalResults = filteredDestaque.length + filteredGeral.length;
+  const totalResultsCount = filteredFeaturedTerms.length + filteredGeneralTerms.length;
 
   return (
     <div className="flex flex-col">
@@ -150,8 +150,8 @@ export default function GlossaryEditorial({
               aria-atomic="true"
             >
               <p className="text-sm text-softGray font-light">
-                {totalResults}{' '}
-                {totalResults === 1 ? 'resultado encontrado' : 'resultados encontrados'}
+                {totalResultsCount}{' '}
+                {totalResultsCount === 1 ? 'resultado encontrado' : 'resultados encontrados'}
                 {selectedLetter && ` para letra "${selectedLetter}"`}
                 {searchTerm && ` contendo "${searchTerm}"`}
               </p>
@@ -172,41 +172,41 @@ export default function GlossaryEditorial({
         <AlphabetFilter selectedLetter={selectedLetter} onLetterClick={handleLetterClick} />
 
         {/* No Results */}
-        {totalResults === 0 && <EmptyState onClearFilters={clearFilters} />}
+        {totalResultsCount === 0 && <EmptyState onClearFilters={clearFilters} />}
 
-        {/* Termos em Destaque */}
-        {filteredDestaque.length > 0 && (
+        {/* Featured Terms Section */}
+        {filteredFeaturedTerms.length > 0 && (
           <section className="space-y-12" id="section-topicos">
             <h2 className="text-4xl md:text-5xl font-serif font-normal text-primary-900 text-center mb-16">
               Termos em Destaque
             </h2>
 
-            {filteredDestaque.map((termo) => (
+            {filteredFeaturedTerms.map((termo) => (
               <FeaturedTermCard key={termo.term} termo={termo} />
             ))}
           </section>
         )}
 
-        {/* Glossário Geral */}
-        {visibleGeral.length > 0 && (
+        {/* General Glossary Section */}
+        {visibleGeneralTerms.length > 0 && (
           <section className="mt-8 space-y-12" id="section-geral">
             <h2 className="text-4xl md:text-5xl font-serif font-normal text-primary-900 text-center mb-16">
               Glossário Geral
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
-              {visibleGeral.map((item) => (
+              {visibleGeneralTerms.map((item) => (
                 <GeneralTermCard key={item.term} item={item} />
               ))}
             </div>
 
-            {hasMore && (
+            {hasMoreTermsToLoad && (
               <div className="mt-12 flex justify-center">
                 <button
                   onClick={handleLoadMore}
                   className="flex items-center gap-2 px-8 py-4 bg-white rounded-lg text-xs font-medium text-warmGray hover:bg-ivory transition-colors duration-300 border border-gray-100 shadow-sm uppercase tracking-[0.1em]"
                 >
-                  Carregar mais termos ({filteredGeral.length - visibleCount} restantes)
+                  Carregar mais termos ({filteredGeneralTerms.length - visibleTermCount} restantes)
                   <span className="material-symbols-outlined text-[18px]">expand_more</span>
                 </button>
               </div>

@@ -218,10 +218,11 @@ export function getWhatsAppUrl(
 }
 
 /**
- * Sleep utility for retry delays
+ * Delay execution for a specified number of milliseconds
+ * Used for implementing retry delays with exponential backoff
  */
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+function waitMilliseconds(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
 /**
@@ -338,9 +339,9 @@ export async function submitForm(
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
       if (attempt > 0) {
-        const delay = FORM_CONFIG.retryBaseDelay * Math.pow(2, attempt - 1);
-        logger.info(`Retry attempt ${attempt}/${maxRetries} after ${delay}ms`);
-        await sleep(delay);
+        const retryDelayMs = FORM_CONFIG.retryBaseDelay * Math.pow(2, attempt - 1);
+        logger.info(`Retry attempt ${attempt}/${maxRetries} after ${retryDelayMs}ms`);
+        await waitMilliseconds(retryDelayMs);
       }
 
       const response = await fetch(FORM_CONFIG.endpoint, {
