@@ -189,18 +189,14 @@ const logger = {
  * Optimized to use fewer regex passes
  */
 export function sanitizeInput(input: string): string {
+  // Entity decode map for efficient lookup
+  const entityMap: Record<string, string> = { 'lt': '<', 'gt': '>', 'amp': '&' };
+  
   // Single pass for HTML entities and dangerous patterns
   let sanitized = input
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
     .replace(/<[^>]*>|javascript:|on\w+\s*=/gi, '')
-    .replace(/&(lt|gt|amp);/g, (match, entity) => {
-      switch (entity) {
-        case 'lt': return '<';
-        case 'gt': return '>';
-        case 'amp': return '&';
-        default: return match;
-      }
-    });
+    .replace(/&(lt|gt|amp);/g, (_, entity) => entityMap[entity] || _);
   
   return sanitized.trim();
 }

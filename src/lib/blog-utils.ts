@@ -244,47 +244,41 @@ export async function getBlogPostsByLocale(
 
 /**
  * Get featured posts
+ * Uses cached blog posts for better performance
  */
 export async function getFeaturedPosts(
   locale: Locale,
   limit: number = 3
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft && data.featured
-  );
-
+  const posts = await getBlogPostsByLocale(locale);
+  
   return posts
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .filter((post) => post.data.featured)
     .slice(0, limit);
 }
 
 /**
  * Get posts by category
+ * Uses cached blog posts for better performance
  */
 export async function getPostsByCategory(
   locale: Locale,
   category: string
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft && data.category === category
-  );
-
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const posts = await getBlogPostsByLocale(locale);
+  
+  return posts.filter((post) => post.data.category === category);
 }
 
 /**
  * Get all categories with post counts
  * Returns format: { name: string; slug: string; count: number }[]
+ * Uses cached blog posts for better performance
  */
 export async function getCategories(
   locale: Locale
 ): Promise<{ name: string; slug: string; count: number }[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   const categoryMap = new Map<string, number>();
 
@@ -309,22 +303,20 @@ export async function getCategories(
 
 /**
  * Get popular posts (based on featured or recent)
+ * Uses cached blog posts for better performance
  */
 export async function getPopularPosts(
   locale: Locale,
   limit: number = 5
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
-  // Prioritize featured, then sort by date
+  // Prioritize featured, then sort by date (already sorted from cache)
   return posts
     .sort((a, b) => {
       if (a.data.featured && !b.data.featured) return -1;
       if (!a.data.featured && b.data.featured) return 1;
-      return b.data.date.getTime() - a.data.date.getTime();
+      return 0; // Maintain existing date sort from cache
     })
     .slice(0, limit);
 }
