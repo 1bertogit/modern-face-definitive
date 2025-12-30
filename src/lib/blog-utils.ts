@@ -4,71 +4,30 @@
  */
 
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { blogPostLabels } from './content/blog';
 
 export type Locale = 'en' | 'pt' | 'es';
 
 /**
- * Blog labels for i18n
- */
-const blogLabels: Record<Locale, {
-  home: string;
-  blog: string;
-  readTime: string;
-  creator: string;
-  updated: string;
-  faqTitle: string;
-  ctaTitle: string;
-  ctaSubtitle: string;
-  ctaButton: string;
-  ctaContact: string;
-  related: string;
-}> = {
-  'en': {
-    home: 'Home',
-    blog: 'Blog',
-    readTime: 'read',
-    creator: 'Creator of Face Moderna®',
-    updated: 'Updated',
-    faqTitle: 'Frequently Asked Questions',
-    ctaTitle: 'Want to Master These Techniques?',
-    ctaSubtitle: 'Learn directly from Dr. Robério Brandão in our specialized training programs.',
-    ctaButton: 'Explore Training',
-    ctaContact: 'Contact Us',
-    related: 'Related Articles',
-  },
-  'pt': {
-    home: 'Início',
-    blog: 'Blog',
-    readTime: 'de leitura',
-    creator: 'Criador da Face Moderna®',
-    updated: 'Atualizado em',
-    faqTitle: 'Perguntas Frequentes',
-    ctaTitle: 'Quer Dominar Essas Técnicas?',
-    ctaSubtitle: 'Aprenda diretamente com Dr. Robério Brandão em nossos cursos de especialização.',
-    ctaButton: 'Conheça a Formação',
-    ctaContact: 'Entre em Contato',
-    related: 'Artigos Relacionados',
-  },
-  'es': {
-    home: 'Inicio',
-    blog: 'Blog',
-    readTime: 'de lectura',
-    creator: 'Creador de Face Moderna®',
-    updated: 'Actualizado',
-    faqTitle: 'Preguntas Frecuentes',
-    ctaTitle: '¿Quieres Dominar Estas Técnicas?',
-    ctaSubtitle: 'Aprende directamente con el Dr. Robério Brandão en nuestros programas de formación.',
-    ctaButton: 'Explorar Formación',
-    ctaContact: 'Contáctenos',
-    related: 'Artículos Relacionados',
-  },
-};
-
-/**
  * Get blog labels for a given locale
+ * Re-exports from centralized content for backwards compatibility
  */
 export function getBlogLabels(locale: Locale) {
-  return blogLabels[locale] || blogLabels['en'];
+  const labels = blogPostLabels[locale] || blogPostLabels['en'];
+  // Return format compatible with existing code
+  return {
+    home: labels.home,
+    blog: labels.blog,
+    readTime: labels.readTime,
+    creator: labels.creator,
+    updated: labels.updated,
+    faqTitle: labels.faqTitle,
+    ctaTitle: labels.ctaTitle,
+    ctaSubtitle: labels.ctaSubtitle,
+    ctaButton: labels.ctaButton,
+    ctaContact: labels.ctaContact,
+    related: labels.related,
+  };
 }
 
 /**
