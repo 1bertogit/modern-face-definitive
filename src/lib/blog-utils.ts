@@ -8,6 +8,12 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Locale = 'en' | 'pt' | 'es';
 
 /**
+ * Cache for blog posts to avoid repeated getCollection calls
+ * Cleared on each build, so always fresh in production
+ */
+const blogPostsCache = new Map<Locale, CollectionEntry<'blog'>[]>();
+
+/**
  * Blog labels for i18n
  */
 const blogLabels: Record<Locale, {
@@ -153,15 +159,13 @@ export async function getBlogAlternates(
 
 /**
  * Get a blog post by slug and locale
+ * Uses cached blog posts for better performance
  */
 export async function getBlogPostBySlug(
   slug: string,
   locale: Locale
 ): Promise<CollectionEntry<'blog'> | undefined> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   // Try exact match first
   const exactMatch = posts.find((post) => {
@@ -179,16 +183,14 @@ export async function getBlogPostBySlug(
 /**
  * Get related posts for a given post
  * Uses relatedPosts field or falls back to same category
+ * Uses cached blog posts for better performance
  */
 export async function getRelatedPosts(
   post: CollectionEntry<'blog'>,
   limit: number = 3
 ): Promise<CollectionEntry<'blog'>[]> {
   const locale = post.data.locale as Locale;
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   // Exclude current post
   const otherPosts = posts.filter((p) => p.slug !== post.slug);
@@ -203,104 +205,74 @@ export async function getRelatedPosts(
     }
   }
 
-  // Fallback: same category
-  const sameCategory = otherPosts
-    .filter((p) => p.data.category === post.data.category)
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  // Fallback: same category (already sorted by date from cache)
+  const sameCategory = otherPosts.filter((p) => p.data.category === post.data.category);
 
   return sameCategory.slice(0, limit);
 }
 
 /**
  * Get blog posts by locale
+ * Results are cached for performance
  */
 export async function getBlogPostsByLocale(
   locale: Locale
 ): Promise<CollectionEntry<'blog'>[]> {
-  // Debug: obter todos os posts primeiro
-  const allPosts = await getCollection('blog');
-  
-  // Filtrar manualmente para debug
-  const postsWithLocale = allPosts.filter(({ data }) => {
-    const postLocale = data.locale as Locale;
-    return postLocale === locale;
-  });
-  
-  const postsNoDraft = postsWithLocale.filter(({ data }) => !data.draft);
-  
-  // Debug: Log para inglês e português (para diagnóstico)
-  // Remover após diagnóstico
-  if ((locale === 'en' || locale === 'pt') && typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-    console.warn(`[DEBUG getBlogPostsByLocale] Locale: ${locale}`);
-    console.warn(`[DEBUG] Total posts na collection: ${allPosts.length}`);
-    console.warn(`[DEBUG] Posts com locale='${locale}': ${postsWithLocale.length}`);
-    console.warn(`[DEBUG] Posts com locale='${locale}' e !draft: ${postsNoDraft.length}`);
-    
-    // Verificar posts com locale diferente
-    const postsPt = allPosts.filter(({ data }) => data.locale === 'pt' && !data.draft);
-    const postsEs = allPosts.filter(({ data }) => data.locale === 'es' && !data.draft);
-    const postsOther = allPosts.filter(({ data }) => {
-      const loc = data.locale as Locale;
-      return loc !== 'en' && loc !== 'pt' && loc !== 'es' && !data.draft;
-    });
-    const postsNoLocale = allPosts.filter(({ data }) => !data.locale && !data.draft);
-    
-    console.warn(`[DEBUG] Posts pt: ${postsPt.length}`);
-    console.warn(`[DEBUG] Posts es: ${postsEs.length}`);
-    console.warn(`[DEBUG] Posts outro locale: ${postsOther.length}`);
-    console.warn(`[DEBUG] Posts sem locale: ${postsNoLocale.length}`);
-    
-    // Verificar posts com draft
-    const postsDraft = allPosts.filter(({ data }) => data.draft === true);
-    console.warn(`[DEBUG] Posts com draft=true: ${postsDraft.length}`);
+  // Check cache first
+  const cached = blogPostsCache.get(locale);
+  if (cached) {
+    return cached;
   }
 
-  return postsNoDraft.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  // Fetch and cache
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => data.locale === locale && !data.draft
+  );
+
+  const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  blogPostsCache.set(locale, sorted);
+
+  return sorted;
 }
 
 /**
  * Get featured posts
+ * Uses cached blog posts for better performance
  */
 export async function getFeaturedPosts(
   locale: Locale,
   limit: number = 3
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft && data.featured
-  );
-
+  const posts = await getBlogPostsByLocale(locale);
+  
   return posts
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .filter((post) => post.data.featured)
     .slice(0, limit);
 }
 
 /**
  * Get posts by category
+ * Uses cached blog posts for better performance
  */
 export async function getPostsByCategory(
   locale: Locale,
   category: string
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft && data.category === category
-  );
-
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const posts = await getBlogPostsByLocale(locale);
+  
+  return posts.filter((post) => post.data.category === category);
 }
 
 /**
  * Get all categories with post counts
  * Returns format: { name: string; slug: string; count: number }[]
+ * Uses cached blog posts for better performance
  */
 export async function getCategories(
   locale: Locale
 ): Promise<{ name: string; slug: string; count: number }[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   const categoryMap = new Map<string, number>();
 
@@ -325,22 +297,20 @@ export async function getCategories(
 
 /**
  * Get popular posts (based on featured or recent)
+ * Uses cached blog posts for better performance
  */
 export async function getPopularPosts(
   locale: Locale,
   limit: number = 5
 ): Promise<CollectionEntry<'blog'>[]> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
-  // Prioritize featured, then sort by date
+  // Prioritize featured, then sort by date (already sorted from cache)
   return posts
     .sort((a, b) => {
       if (a.data.featured && !b.data.featured) return -1;
       if (!a.data.featured && b.data.featured) return 1;
-      return b.data.date.getTime() - a.data.date.getTime();
+      return 0; // Maintain existing date sort from cache
     })
     .slice(0, limit);
 }
@@ -350,33 +320,6 @@ export async function getPopularPosts(
  */
 export async function getArticlesForLocale(locale: Locale): Promise<Article[]> {
   const posts = await getBlogPostsByLocale(locale);
-  
-  // Debug: verificar conversão (remover após diagnóstico)
-  if ((locale === 'en' || locale === 'pt') && typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-    console.warn(`[DEBUG getArticlesForLocale] Posts recebidos: ${posts.length}`);
-    
-    // Tentar converter e verificar erros
-    const articles: Article[] = [];
-    const errors: string[] = [];
-    
-    for (const post of posts) {
-      try {
-        const article = postToArticle(post);
-        articles.push(article);
-      } catch (error) {
-        errors.push(`${post.slug}: ${error instanceof Error ? error.message : String(error)}`);
-      }
-    }
-    
-    console.warn(`[DEBUG] Artigos convertidos com sucesso: ${articles.length}`);
-    if (errors.length > 0) {
-      console.warn(`[DEBUG] Erros na conversão: ${errors.length}`);
-      errors.slice(0, 5).forEach(err => console.warn(`  - ${err}`));
-    }
-    
-    return articles;
-  }
-  
   return posts.map(postToArticle);
 }
 
