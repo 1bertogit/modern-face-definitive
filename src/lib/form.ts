@@ -196,7 +196,7 @@ export function sanitizeInput(input: string): string {
   let sanitized = input
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
     .replace(/<[^>]*>|javascript:|on\w+\s*=/gi, '')
-    .replace(/&(lt|gt|amp);/g, (_, entity) => entityMap[entity] || _);
+    .replace(/&(lt|gt|amp);/g, (match, entity) => entityMap[entity] || match);
   
   return sanitized.trim();
 }

@@ -159,15 +159,13 @@ export async function getBlogAlternates(
 
 /**
  * Get a blog post by slug and locale
+ * Uses cached blog posts for better performance
  */
 export async function getBlogPostBySlug(
   slug: string,
   locale: Locale
 ): Promise<CollectionEntry<'blog'> | undefined> {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   // Try exact match first
   const exactMatch = posts.find((post) => {
@@ -185,16 +183,14 @@ export async function getBlogPostBySlug(
 /**
  * Get related posts for a given post
  * Uses relatedPosts field or falls back to same category
+ * Uses cached blog posts for better performance
  */
 export async function getRelatedPosts(
   post: CollectionEntry<'blog'>,
   limit: number = 3
 ): Promise<CollectionEntry<'blog'>[]> {
   const locale = post.data.locale as Locale;
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getBlogPostsByLocale(locale);
 
   // Exclude current post
   const otherPosts = posts.filter((p) => p.slug !== post.slug);
@@ -209,10 +205,8 @@ export async function getRelatedPosts(
     }
   }
 
-  // Fallback: same category
-  const sameCategory = otherPosts
-    .filter((p) => p.data.category === post.data.category)
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  // Fallback: same category (already sorted by date from cache)
+  const sameCategory = otherPosts.filter((p) => p.data.category === post.data.category);
 
   return sameCategory.slice(0, limit);
 }
