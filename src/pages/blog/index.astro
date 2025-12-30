@@ -8,25 +8,25 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import BlogGrid from '@components/blog/BlogGrid.astro';
 import BlogSidebar from '@components/blog/BlogSidebar.astro';
 import { getArticlesForLocale, getCategories, getPopularArticles } from '@lib/blog-utils';
+import { getBlogIndexContent, getBlogIndexBreadcrumbs } from '@lib/content/blog';
 
 const locale = 'en';
+const content = getBlogIndexContent(locale);
+const breadcrumbs = getBlogIndexBreadcrumbs(locale);
 
-const breadcrumbs = [
-  { name: 'Home', url: '/' },
-  { name: 'Blog', url: '/blog' },
-];
-
-// Ler parâmetro de categoria da URL
-const selectedCategory = Astro.url.searchParams.get('categoria') || null;
+// Read category parameter from URL
+const selectedCategory = Astro.url.searchParams.get(content.categoryParam) || null;
 
 // Use Content Collections for blog data
 const allArticles = await getArticlesForLocale(locale);
 
-// Filtrar artigos por categoria se houver parâmetro
+// Filter articles by category if parameter exists
 const articles = selectedCategory
   ? allArticles.filter((article) => {
-      // Converter categoria do artigo para slug para comparação
-      const articleCategorySlug = article.category.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+      const articleCategorySlug = article.category
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]/g, '');
       return articleCategorySlug === selectedCategory.toLowerCase();
     })
   : allArticles;
@@ -45,15 +45,10 @@ const searchArticles = articles.map((a) => ({
 ---
 
 <BaseLayout
-  title="Blog | Modern Face Institute | Dr. Robério Brandão"
-  description="Technical articles on facial surgery, Modern Face techniques, Endomidface, applied anatomy and continuing medical education. Content for plastic surgeons."
-  keywords={[
-    'facial surgery blog',
-    'Modern Face articles',
-    'Endomidface articles',
-    'Dr Robério Brandão blog',
-  ]}
-  lang="en"
+  title={content.seo.title}
+  description={content.seo.description}
+  keywords={content.seo.keywords}
+  lang={locale}
 >
   <!-- Hero Section - Clean & Minimal -->
   <section class="pt-8 pb-12 md:pt-12 md:pb-16 bg-white border-b border-gray-100">
@@ -61,10 +56,9 @@ const searchArticles = articles.map((a) => ({
       <Breadcrumb items={breadcrumbs} class="mb-6" />
 
       <div class="max-w-2xl">
-        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 mb-4">Blog</h1>
+        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 mb-4">{content.title}</h1>
         <p class="text-lg text-warmGray leading-relaxed">
-          Technical articles on facial surgery, Modern Face philosophy, advanced techniques and
-          continuing medical education.
+          {content.description}
         </p>
       </div>
     </div>
@@ -76,7 +70,7 @@ const searchArticles = articles.map((a) => ({
       <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
         <!-- Main Content -->
         <main class="flex-1 min-w-0">
-          <BlogGrid articles={articles} showFeatured={true} locale="en" />
+          <BlogGrid articles={articles} showFeatured={true} locale={locale} />
         </main>
 
         <!-- Sidebar -->
@@ -86,7 +80,7 @@ const searchArticles = articles.map((a) => ({
             popularPosts={popularPosts}
             articles={searchArticles}
             currentCategory={selectedCategory || undefined}
-            locale="en"
+            locale={locale}
           />
         </aside>
       </div>
@@ -96,13 +90,12 @@ const searchArticles = articles.map((a) => ({
   <!-- CTA Section -->
   <section class="py-16 bg-primary-900">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="heading-2-white mb-4">Learn Directly from Dr. Robério</h2>
+      <h2 class="heading-2-white mb-4">{content.cta.title}</h2>
       <p class="body-large-light mb-8 max-w-xl mx-auto">
-        The articles are just the beginning. Mentorship offers complete learning with live cases and
-        personalized follow-up.
+        {content.cta.subtitle}
       </p>
       <a
-        href="/education"
+        href={content.cta.href}
         class="inline-flex items-center gap-2 px-8 py-4
                bg-accent-600 text-white rounded-lg
                text-sm font-medium uppercase tracking-wider
@@ -110,7 +103,7 @@ const searchArticles = articles.map((a) => ({
                transition-all duration-300
                focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900"
       >
-        View Mentorship Programs
+        {content.cta.button}
         <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
       </a>
     </div>

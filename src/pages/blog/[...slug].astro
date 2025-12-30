@@ -9,7 +9,8 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import SchemaArticle from '@components/seo/SchemaArticle.astro';
 import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
 import SchemaPerson from '@components/seo/SchemaPerson.astro';
-import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
+import { getBlogAlternates, getRelatedPosts, postToArticle } from '@lib/blog-utils';
+import { getBlogPostLabels } from '@lib/content/blog';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'en');
@@ -46,7 +47,7 @@ const articleType: (typeof allowedArticleTypes)[number] = allowedArticleTypes.in
   : 'Article';
 
 const locale = 'en';
-const t = getBlogLabels(locale);
+const t = getBlogPostLabels(locale);
 
 // Get alternate language versions for hreflang (translated slugs via canonicalSlug)
 const alternates = await getBlogAlternates(data.canonicalSlug);
@@ -55,8 +56,8 @@ const alternates = await getBlogAlternates(data.canonicalSlug);
 const relatedPosts = await getRelatedPosts(post, 3);
 
 const breadcrumbs = [
-  { name: t.home, url: '/' },
-  { name: t.blog, url: '/blog' },
+  { name: t.home, url: t.paths.home },
+  { name: t.blog, url: t.paths.blog },
   { name: data.title, url: Astro.url.pathname },
 ];
 ---
@@ -65,7 +66,7 @@ const breadcrumbs = [
   title={`${data.title} | Dr. Roberio Brandao`}
   description={data.description}
   keywords={data.keywords || []}
-  lang="en"
+  lang={locale}
   customAlternates={alternates}
 >
   <SchemaArticle
@@ -80,20 +81,20 @@ const breadcrumbs = [
   <SchemaPerson />
 
   <!-- Hero -->
-  <section class="py-16 bg-gradient-to-b from-primary-900 to-primary-800">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <section class="section-md bg-gradient-to-b from-primary-900 to-primary-800">
+    <div class="prose-base">
       <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
 
-      <div class="flex items-center gap-2 text-accent-400 text-sm mb-4">
+      <div class="flex items-center gap-2 text-accent-400 body-small mb-4">
         <span class="material-symbols-outlined text-lg">menu_book</span>
         <span>{data.category} &bull; {data.readTime || '5 min'} {t.readTime}</span>
       </div>
 
-      <h1 class="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
+      <h1 class="heading-1-white mb-6">
         {data.title}
       </h1>
 
-      <p class="text-xl text-primary-200 mb-8">
+      <p class="body-large-light mb-8">
         {data.description}
       </p>
 
@@ -103,15 +104,15 @@ const breadcrumbs = [
             <span class="material-symbols-outlined text-white">person</span>
           </div>
           <div>
-            <p class="text-white font-medium">{data.author}</p>
-            <p class="text-primary-400">{t.creator}</p>
+            <p class="text-white font-medium body-base">{data.author}</p>
+            <p class="text-primary-400 body-small-light">{t.creator}</p>
           </div>
         </div>
         <span class="text-primary-600">&bull;</span>
-        <span>
+        <span class="body-small-light">
           {t.updated}{' '}
           {
-            data.date.toLocaleDateString('en-US', {
+            data.date.toLocaleDateString(t.dateLocale, {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
@@ -123,8 +124,8 @@ const breadcrumbs = [
   </section>
 
   <!-- Content -->
-  <article class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+  <article class="section-md bg-white">
+    <div class="prose-base">
       <div
         class="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-900 prose-a:text-accent-600 hover:prose-a:text-accent-700 prose-blockquote:border-accent-500 prose-blockquote:text-primary-800"
       >
@@ -136,21 +137,21 @@ const breadcrumbs = [
   <!-- FAQ Section -->
   {
     data.faq && data.faq.length > 0 && (
-      <section class="py-16 bg-ivory">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 class="text-2xl font-serif text-primary-900 mb-8">{t.faqTitle}</h2>
+      <section class="section-md bg-ivory">
+        <div class="prose-base">
+          <h2 class="heading-2 mb-8">{t.faqTitle}</h2>
           <div class="space-y-6">
             {data.faq.map((item) => (
               <div class="border border-gray-200 rounded-xl overflow-hidden">
                 <details class="group">
                   <summary class="flex items-center justify-between p-6 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <h3 class="font-bold text-primary-900 pr-4">{item.question}</h3>
+                    <h3 class="heading-4 pr-4">{item.question}</h3>
                     <span class="material-symbols-outlined text-warmGray group-open:rotate-180 transition-transform flex-shrink-0">
                       expand_more
                     </span>
                   </summary>
                   <div class="p-6 bg-white">
-                    <p class="text-warmGray">{item.answer}</p>
+                    <p class="body-base">{item.answer}</p>
                   </div>
                 </details>
               </div>
@@ -162,19 +163,19 @@ const breadcrumbs = [
   }
 
   <!-- CTA -->
-  <section class="py-16 bg-primary-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-2xl font-serif text-white mb-4">{t.ctaTitle}</h2>
-      <p class="text-primary-200 mb-6">{t.ctaSubtitle}</p>
+  <section class="section-md bg-primary-900">
+    <div class="prose-base text-center">
+      <h2 class="heading-2-white mb-4">{t.ctaTitle}</h2>
+      <p class="body-base-light mb-6">{t.ctaSubtitle}</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a
-          href="/education"
+          href={t.paths.education}
           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
         >
           {t.ctaButton}
         </a>
         <a
-          href="/contact"
+          href={t.paths.contact}
           class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
         >
           {t.ctaContact}
@@ -186,22 +187,20 @@ const breadcrumbs = [
   <!-- Related Articles -->
   {
     relatedPosts.length > 0 && (
-      <section class="py-16 bg-ivory">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-          <h2 class="text-2xl font-serif text-primary-900 mb-8">{t.related}</h2>
+      <section class="section-md bg-ivory">
+        <div class="prose-base">
+          <h2 class="heading-2 mb-8">{t.related}</h2>
           <div class="grid md:grid-cols-2 gap-6">
             {relatedPosts.map((related) => {
               const article = postToArticle(related);
               return (
                 <a
-                  href={`/blog/${article.slug}`}
+                  href={`${t.paths.blog}/${article.slug}`}
                   class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
                 >
-                  <p class="text-sm text-accent-600 mb-2">{article.category}</p>
-                  <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
-                    {article.title}
-                  </h3>
-                  <p class="text-warmGray text-sm line-clamp-2">{article.description}</p>
+                  <p class="label-eyebrow mb-2">{article.category}</p>
+                  <h3 class="heading-4 group-hover:text-accent-600 mb-2">{article.title}</h3>
+                  <p class="body-small line-clamp-2">{article.description}</p>
                 </a>
               );
             })}

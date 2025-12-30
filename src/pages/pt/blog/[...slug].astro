@@ -9,7 +9,8 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import SchemaArticle from '@components/seo/SchemaArticle.astro';
 import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
 import SchemaPerson from '@components/seo/SchemaPerson.astro';
-import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
+import { getBlogAlternates, getRelatedPosts, postToArticle } from '@lib/blog-utils';
+import { getBlogPostLabels } from '@lib/content/blog';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'pt');
@@ -41,7 +42,7 @@ const articleType: (typeof allowedArticleTypes)[number] = allowedArticleTypes.in
   : 'Article';
 
 const locale = 'pt';
-const t = getBlogLabels(locale);
+const t = getBlogPostLabels(locale);
 
 // Get alternate language versions for hreflang (translated slugs via canonicalSlug)
 const alternates = await getBlogAlternates(data.canonicalSlug);
@@ -50,8 +51,8 @@ const alternates = await getBlogAlternates(data.canonicalSlug);
 const relatedPosts = await getRelatedPosts(post, 3);
 
 const breadcrumbs = [
-  { name: t.home, url: '/pt' },
-  { name: t.blog, url: '/pt/blog' },
+  { name: t.home, url: t.paths.home },
+  { name: t.blog, url: t.paths.blog },
   { name: data.title, url: Astro.url.pathname },
 ];
 ---
@@ -106,7 +107,7 @@ const breadcrumbs = [
         <span class="body-small-light">
           {t.updated}{' '}
           {
-            data.date.toLocaleDateString('pt-BR', {
+            data.date.toLocaleDateString(t.dateLocale, {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
@@ -163,13 +164,13 @@ const breadcrumbs = [
       <p class="body-base-light mb-6">{t.ctaSubtitle}</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a
-          href="/pt/educacao"
+          href={t.paths.education}
           class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-500 text-white rounded-lg hover:bg-accent-600 transition-colors font-semibold"
         >
           {t.ctaButton}
         </a>
         <a
-          href="/pt/contato"
+          href={t.paths.contact}
           class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
         >
           {t.ctaContact}
@@ -189,7 +190,7 @@ const breadcrumbs = [
               const article = postToArticle(related);
               return (
                 <a
-                  href={`/pt/blog/${article.slug}`}
+                  href={`${t.paths.blog}/${article.slug}`}
                   class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
                 >
                   <p class="label-eyebrow mb-2">{article.category}</p>
