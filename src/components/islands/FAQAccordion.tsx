@@ -11,14 +11,14 @@ interface FAQAccordionProps {
 
 export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const baseId = useId();
+  const uniqueIdPrefix = useId();
 
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const getButtonId = (index: number) => `${baseId}-button-${index}`;
-  const getPanelId = (index: number) => `${baseId}-panel-${index}`;
+  const getButtonId = (index: number) => `${uniqueIdPrefix}-button-${index}`;
+  const getPanelId = (index: number) => `${uniqueIdPrefix}-panel-${index}`;
 
   return (
     <div className="space-y-4" role="region" aria-label="Perguntas Frequentes">

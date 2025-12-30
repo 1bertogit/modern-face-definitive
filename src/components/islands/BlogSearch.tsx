@@ -50,58 +50,58 @@ export default function BlogSearch({
   onResults,
   debounceMs = 300,
 }: Props) {
-  const [query, setQuery] = useState('');
-  const [showResults, setShowResults] = useState(false);
-  const inputId = useId();
-  const t = translations[locale] || translations.en;
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const searchInputId = useId();
+  const localizedText = translations[locale] || translations.en;
 
   // Debounce the search query for better performance
-  const debouncedQuery = useDebouncedValue(query, debounceMs);
+  const debouncedSearchQuery = useDebouncedValue(searchQuery, debounceMs);
 
   // Memoized filtered results based on debounced query
-  const results = useMemo(() => {
-    if (debouncedQuery.trim().length < 2) {
+  const filteredArticles = useMemo(() => {
+    if (debouncedSearchQuery.trim().length < 2) {
       return [];
     }
 
-    const searchTerm = debouncedQuery.toLowerCase().trim();
+    const normalizedSearchTerm = debouncedSearchQuery.toLowerCase().trim();
     return articles.filter(
       (article) =>
-        article.title.toLowerCase().includes(searchTerm) ||
-        article.description.toLowerCase().includes(searchTerm) ||
-        article.category.toLowerCase().includes(searchTerm)
+        article.title.toLowerCase().includes(normalizedSearchTerm) ||
+        article.description.toLowerCase().includes(normalizedSearchTerm) ||
+        article.category.toLowerCase().includes(normalizedSearchTerm)
     );
-  }, [articles, debouncedQuery]);
+  }, [articles, debouncedSearchQuery]);
 
   // Notify parent when results change
   useEffect(() => {
-    if (debouncedQuery.trim().length < 2) {
+    if (debouncedSearchQuery.trim().length < 2) {
       onResults?.(articles);
     } else {
-      onResults?.(results);
+      onResults?.(filteredArticles);
     }
-  }, [results, articles, debouncedQuery, onResults]);
+  }, [filteredArticles, articles, debouncedSearchQuery, onResults]);
 
-  const getUrl = useCallback((slug: string) => getBlogPostUrl(slug, locale), [locale]);
+  const buildArticleUrl = useCallback((slug: string) => getBlogPostUrl(slug, locale), [locale]);
 
-  const handleQueryChange = useCallback((value: string) => {
-    setQuery(value);
+  const handleSearchQueryChange = useCallback((value: string) => {
+    setSearchQuery(value);
     if (value.trim().length >= 2) {
-      setShowResults(true);
+      setIsDropdownVisible(true);
     } else {
-      setShowResults(false);
+      setIsDropdownVisible(false);
     }
   }, []);
 
-  const handleClear = useCallback(() => {
-    setQuery('');
-    setShowResults(false);
+  const handleClearSearch = useCallback(() => {
+    setSearchQuery('');
+    setIsDropdownVisible(false);
   }, []);
 
   return (
     <div className="relative">
-      <label htmlFor={inputId} className="sr-only">
-        {t.placeholder}
+      <label htmlFor={searchInputId} className="sr-only">
+        {localizedText.placeholder}
       </label>
 
       <div className="relative">
@@ -113,12 +113,12 @@ export default function BlogSearch({
         </span>
 
         <input
-          id={inputId}
+          id={searchInputId}
           type="search"
-          value={query}
-          onChange={(e) => handleQueryChange(e.target.value)}
-          onFocus={() => query.length >= 2 && setShowResults(true)}
-          placeholder={t.placeholder}
+          value={searchQuery}
+          onChange={(e) => handleSearchQueryChange(e.target.value)}
+          onFocus={() => searchQuery.length >= 2 && setIsDropdownVisible(true)}
+          placeholder={localizedText.placeholder}
           className="w-full pl-12 pr-10 py-3 bg-ivory border border-gray-200 rounded-lg
                      text-sm text-warmGray placeholder:text-softGray
                      focus:outline-none focus:ring-2 focus:ring-accent-600/20 focus:border-accent-600
@@ -126,10 +126,10 @@ export default function BlogSearch({
           autoComplete="off"
         />
 
-        {query && (
+        {searchQuery && (
           <button
             type="button"
-            onClick={handleClear}
+            onClick={handleClearSearch}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-softGray
                        hover:text-primary-900 transition-colors duration-300"
             aria-label={
@@ -145,8 +145,8 @@ export default function BlogSearch({
         )}
       </div>
 
-      {/* Dropdown de resultados */}
-      {showResults && query.length >= 2 && (
+      {/* Search results dropdown */}
+      {isDropdownVisible && searchQuery.length >= 2 && (
         <div
           className="absolute z-50 top-full left-0 right-0 mt-2
                      bg-white rounded-xl border border-gray-100 shadow-xl shadow-primary-900/10
@@ -154,16 +154,16 @@ export default function BlogSearch({
           role="listbox"
           aria-label="Resultados da busca"
         >
-          {results.length > 0 ? (
+          {filteredArticles.length > 0 ? (
             <>
               <div className="px-4 py-2 text-[10px] uppercase tracking-widest text-softGray border-b border-gray-100">
-                {t.resultsCount(results.length)}
+                {localizedText.resultsCount(filteredArticles.length)}
               </div>
               <ul className="py-2">
-                {results.slice(0, 8).map((article) => (
+                {filteredArticles.slice(0, 8).map((article) => (
                   <li key={article.slug}>
                     <a
-                      href={getUrl(article.slug)}
+                      href={buildArticleUrl(article.slug)}
                       className="flex items-start gap-3 px-4 py-3
                                  hover:bg-ivory transition-colors duration-200
                                  group"
@@ -188,9 +188,9 @@ export default function BlogSearch({
                   </li>
                 ))}
               </ul>
-              {results.length > 8 && (
+              {filteredArticles.length > 8 && (
                 <div className="px-4 py-2 text-xs text-center text-softGray border-t border-gray-100">
-                  + {results.length - 8} mais resultados
+                  + {filteredArticles.length - 8} mais resultados
                 </div>
               )}
             </>
@@ -202,17 +202,17 @@ export default function BlogSearch({
               >
                 search_off
               </span>
-              <p className="text-sm text-softGray">{t.noResults}</p>
+              <p className="text-sm text-softGray">{localizedText.noResults}</p>
             </div>
           )}
         </div>
       )}
 
-      {/* Overlay para fechar ao clicar fora */}
-      {showResults && (
+      {/* Overlay to close dropdown when clicking outside */}
+      {isDropdownVisible && (
         <div
           className="fixed inset-0 z-40"
-          onClick={() => setShowResults(false)}
+          onClick={() => setIsDropdownVisible(false)}
           aria-hidden="true"
         />
       )}

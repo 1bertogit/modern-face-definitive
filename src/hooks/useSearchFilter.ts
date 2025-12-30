@@ -66,16 +66,16 @@ export function useSearchFilter<T extends Record<string, unknown>>({
       return items;
     }
 
-    const term = debouncedSearchTerm.toLowerCase().trim();
+    const normalizedSearchTerm = debouncedSearchTerm.toLowerCase().trim();
 
     return items.filter((item) =>
       searchFields.some((field) => {
         const value = item[field];
         if (typeof value === 'string') {
-          return value.toLowerCase().includes(term);
+          return value.toLowerCase().includes(normalizedSearchTerm);
         }
         if (Array.isArray(value)) {
-          return value.some((v) => typeof v === 'string' && v.toLowerCase().includes(term));
+          return value.some((v) => typeof v === 'string' && v.toLowerCase().includes(normalizedSearchTerm));
         }
         return false;
       })

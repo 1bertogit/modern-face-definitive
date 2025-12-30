@@ -20,8 +20,8 @@ interface MobileMenuProps {
   languageSwitcher?: LanguageOption[];
 }
 
-// Aria labels by locale
-const ariaLabels: Record<string, { open: string; close: string }> = {
+// Accessibility labels by locale for menu toggle button
+const menuAccessibilityLabels: Record<string, { open: string; close: string }> = {
   'pt': { open: 'Abrir menu', close: 'Fechar menu' },
   en: { open: 'Open menu', close: 'Close menu' },
   es: { open: 'Abrir menú', close: 'Cerrar menú' },
@@ -33,35 +33,35 @@ export default function MobileMenu({
   locale = 'pt',
   languageSwitcher = [],
 }: MobileMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedNavItems, setExpandedNavItems] = useState<string[]>([]);
 
-  const labels = ariaLabels[locale] || ariaLabels['pt'];
+  const accessibilityLabels = menuAccessibilityLabels[locale] || menuAccessibilityLabels['pt'];
 
-  const toggleExpanded = (path: string) => {
-    setExpandedItems((prev) =>
+  const toggleNavItemExpanded = (path: string) => {
+    setExpandedNavItems((prev) =>
       prev.includes(path) ? prev.filter((p) => p !== path) : [...prev, path]
     );
   };
 
-  const isExpanded = (path: string) => expandedItems.includes(path);
+  const isNavItemExpanded = (path: string) => expandedNavItems.includes(path);
 
   return (
     <>
       {/* Menu Toggle Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="text-primary-900 hover:text-accent-700 focus:outline-none transition-colors p-2"
-        aria-label={isOpen ? labels.close : labels.open}
-        aria-expanded={isOpen}
+        aria-label={isMenuOpen ? accessibilityLabels.close : accessibilityLabels.open}
+        aria-expanded={isMenuOpen}
       >
         <span className="material-symbols-outlined text-3xl font-light">
-          {isOpen ? 'close' : 'menu'}
+          {isMenuOpen ? 'close' : 'menu'}
         </span>
       </button>
 
       {/* Mobile Navigation Overlay */}
-      {isOpen && (
+      {isMenuOpen && (
         <div className="fixed inset-x-0 top-20 h-[calc(100vh-5rem)] bg-ivory z-[999] animate-fade-in overflow-y-auto pb-24">
           <nav className="px-6 pt-6 pb-3">
             {navLinks.map((link) => (
@@ -70,7 +70,7 @@ export default function MobileMenu({
                 <div className="flex items-center justify-between">
                   <a
                     href={link.path}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsMenuOpen(false)}
                     className={`flex-1 text-lg font-serif py-3 ${
                       currentPath === link.path ||
                       (link.path !== '/' &&
@@ -91,14 +91,14 @@ export default function MobileMenu({
                       onClick={(e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        toggleExpanded(link.path);
+                        toggleNavItemExpanded(link.path);
                       }}
                       className="p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-warmGray hover:text-accent-700 active:text-accent-800 transition-colors touch-manipulation"
-                      aria-label={isExpanded(link.path) ? 'Collapse submenu' : 'Expand submenu'}
-                      aria-expanded={isExpanded(link.path)}
+                      aria-label={isNavItemExpanded(link.path) ? 'Collapse submenu' : 'Expand submenu'}
+                      aria-expanded={isNavItemExpanded(link.path)}
                     >
                       <span
-                        className={`material-symbols-outlined text-xl transition-transform duration-200 ${isExpanded(link.path) ? 'rotate-180' : ''}`}
+                        className={`material-symbols-outlined text-xl transition-transform duration-200 ${isNavItemExpanded(link.path) ? 'rotate-180' : ''}`}
                       >
                         expand_more
                       </span>
@@ -107,13 +107,13 @@ export default function MobileMenu({
                 </div>
 
                 {/* Children accordion */}
-                {link.children && link.children.length > 0 && isExpanded(link.path) && (
+                {link.children && link.children.length > 0 && isNavItemExpanded(link.path) && (
                   <div className="pl-4 pb-3 space-y-1 animate-fade-in">
                     {link.children.map((child) => (
                       <a
                         key={child.path}
                         href={child.path}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setIsMenuOpen(false)}
                         className={`block py-2 text-sm ${
                           currentPath === child.path
                             ? 'text-accent-700 font-medium'
@@ -140,7 +140,7 @@ export default function MobileMenu({
                   <a
                     key={lang.locale}
                     href={lang.path}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsMenuOpen(false)}
                     className={`px-4 py-2 text-sm rounded-lg border transition-colors ${
                       lang.isActive
                         ? 'bg-accent-700 text-white border-accent-700'

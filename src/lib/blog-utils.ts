@@ -87,21 +87,21 @@ export interface Article {
 }
 
 /**
- * Convert a blog post to Article format
+ * Convert a blog post collection entry to Article display format
  */
-export function postToArticle(post: CollectionEntry<'blog'>): Article {
+export function convertBlogPostToArticle(post: CollectionEntry<'blog'>): Article {
   const slugParts = post.slug.split('/');
   const slug = slugParts.length > 1 ? slugParts.slice(1).join('/') : post.slug;
 
-  // Converter Date para string ISO
-  let dateStr: string;
+  // Convert Date to ISO string format
+  let dateISOString: string;
   if (post.data.date instanceof Date) {
-    dateStr = post.data.date.toISOString();
+    dateISOString = post.data.date.toISOString();
   } else if (typeof post.data.date === 'string') {
-    dateStr = post.data.date;
+    dateISOString = post.data.date;
   } else {
-    // Fallback para data atual se inválida
-    dateStr = new Date().toISOString();
+    // Fallback to current date if invalid
+    dateISOString = new Date().toISOString();
   }
 
   return {
@@ -110,7 +110,7 @@ export function postToArticle(post: CollectionEntry<'blog'>): Article {
     description: post.data.description,
     category: post.data.category,
     readTime: post.data.readTime || '5 min',
-    date: dateStr,
+    date: dateISOString,
     author: post.data.author,
     image: typeof post.data.image === 'string' 
       ? post.data.image 
@@ -361,7 +361,7 @@ export async function getArticlesForLocale(locale: Locale): Promise<Article[]> {
     
     for (const post of posts) {
       try {
-        const article = postToArticle(post);
+        const article = convertBlogPostToArticle(post);
         articles.push(article);
       } catch (error) {
         errors.push(`${post.slug}: ${error instanceof Error ? error.message : String(error)}`);
@@ -377,7 +377,7 @@ export async function getArticlesForLocale(locale: Locale): Promise<Article[]> {
     return articles;
   }
   
-  return posts.map(postToArticle);
+  return posts.map(convertBlogPostToArticle);
 }
 
 /**
@@ -388,5 +388,5 @@ export async function getPopularArticles(
   limit: number = 5
 ): Promise<Article[]> {
   const posts = await getPopularPosts(locale, limit);
-  return posts.map(postToArticle);
+  return posts.map(convertBlogPostToArticle);
 }

@@ -9,7 +9,7 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import SchemaArticle from '@components/seo/SchemaArticle.astro';
 import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
 import SchemaPerson from '@components/seo/SchemaPerson.astro';
-import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
+import { getBlogAlternates, getRelatedPosts, getBlogLabels, convertBlogPostToArticle } from '@lib/blog-utils';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'es');
@@ -186,7 +186,7 @@ const breadcrumbs = [
           <h2 class="text-2xl font-serif text-primary-900 mb-8">{t.related}</h2>
           <div class="grid md:grid-cols-2 gap-6">
             {relatedPosts.map((related) => {
-              const article = postToArticle(related);
+              const article = convertBlogPostToArticle(related);
               return (
                 <a
                   href={`/es/blog/${article.slug}`}
