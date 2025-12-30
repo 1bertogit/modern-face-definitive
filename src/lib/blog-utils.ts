@@ -217,45 +217,12 @@ export async function getRelatedPosts(
 export async function getBlogPostsByLocale(
   locale: Locale
 ): Promise<CollectionEntry<'blog'>[]> {
-  // Debug: obter todos os posts primeiro
-  const allPosts = await getCollection('blog');
-  
-  // Filtrar manualmente para debug
-  const postsWithLocale = allPosts.filter(({ data }) => {
-    const postLocale = data.locale as Locale;
-    return postLocale === locale;
-  });
-  
-  const postsNoDraft = postsWithLocale.filter(({ data }) => !data.draft);
-  
-  // Debug: Log para inglês e português (para diagnóstico)
-  // Remover após diagnóstico
-  if ((locale === 'en' || locale === 'pt') && typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-    console.warn(`[DEBUG getBlogPostsByLocale] Locale: ${locale}`);
-    console.warn(`[DEBUG] Total posts na collection: ${allPosts.length}`);
-    console.warn(`[DEBUG] Posts com locale='${locale}': ${postsWithLocale.length}`);
-    console.warn(`[DEBUG] Posts com locale='${locale}' e !draft: ${postsNoDraft.length}`);
-    
-    // Verificar posts com locale diferente
-    const postsPt = allPosts.filter(({ data }) => data.locale === 'pt' && !data.draft);
-    const postsEs = allPosts.filter(({ data }) => data.locale === 'es' && !data.draft);
-    const postsOther = allPosts.filter(({ data }) => {
-      const loc = data.locale as Locale;
-      return loc !== 'en' && loc !== 'pt' && loc !== 'es' && !data.draft;
-    });
-    const postsNoLocale = allPosts.filter(({ data }) => !data.locale && !data.draft);
-    
-    console.warn(`[DEBUG] Posts pt: ${postsPt.length}`);
-    console.warn(`[DEBUG] Posts es: ${postsEs.length}`);
-    console.warn(`[DEBUG] Posts outro locale: ${postsOther.length}`);
-    console.warn(`[DEBUG] Posts sem locale: ${postsNoLocale.length}`);
-    
-    // Verificar posts com draft
-    const postsDraft = allPosts.filter(({ data }) => data.draft === true);
-    console.warn(`[DEBUG] Posts com draft=true: ${postsDraft.length}`);
-  }
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => data.locale === locale && !data.draft
+  );
 
-  return postsNoDraft.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
 /**
@@ -350,33 +317,6 @@ export async function getPopularPosts(
  */
 export async function getArticlesForLocale(locale: Locale): Promise<Article[]> {
   const posts = await getBlogPostsByLocale(locale);
-  
-  // Debug: verificar conversão (remover após diagnóstico)
-  if ((locale === 'en' || locale === 'pt') && typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
-    console.warn(`[DEBUG getArticlesForLocale] Posts recebidos: ${posts.length}`);
-    
-    // Tentar converter e verificar erros
-    const articles: Article[] = [];
-    const errors: string[] = [];
-    
-    for (const post of posts) {
-      try {
-        const article = postToArticle(post);
-        articles.push(article);
-      } catch (error) {
-        errors.push(`${post.slug}: ${error instanceof Error ? error.message : String(error)}`);
-      }
-    }
-    
-    console.warn(`[DEBUG] Artigos convertidos com sucesso: ${articles.length}`);
-    if (errors.length > 0) {
-      console.warn(`[DEBUG] Erros na conversão: ${errors.length}`);
-      errors.slice(0, 5).forEach(err => console.warn(`  - ${err}`));
-    }
-    
-    return articles;
-  }
-  
   return posts.map(postToArticle);
 }
 

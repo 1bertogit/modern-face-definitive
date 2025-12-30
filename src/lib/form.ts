@@ -186,17 +186,23 @@ const logger = {
 /**
  * Sanitize input to prevent XSS attacks
  * Removes potentially dangerous HTML/script content
+ * Optimized to use fewer regex passes
  */
 export function sanitizeInput(input: string): string {
-  return input
+  // Single pass for HTML entities and dangerous patterns
+  let sanitized = input
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/<[^>]*>/g, '')
-    .replace(/javascript:/gi, '')
-    .replace(/on\w+\s*=/gi, '')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .trim();
+    .replace(/<[^>]*>|javascript:|on\w+\s*=/gi, '')
+    .replace(/&(lt|gt|amp);/g, (match, entity) => {
+      switch (entity) {
+        case 'lt': return '<';
+        case 'gt': return '>';
+        case 'amp': return '&';
+        default: return match;
+      }
+    });
+  
+  return sanitized.trim();
 }
 
 /**
