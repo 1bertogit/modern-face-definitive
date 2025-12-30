@@ -8,6 +8,12 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Locale = 'en' | 'pt' | 'es';
 
 /**
+ * Cache for blog posts to avoid repeated getCollection calls
+ * Cleared on each build, so always fresh in production
+ */
+const blogPostsCache = new Map<Locale, CollectionEntry<'blog'>[]>();
+
+/**
  * Blog labels for i18n
  */
 const blogLabels: Record<Locale, {
@@ -213,16 +219,27 @@ export async function getRelatedPosts(
 
 /**
  * Get blog posts by locale
+ * Results are cached for performance
  */
 export async function getBlogPostsByLocale(
   locale: Locale
 ): Promise<CollectionEntry<'blog'>[]> {
+  // Check cache first
+  const cached = blogPostsCache.get(locale);
+  if (cached) {
+    return cached;
+  }
+
+  // Fetch and cache
   const posts = await getCollection(
     'blog',
     ({ data }) => data.locale === locale && !data.draft
   );
 
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  blogPostsCache.set(locale, sorted);
+
+  return sorted;
 }
 
 /**
