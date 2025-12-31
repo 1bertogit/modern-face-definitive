@@ -14,32 +14,32 @@
  * These @font-face rules provide fallback behavior and display settings
  */
 
-/* Inter - Sans-serif body text */
+/* Inter - Sans-serif body text (Editorial Luxury: weights 300, 400, 500) */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 300 500;
   font-display: swap;
   src: local('Inter'), local('Inter-Regular');
   /* System font fallback stack */
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Playfair Display - Serif headings */
+/* Playfair Display - Serif headings (Editorial Luxury: weights 300, 400) */
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 300 400;
   font-display: swap;
   src: local('Playfair Display'), local('PlayfairDisplay-Regular');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Playfair Display Italic */
+/* Playfair Display Italic (Editorial Luxury: weight 400) */
 @font-face {
   font-family: 'Playfair Display';
   font-style: italic;
-  font-weight: 400 500;
+  font-weight: 400;
   font-display: swap;
   src: local('Playfair Display Italic'), local('PlayfairDisplay-Italic');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -62,7 +62,7 @@
   }
 
   body {
-    @apply bg-ivory text-warmGray antialiased;
+    @apply bg-neutral-white text-neutral-graphite antialiased;
   }
 
   h1,
@@ -84,12 +84,12 @@
 @layer components {
   /* Section label - used for category/section indicators */
   .section-label {
-    @apply text-[10px] font-medium text-accent-700 uppercase tracking-[0.2em];
+    @apply text-[10px] font-medium text-accent-500 uppercase tracking-[0.2em];
   }
 
   /* Stat label - used for statistics captions */
   .stat-label {
-    @apply text-[10px] text-warmGray uppercase tracking-[0.2em] font-light;
+    @apply text-[10px] text-neutral-graphite uppercase tracking-[0.2em] font-light;
   }
 
   /* CTA button base */
@@ -104,7 +104,7 @@
     font-size: 4.5rem;
     line-height: 0.8;
     margin-right: 0.5rem;
-    color: theme("colors.accent.700");
+    color: theme("colors.accent.500"); /* Gold */
     -webkit-initial-letter: 3 2;
     initial-letter: 3 2;
   }
@@ -140,116 +140,159 @@
 
   /* Button styles */
   .btn-primary {
-    @apply bg-accent-600 text-white px-8 py-4 text-sm font-bold uppercase tracking-widest;
-    @apply hover:bg-accent-700 transition-colors duration-300;
+    @apply bg-accent-500 text-neutral-white px-8 py-4 text-sm font-medium uppercase tracking-widest;
+    @apply hover:bg-accent-600 transition-colors duration-300;
   }
 
   .btn-outline {
-    @apply border border-primary-900 text-primary-900 px-8 py-4 text-sm font-bold uppercase tracking-widest;
-    @apply hover:bg-primary-900 hover:text-white transition-colors duration-300;
+    @apply border border-primary-900 text-primary-900 px-8 py-4 text-sm font-medium uppercase tracking-widest;
+    @apply hover:bg-primary-900 hover:text-neutral-white transition-colors duration-300;
   }
 
   /* ============================================
    * DESIGN SYSTEM - Typography Scale
+   * Editorial Luxury · Medical Authority
+   * Fixed scale: H1: 64px, H2: 48px, H3: 32px, Body: 18px, Caption: 14px
+   * Line-heights: tight (1.1), normal (1.4), loose (1.6)
    * ============================================
-   * Sistema padronizado de tipografia para garantir
-   * consistência visual em todo o site.
    */
 
-  /* Headings - Serif (Playfair Display) - Responsivo mobile-first */
+  /* Headings - Serif (Playfair Display) - Fixed scale */
   .heading-1 {
-    @apply text-4xl md:text-5xl font-serif text-primary-900 font-normal leading-tight mb-6 md:mb-8;
+    font-size: 64px;
+    line-height: 1.1;
+    @apply font-serif text-primary-900 font-normal mb-8;
   }
 
   .heading-1-white {
-    @apply text-4xl md:text-5xl font-serif text-white font-normal leading-tight mb-6 md:mb-8;
+    font-size: 64px;
+    line-height: 1.1;
+    @apply font-serif text-neutral-white font-normal mb-8;
   }
 
   .heading-2 {
-    @apply text-3xl md:text-4xl font-serif text-primary-900 font-normal leading-tight mb-5 md:mb-6;
+    font-size: 48px;
+    line-height: 1.1;
+    @apply font-serif text-primary-900 font-normal mb-6;
   }
 
   .heading-2-white {
-    @apply text-3xl md:text-4xl font-serif text-white font-normal leading-tight mb-5 md:mb-6;
+    font-size: 48px;
+    line-height: 1.1;
+    @apply font-serif text-neutral-white font-normal mb-6;
   }
 
   .heading-3 {
-    @apply text-xl md:text-2xl font-serif text-primary-900 font-normal leading-snug mb-4;
+    font-size: 32px;
+    line-height: 1.1;
+    @apply font-serif text-primary-900 font-normal mb-4;
   }
 
   .heading-3-white {
-    @apply text-xl md:text-2xl font-serif text-white font-normal leading-snug mb-4;
+    font-size: 32px;
+    line-height: 1.1;
+    @apply font-serif text-neutral-white font-normal mb-4;
   }
 
   .heading-4 {
-    @apply text-lg md:text-xl font-serif text-primary-900 font-normal leading-snug mb-3;
+    font-size: 24px;
+    line-height: 1.1;
+    @apply font-serif text-primary-900 font-normal mb-3;
   }
 
-  /* Body Text - Sans-serif (Inter) - Responsivo mobile-first */
+  /* Body Text - Sans-serif (Inter) - Fixed scale */
   .body-large {
-    @apply text-base md:text-lg text-warmGray leading-relaxed mb-5 md:mb-6;
+    font-size: 18px;
+    line-height: 1.4;
+    @apply font-sans text-neutral-graphite mb-6;
   }
 
   .body-base {
-    @apply text-sm md:text-base text-warmGray leading-relaxed mb-4 md:mb-5;
+    font-size: 18px;
+    line-height: 1.4;
+    @apply font-sans text-neutral-graphite mb-5;
   }
 
   .body-small {
-    @apply text-sm text-warmGray leading-relaxed mb-4;
+    font-size: 14px;
+    line-height: 1.4;
+    @apply font-sans text-neutral-graphite mb-4;
   }
 
   /* Body Text - Light variants (para fundos escuros) */
   .body-large-light {
-    @apply text-base md:text-lg text-primary-300 leading-relaxed mb-5 md:mb-6;
+    font-size: 18px;
+    line-height: 1.4;
+    @apply font-sans text-primary-200 mb-6;
   }
 
   .body-base-light {
-    @apply text-sm md:text-base text-primary-300 leading-relaxed mb-4 md:mb-5;
+    font-size: 18px;
+    line-height: 1.4;
+    @apply font-sans text-primary-200 mb-5;
   }
 
   .body-small-light {
-    @apply text-sm text-primary-300 leading-relaxed mb-4;
+    font-size: 14px;
+    line-height: 1.4;
+    @apply font-sans text-primary-200 mb-4;
   }
 
-  /* Labels & UI Elements - Responsivo mobile-first */
+  /* Labels & UI Elements */
   .label-eyebrow {
-    @apply text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-3 md:mb-4;
+    font-size: 10px;
+    @apply font-medium text-accent-500 uppercase tracking-[0.2em] mb-4;
   }
 
   .label-eyebrow-white {
-    @apply text-[10px] font-medium text-accent-400 uppercase tracking-[0.2em] mb-3 md:mb-4;
+    font-size: 10px;
+    @apply font-medium text-accent-400 uppercase tracking-[0.2em] mb-4;
   }
 
   .label-caption {
-    @apply text-xs text-softGray mb-2;
+    font-size: 14px;
+    @apply text-neutral-greySoft mb-2;
   }
 
   /* ============================================
    * DESIGN SYSTEM - Spacing Scale
+   * Editorial Luxury · Medical Authority
+   * Fixed scale: xs: 8px, sm: 16px, md: 32px, lg: 64px, xl: 128px
    * ============================================
-   * Sistema de espaçamento vertical padronizado
-   * (múltiplos de 4px para consistência)
    */
 
-  /* Section Spacing - Responsivo mobile-first */
+  /* Section Spacing - Fixed scale */
   .section-xs {
-    @apply py-6 md:py-8; /* 24px mobile, 32px desktop - seções compactas */
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .section-sm {
-    @apply py-8 md:py-12; /* 32px mobile, 48px desktop - seções padrão */
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
   .section-md {
-    @apply py-12 md:py-16; /* 48px mobile, 64px desktop - seções principais */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .section-lg {
-    @apply py-16 md:py-20; /* 64px mobile, 80px desktop - seções destacadas */
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   .section-xl {
-    @apply py-20 md:py-32; /* 80px mobile, 128px desktop - heroes */
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+
+  /* Technical Grid - Optional ultra-thin grid (0.5pt, graphite, opacity 0.3) */
+  .grid-technical {
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent calc(100% - 1px), rgba(42, 42, 42, 0.3) calc(100% - 1px), rgba(42, 42, 42, 0.3) 100%),
+      repeating-linear-gradient(90deg, transparent, transparent calc(100% - 1px), rgba(42, 42, 42, 0.3) calc(100% - 1px), rgba(42, 42, 42, 0.3) 100%);
+    background-size: 32px 32px;
   }
 
   /* ============================================
@@ -273,16 +316,6 @@
 
 /* Utility Classes */
 @layer utilities {
-  /* Text gradient */
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      theme("colors.primary.900"),
-      theme("colors.accent.600")
-    );
-  }
-
   /* Subtle animations */
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
@@ -301,7 +334,12 @@
 
   /* Focus ring for accessibility */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-accent-700 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  /* Soft shadow - Editorial Luxury standard */
+  .shadow-soft {
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
   }
 }
 

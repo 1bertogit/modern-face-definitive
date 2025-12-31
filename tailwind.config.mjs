@@ -4,36 +4,42 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand Colors - Editorial Luxury Palette
+        // Editorial Luxury · Medical Authority - Canonical Colors
         primary: {
-          50: '#f0f4f8',
-          100: '#d9e2ec',
-          200: '#bcccdc',
-          300: '#9fb3c8',
-          400: '#829ab1',
-          500: '#627d98',
-          600: '#486581',
-          700: '#334e68',
-          800: '#243b53',
-          900: '#1e293b', // Deep Petrol - Primary Brand Color
-          950: '#102a43',
+          50: '#e8ebf0',
+          100: '#c5d0de',
+          200: '#9fb3c8',
+          300: '#7896b2',
+          400: '#51799c',
+          500: '#2a5c86',
+          600: '#1f4a6f',
+          700: '#153858',
+          800: '#0f2641',
+          900: '#0A192F', // Navy - Primary Brand Color (Protagonist)
+          950: '#050d1a',
         },
         accent: {
-          50: '#fbf9f5',
-          100: '#f6f2eb',
-          200: '#eaddc6',
-          300: '#dec7a2',
-          400: '#d2b17d',
-          500: '#c69c59',
-          600: '#b8956c', // Gold/Bronze - Primary Accent
-          700: '#9d7f5c',
-          800: '#82694d',
-          900: '#67533d',
-          950: '#4c3d2d',
+          50: '#f5f1e8',
+          100: '#e8dcc4',
+          200: '#dbc7a0',
+          300: '#ceb27c',
+          400: '#c19d58',
+          500: '#C5A059', // Gold - Primary Accent (Punctual)
+          600: '#9d8047',
+          700: '#756035',
+          800: '#4d4023',
+          900: '#252011',
+          950: '#121008',
         },
-        ivory: '#fafaf8', // Editorial Background
-        warmGray: '#4a4a48', // Body Text
-        softGray: '#8a8a88', // Secondary Text
+        neutral: {
+          white: '#FFFFFF', // Dominant Background
+          greySoft: '#F5F5F5', // Soft Grey
+          graphite: '#2A2A2A', // Technical Grid / Lines
+        },
+        // Legacy aliases for backward compatibility
+        ivory: '#FFFFFF', // Now maps to white
+        warmGray: '#2A2A2A', // Now maps to graphite
+        softGray: '#F5F5F5', // Now maps to greySoft
       },
       fontFamily: {
         serif: ['Playfair Display', 'Georgia', 'serif'],
@@ -43,50 +49,50 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: '#4a4a48', // warmGray
+            color: '#2A2A2A', // graphite (neutral.graphite)
             h1: {
               fontFamily: 'Playfair Display, Georgia, serif',
               fontWeight: '400',
-              color: '#1e293b', // primary-900
+              color: '#0A192F', // primary-900 (Navy)
             },
             h2: {
               fontFamily: 'Playfair Display, Georgia, serif',
               fontWeight: '400',
-              color: '#1e293b',
+              color: '#0A192F', // primary-900 (Navy)
               marginTop: '2.5rem',
               marginBottom: '1rem',
             },
             h3: {
               fontFamily: 'Playfair Display, Georgia, serif',
               fontWeight: '400',
-              color: '#1e293b',
+              color: '#0A192F', // primary-900 (Navy)
             },
             h4: {
               fontFamily: 'Playfair Display, Georgia, serif',
               fontWeight: '400',
-              color: '#1e293b',
+              color: '#0A192F', // primary-900 (Navy)
             },
             strong: {
-              color: '#1e293b',
-              fontWeight: '700',
+              color: '#0A192F', // primary-900 (Navy)
+              fontWeight: '500', // Reduced from 700 (prohibited heavy bolding)
             },
             a: {
-              color: '#9d7f5c', // accent-700 - better contrast
+              color: '#C5A059', // accent-500 (Gold)
               textDecoration: 'none',
               '&:hover': {
-                color: '#82694d', // accent-800
+                color: '#9d8047', // accent-600 (darker gold)
               },
             },
             blockquote: {
-              borderLeftColor: '#9d7f5c', // accent-700
+              borderLeftColor: '#C5A059', // accent-500 (Gold)
               fontStyle: 'italic',
-              color: '#1e293b',
+              color: '#0A192F', // primary-900 (Navy)
             },
             'ul > li::marker': {
-              color: '#9d7f5c', // accent-700
+              color: '#C5A059', // accent-500 (Gold)
             },
             'ol > li::marker': {
-              color: '#9d7f5c', // accent-700
+              color: '#C5A059', // accent-500 (Gold)
             },
           },
         },
