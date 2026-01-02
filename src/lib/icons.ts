@@ -27,7 +27,6 @@ export const categoryIcons: Record<string, string> = {
   Indications: '/images/icons/category-indications.svg',
   Planning: '/images/icons/category-planning.svg',
   'Post-Operative': '/images/icons/category-post-operative.svg',
-  'Face Moderna': '/images/icons/category-face-moderna.svg',
   'Surgical Safety': '/images/icons/category-safety.svg',
   Education: '/images/icons/category-education.svg',
   Philosophy: '/images/icons/category-philosophy.svg',
