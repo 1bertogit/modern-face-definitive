@@ -1,0 +1,167 @@
+# Gerador de Artigos MDX - Face Moderna
+
+Gera artigos SEO otimizados em formato MDX usando a API do Google Gemini.
+
+## Estrutura
+
+```
+gerador-artigos/
+├── config.py              # Configurações e API key
+├── gerar_artigos.py       # Script principal
+├── template_artigo.txt    # Prompt/template para geração
+├── README.md              # Este arquivo
+├── input/
+│   └── topicos.csv        # Lista de 75 tópicos
+├── references/            # Material de referência (contexto)
+│   └── (seus arquivos .txt, .md, .mdx)
+└── output/                # Artigos gerados
+    └── (arquivos .mdx)
+```
+
+## Instalação
+
+### 1. Instalar dependência
+
+```bash
+pip install google-generativeai
+```
+
+### 2. Obter API Key do Gemini
+
+1. Acesse: https://aistudio.google.com/app/apikey
+2. Crie uma nova API key
+3. Copie a key
+
+### 3. Configurar API Key
+
+Edite `config.py` e substitua:
+
+```python
+GEMINI_API_KEY = "SUA_API_KEY_AQUI"
+```
+
+Por sua key real:
+
+```python
+GEMINI_API_KEY = "AIzaSy..."
+```
+
+## Uso
+
+### Gerar primeiro artigo (teste)
+
+```bash
+python gerar_artigos.py
+```
+
+### Gerar artigo específico
+
+```bash
+python gerar_artigos.py --single 24
+```
+
+### Gerar intervalo de artigos
+
+```bash
+python gerar_artigos.py --start 1 --end 10
+```
+
+### Gerar todos os artigos
+
+```bash
+python gerar_artigos.py --all
+```
+
+## Adicionando Material de Referência
+
+Coloque arquivos na pasta `references/` para dar contexto ao Gemini:
+
+- Transcrições de aulas do Dr. Robério
+- Documentos técnicos
+- Artigos já escritos (como exemplo)
+- Protocolos e guidelines
+
+**Formatos aceitos:** `.txt`, `.md`, `.mdx`
+
+O script carrega automaticamente todos os arquivos e usa como contexto.
+
+## Personalizando
+
+### Alterar mínimo de palavras
+
+Em `config.py`:
+
+```python
+GENERATION_CONFIG = {
+    "min_words": 2500,  # Altere aqui
+    ...
+}
+```
+
+### Alterar modelo
+
+Em `config.py`:
+
+```python
+MODEL_CONFIG = {
+    "model": "gemini-1.5-pro",  # ou "gemini-1.5-flash" (mais rápido/barato)
+    ...
+}
+```
+
+### Alterar delay entre artigos
+
+Em `config.py`:
+
+```python
+GENERATION_CONFIG = {
+    ...
+    "delay_between_articles": 5,  # segundos
+}
+```
+
+## Output
+
+Os artigos são salvos em `output/` com nomenclatura:
+
+```
+01-titulo-do-artigo.mdx
+02-outro-artigo.mdx
+...
+```
+
+## Custos Estimados (Gemini API)
+
+| Modelo | Preço Input | Preço Output |
+|--------|-------------|--------------|
+| gemini-1.5-flash | $0.075/1M tokens | $0.30/1M tokens |
+| gemini-1.5-pro | $1.25/1M tokens | $5.00/1M tokens |
+
+**Estimativa para 75 artigos:**
+- Flash: ~$2-5
+- Pro: ~$15-30
+
+## Troubleshooting
+
+### "API key não configurada"
+
+Verifique se editou `config.py` com sua key real.
+
+### "Rate limit exceeded"
+
+Aumente o `delay_between_articles` em `config.py`.
+
+### Artigo com menos palavras que o mínimo
+
+O script avisa com ⚠️. Você pode:
+1. Regenerar com `--single N`
+2. Editar manualmente
+3. Ajustar o template para ser mais específico
+
+## Fluxo Recomendado
+
+1. Coloque material de referência em `references/`
+2. Gere primeiro artigo: `python gerar_artigos.py`
+3. Revise o output em `output/`
+4. Se aprovado, gere todos: `python gerar_artigos.py --all`
+5. Revise e publique

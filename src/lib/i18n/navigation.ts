@@ -188,6 +188,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Cursos Satélites', path: '/pt/educacao/cursos-satelites' },
         ],
       },
+      { label: 'Eventos', path: '/pt/eventos' },
       {
         label: 'Casos',
         path: '/pt/casos',
@@ -269,6 +270,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Satellite Courses', path: '/education/satellite-courses' },
         ],
       },
+      { label: 'Events', path: '/events' },
       {
         label: 'Cases',
         path: '/cases',
@@ -353,6 +355,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Cursos Satélites', path: '/es/educacion/cursos-satelites' },
         ],
       },
+      { label: 'Eventos', path: '/es/eventos' },
       {
         label: 'Casos',
         path: '/es/casos',

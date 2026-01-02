@@ -29,6 +29,10 @@ interface Props {
   includeOrgSchema?: boolean;
   /** Custom alternates for translated content (e.g., blog posts with translated slugs) */
   customAlternates?: AlternateUrl[];
+  /** Hide header for landing pages (conversion optimization) */
+  hideHeader?: boolean;
+  /** Hide footer for landing pages (conversion optimization) */
+  hideFooter?: boolean;
 }
 
 const {
@@ -41,6 +45,8 @@ const {
   keywords = [],
   includeOrgSchema = false,
   customAlternates,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 
 // Auto-detect locale from URL if not provided
@@ -213,11 +219,11 @@ const isHomepage =
       {skipLinkText[locale]}
     </a>
 
-    <Header locale={locale} />
-    <main id="main-content" class="flex-grow pt-24" role="main">
+    {!hideHeader && <Header locale={locale} />}
+    <main id="main-content" class={`flex-grow ${!hideHeader ? 'pt-24' : ''}`} role="main">
       <slot />
     </main>
-    <Footer locale={locale} />
+    {!hideFooter && <Footer locale={locale} />}
     <SpeedInsights />
   </body>
 </html>

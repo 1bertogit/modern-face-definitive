@@ -1,0 +1,83 @@
+---
+/**
+ * EventSchedule - Componente para exibir programação de eventos
+ * Agrupa sessões por dia e exibe horários
+ */
+
+import type { ScheduleItem } from '@lib/types/event';
+
+interface Props {
+  schedule: ScheduleItem[];
+  title?: string;
+  subtitle?: string;
+}
+
+const { schedule, title = 'Schedule', subtitle = 'Event Program' } = Astro.props;
+
+// Agrupar por dia
+const scheduleByDay = schedule.reduce((acc, item) => {
+  if (!acc[item.day]) {
+    acc[item.day] = [];
+  }
+  acc[item.day].push(item);
+  return acc;
+}, {} as Record<string, ScheduleItem[]>);
+
+const days = Object.keys(scheduleByDay);
+---
+
+<section class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        {title}
+      </h2>
+      <h3 class="text-4xl md:text-5xl font-serif text-primary-900">{subtitle}</h3>
+    </div>
+
+    <div class="space-y-12">
+      {
+        days.map((day) => (
+          <div>
+            <h4 class="text-2xl font-serif text-primary-900 mb-6 pb-2 border-b border-gray-200">
+              {day}
+            </h4>
+            <div class="space-y-4">
+              {
+                scheduleByDay[day].map((item) => (
+                  <div class="bg-ivory p-6 rounded-lg border border-gray-100 flex flex-col md:flex-row md:items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="bg-accent-600 text-white px-4 py-2 rounded text-center min-w-[100px]">
+                        <p class="text-lg font-serif font-normal">{item.time}</p>
+                        {item.duration && (
+                          <p class="text-xs opacity-90">{item.duration}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="text-xl font-serif font-normal text-primary-900 mb-2">
+                        {item.title}
+                      </h5>
+                      {item.speaker && (
+                        <p class="text-sm text-accent-600 mb-2">
+                          <span class="material-symbols-outlined text-base align-middle mr-1">
+                            person
+                          </span>
+                          {item.speaker}
+                        </p>
+                      )}
+                      {item.description && (
+                        <p class="text-warmGray text-sm leading-relaxed">{item.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

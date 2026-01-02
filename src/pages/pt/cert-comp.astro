@@ -1,0 +1,607 @@
+---
+// Modern Facial Surgery - Aplicação Completa
+// Full Application Form with Hero, Multi-block Form, and Success State
+
+interface Props {
+  title?: string;
+  showSuccessPreview?: boolean;
+}
+
+const { 
+  title = "Modern Facial Surgery - Aplicação",
+  showSuccessPreview = true
+} = Astro.props;
+
+// Form Data Arrays
+const careerTimeOptions = [
+  { value: "1-3", label: "1-3 anos" },
+  { value: "3-5", label: "3-5 anos" },
+  { value: "5-10", label: "5-10 anos" },
+  { value: "10+", label: "+10 anos" },
+];
+
+const surgeryVolumeOptions = [
+  { value: "1", label: "0 - 2 cirurgias/mês" },
+  { value: "2", label: "3 - 5 cirurgias/mês" },
+  { value: "3", label: "5 - 10 cirurgias/mês" },
+  { value: "4", label: "+10 cirurgias/mês" },
+];
+
+const experienceOptions = [
+  { value: "zero", label: "Nunca realizei, quero aprender do zero." },
+  { value: "some", label: "Já realizei alguns casos, mas sinto insegurança." },
+  { value: "frequent", label: "Realizo frequentemente, quero refinar a técnica." },
+];
+
+const timelineOptions = [
+  { value: "immediate", label: "Imediato" },
+  { value: "30days", label: "Em até 30 dias" },
+  { value: "next_year", label: "Próximo ano" },
+];
+
+const contactTimeOptions = [
+  { value: "morning", label: "Manhã (08h - 12h)" },
+  { value: "afternoon", label: "Tarde (13h - 18h)" },
+  { value: "evening", label: "Noite (18h - 20h)" },
+];
+
+const channelOptions = [
+  { value: "whatsapp", label: "WhatsApp" },
+  { value: "phone", label: "Ligação Telefônica" },
+  { value: "email", label: "Email" },
+];
+---
+
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-background-light text-primary font-body antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+  
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-subtle h-20 flex items-center justify-center transition-all duration-300">
+    <div class="w-full max-w-[1200px] px-6 flex justify-between items-center">
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <span class="material-symbols-outlined text-primary text-3xl font-light">medical_services</span>
+        <div>
+          <h1 class="font-display font-bold text-lg tracking-wide text-primary uppercase">Dr. Robério Brandão</h1>
+          <p class="text-[10px] tracking-[0.2em] uppercase text-secondary">Editorial Luxury Surgery</p>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#">Programa</a>
+        <a class="text-sm font-medium text-secondary hover:text-primary transition-colors" href="#">Mentoria</a>
+        <div class="h-4 w-px bg-divider"></div>
+        <button class="text-sm font-bold text-primary tracking-wide hover:text-accent transition-colors">Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative pt-20 flex flex-col items-center min-h-screen">
+    
+    <!-- Hero Section -->
+    <section class="w-full max-w-[960px] px-6 py-20 md:py-32 flex flex-col items-center text-center">
+      <span class="px-3 py-1 bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+        Aplicações Abertas
+      </span>
+      <h2 class="font-display text-4xl md:text-6xl font-medium text-primary leading-tight mb-6">
+        Modern Facial Surgery <br />
+        <span class="italic text-primary/80">Advanced Training Program</span>
+      </h2>
+      <p class="text-secondary text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10">
+        Este formulário é a primeira etapa para ingressar no grupo exclusivo de cirurgiões plásticos. Nossa equipe analisará suas respostas cuidadosamente para garantir o alinhamento com os objetivos do programa.
+      </p>
+      <div class="flex flex-col md:flex-row gap-6 items-center">
+        <button class="group flex items-center gap-3 px-8 py-4 border border-primary text-primary font-medium rounded-lg btn-outline-hover">
+          <span>Iniciar Aplicação</span>
+          <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </button>
+        <div class="flex items-center gap-2 text-secondary text-sm">
+          <span class="material-symbols-outlined text-lg">schedule</span>
+          <span>Tempo estimado: 3 minutos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-divider to-transparent max-w-[1200px]"></div>
+
+    <!-- Application Form Container -->
+    <section class="w-full max-w-[800px] px-6 py-16 flex flex-col gap-16">
+      
+      <!-- Progress Header -->
+      <div class="flex flex-col gap-2 sticky top-24 bg-white/95 backdrop-blur py-4 z-40 border-b border-white">
+        <div class="flex justify-between items-end mb-2">
+          <span class="text-xs font-bold tracking-widest uppercase text-accent">Formulário de Aplicação</span>
+          <span class="text-xs font-medium text-secondary" id="progressText">0% Completo</span>
+        </div>
+        <div class="w-full bg-subtle h-1 rounded-full overflow-hidden">
+          <div class="bg-accent h-full w-[10%] rounded-full transition-all duration-500" id="progressBar"></div>
+        </div>
+      </div>
+
+      <form id="applicationForm" class="flex flex-col gap-16">
+        
+        <!-- Block 1: Contact Data -->
+        <div class="flex flex-col gap-8 animate-fade-in-up">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full border border-divider text-secondary font-display text-sm">01</span>
+            <h3 class="font-display text-2xl text-primary font-medium">Dados de Contato</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Nome Completo</span>
+              <input 
+                class="input-minimal w-full h-12 px-4 rounded-lg bg-white placeholder:text-gray-400 text-primary" 
+                placeholder="Dr. Seu Nome" 
+                type="text"
+                name="fullName"
+                required
+              />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Email Profissional</span>
+              <input 
+                class="input-minimal w-full h-12 px-4 rounded-lg bg-white placeholder:text-gray-400 text-primary" 
+                placeholder="nome@clinica.com" 
+                type="email"
+                name="email"
+                required
+              />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">WhatsApp com DDD</span>
+              <input 
+                class="input-minimal w-full h-12 px-4 rounded-lg bg-white placeholder:text-gray-400 text-primary" 
+                placeholder="(00) 00000-0000" 
+                type="tel"
+                name="whatsapp"
+                required
+              />
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Localização (Cidade/Estado)</span>
+              <input 
+                class="input-minimal w-full h-12 px-4 rounded-lg bg-white placeholder:text-gray-400 text-primary" 
+                placeholder="São Paulo, SP" 
+                type="text"
+                name="location"
+                required
+              />
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-subtle"></div>
+
+        <!-- Block 2: Professional Profile -->
+        <div class="flex flex-col gap-8">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full border border-divider text-secondary font-display text-sm">02</span>
+            <h3 class="font-display text-2xl text-primary font-medium">Perfil Profissional</h3>
+          </div>
+          
+          <div class="flex flex-col gap-8">
+            <!-- Career Time -->
+            <div class="flex flex-col gap-3">
+              <span class="text-sm font-medium text-primary">Tempo de atuação na cirurgia plástica</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                {careerTimeOptions.map((option) => (
+                  <label class="cursor-pointer group">
+                    <input class="radio-card sr-only" name="career_time" type="radio" value={option.value} />
+                    <div class="border border-divider rounded-lg p-4 hover:border-accent/50 transition-colors flex items-center justify-center text-center h-full">
+                      <span class="text-sm text-secondary group-hover:text-primary">{option.label}</span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <!-- Surgery Volume -->
+            <div class="flex flex-col gap-3">
+              <span class="text-sm font-medium text-primary">Volume mensal de cirurgias faciais</span>
+              <select class="input-minimal w-full h-12 px-4 rounded-lg bg-white text-secondary cursor-pointer" name="surgery_volume">
+                <option disabled selected value="">Selecione uma opção</option>
+                {surgeryVolumeOptions.map((option) => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+
+            <!-- Experience -->
+            <div class="flex flex-col gap-3">
+              <span class="text-sm font-medium text-primary">Qual sua experiência com Deep Plane Facelift?</span>
+              <div class="flex flex-col gap-3">
+                {experienceOptions.map((option) => (
+                  <label class="cursor-pointer flex items-center gap-4 group">
+                    <input class="radio-card sr-only" name="experience" type="radio" value={option.value} />
+                    <div class="w-5 h-5 rounded-full border border-gray-300 radio-indicator flex items-center justify-center">
+                      <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span class="text-secondary group-hover:text-primary transition-colors text-sm">{option.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-subtle"></div>
+
+        <!-- Block 3: Motivation -->
+        <div class="flex flex-col gap-8">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full border border-divider text-secondary font-display text-sm">03</span>
+            <h3 class="font-display text-2xl text-primary font-medium">Motivação e Objetivos</h3>
+          </div>
+          <div class="grid grid-cols-1 gap-6">
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Qual sua maior motivação para ingressar no programa agora?</span>
+              <textarea 
+                class="input-minimal w-full p-4 rounded-lg bg-white placeholder:text-gray-400 text-primary min-h-[100px]" 
+                placeholder="Descreva seus objetivos profissionais..."
+                name="motivation"
+              ></textarea>
+            </label>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Qual seu maior receio ou dificuldade técnica atual?</span>
+              <textarea 
+                class="input-minimal w-full p-4 rounded-lg bg-white placeholder:text-gray-400 text-primary min-h-[80px]" 
+                placeholder="Seja específico..."
+                name="challenges"
+              ></textarea>
+            </label>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-subtle"></div>
+
+        <!-- Block 4: Decision -->
+        <div class="flex flex-col gap-8">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full border border-divider text-secondary font-display text-sm">04</span>
+            <h3 class="font-display text-2xl text-primary font-medium">Decisão</h3>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-3">
+              <span class="text-sm font-medium text-primary">Qual o seu prazo de decisão para iniciar o treinamento?</span>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {timelineOptions.map((option) => (
+                  <label class="cursor-pointer group">
+                    <input class="radio-card sr-only" name="timeline" type="radio" value={option.value} />
+                    <div class="border border-divider rounded-lg px-4 py-3 hover:border-accent/50 transition-colors flex items-center justify-between">
+                      <span class="text-sm text-secondary group-hover:text-primary">{option.label}</span>
+                      <span class="w-4 h-4 rounded-full border border-gray-300 radio-indicator flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                      </span>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-subtle"></div>
+
+        <!-- Block 5: Final Contact -->
+        <div class="flex flex-col gap-8">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center justify-center w-8 h-8 rounded-full border border-divider text-secondary font-display text-sm">05</span>
+            <h3 class="font-display text-2xl text-primary font-medium">Finalização</h3>
+          </div>
+          <div class="grid grid-cols-1 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-primary">Melhor horário para contato</span>
+                <select class="input-minimal w-full h-12 px-4 rounded-lg bg-white text-secondary" name="contact_time">
+                  {contactTimeOptions.map((option) => (
+                    <option value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-medium text-primary">Canal preferido</span>
+                <select class="input-minimal w-full h-12 px-4 rounded-lg bg-white text-secondary" name="channel">
+                  {channelOptions.map((option) => (
+                    <option value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-medium text-primary">Observações Finais (Opcional)</span>
+              <textarea 
+                class="input-minimal w-full p-4 rounded-lg bg-white placeholder:text-gray-400 text-primary min-h-[80px]" 
+                placeholder="Algo mais que devemos saber?"
+                name="observations"
+              ></textarea>
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="mt-8">
+            <button 
+              type="submit"
+              class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            >
+              <span>Enviar Aplicação</span>
+              <span class="material-symbols-outlined text-sm">send</span>
+            </button>
+            <p class="text-center text-xs text-gray-400 mt-4">
+              Ao enviar, você concorda com a análise dos seus dados pela nossa equipe.
+            </p>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    {showSuccessPreview && (
+      <!-- Success Screen Preview -->
+      <section class="w-full bg-subtle/30 py-20 mt-20 border-t border-divider flex flex-col items-center">
+        <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-8 font-bold">[ Design da Tela de Confirmação ]</p>
+        <div class="w-full max-w-lg bg-white p-12 rounded-2xl shadow-soft text-center border border-divider">
+          <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-green-600 text-3xl">check</span>
+          </div>
+          <h2 class="font-display text-3xl text-primary font-medium mb-4">Aplicação recebida</h2>
+          <p class="text-secondary leading-relaxed mb-8">
+            Agradecemos seu interesse no programa. Nossa equipe analisará seu perfil nas próximas 48h e entraremos em contato via WhatsApp para os próximos passos.
+          </p>
+          <div class="flex flex-col gap-4 items-center">
+            <button class="w-full px-6 py-3 border border-divider hover:border-accent text-primary rounded-lg transition-colors flex items-center justify-center gap-2 group">
+              <span class="material-symbols-outlined text-xl text-pink-600">camera_alt</span>
+              <span class="font-medium group-hover:text-accent transition-colors">Seguir Dr. Robério no Instagram</span>
+            </button>
+            <a class="text-sm text-primary font-medium border-b border-primary hover:border-accent hover:text-accent transition-colors flex items-center gap-1 pb-0.5" href="#">
+              <span>Ver casos clínicos no YouTube</span>
+              <span class="material-symbols-outlined text-sm">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Footer -->
+    <footer class="w-full bg-white border-t border-divider py-12 px-6">
+      <div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-2 opacity-80 grayscale hover:grayscale-0 transition-all">
+          <span class="material-symbols-outlined text-primary text-2xl font-light">medical_services</span>
+          <span class="font-display font-bold text-sm tracking-wide text-primary uppercase">Dr. Robério Brandão</span>
+        </div>
+        <div class="text-xs text-secondary text-center md:text-right">
+          <p>© 2024 Modern Facial Surgery Program. Todos os direitos reservados.</p>
+          <div class="flex gap-4 justify-center md:justify-end mt-2">
+            <a class="hover:text-primary transition-colors" href="#">Política de Privacidade</a>
+            <a class="hover:text-primary transition-colors" href="#">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
+
+<style is:global>
+  /* Color Variables */
+  :root {
+    --primary: #0a182e;
+    --secondary: #4a4a48;
+    --accent: #C5A059;
+    --background-light: #FFFFFF;
+    --background-dark: #121820;
+    --divider: #E5E7EB;
+    --subtle: #F5F5F5;
+  }
+
+  /* Color Utilities */
+  .bg-primary { background-color: var(--primary); }
+  .bg-secondary { background-color: var(--secondary); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-background-light { background-color: var(--background-light); }
+  .bg-subtle { background-color: var(--subtle); }
+  
+  .text-primary { color: var(--primary); }
+  .text-secondary { color: var(--secondary); }
+  .text-accent { color: var(--accent); }
+  
+  .border-divider { border-color: var(--divider); }
+  .border-subtle { border-color: var(--subtle); }
+  .border-accent { border-color: var(--accent); }
+
+  /* Font Families */
+  .font-display { font-family: 'Playfair Display', serif; }
+  .font-body { font-family: 'Inter', sans-serif; }
+
+  /* Shadow */
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(10, 24, 46, 0.05);
+  }
+
+  /* Input Styles */
+  .input-minimal {
+    border-width: 1px;
+    border-color: var(--divider);
+    transition: all 0.3s ease;
+  }
+  
+  .input-minimal:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+    outline: none;
+  }
+
+  /* Radio Card Styles */
+  .radio-card:checked + div {
+    border-color: var(--accent);
+    background-color: rgba(197, 160, 89, 0.05);
+  }
+  
+  .radio-card:checked + div .radio-indicator {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .radio-card:focus + div {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Button Hover */
+  .btn-outline-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-hover:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  /* Link Hover */
+  .link-hover-gold:hover {
+    color: var(--accent);
+  }
+  
+  .link-hover-gold:hover .icon-hover {
+    transform: translateX(4px);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+</style>
+
+<script>
+  // Tailwind CDN for development
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0a182e",
+            secondary: "#4a4a48",
+            accent: "#C5A059",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121820",
+            divider: "#E5E7EB",
+            subtle: "#F5F5F5",
+          },
+          fontFamily: {
+            display: ["Playfair Display", "serif"],
+            body: ["Inter", "sans-serif"],
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(10, 24, 46, 0.05)',
+          }
+        },
+      },
+    };
+  };
+
+  // Form Progress Tracking
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('applicationForm') as HTMLFormElement;
+    const progressBar = document.getElementById('progressBar') as HTMLElement;
+    const progressText = document.getElementById('progressText') as HTMLElement;
+    
+    if (form) {
+      const requiredFields = form.querySelectorAll('[required], [name]');
+      const totalFields = requiredFields.length;
+      
+      const updateProgress = () => {
+        let filledFields = 0;
+        
+        requiredFields.forEach((field) => {
+          const input = field as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+          
+          if (input.type === 'radio') {
+            const radioGroup = form.querySelectorAll(`[name="${input.name}"]:checked`);
+            if (radioGroup.length > 0) filledFields++;
+          } else if (input.value && input.value.trim() !== '') {
+            filledFields++;
+          }
+        });
+        
+        // Dedupe radio groups
+        const radioNames = new Set<string>();
+        requiredFields.forEach((field) => {
+          const input = field as HTMLInputElement;
+          if (input.type === 'radio') radioNames.add(input.name);
+        });
+        
+        const adjustedTotal = totalFields - (radioNames.size * 3); // Approximate adjustment
+        const percentage = Math.min(Math.round((filledFields / Math.max(adjustedTotal, 1)) * 100), 100);
+        
+        if (progressBar) progressBar.style.width = `${percentage}%`;
+        if (progressText) progressText.textContent = `${percentage}% Completo`;
+      };
+      
+      form.addEventListener('input', updateProgress);
+      form.addEventListener('change', updateProgress);
+      
+      // Form submission
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        console.log('Application data:', data);
+        
+        // Validate required fields
+        const requiredInputs = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredInputs.forEach((input) => {
+          const el = input as HTMLInputElement;
+          if (!el.value || el.value.trim() === '') {
+            isValid = false;
+            el.classList.add('border-red-500');
+          } else {
+            el.classList.remove('border-red-500');
+          }
+        });
+        
+        if (!isValid) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+        
+        // Success - would normally submit to API
+        alert('Aplicação enviada com sucesso! Entraremos em contato em breve.');
+      });
+    }
+  });
+</script>

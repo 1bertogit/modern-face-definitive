@@ -92,27 +92,32 @@ const breadcrumbs = [
         {data.description}
       </p>
 
-      <div class="flex items-center gap-4 text-primary-300 text-sm">
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white">person</span>
-          </div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-primary-300">
+        <div class="flex items-center gap-3">
+          <img
+            src="/images/blog_roberio_autor.jpg"
+            alt={data.author}
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy"
+          />
           <div>
-            <p class="text-white font-medium body-base">{data.author}</p>
-            <p class="text-primary-400 body-small-light">{t.creator}</p>
+            <p class="text-white font-medium text-base leading-tight">{data.author}</p>
+            <p class="text-primary-400 text-sm leading-tight">{t.creator}</p>
           </div>
         </div>
-        <span class="text-primary-600">&bull;</span>
-        <span class="body-small-light">
-          {t.updated}{' '}
-          {
-            data.date.toLocaleDateString('pt-BR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })
-          }
-        </span>
+        <div class="flex items-center gap-2 text-primary-400">
+          <span class="w-1 h-1 rounded-full bg-primary-500"></span>
+          <span class="text-sm">
+            {t.updated}{' '}
+            {
+              data.date.toLocaleDateString('pt-BR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -139,13 +144,13 @@ const breadcrumbs = [
               <div class="border border-gray-200 rounded-xl overflow-hidden">
                 <details class="group">
                   <summary class="flex items-center justify-between p-6 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <h3 class="heading-4 pr-4">{item.question}</h3>
+                    <h3 class="body-base font-medium text-primary-900 pr-4">{item.question}</h3>
                     <span class="material-symbols-outlined text-warmGray group-open:rotate-180 transition-transform flex-shrink-0">
                       expand_more
                     </span>
                   </summary>
                   <div class="p-6 bg-white">
-                    <p class="body-base">{item.answer}</p>
+                    <p class="body-base text-warmGray">{item.answer}</p>
                   </div>
                 </details>
               </div>
