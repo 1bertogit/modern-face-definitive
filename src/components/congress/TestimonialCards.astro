@@ -1,0 +1,74 @@
+---
+interface Testimonial {
+  quote: string;
+  highlight: string;
+  author: string;
+  result: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote:
+      'O curso transformou a forma como eu conduzo as minhas cirurgias. Tanto é que depois eu senti vontade de continuar evoluindo ainda mais.',
+    highlight: 'transformou a forma como eu conduzo as minhas cirurgias',
+    author: 'Dra. Maria Elize Rocha Sanches',
+    result: 'Mais de 20 casos de Endomidface realizados no primeiro ano',
+  },
+  {
+    quote:
+      'A técnica do lifting temporal que aprendi com o Dr. Robério foi fundamental para o sucesso do resultado. Essa paciente está com apenas 8 dias de pós-operatório.',
+    highlight: 'fundamental para o sucesso do resultado',
+    author: 'Dr. Velibor Kostic',
+    result: 'Casos combinados com recuperação acelerada',
+  },
+  {
+    quote:
+      'Primeiro caso utilizando a técnica e a paciente teve recuperação impressionante em 48 horas. Eu tinha receio de começar, mas o método do Dr. Robério é tão sistemático que me senti seguro desde o primeiro caso.',
+    highlight: 'recuperação impressionante em 48 horas',
+    author: 'Dr. Diego Suescun',
+    result: 'Colômbia — Aluno internacional',
+  },
+  {
+    quote:
+      'Resultados visíveis em 72 horas após a cirurgia. Frontoplastia + Browlift + Deep Necklift combinados. Muito orgulhoso de mostrar isso.',
+    highlight: 'Resultados visíveis em 72 horas',
+    author: 'Dr. Merlo',
+    result: 'México — Aluno internacional',
+  },
+];
+
+function highlightText(quote: string, highlight: string): string {
+  return quote.replace(highlight, `<strong class="text-primary-900">${highlight}</strong>`);
+}
+---
+
+<div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+  {testimonials.map((testimonial) => (
+    <article class="bg-white rounded-lg border border-gray-100 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300">
+      <!-- Quote Icon -->
+      <span class="material-symbols-outlined text-accent-500/30 text-4xl mb-4" aria-hidden="true">
+        format_quote
+      </span>
+
+      <!-- Quote Text -->
+      <blockquote class="mb-6">
+        <p
+          class="text-neutral-graphite text-sm sm:text-base leading-relaxed italic"
+          set:html={highlightText(testimonial.quote, testimonial.highlight)}
+        />
+      </blockquote>
+
+      <!-- Author -->
+      <div class="border-t border-gray-100 pt-4">
+        <p class="font-serif text-primary-900 font-medium">{testimonial.author}</p>
+        <p class="text-xs text-accent-600 mt-1">{testimonial.result}</p>
+      </div>
+    </article>
+  ))}
+</div>
+
+<!-- Note -->
+<p class="mt-8 text-center text-sm text-neutral-graphite italic">
+  Esses depoimentos são de alunos que fizeram a formação completa da Face Moderna. No congresso,
+  alguns deles vão subir ao palco (virtual) e mostrar seus casos em detalhes.
+</p>

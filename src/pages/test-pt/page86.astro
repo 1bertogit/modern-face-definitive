@@ -1,0 +1,270 @@
+---
+// Perfil Profissional - Modern Facial Surgery
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-02 20:32
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Perfil Profissional - Modern Facial Surgery" } = Astro.props;
+---
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
+  <header class="w-full bg-surface-light dark:bg-surface-dark border-b border-border-color sticky top-0 z-50">
+<div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3 text-text-main">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-text-main">
+<span class="material-symbols-outlined text-xl">spa</span>
+</div>
+<h1 class="font-serif text-lg font-bold tracking-tight">Modern Facial Surgery</h1>
+</div>
+<div class="flex items-center gap-6">
+<span class="hidden md:block text-sm font-medium text-text-muted">Aplicação em andamento</span>
+<div class="h-8 w-[1px] bg-border-color hidden md:block"></div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-gray-200 overflow-hidden border border-border-color">
+<img alt="Profile picture of the applicant" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLfrcEgCCwy1gQ4_xg57sny3nxBFtFtZNkKDiDBHVjCqk2fa5VSUtTMqzs_l1JOBRhoKlqxtD76QdAAIr5bAsaHzqo0_7NzCc1jty8ao3jdsGzbo9r1CVCsW5mjjI6YPrJljd22SL53KfPK4ZqttU8f3ejuaXbi1G5wKnYvBo4tDwyZMhg26B5Hsw9pA14yBQu0JDbyF3yvq1A-51DCyShyyKTNJyBD6WBcpO-gs1i4MQm1N1QX45Xv3a56SECLhQdBUpVTm9Kqks"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main class="flex-grow flex flex-col items-center py-10 px-4 md:px-6">
+<div class="w-full max-w-[800px] flex flex-col gap-10">
+
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<span class="text-sm font-semibold uppercase tracking-wider text-text-muted">Passo 2 de 5</span>
+<span class="text-sm font-medium text-text-main">40% Completado</span>
+</div>
+<div class="h-1.5 w-full bg-border-color rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[40%] rounded-full"></div>
+</div>
+</div>
+
+<div class="flex flex-col gap-4">
+<h2 class="font-serif text-4xl md:text-5xl font-medium text-text-main leading-tight">
+                    Perfil Profissional
+                </h2>
+<p class="text-lg text-text-muted max-w-2xl font-light">
+                    Por favor, detalhe sua experiência e qualificações cirúrgicas para que possamos entender melhor seu momento de carreira.
+                </p>
+</div>
+
+<form class="flex flex-col gap-10 bg-white dark:bg-surface-dark p-8 md:p-10 rounded-xl shadow-sm border border-border-color/50" onsubmit="event.preventDefault();">
+
+<div class="flex flex-col gap-4">
+<label class="flex flex-col gap-1" for="experience">
+<span class="text-lg font-medium text-text-main">Há quanto tempo você atua como cirurgião?</span>
+<span class="text-sm text-text-muted">Considere apenas o tempo após a conclusão da residência.</span>
+</label>
+<div class="relative max-w-md group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-text-muted group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<input class="w-full pl-12 pr-4 h-14 bg-background-light dark:bg-background-dark border border-border-color rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary text-text-main placeholder-text-muted/50 transition-all font-medium text-lg" id="experience" placeholder="Ex: 8 anos" type="text"/>
+</div>
+</div>
+
+<hr class="border-border-color/50"/>
+
+<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-1">
+<span class="text-lg font-medium text-text-main">Qual sua formação/especialidade principal?</span>
+<span class="text-sm text-text-muted">Selecione a área que melhor descreve sua atuação atual.</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+<label class="relative cursor-pointer group">
+<input class="peer sr-only radio-card-input" name="specialty" type="radio" value="plastica"/>
+<div class="radio-card p-5 h-full rounded-xl border border-border-color bg-background-light/50 hover:bg-background-light hover:border-primary/40 transition-all duration-200 flex items-start gap-4">
+<div class="radio-indicator w-5 h-5 rounded-full border border-gray-400 mt-1 flex-shrink-0 bg-white transition-colors"></div>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-text-main text-base">Cirurgia Plástica</span>
+<span class="text-sm text-text-muted font-light">Especialista pela SBCP</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-text-muted/40 group-hover:text-primary/70">face</span>
+</div>
+</label>
+
+<label class="relative cursor-pointer group">
+<input class="peer sr-only radio-card-input" name="specialty" type="radio" value="otorrino"/>
+<div class="radio-card p-5 h-full rounded-xl border border-border-color bg-background-light/50 hover:bg-background-light hover:border-primary/40 transition-all duration-200 flex items-start gap-4">
+<div class="radio-indicator w-5 h-5 rounded-full border border-gray-400 mt-1 flex-shrink-0 bg-white transition-colors"></div>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-text-main text-base">Otorrinolaringologia</span>
+<span class="text-sm text-text-muted font-light">Especialista pela ABORL-CCF</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-text-muted/40 group-hover:text-primary/70">hearing</span>
+</div>
+</label>
+
+<label class="relative cursor-pointer group">
+<input class="peer sr-only radio-card-input" name="specialty" type="radio" value="buco"/>
+<div class="radio-card p-5 h-full rounded-xl border border-border-color bg-background-light/50 hover:bg-background-light hover:border-primary/40 transition-all duration-200 flex items-start gap-4">
+<div class="radio-indicator w-5 h-5 rounded-full border border-gray-400 mt-1 flex-shrink-0 bg-white transition-colors"></div>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-text-main text-base">Buco-Maxilo-Facial</span>
+<span class="text-sm text-text-muted font-light">Especialista pelo CFO</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-text-muted/40 group-hover:text-primary/70">dentistry</span>
+</div>
+</label>
+
+<label class="relative cursor-pointer group">
+<input class="peer sr-only radio-card-input" name="specialty" type="radio" value="outros"/>
+<div class="radio-card p-5 h-full rounded-xl border border-border-color bg-background-light/50 hover:bg-background-light hover:border-primary/40 transition-all duration-200 flex items-start gap-4">
+<div class="radio-indicator w-5 h-5 rounded-full border border-gray-400 mt-1 flex-shrink-0 bg-white transition-colors"></div>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-text-main text-base">Outra Especialidade</span>
+<span class="text-sm text-text-muted font-light">Descreva no próximo passo</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-text-muted/40 group-hover:text-primary/70">medical_information</span>
+</div>
+</label>
+</div>
+</div>
+</form>
+</div>
+</main>
+
+<footer class="w-full bg-surface-light dark:bg-surface-dark border-t border-border-color py-6 px-6 sticky bottom-0 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="max-w-[800px] mx-auto flex items-center justify-between">
+<button class="group flex items-center justify-center gap-2 h-12 px-8 rounded-lg border border-border-color hover:border-text-main hover:bg-background-light transition-all text-text-main font-medium">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span>Voltar</span>
+</button>
+<button class="group flex items-center justify-center gap-3 h-12 px-8 rounded-lg bg-primary hover:bg-primary/90 text-text-main font-bold shadow-sm hover:shadow-md transition-all">
+<span>Próximo</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --primary: #f2b90d;
+    --background-light: #f8f8f5;
+    --background-dark: #221e10;
+    --surface-light: #ffffff;
+    --surface-dark: #2a261a;
+    --text-main: #1c180d;
+    --text-muted: #9c8749;
+    --border-color: #e8e2ce;
+  }
+/* Custom scrollbar for a cleaner look if needed */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #e8e2ce;
+            border-radius: 4px;
+        }
+        
+        /* Radio card styling logic */
+        .radio-card-input:checked + .radio-card {
+            border-color: #f2b90d;
+            background-color: #fcfbf8; /* Slight tint */
+            box-shadow: 0 4px 6px -1px rgba(242, 185, 13, 0.1), 0 2px 4px -1px rgba(242, 185, 13, 0.06);
+        }
+        .radio-card-input:checked + .radio-card .radio-indicator {
+            background-color: #f2b90d;
+            border-color: #f2b90d;
+        }
+        .radio-card-input:checked + .radio-card .radio-indicator::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: #1c180d;
+            border-radius: 50%;
+            margin: 3px;
+        }
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2a261a",
+                        "text-main": "#1c180d",
+                        "text-muted": "#9c8749",
+                        "border-color": "#e8e2ce",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+  };
+</script>

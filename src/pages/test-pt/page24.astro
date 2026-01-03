@@ -1,0 +1,355 @@
+---
+// Glossário: Visão Direta - Dr. Robério Brandão
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-03 00:27
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Glossário: Visão Direta - Dr. Robério Brandão" } = Astro.props;
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111417] dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden antialiased selection:bg-primary/20 selection:text-primary">
+  <header class="sticky top-0 z-50 w-full bg-white dark:bg-[#1a222d] border-b border-[#f0f2f4] dark:border-[#2a3441]">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-4 text-[#111417] dark:text-white group" href="#">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Dr. Robério Brandão</h2>
+</a>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-[#111417] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-[#111417] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-[#111417] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Face Moderna®</a>
+<a class="text-[#111417] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Endomidface</a>
+<a class="text-primary text-sm font-bold" href="#">Glossary</a>
+<a class="text-[#111417] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-6 items-center">
+<div class="relative w-full max-w-[240px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#647287]">search</span>
+<input class="w-full h-10 rounded-lg bg-[#f0f2f4] dark:bg-[#2a3441] border-none pl-10 pr-4 text-sm text-[#111417] dark:text-white placeholder:text-[#647287] focus:ring-2 focus:ring-primary/20" placeholder="Search glossary..." type="text"/>
+</div>
+<button class="h-10 px-5 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold rounded-lg flex items-center justify-center whitespace-nowrap">
+                    Schedule Consultation
+                </button>
+</div>
+<button class="lg:hidden p-2 text-[#111417] dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-10 py-6 md:py-10">
+
+<div class="mb-8 flex flex-wrap items-center gap-2 text-sm md:text-base">
+<a class="text-[#647287] dark:text-gray-400 font-medium hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-[#647287] dark:text-gray-500">/</span>
+<a class="text-[#647287] dark:text-gray-400 font-medium hover:text-primary transition-colors" href="#">Glossary</a>
+<span class="text-[#647287] dark:text-gray-500">/</span>
+<span class="text-[#111417] dark:text-white font-medium">Visão Direta</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+<aside class="hidden lg:block lg:col-span-3">
+<div class="sticky top-28 space-y-8">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-wider text-[#647287] dark:text-gray-400 mb-4">Contents</h3>
+<nav class="flex flex-col gap-1 border-l-2 border-[#f0f2f4] dark:border-[#2a3441]">
+<a class="pl-4 py-2 text-sm font-bold text-primary border-l-2 border-primary -ml-0.5 bg-primary/5 rounded-r-lg" href="#definition">Definition</a>
+<a class="pl-4 py-2 text-sm font-medium text-[#647287] dark:text-gray-400 hover:text-[#111417] dark:hover:text-white transition-colors" href="#clinical-benefits">Clinical Benefits</a>
+<a class="pl-4 py-2 text-sm font-medium text-[#647287] dark:text-gray-400 hover:text-[#111417] dark:hover:text-white transition-colors" href="#visual-precision">Visual Precision</a>
+<a class="pl-4 py-2 text-sm font-medium text-[#647287] dark:text-gray-400 hover:text-[#111417] dark:hover:text-white transition-colors" href="#face-moderna">Face Moderna® Context</a>
+<a class="pl-4 py-2 text-sm font-medium text-[#647287] dark:text-gray-400 hover:text-[#111417] dark:hover:text-white transition-colors" href="#related">Related Terms</a>
+</nav>
+</div>
+
+<div class="bg-white dark:bg-[#1a222d] p-5 rounded-xl border border-[#f0f2f4] dark:border-[#2a3441] shadow-sm">
+<div class="size-10 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<h4 class="font-bold text-[#111417] dark:text-white mb-1">Interested in Face Moderna®?</h4>
+<p class="text-xs text-[#647287] dark:text-gray-400 mb-4">Schedule a personalized assessment with Dr. Robério Brandão.</p>
+<button class="w-full py-2.5 px-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-bold text-xs rounded-lg transition-all">
+                            Book Appointment
+                        </button>
+</div>
+</div>
+</aside>
+
+<article class="lg:col-span-9 max-w-4xl">
+
+<div class="mb-10 border-b border-[#f0f2f4] dark:border-[#2a3441] pb-10" id="definition">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Surgical Principle</span>
+<span class="bg-[#f0f2f4] dark:bg-[#2a3441] text-[#647287] dark:text-gray-400 px-2.5 py-1 rounded-full text-xs font-medium">Technique</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-black text-[#111417] dark:text-white tracking-tight mb-6">Visão Direta</h1>
+<p class="text-xl md:text-2xl leading-relaxed text-[#647287] dark:text-gray-300 font-light">
+                        The foundational principle of safety and precision in the Face Moderna® methodology, utilizing endoscopic assistance to perform dissection under complete visual control.
+                    </p>
+</div>
+
+<div class="prose prose-lg dark:prose-invert max-w-none mb-12">
+<p class="text-base text-[#111417] dark:text-gray-200 leading-7">
+<strong>Direct Vision (Visão Direta)</strong> refers to the surgical technique where all dissection is performed under direct visual control, typically assisted by high-definition endoscopy. Unlike traditional "blind" techniques, where instruments are passed through tissues based on tactile feedback alone, this approach allows the surgeon to clearly identify and preserve vital anatomical structures such as nerves, vessels, and retaining ligaments.
+                    </p>
+<p class="text-base text-[#111417] dark:text-gray-200 leading-7 mt-4">
+                        This method is the cornerstone of the <a class="text-primary font-bold hover:underline" href="#">Endomidface</a> procedure, ensuring unparalleled safety and precision during the repositioning of facial tissues.
+                    </p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" id="visual-precision">
+<div class="group cursor-pointer">
+<div class="w-full aspect-video bg-gray-100 dark:bg-[#2a3441] rounded-xl overflow-hidden mb-4 relative border border-[#f0f2f4] dark:border-[#2a3441]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Surgeon looking through microscope during delicate procedure" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxNxrAHmxbBh5mK4HXIKruw5WOH3MZ1ayTAXsLUspTjZPWLDLhbGY6POvSMgSrUMsChWUsrAQGqPBc86OnWk0fajCNCYM4V_qG57qY04Yb9ZR8fhadsE1zXO6wdNB_ddufIsCAyOFQzz3GFxgCvD0T7MoxZ1Z5vSQOFUC33fxV8XwpUlL1gjDIWXR1gVBIQjBlRlUmDmd24H9X93K-X-_b_PbgyDvEsc4WzhRoEOEjTjhPgy4Qlzi2p2a8MfBcSg0bXwjMK2d3kMst');"></div>
+<div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-white text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span> View Diagram
+                             </div>
+</div>
+<h4 class="text-lg font-bold text-[#111417] dark:text-white mb-1">Surgical Visualization</h4>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-normal">
+                            Comparison of endoscopic view vs. traditional blind view, highlighting the clarity of tissue layers.
+                        </p>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full aspect-video bg-gray-100 dark:bg-[#2a3441] rounded-xl overflow-hidden mb-4 relative border border-[#f0f2f4] dark:border-[#2a3441]">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Anatomical illustration showing facial nerves and muscles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEiAXx9vM50XWSs7i1YvC6YWiMwxJvBWRU1WYw2hgLEw8Wk--ZqpgCmPJ3_0OeiwhrViZWfOxmafhqpHR72jUqPTOOQlOi9NCc9k40pSDFfr-HcvRhtU1KtiwZinU4g-RbX_IrG38O8vwsKf1OKmiPmlux7CDsHJb4UBRiEJ0WjL93hibzHYNOAIDtRW0MuaGuJ4K5RBMysT1BLcixWH-JESPBxIGE5FwheCg-Bqn6AIffZbDhqmHZbCywLXwtxxelCbzfWRUiCKzd');"></div>
+<div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-white text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span> View Anatomy
+                             </div>
+</div>
+<h4 class="text-lg font-bold text-[#111417] dark:text-white mb-1">Anatomical Precision</h4>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-normal">
+                            Detailed schematic of nerve preservation zones made visible only through direct visualization techniques.
+                        </p>
+</div>
+</div>
+
+<div class="bg-white dark:bg-[#1a222d] rounded-2xl p-8 border border-[#f0f2f4] dark:border-[#2a3441] shadow-sm mb-16" id="clinical-benefits">
+<h3 class="text-2xl font-bold text-[#111417] dark:text-white mb-8">Why Direct Vision Matters</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h5 class="font-bold text-[#111417] dark:text-white text-lg mb-2">Enhanced Safety</h5>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-relaxed">
+                                    By seeing exactly what is being cut or released, the risk of injury to the facial nerve (CN VII) and major blood vessels is dramatically reduced compared to blind dissection.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+</div>
+<div>
+<h5 class="font-bold text-[#111417] dark:text-white text-lg mb-2">Surgical Precision</h5>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-relaxed">
+                                    Allows for the complete and accurate release of retaining ligaments, which is essential for effective and natural-looking tissue repositioning.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">healing</span>
+</div>
+<div>
+<h5 class="font-bold text-[#111417] dark:text-white text-lg mb-2">Reduced Trauma</h5>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-relaxed">
+                                    Precise cauterization of small vessels under direct vision leads to less bruising (hematoma) and swelling, contributing to a faster recovery period.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-10 shrink-0 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h5 class="font-bold text-[#111417] dark:text-white text-lg mb-2">Predictability</h5>
+<p class="text-sm text-[#647287] dark:text-gray-400 leading-relaxed">
+                                    Visual confirmation of tissue release ensures the surgeon can predict the lift vector more accurately, leading to consistent outcomes.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 p-6 md:p-8 mb-16">
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center relative z-10">
+<div class="size-12 rounded-full bg-white dark:bg-[#1a222d] text-primary shadow-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px]">lightbulb</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-[#111417] dark:text-white mb-2">Did You Know?</h4>
+<p class="text-[#111417] dark:text-gray-200 leading-relaxed">
+                                The concept of "Direct Vision" in midface surgery was popularized to solve the limitations of earlier techniques where the surgeon relied on "feel" to avoid nerves. Dr. Brandão's Face Moderna® protocol standardizes this approach for every case.
+                            </p>
+</div>
+</div>
+
+<span class="material-symbols-outlined absolute -right-4 -bottom-8 text-[180px] text-primary/5 select-none pointer-events-none">visibility</span>
+</div>
+
+<div class="mb-16" id="face-moderna">
+<h3 class="text-2xl font-bold text-[#111417] dark:text-white mb-4">Application in Face Moderna®</h3>
+<p class="text-base text-[#647287] dark:text-gray-300 leading-7 mb-6">
+                        In the Face Moderna® methodology, Direct Vision is not just an add-on; it is the standard of care. By utilizing advanced endoscopic equipment, Dr. Robério Brandão creates an optical cavity that allows for the safe dissection of the "Endomidface". This ensures that the deep plane lift is executed without compromising the facial nerve branches that animate facial expression.
+                    </p>
+</div>
+
+<div class="border-t border-[#f0f2f4] dark:border-[#2a3441] pt-10" id="related">
+<h3 class="text-xl font-bold text-[#111417] dark:text-white mb-6">Related Terms</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<a class="group flex flex-col p-4 rounded-xl border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-[#1a222d] hover:border-primary/50 hover:shadow-md transition-all" href="#">
+<div class="flex items-center justify-between mb-3">
+<span class="material-symbols-outlined text-primary">face</span>
+<span class="material-symbols-outlined text-[#647287] group-hover:translate-x-1 transition-transform text-sm">arrow_forward</span>
+</div>
+<span class="text-sm font-bold text-[#111417] dark:text-white mb-1 group-hover:text-primary transition-colors">Endomidface</span>
+<span class="text-xs text-[#647287] dark:text-gray-400">The specific endoscopic midface lift technique.</span>
+</a>
+<a class="group flex flex-col p-4 rounded-xl border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-[#1a222d] hover:border-primary/50 hover:shadow-md transition-all" href="#">
+<div class="flex items-center justify-between mb-3">
+<span class="material-symbols-outlined text-primary">masks</span>
+<span class="material-symbols-outlined text-[#647287] group-hover:translate-x-1 transition-transform text-sm">arrow_forward</span>
+</div>
+<span class="text-sm font-bold text-[#111417] dark:text-white mb-1 group-hover:text-primary transition-colors">Face Moderna®</span>
+<span class="text-xs text-[#647287] dark:text-gray-400">Dr. Brandão's comprehensive philosophy.</span>
+</a>
+<a class="group flex flex-col p-4 rounded-xl border border-[#f0f2f4] dark:border-[#2a3441] bg-white dark:bg-[#1a222d] hover:border-primary/50 hover:shadow-md transition-all" href="#">
+<div class="flex items-center justify-between mb-3">
+<span class="material-symbols-outlined text-primary">share</span>
+<span class="material-symbols-outlined text-[#647287] group-hover:translate-x-1 transition-transform text-sm">arrow_forward</span>
+</div>
+<span class="text-sm font-bold text-[#111417] dark:text-white mb-1 group-hover:text-primary transition-colors">Retaining Ligaments</span>
+<span class="text-xs text-[#647287] dark:text-gray-400">Structures released during the procedure.</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</main>
+
+<footer class="bg-white dark:bg-[#1a222d] border-t border-[#f0f2f4] dark:border-[#2a3441] py-12 mt-12">
+<div class="max-w-[1440px] mx-auto px-4 md:px-10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-sm font-bold text-[#111417] dark:text-white">Dr. Robério Brandão</span>
+</div>
+<div class="flex gap-6">
+<a class="text-sm text-[#647287] dark:text-gray-400 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-[#647287] dark:text-gray-400 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<span class="text-sm text-[#647287] dark:text-gray-400">© 2024 Face Moderna. All rights reserved.</span>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --primary: #1d64c9;
+    --background-light: #f6f7f8;
+    --background-dark: #111821;
+  }
+/* Custom scrollbar for better reading experience in sidebar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1d64c9",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+  };
+</script>

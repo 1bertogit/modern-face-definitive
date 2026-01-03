@@ -1,0 +1,67 @@
+---
+interface Profile {
+  icon: string;
+  title: string;
+  description: string;
+  connection: string;
+}
+
+const profiles: Profile[] = [
+  {
+    icon: 'target',
+    title: 'Quer começar a operar plano profundo, mas tem receio',
+    description:
+      'Você sabe que precisa evoluir tecnicamente. Sabe que lifting superficial tem limitações. Mas a ideia de dissecar próximo ao nervo facial te deixa desconfortável — especialmente em pacientes injetados.',
+    connection: 'Você vai ver colegas que tinham o mesmo receio e como superaram.',
+  },
+  {
+    icon: 'biotech',
+    title: 'Já opera faces, mas evita pacientes com bioestimuladores',
+    description:
+      '90% das faces que chegam no seu consultório têm algum preenchedor ou bioestimulador. Você sabe que a anatomia está alterada, mas não sabe exatamente como navegar isso com segurança.',
+    connection: 'Você vai entender a rota cirúrgica que contorna a zona de fibrose.',
+  },
+  {
+    icon: 'trending_up',
+    title: 'Quer ver a curva de aprendizado real — não a versão editada',
+    description:
+      'Quantos casos até se sentir confortável? Quais os erros mais comuns no início? O que fazer quando algo não sai como planejado?',
+    connection: 'Você vai ouvir respostas honestas de quem acabou de passar por isso.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'Está curioso sobre a Face Moderna, mas não quer investir R$ 15.000 para descobrir se é para você',
+    description:
+      'Você ouviu falar do Endomidface, do Deep Neck sem remoção da glândula, da filosofia da Face Moderna. Quer entender do que se trata antes de investir em uma formação completa.',
+    connection: 'Esse congresso é a porta de entrada perfeita.',
+  },
+  {
+    icon: 'schedule',
+    title: 'Não tem 4 dias para viajar a um congresso presencial',
+    description:
+      'Passagem, hotel, alimentação, dias fora da clínica. Congressos presenciais custam tempo e dinheiro. Você prefere algo que caiba na sua agenda.',
+    connection: '2 dias, do conforto da sua casa, com replay disponível.',
+  },
+];
+---
+
+<div class="space-y-6 sm:space-y-8">
+  {profiles.map((profile) => (
+    <article class="bg-white rounded-lg border border-gray-100 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300">
+      <div class="flex items-start gap-4 sm:gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-accent-500/10 rounded-lg flex items-center justify-center">
+          <span class="material-symbols-outlined text-accent-600 text-2xl" aria-hidden="true">
+            {profile.icon}
+          </span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-serif text-lg sm:text-xl text-primary-900 mb-3">{profile.title}</h3>
+          <p class="text-neutral-graphite text-sm sm:text-base leading-relaxed mb-4">
+            {profile.description}
+          </p>
+          <p class="text-accent-600 text-sm sm:text-base italic">{profile.connection}</p>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>

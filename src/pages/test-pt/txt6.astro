@@ -1,0 +1,322 @@
+---
+// Detalhes da Aplicação - Admin Panel
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-02 20:32
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Detalhes da Aplicação - Admin Panel" } = Astro.props;
+---
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-white text-navy min-h-screen flex flex-col">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-soft px-6 py-5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-navy/70 hover:text-navy transition-colors text-sm font-medium group">
+<span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span>Voltar</span>
+</button>
+<div class="h-6 w-px bg-soft"></div>
+<h1 class="font-serif text-2xl font-bold text-navy">Detalhes da Aplicação de Dr. Lucas Ferraz</h1>
+</div>
+<button class="flex items-center gap-2 px-5 py-2 border border-navy/20 rounded-lg hover:border-navy hover:bg-navy hover:text-white transition-all text-sm font-medium text-navy bg-transparent">
+<span class="material-symbols-outlined text-lg">edit</span>
+<span>Editar</span>
+</button>
+</header>
+<main class="flex-1 max-w-[1400px] w-full mx-auto p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 space-y-8">
+<section class="bg-white rounded-xl border border-soft p-8 shadow-subtle">
+<div class="flex items-center gap-3 mb-6 border-b border-soft pb-4">
+<span class="material-symbols-outlined text-gold">person</span>
+<h2 class="font-serif text-lg font-semibold tracking-wide">Dados de Contato</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-6">
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Nome Completo</p>
+<p class="text-base text-navy font-medium">Lucas Almeida Ferraz</p>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Email Profissional</p>
+<a class="text-base text-navy font-medium border-b border-transparent hover:border-gold hover:text-gold transition-colors" href="#">dr.lucasferraz@clinica.com</a>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">WhatsApp</p>
+<div class="flex items-center gap-2">
+<p class="text-base text-navy font-medium">(11) 99876-5432</p>
+<span class="material-symbols-outlined text-green-600 text-sm cursor-pointer" title="Abrir WhatsApp">chat</span>
+</div>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Localização</p>
+<div class="flex items-center gap-1 text-navy font-medium">
+<span class="material-symbols-outlined text-base text-navy/40">location_on</span>
+<p>Jardins, São Paulo - SP</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-3 mb-4 px-2">
+<span class="material-symbols-outlined text-gold">medical_services</span>
+<h2 class="font-serif text-lg font-semibold tracking-wide">Perfil Profissional</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white border border-soft rounded-lg p-5 shadow-sm hover:border-gold/30 transition-colors">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Tempo de Carreira</p>
+<p class="font-serif text-xl font-medium text-navy">12 Anos</p>
+</div>
+<div class="bg-white border border-soft rounded-lg p-5 shadow-sm hover:border-gold/30 transition-colors">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Especialidade</p>
+<p class="font-serif text-xl font-medium text-navy">Bucomaxilo</p>
+</div>
+<div class="bg-white border border-soft rounded-lg p-5 shadow-sm hover:border-gold/30 transition-colors">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Exp. em Lifting</p>
+<p class="font-serif text-xl font-medium text-navy">Intermediário</p>
+</div>
+<div class="bg-white border border-soft rounded-lg p-5 shadow-sm hover:border-gold/30 transition-colors">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Volume Mensal</p>
+<p class="font-serif text-xl font-medium text-navy">15-20</p>
+</div>
+</div>
+</section>
+<section class="bg-white rounded-xl border border-soft p-8 shadow-subtle space-y-8">
+<div class="flex items-center gap-3 border-b border-soft pb-4 mb-2">
+<span class="material-symbols-outlined text-gold">psychology</span>
+<h2 class="font-serif text-lg font-semibold tracking-wide">Motivação e Perfil</h2>
+</div>
+<div class="bg-soft/30 p-6 rounded-lg border border-soft/50">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Motivação Principal</p>
+<p class="text-lg font-serif italic text-navy/90 leading-relaxed">"Busco refinar minhas técnicas de lifting facial para oferecer resultados mais naturais e duradouros aos meus pacientes, além de aumentar o ticket médio da clínica com procedimentos de alto valor."</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Maior Receio</p>
+<p class="text-base text-navy/80 leading-relaxed">Ter complicações pós-operatórias em nervos faciais e não saber manejar adequadamente.</p>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Expectativa de Resultado</p>
+<p class="text-base text-navy/80 leading-relaxed">Dominar a técnica Deep Plane com segurança em até 6 meses.</p>
+</div>
+</div>
+</section>
+<section class="bg-white rounded-xl border border-soft p-8 shadow-subtle">
+<div class="flex items-center gap-3 border-b border-soft pb-4 mb-6">
+<span class="material-symbols-outlined text-gold">check_circle</span>
+<h2 class="font-serif text-lg font-semibold tracking-wide">Decisão de Compra</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-6 justify-between items-start md:items-center bg-navy/5 p-6 rounded-lg border border-navy/10">
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Programa de Interesse</p>
+<p class="font-serif text-xl font-bold text-gold">Modern Facial Surgery Advanced Training</p>
+</div>
+<div class="flex gap-4">
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Prazo de Decisão</p>
+<span class="inline-flex items-center gap-1.5 bg-red-50 text-red-800 px-3 py-1.5 rounded-full text-xs font-bold border border-red-100 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+                                URGENTE (48h)
+                            </span>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Como Conheceu</p>
+<p class="text-base text-navy">Indicação de ex-aluno (Dr. Roberto Martins)</p>
+</div>
+</section>
+<section class="bg-white rounded-xl border border-soft p-8 shadow-subtle">
+<div class="flex items-center gap-3 border-b border-soft pb-4 mb-6">
+<span class="material-symbols-outlined text-gold">calendar_today</span>
+<h2 class="font-serif text-lg font-semibold tracking-wide">Preferências de Contato</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Melhor Horário</p>
+<p class="text-base text-navy font-medium">Noite (após 19h)</p>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Canal Preferido</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-navy/70 text-lg">call</span>
+<p class="text-base text-navy font-medium">Ligação Telefônica</p>
+</div>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-semibold">Observações</p>
+<p class="text-sm text-navy/70 italic bg-soft p-3 rounded">"Ligar apenas no celular pessoal, a secretária não sabe do interesse."</p>
+</div>
+</div>
+</section>
+</div>
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-white border border-soft rounded-xl p-6 shadow-xl shadow-gray-100/50 sticky top-28">
+<div class="flex justify-between items-center mb-6 border-b border-soft pb-4">
+<h3 class="font-serif text-lg font-bold text-navy">Status da Lead</h3>
+<span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-100 flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        QUALIFICADO
+                    </span>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between items-end mb-2">
+<p class="text-xs text-navy/50 uppercase tracking-wider font-semibold">Score de Qualificação</p>
+<span class="text-gold font-bold text-sm">85/100</span>
+</div>
+<div class="w-full bg-soft rounded-full h-2">
+<div class="bg-gradient-to-r from-gold-light to-gold h-2 rounded-full shadow-[0_0_10px_rgba(197,160,89,0.3)]" style="width: 85%"></div>
+</div>
+<div class="mt-2 text-right">
+<span class="text-[10px] font-bold tracking-widest text-navy bg-navy/5 px-2 py-0.5 rounded">LEAD_QUENTE</span>
+</div>
+</div>
+<div class="p-5 bg-navy/5 rounded-lg border border-navy/5">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-gold text-lg">stars</span>
+<p class="text-xs text-navy/60 uppercase tracking-wider font-bold">Recomendação</p>
+</div>
+<p class="font-serif text-lg font-bold text-navy">Mentoria Black</p>
+<p class="text-xs text-navy/60 mt-2 leading-snug">Baseado no perfil ambicioso, volume cirúrgico atual e interesse em High Ticket.</p>
+</div>
+<div>
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-3 font-semibold">Tags</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 bg-white border border-soft rounded-md text-[11px] font-bold text-navy/70 tracking-wide shadow-sm">PERFIL_AMBICIOSO</span>
+<span class="px-2.5 py-1 bg-white border border-soft rounded-md text-[11px] font-bold text-navy/70 tracking-wide shadow-sm">ALTO_TICKET</span>
+<span class="px-2.5 py-1 bg-white border border-soft rounded-md text-[11px] font-bold text-navy/70 tracking-wide shadow-sm">INDICAÇÃO</span>
+</div>
+</div>
+<div class="pt-4 border-t border-soft flex justify-between items-center text-xs text-navy/40">
+<span>Submetido em:</span>
+<span class="font-mono">14/10/2023 - 10:42</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-soft flex flex-col gap-3">
+<p class="text-xs text-navy/50 uppercase tracking-wider mb-2 font-bold">Ações Rápidas</p>
+<button class="w-full py-3 px-4 border border-navy text-navy bg-white rounded hover:bg-navy hover:text-white transition-all duration-300 flex items-center justify-center gap-3 group shadow-sm">
+<span class="material-symbols-outlined text-xl">check</span>
+<span class="font-medium text-sm tracking-wide">Marcar Contato Realizado</span>
+</button>
+<button class="w-full py-3 px-4 border border-navy/20 text-navy bg-white rounded hover:border-gold hover:text-gold transition-all duration-300 flex items-center justify-center gap-3 group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">mail</span>
+<span class="font-medium text-sm tracking-wide">Enviar Email Qualificação</span>
+</button>
+<button class="w-full py-3 px-4 border border-navy/20 text-navy bg-white rounded hover:border-gold hover:text-gold transition-all duration-300 flex items-center justify-center gap-3 group">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">calendar_add_on</span>
+<span class="font-medium text-sm tracking-wide">Agendar Entrevista</span>
+</button>
+<button class="w-full py-3 px-4 border border-navy/20 text-navy bg-white rounded hover:border-gold hover:text-gold transition-all duration-300 flex items-center justify-center gap-3 group mt-2">
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">move_up</span>
+<span class="font-medium text-sm tracking-wide">Mover para CRM</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-soft py-6 px-10 text-center">
+<p class="text-xs text-navy/30">Painel Administrativo - Face Moderna® © 2024</p>
+</footer>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --navy-light: #172a46;
+    --gold-light: #e3cca0;
+  }
+body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: "#0A192F",
+                        "navy-light": "#172a46",
+                        gold: "#C5A059",
+                        "gold-light": "#e3cca0",
+                        white: "#FFFFFF",
+                        soft: "#F5F5F5",
+                        border: "#E5E5E5",},
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+  };
+</script>

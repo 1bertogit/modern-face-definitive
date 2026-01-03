@@ -1,0 +1,73 @@
+---
+interface Stat {
+  number: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  { number: '1.500+', label: 'Cirurgias faciais realizadas' },
+  { number: '212', label: 'Casos documentados consecutivos' },
+  { number: '0', label: 'Lesões nervosas permanentes' },
+  { number: '130+', label: 'Alunos formados' },
+];
+---
+
+<div class="max-w-4xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">Dr. Robério Brandão</h2>
+    <p class="text-accent-600 italic">
+      Criador da Face Moderna® e do método Endomidface por Visão Direta
+    </p>
+  </div>
+
+  <div class="prose prose-lg max-w-none text-neutral-graphite leading-relaxed mb-12">
+    <p>
+      Cirurgião plástico com quase <strong class="text-primary-900">20 anos dedicados exclusivamente</strong>
+      à cirurgia facial.
+    </p>
+
+    <p>
+      Enquanto a maioria dos cirurgiões dividem sua prática entre corpo e face, Dr. Robério escolheu
+      se especializar em uma única coisa: tornar a cirurgia facial profunda mais segura e acessível.
+    </p>
+
+    <p>
+      Desenvolveu o conceito <strong class="text-primary-900">"Vídeo Sem Vídeo"</strong> — uma técnica
+      que permite operar o plano profundo com visão direta, sem depender de torres endoscópicas de
+      R$ 150.000.
+    </p>
+
+    <p>
+      Criou uma rota cirúrgica que <strong class="text-primary-900">contorna a zona de fibrose</strong>
+      presente em 90% das faces injetadas com bioestimuladores — o problema que todo cirurgião
+      enfrenta hoje, mas poucos sabem como resolver.
+    </p>
+
+    <p>
+      Sua obsessão por segurança resultou em um protocolo com
+      <strong class="text-primary-900">taxa ZERO de lesões nervosas permanentes</strong> em 212 casos
+      documentados consecutivos.
+    </p>
+
+    <p>Já formou mais de 130 cirurgiões plásticos no Brasil e no exterior.</p>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+    {stats.map((stat) => (
+      <div class="text-center p-4 sm:p-6 bg-accent-500/5 rounded-lg">
+        <p class="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">{stat.number}</p>
+        <p class="text-xs sm:text-sm text-neutral-graphite uppercase tracking-wider">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+</style>
