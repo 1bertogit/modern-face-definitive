@@ -14,6 +14,8 @@
     "check-links": "node scripts/check-internal-links.mjs",
     "check-links:strict": "node scripts/check-internal-links.mjs",
     "check-links:pt": "node scripts/check-internal-links.mjs --ignore-translations",
+    "check-links:external": "node scripts/check-external-links.mjs --sample=50",
+    "check-links:external-all": "node scripts/check-external-links.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest",

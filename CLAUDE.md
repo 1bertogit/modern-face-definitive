@@ -27,9 +27,11 @@ npm run test:run     # Vitest single run
 npm run test:coverage # Vitest with coverage
 
 # Build with link validation
-npm run build:check       # Build + validate internal links (PT only)
-npm run check-links:pt    # Validate existing build (PT only, recommended)
-npm run check-links:strict # Validate all locales (EN/PT/ES)
+npm run build:check           # Build + validate internal links (PT only)
+npm run check-links:pt        # Validate existing build (PT only, recommended)
+npm run check-links:strict    # Validate all locales (EN/PT/ES)
+npm run check-links:external  # Check 50 sample external links (optional)
+npm run check-links:external-all # Check all external links (slow, optional)
 ```
 
 ## Architecture
