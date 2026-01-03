@@ -1,0 +1,393 @@
+---
+// Glossário: Platismorrafia - Dr. Robério Brandão
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-03 00:27
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Glossário: Platismorrafia - Dr. Robério Brandão" } = Astro.props;
+---
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-gray-100 antialiased min-h-screen flex flex-col">
+  <header class="bg-white dark:bg-[#1a202c] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-3">
+<div class="flex items-center justify-between gap-4">
+
+<div class="flex items-center gap-4 text-[#111418] dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight hidden sm:block">Dr. Robério Brandão</h2>
+</div>
+
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Sobre</a>
+<a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Face Moderna®</a>
+<a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Endomidface</a>
+<a class="text-primary text-sm font-bold hover:text-primary transition-colors" href="#">Glossário</a>
+<a class="text-[#111418] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+
+<div class="flex items-center justify-end gap-4">
+<label class="hidden md:flex flex-col min-w-40 h-10 w-64">
+<div class="flex w-full items-stretch rounded-lg h-full bg-[#f0f2f4] dark:bg-gray-800">
+<div class="text-[#617289] flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-sm text-[#111418] dark:text-white placeholder-[#617289] focus:ring-0 px-0" placeholder="Buscar no glossário..."/>
+</div>
+</label>
+<button class="hidden sm:flex h-10 px-5 bg-primary hover:bg-blue-600 transition-colors text-white text-sm font-bold rounded-lg items-center justify-center">
+<span>Agendar Consulta</span>
+</button>
+
+<button class="lg:hidden p-2 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+
+<main class="flex-grow">
+<div class="layout-container flex flex-col items-center py-6 sm:py-10">
+<div class="w-full max-w-[1280px] px-4 lg:px-10 flex flex-col gap-8">
+
+<nav class="flex flex-wrap gap-2 text-sm text-[#617289] dark:text-gray-400">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="#">Glossário</a>
+<span>/</span>
+<span class="text-[#111418] dark:text-white font-medium">Platismorrafia</span>
+</nav>
+
+<div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-10 items-start">
+
+<article class="flex flex-col gap-10">
+
+<div class="flex flex-col gap-4 border-b border-[#f0f2f4] dark:border-gray-800 pb-8">
+<h1 class="text-[#111418] dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+                                Platismorrafia
+                            </h1>
+<p class="text-[#617289] dark:text-gray-300 text-xl font-normal leading-relaxed max-w-2xl">
+                                A técnica cirúrgica essencial para restaurar o ângulo cervical e definir o contorno do pescoço através da sutura muscular na linha média.
+                            </p>
+
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-300 text-xs font-bold rounded-full uppercase tracking-wider">Cervicoplastia</span>
+<span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-bold rounded-full uppercase tracking-wider">Técnica Cirúrgica</span>
+</div>
+</div>
+
+<section>
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+                                Definição
+                            </h2>
+<p class="text-[#111418] dark:text-gray-200 text-base leading-relaxed mb-6">
+                                A Platismorrafia é um procedimento cirúrgico que consiste na aproximação e sutura das bordas do <strong>músculo platisma</strong> na região anterior do pescoço. Este procedimento é fundamental para corrigir a diástase muscular (separação) que forma as famosas "bandas platismais" e restaurar um ângulo cervical jovem e definido, eliminando o aspecto de "pescoço de peru" ou flacidez central.
+                            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex gap-4 rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
+<div class="text-primary bg-primary/10 rounded-lg p-2 h-fit">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111418] dark:text-white text-base font-bold">Correção Muscular</h3>
+<p class="text-[#617289] dark:text-gray-400 text-sm">Une as bordas do músculo platisma, criando uma "cinta" interna de sustentação.</p>
+</div>
+</div>
+<div class="flex gap-4 rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
+<div class="text-primary bg-primary/10 rounded-lg p-2 h-fit">
+<span class="material-symbols-outlined">face_3</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#111418] dark:text-white text-base font-bold">Rejuvenescimento</h3>
+<p class="text-[#617289] dark:text-gray-400 text-sm">Melhora significativa do contorno da mandíbula e eliminação da papada.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">image</span>
+                                Anatomia e Técnica
+                            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full bg-gray-200 dark:bg-gray-700 aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm hover:shadow-md transition-shadow">
+
+<div class="absolute inset-0 bg-gradient-to-tr from-red-100 to-pink-50 dark:from-red-900/20 dark:to-gray-800 flex items-center justify-center" data-alt="Illustration of neck muscle anatomy showing separated platysma bands before surgery">
+<span class="material-symbols-outlined text-4xl text-red-300 dark:text-red-900">accessibility_new</span>
+</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold">Anatomia Pré-Operatória</p>
+<p class="text-[#617289] dark:text-gray-400 text-sm">Ilustração das bandas platismais relaxadas.</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full bg-gray-200 dark:bg-gray-700 aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-50 dark:from-blue-900/20 dark:to-gray-800 flex items-center justify-center" data-alt="Diagram of surgical sutures uniting the platysma muscle in the midline of the neck">
+<span class="material-symbols-outlined text-4xl text-blue-300 dark:text-blue-900">healing</span>
+</div>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-base font-bold">Técnica de Sutura</p>
+<p class="text-[#617289] dark:text-gray-400 text-sm">Demonstração da união muscular na linha média.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="space-y-6">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">architecture</span>
+                                O Papel na Face Moderna®
+                            </h2>
+<div class="prose prose-blue dark:prose-invert max-w-none text-[#111418] dark:text-gray-200 leading-relaxed">
+<p>
+                                    No protocolo <strong>Face Moderna®</strong>, a platismorrafia raramente é realizada isoladamente. Ela é frequentemente associada a procedimentos de <a class="text-primary font-medium hover:underline" href="#">Deep Neck</a> (cirurgia profunda do pescoço), onde estruturas abaixo do músculo platisma (como gordura subplatismal, glândulas submandibulares e músculos digástricos) também são tratadas.
+                                </p>
+<p class="mt-4">
+                                    Ao suturar o platisma após o tratamento das estruturas profundas, o Dr. Robério Brandão cria uma "rede" de contenção que define o ângulo entre o pescoço e o queixo, proporcionando um resultado mais duradouro e natural do que apenas esticar a pele.
+                                </p>
+</div>
+
+<div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-primary p-6 rounded-r-lg my-8">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0">lightbulb</span>
+<div>
+<h3 class="text-[#111418] dark:text-white font-bold text-lg mb-2">Você sabia?</h3>
+<p class="text-[#111418] dark:text-gray-300 text-sm leading-relaxed">
+                                            Apenas realizar a lipoaspiração de papada pode não ser suficiente para muitos pacientes. Se o problema for a flacidez muscular (platisma), a lipoaspiração pode até acentuar as bandas platismais. A Platismorrafia é a solução anatômica correta para estes casos.
+                                        </p>
+</div>
+</div>
+</div>
+</section>
+</article>
+
+<aside class="flex flex-col gap-6 lg:sticky lg:top-24">
+
+<div class="rounded-2xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+<h3 class="text-sm font-bold text-[#617289] dark:text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 dark:border-gray-700 pb-2">
+                                Resumo Técnico
+                            </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">timer</span>
+<div>
+<span class="block text-xs text-[#617289] dark:text-gray-400">Tempo Cirúrgico</span>
+<span class="text-sm font-semibold text-[#111418] dark:text-white">45 a 60 minutos</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">local_hospital</span>
+<div>
+<span class="block text-xs text-[#617289] dark:text-gray-400">Anestesia</span>
+<span class="text-sm font-semibold text-[#111418] dark:text-white">Local com sedação ou Geral</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">calendar_month</span>
+<div>
+<span class="block text-xs text-[#617289] dark:text-gray-400">Recuperação Social</span>
+<span class="text-sm font-semibold text-[#111418] dark:text-white">7 a 10 dias</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">cut</span>
+<div>
+<span class="block text-xs text-[#617289] dark:text-gray-400">Incisão</span>
+<span class="text-sm font-semibold text-[#111418] dark:text-white">Submentoniana (abaixo do queixo)</span>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="rounded-2xl bg-[#f6f7f8] dark:bg-gray-900 p-6">
+<h3 class="text-[#111418] dark:text-white font-bold text-lg mb-4">Veja também</h3>
+<div class="flex flex-col gap-3">
+<a class="group flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-transparent hover:border-primary/20" href="#">
+<span class="text-sm font-medium text-[#111418] dark:text-white group-hover:text-primary">Deep Neck</span>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">arrow_forward_ios</span>
+</a>
+<a class="group flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-transparent hover:border-primary/20" href="#">
+<span class="text-sm font-medium text-[#111418] dark:text-white group-hover:text-primary">Endomidface</span>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">arrow_forward_ios</span>
+</a>
+<a class="group flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg hover:shadow-md transition-all border border-transparent hover:border-primary/20" href="#">
+<span class="text-sm font-medium text-[#111418] dark:text-white group-hover:text-primary">Lifting Facial</span>
+<span class="material-symbols-outlined text-gray-400 text-[18px]">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+
+<div class="rounded-2xl bg-primary text-white p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 opacity-10 transform translate-x-1/3 -translate-y-1/3">
+<span class="material-symbols-outlined text-[150px]">calendar_add_on</span>
+</div>
+<h3 class="text-xl font-bold mb-2 relative z-10">Agende sua avaliação</h3>
+<p class="text-blue-100 text-sm mb-6 relative z-10">Descubra se a Platismorrafia é indicada para o seu caso com o Dr. Robério Brandão.</p>
+<button class="w-full bg-white text-primary font-bold py-3 px-4 rounded-lg hover:bg-blue-50 transition-colors relative z-10 text-sm">
+                                Marcar Consulta
+                            </button>
+</div>
+</aside>
+</div>
+
+<div class="w-full border-t border-[#f0f2f4] dark:border-gray-800 mt-12 pt-12">
+<h3 class="text-2xl font-bold text-[#111418] dark:text-white mb-6">Artigos Relacionados</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full h-48 rounded-lg bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 group-hover:scale-105 transition-transform duration-500" data-alt="Abstract gradient representing skin texture and contours"></div>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Face Moderna</span>
+<h4 class="text-lg font-bold text-[#111418] dark:text-white mt-1 group-hover:text-primary transition-colors">O que é o Deep Neck?</h4>
+<p class="text-sm text-[#617289] dark:text-gray-400 mt-1 line-clamp-2">Entenda a cirurgia que remodela as estruturas profundas do pescoço.</p>
+</div>
+</div>
+
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full h-48 rounded-lg bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white dark:from-gray-800 dark:to-gray-900 group-hover:scale-105 transition-transform duration-500" data-alt="Abstract techical drawing background"></div>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Técnica</span>
+<h4 class="text-lg font-bold text-[#111418] dark:text-white mt-1 group-hover:text-primary transition-colors">Endomidface sem cicatrizes</h4>
+<p class="text-sm text-[#617289] dark:text-gray-400 mt-1 line-clamp-2">A revolução do lifting do terço médio da face por vídeo.</p>
+</div>
+</div>
+
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full h-48 rounded-lg bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 group-hover:scale-105 transition-transform duration-500" data-alt="Soft blurred clinical background"></div>
+</div>
+<div>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Recuperação</span>
+<h4 class="text-lg font-bold text-[#111418] dark:text-white mt-1 group-hover:text-primary transition-colors">Cuidados Pós-Operatórios</h4>
+<p class="text-sm text-[#617289] dark:text-gray-400 mt-1 line-clamp-2">Guia completo para uma recuperação segura e rápida.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<footer class="bg-white dark:bg-[#1a202c] border-t border-gray-200 dark:border-gray-800 py-8 mt-auto">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-sm text-[#617289] dark:text-gray-400">
+                © 2024 Dr. Robério Brandão. Todos os direitos reservados.
+            </div>
+<div class="flex gap-6">
+<a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary" href="#">Política de Privacidade</a>
+<a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary" href="#">Termos de Uso</a>
+</div>
+</div>
+</footer>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --primary: #136dec;
+    --background-light: #f6f7f8;
+    --background-dark: #101822;
+  }
+.material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-flex;
+            vertical-align: middle;
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#136dec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+  };
+</script>

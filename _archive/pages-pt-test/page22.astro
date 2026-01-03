@@ -1,0 +1,389 @@
+---
+// Glossário: Bioestimuladores - Dr. Robério Brandão
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-03 00:27
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Glossário: Bioestimuladores - Dr. Robério Brandão" } = Astro.props;
+---
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root">
+
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 lg:px-10 py-3 shadow-sm">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Dr. Robério Brandão</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
+<div class="flex items-center gap-6">
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Face Moderna®</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Procedimentos</a>
+<a class="text-primary font-bold text-sm leading-normal" href="#">Glossário</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Sobre</a>
+<a class="text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Contato</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-blue-700 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-md hover:shadow-lg">
+<span class="truncate">Agendar Consulta</span>
+</button>
+</div>
+
+<button class="lg:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-grow">
+
+<div class="px-6 lg:px-40 flex justify-center py-5">
+<div class="flex w-full max-w-[1200px] flex-col">
+<div class="flex flex-wrap items-center gap-2 px-4">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Início</a>
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Glossário</a>
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white text-sm font-medium leading-normal bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">Bioestimuladores</span>
+</div>
+</div>
+</div>
+
+<div class="px-6 lg:px-40 flex justify-center pb-20">
+<div class="flex w-full max-w-[1200px] flex-col lg:flex-row gap-12">
+
+<aside class="hidden lg:block w-64 flex-shrink-0">
+<div class="sticky top-24 flex flex-col gap-2">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-3">Nesta página</p>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary font-semibold text-sm border-l-4 border-primary" href="#definicao">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                                Definição
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all text-sm font-medium" href="#mecanismo">
+<span class="material-symbols-outlined text-[18px]">science</span>
+                                Mecanismo de Ação
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all text-sm font-medium" href="#beneficios">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                Benefícios
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all text-sm font-medium" href="#face-moderna">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                                Metodologia Face Moderna®
+                            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all text-sm font-medium" href="#relacionados">
+<span class="material-symbols-outlined text-[18px]">link</span>
+                                Termos Relacionados
+                            </a>
+</div>
+</aside>
+
+<div class="flex-1 flex flex-col gap-10">
+
+<section class="flex flex-col gap-6" id="definicao">
+<div class="flex flex-col gap-3 border-b border-slate-200 dark:border-slate-700 pb-6">
+<span class="text-primary font-bold tracking-wider uppercase text-sm">Dermatologia Avançada</span>
+<h1 class="text-slate-900 dark:text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">Bioestimuladores de Colágeno</h1>
+<p class="text-slate-500 dark:text-slate-300 text-lg lg:text-xl font-normal leading-relaxed max-w-2xl">
+                                    Um guia completo sobre a ciência da estimulação natural de colágeno e sua aplicação estratégica para firmeza e rejuvenescimento.
+                                </p>
+</div>
+
+<div class="prose prose-slate dark:prose-invert max-w-none">
+<p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+<strong class="text-slate-900 dark:text-white font-bold">Bioestimuladores</strong> são substâncias biocompatíveis e biorreabsorvíveis que, quando injetadas nas camadas profundas da pele, induzem uma resposta inflamatória controlada e subclínica. Esta resposta é o gatilho para a ativação dos <em class="text-slate-800 dark:text-slate-200 font-medium">fibroblastos</em> — as células "arquitetas" do nosso tecido cutâneo.
+                                </p>
+<p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed mt-4">
+                                    Diferente dos preenchedores tradicionais (como o ácido hialurônico em sua forma volumizadora), que ocupam espaço físico para dar volume imediato, os bioestimuladores focam na <span class="bg-blue-50 dark:bg-blue-900/30 text-primary font-medium px-1 rounded">reestruturação dérmica a longo prazo</span>. O objetivo principal não é apenas preencher, mas tratar a qualidade da pele, aumentando sua espessura e tensão natural.
+                                </p>
+</div>
+</section>
+
+<section class="flex flex-col gap-4" id="mecanismo">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">science</span>
+                                A Ciência por Trás
+                            </h3>
+<div class="rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 bg-slate-200 dark:bg-slate-700 relative min-h-[300px]">
+<img alt="Diagram of skin layers showing collagen fiber scaffold formation" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdWn7Z0ApmVYdV2i8uD1cqjKDBtW4RL6BdfJXQcQVki9SgMUW6OtnIBa6y_xUyBbmeCokwyDDtc2rOoiaeck1M8N_UopZ4IvwiWu4PEFuFBmM4r-Ot5dc8KwnHk9UqEzU-LyniAhIzusJh-B77tm14bEVJXwfeU0RhC3i_2X-6h4vCXNLVRpSfsMCuDOEM_Oe-2RSupchc5ecHCZdnoBfZgND49-BEtPUtuSjsd6EJR3uP0Chsb9Geqm7r5A7Ykc4gx2P6uMt9zX1o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
+<span class="text-white text-xs font-medium bg-black/40 px-2 py-1 rounded backdrop-blur-sm">Fig. 1: Neocolagênese em 90 dias</span>
+</div>
+</div>
+<div class="w-full md:w-1/2 p-6 lg:p-8 flex flex-col justify-center gap-4">
+<h4 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">O "Efeito Andaime"</h4>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                            Ao serem injetadas, as micropartículas do bioestimulador se distribuem uniformemente. O corpo reconhece essas partículas e cria uma cápsula de colágeno ao redor de cada uma delas.
+                                        </p>
+<ul class="flex flex-col gap-3 mt-2">
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="bg-primary/10 text-primary rounded-full p-1 material-symbols-outlined text-[16px]">schedule</span>
+<span><strong>Imediato:</strong> Volume leve devido ao veículo do produto (água/gel).</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="bg-primary/10 text-primary rounded-full p-1 material-symbols-outlined text-[16px]">trending_up</span>
+<span><strong>30-90 dias:</strong> Pico da produção de colágeno tipo I e III.</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+<span class="bg-primary/10 text-primary rounded-full p-1 material-symbols-outlined text-[16px]">all_inclusive</span>
+<span><strong>18-24 meses:</strong> Degradação lenta da substância, deixando a rede de colágeno intacta.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6" id="beneficios">
+<div class="col-span-full mb-2">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+                                    Benefícios Clínicos
+                                </h3>
+</div>
+
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors">
+<div class="bg-white dark:bg-slate-700 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm mb-4">
+<span class="material-symbols-outlined text-primary">texture</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Melhora da Textura</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Redução de flacidez leve a moderada, poros dilatados e linhas finas, resultando em uma pele mais compacta.</p>
+</div>
+
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors">
+<div class="bg-white dark:bg-slate-700 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm mb-4">
+<span class="material-symbols-outlined text-primary">face</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Efeito Lifting Natural</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Ao ancorar a pele em uma nova matriz de colágeno, obtém-se um efeito de sustentação sem distorcer os traços do rosto.</p>
+</div>
+
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors">
+<div class="bg-white dark:bg-slate-700 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm mb-4">
+<span class="material-symbols-outlined text-primary">hourglass_top</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Longevidade</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Os resultados são graduais e duradouros, podendo persistir por até 2 anos, dependendo do metabolismo do paciente.</p>
+</div>
+
+<div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors">
+<div class="bg-white dark:bg-slate-700 w-10 h-10 rounded-lg flex items-center justify-center shadow-sm mb-4">
+<span class="material-symbols-outlined text-primary">accessibility_new</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">Versatilidade Corporal</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Além da face, são excelentes para pescoço, colo, mãos e áreas corporais com flacidez, como abdômen e glúteos.</p>
+</div>
+</section>
+
+<section class="bg-primary/5 dark:bg-primary/10 rounded-2xl p-8 lg:p-10 border border-primary/20 relative overflow-hidden" id="face-moderna">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[200px] text-primary">medical_services</span>
+</div>
+<div class="relative z-10">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="bg-primary text-white p-1.5 rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<span class="uppercase tracking-widest text-xs font-bold text-primary">Integração Metodológica</span>
+</div>
+<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">Bioestimuladores na Face Moderna®</h3>
+<p class="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mb-4">
+                                        Na abordagem do Dr. Robério Brandão, os bioestimuladores não são apenas um "tratamento de pele", mas um preparo fundamental para a arquitetura facial.
+                                    </p>
+<div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-primary/10 shadow-sm flex flex-col gap-3">
+<h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">add</span>
+                                            Complemento Cirúrgico
+                                        </h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                                            Para pacientes candidatos ao <strong>Endomidface</strong> ou cirurgias de rejuvenescimento, o uso prévio ou combinado de bioestimuladores garante que a pele tenha qualidade e elasticidade para responder melhor ao reposicionamento cirúrgico, otimizando a cicatrização e o resultado estético final.
+                                        </p>
+</div>
+<div class="mt-4">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:underline" href="#">
+                                            Conheça a técnica Endomidface
+                                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="space-y-6">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white">Principais Tipos Utilizados</h3>
+<div class="divide-y divide-slate-200 dark:divide-slate-700">
+<div class="py-4">
+<details class="group">
+<summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-900 dark:text-white">
+<span>Hidroxiapatita de Cálcio</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="group-open:animate-fadeIn mt-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                            Um composto mineral encontrado naturalmente no corpo. Além de estimular colágeno, possui alta viscosidade e capacidade de elevação, sendo ideal para definir contornos como a mandíbula (efeito estrutural).
+                                        </p>
+</details>
+</div>
+<div class="py-4">
+<details class="group">
+<summary class="flex cursor-pointer list-none items-center justify-between font-medium text-slate-900 dark:text-white">
+<span>Ácido Poli-L-Lático (PLLA)</span>
+<span class="transition group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="group-open:animate-fadeIn mt-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                            Um polímero sintético biocompatível. É conhecido pelo seu poder potente de redensificação da pele, sendo excelente para tratar faces com perda global de volume e flacidez dérmica acentuada.
+                                        </p>
+</details>
+</div>
+</div>
+</section>
+
+<section class="pt-8 border-t border-slate-200 dark:border-slate-700" id="relacionados">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Explore outros verbetes</h3>
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+<a class="group flex flex-col gap-2 p-4 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-600" href="#">
+<div class="h-24 rounded bg-slate-200 dark:bg-slate-600 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract 3D rendering of facial muscle structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoK6MR-pBHXX_TfpZuSSVARV7VzKMz-x9Bl4Np6igjylnlQC73oSIYPflEPF51DDiCt7iad2s4JIXYIN5wIfO2ITE4tLcimKhbQJcFc78SWYNf2PSu53Bld3hyOZqqGLy7aN65M2udng_Ljo1v_Xkj4d1NdaJdP75IHnWupsHPfKAn_YY7dMuv4Qn5gdsdpIdOIrdp__dZ0LGGDPo4TeEhx6WEL6z7f-p3_5CvK1Lbr6izrp8ImHsmU7HDkawCAo5CBoI5R5-PiBeD"/>
+</div>
+<span class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-primary">Endomidface</span>
+</a>
+<a class="group flex flex-col gap-2 p-4 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-600" href="#">
+<div class="h-24 rounded bg-slate-200 dark:bg-slate-600 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Microscopic view of hyaluronic acid molecules" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtq4qwN-42sk875RDo90CXbwxQU5AHdT0leCy2khQXfdmWx2kj-XFT0xsmX8TnjAyqNA1ILNeT5fKW6rAoGRKHMqQDNOV5RPbIqGJSiey-lJbOdy3TaUOvL5-JrrbvbKXouGiRJetPHZWFvV7nnzIPOdUCjN9GOVOfkgZXM8zpCMzO-EfCwdwVQarZG5XlkBei5V2QSy4rMNC7BYpmXC75tpyxlwgg0KE1wFV0j7NV7S0Frk0ahK2sMdeidGzY3AtyNx4YA4Kg-FvQ"/>
+</div>
+<span class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-primary">Ácido Hialurônico</span>
+</a>
+<a class="group flex flex-col gap-2 p-4 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-600" href="#">
+<div class="h-24 rounded bg-slate-200 dark:bg-slate-600 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of healthy skin texture with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVnQvjRsOfy60551t7DpsveQzOlIpH6BZnOSY7LdJpi8JcQKKXepCqLGDWfxbYC01S40wIqRvz0p3ZQkSYJ4e4JO-Ur3CaH7XVqHoNSYB7l1m8At28h2LotOvSmO2oyANrK8VF_IJfK3aJJv6IXHUpuHqanKBuJ4as6DoDeg33-NJu5HwxVemOnHsNjA3l3KWPHAUb1tTwjKeCzrhbxgW2VTbVfmfv4cj3YArUXMgUrnLybKTPVjs-1pApTE8dh8o5GCnDKZsr-zKf"/>
+</div>
+<span class="font-bold text-slate-900 dark:text-white text-sm group-hover:text-primary">Qualidade de Pele</span>
+</a>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+<section class="bg-slate-900 dark:bg-black text-white py-16 px-6">
+<div class="max-w-[960px] mx-auto text-center flex flex-col items-center gap-6">
+<h2 class="text-3xl lg:text-4xl font-black tracking-tight">Pronto para revitalizar sua pele?</h2>
+<p class="text-slate-400 text-lg max-w-2xl">
+                        Agende uma avaliação com o Dr. Robério Brandão para descobrir qual bioestimulador é o ideal para o seu plano de tratamento Face Moderna®.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="flex items-center justify-center gap-2 h-12 px-8 bg-primary hover:bg-blue-600 rounded-full font-bold text-white transition-all transform hover:scale-105 shadow-lg shadow-primary/30">
+                            Agendar Avaliação
+                            <span class="material-symbols-outlined">calendar_month</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-12 px-8 bg-transparent border border-slate-600 hover:border-white hover:bg-white/5 rounded-full font-bold text-white transition-all">
+                            Falar no WhatsApp
+                            <span class="material-symbols-outlined">chat</span>
+</button>
+</div>
+</div>
+</section>
+
+<footer class="bg-background-light dark:bg-background-dark py-8 px-6 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+<p>© 2024 Dr. Robério Brandão. Todos os direitos reservados.</p>
+<p>CRM-SP 123456 | RQE 12345</p>
+<p class="max-w-md text-center md:text-right opacity-70">
+                        *As informações contidas neste site têm caráter informativo e educacional e não substituem a consulta médica presencial.
+                    </p>
+</div>
+</footer>
+</main>
+</div>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --primary: #1d64c9;
+    --background-light: #f6f7f8;
+    --background-dark: #111821;
+  }
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1d64c9",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+  };
+</script>
