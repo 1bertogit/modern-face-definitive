@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
 
 const keywords = [
   'Endomidface',
@@ -104,6 +105,13 @@ const numeros = [
   schema={schema}
   keywords={keywords}
 >
+  <SchemaArticle
+    title="Endomidface por Visão Direta"
+    description="Técnica de rejuvenescimento do terço médio da face por visão direta, sem endoscópio, com segurança superior em faces com bioestimuladores. Desenvolvida pelo Dr. Robério Brandão."
+    section="Técnicas Cirúrgicas"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
   <!-- Breadcrumb + Hero -->
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
@@ -310,6 +318,19 @@ const numeros = [
             class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
           >
             Estudar anatomia →
+          </a>
+        </div>
+
+        <div class="p-10 bg-white border border-gray-100">
+          <h3 class="text-xl font-serif text-primary-900 mb-4">Casos Clínicos</h3>
+          <p class="text-warmGray mb-6">
+            Veja resultados reais de pacientes operados com a técnica Endomidface por Visão Direta.
+          </p>
+          <a
+            href="/pt/casos/cirurgicos"
+            class="inline-block text-sm text-accent-600 hover:text-accent-700 border-b border-accent-600"
+          >
+            Ver casos →
           </a>
         </div>
       </div>

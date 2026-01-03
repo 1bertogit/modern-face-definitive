@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
 
 const keywords = [
   'Deep Neck facelift',
@@ -106,6 +107,13 @@ const indications = [
   schema={schema}
   lang="en"
 >
+  <SchemaArticle
+    title="Modern Face Deep Neck"
+    description="Complete surgical neck treatment WITHOUT submandibular gland removal. Platysma plication, digastric shaving, lateral Crevassi. Developed by Dr. Robério Brandão."
+    section="Surgical Techniques"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
   <!-- Breadcrumb + Hero -->
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">

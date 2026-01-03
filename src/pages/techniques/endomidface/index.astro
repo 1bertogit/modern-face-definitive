@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaArticle from '@components/seo/SchemaArticle.astro';
 
 const keywords = [
   'Endomidface direct vision',
@@ -103,6 +104,13 @@ const numbers = [
   schema={schema}
   lang="en"
 >
+  <SchemaArticle
+    title="Endomidface by Direct Vision"
+    description="Midface rejuvenation technique by direct vision, without endoscope, with superior safety in faces with biostimulators. Developed by Dr. Robério Brandão."
+    section="Surgical Techniques"
+    keywords={keywords}
+    articleType="MedicalWebPage"
+  />
   <!-- Breadcrumb + Hero -->
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
