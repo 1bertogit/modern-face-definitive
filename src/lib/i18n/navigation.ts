@@ -10,7 +10,7 @@ import type { Locale, NavLink, FooterLinks } from './types';
  * Navigation translations
  */
 export const navTranslations: Record<Locale, Record<string, string>> = {
-  'pt': {
+  pt: {
     home: 'Home',
     about: 'Sobre',
     faceModerna: 'Face Moderna®',
@@ -46,7 +46,7 @@ export const navTranslations: Record<Locale, Record<string, string>> = {
  * Footer translations
  */
 export const footerTranslations: Record<Locale, Record<string, string>> = {
-  'pt': {
+  pt: {
     techniques: 'Técnicas',
     resources: 'Recursos',
     institutional: 'Institucional',
@@ -97,7 +97,7 @@ export const headerTranslations: Record<
     ctaText: string;
   }
 > = {
-  'pt': {
+  pt: {
     logoSubtitle: 'Instituto da Face Moderna',
     ctaText: 'Contato',
   },
@@ -122,7 +122,7 @@ export const menuAriaLabels: Record<
     navigation: string;
   }
 > = {
-  'pt': {
+  pt: {
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
     navigation: 'Menu de navegação',
@@ -144,7 +144,7 @@ export const menuAriaLabels: Record<
  */
 export function getNavLinks(locale: Locale): NavLink[] {
   const links: Record<Locale, NavLink[]> = {
-    'pt': [
+    pt: [
       {
         label: 'Face Moderna',
         path: '/pt/face-moderna',
@@ -188,6 +188,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Cursos Satélites', path: '/pt/educacao/cursos-satelites' },
         ],
       },
+      { label: 'Eventos', path: '/pt/eventos' },
       {
         label: 'Casos',
         path: '/pt/casos',
@@ -269,6 +270,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Satellite Courses', path: '/education/satellite-courses' },
         ],
       },
+      { label: 'Events', path: '/events' },
       {
         label: 'Cases',
         path: '/cases',
@@ -353,6 +355,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
           { label: 'Cursos Satélites', path: '/es/educacion/cursos-satelites' },
         ],
       },
+      { label: 'Eventos', path: '/es/eventos' },
       {
         label: 'Casos',
         path: '/es/casos',
@@ -403,7 +406,7 @@ export function getNavLinks(locale: Locale): NavLink[] {
  */
 export function getFooterLinks(locale: Locale): FooterLinks {
   const linkMappings: Record<Locale, FooterLinks> = {
-    'pt': {
+    pt: {
       tecnicas: [
         { label: 'Endomidface', path: '/pt/tecnicas/endomidface' },
         { label: 'Deep Neck', path: '/pt/tecnicas/deep-neck' },

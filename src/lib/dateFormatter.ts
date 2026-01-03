@@ -7,14 +7,14 @@ import type { Locale } from './i18n';
 
 /** Short month names by locale */
 const SHORT_MONTHS: Record<Locale, string[]> = {
-  'pt': ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+  pt: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
 };
 
 /** Locale mapping for Intl.DateTimeFormat */
 const INTL_LOCALE_MAP: Record<Locale, string> = {
-  'pt': 'pt-BR',
+  pt: 'pt-BR',
   en: 'en-US',
   es: 'es-ES',
 };

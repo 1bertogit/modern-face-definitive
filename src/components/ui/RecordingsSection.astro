@@ -1,0 +1,84 @@
+---
+/**
+ * RecordingsSection - Seção para exibir gravações de eventos passados
+ * Lista de vídeos/sessões gravadas com links
+ */
+
+import type { Recording } from '@lib/types/event';
+
+interface Props {
+  recordings: Recording[];
+  title?: string;
+}
+
+const { recordings, title = 'Recordings' } = Astro.props;
+---
+
+<section class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        {title}
+      </h2>
+      <h3 class="text-4xl font-serif text-primary-900">Event Recordings</h3>
+      <p class="text-warmGray mt-4 max-w-2xl mx-auto">
+        Access all recorded sessions from this event. Recordings are available for a limited time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        recordings.map((recording) => (
+          <a
+            href={recording.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-ivory p-6 rounded-lg border border-gray-100 hover:border-accent-600 transition-all"
+          >
+            {recording.thumbnail ? (
+              <img
+                src={recording.thumbnail}
+                alt={recording.title}
+                class="w-full h-48 object-cover rounded mb-4"
+                width="400"
+                height="200"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-full h-48 bg-primary-900 rounded mb-4 flex items-center justify-center">
+                <span class="material-symbols-outlined text-6xl text-white">play_circle</span>
+              </div>
+            )}
+            <h4 class="text-lg font-serif font-normal text-primary-900 mb-2 group-hover:text-accent-600 transition-colors">
+              {recording.title}
+            </h4>
+            <p class="text-sm text-accent-600 mb-2">
+              <span class="material-symbols-outlined text-base align-middle mr-1">person</span>
+              {recording.speaker}
+            </p>
+            <div class="flex items-center gap-4 text-xs text-softGray">
+              {recording.duration && (
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span>
+                  {recording.duration}
+                </span>
+              )}
+              {recording.availableUntil && (
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">event</span>
+                  Available until {recording.availableUntil}
+                </span>
+              )}
+            </div>
+            <div class="mt-4 flex items-center text-accent-600 text-sm font-medium">
+              Watch Recording
+              <span class="material-symbols-outlined text-base ml-1 group-hover:translate-x-1 transition-transform">
+                arrow_forward
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

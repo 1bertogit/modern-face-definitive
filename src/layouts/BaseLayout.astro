@@ -29,6 +29,10 @@ interface Props {
   includeOrgSchema?: boolean;
   /** Custom alternates for translated content (e.g., blog posts with translated slugs) */
   customAlternates?: AlternateUrl[];
+  /** Hide header for landing pages (conversion optimization) */
+  hideHeader?: boolean;
+  /** Hide footer for landing pages (conversion optimization) */
+  hideFooter?: boolean;
 }
 
 const {
@@ -41,6 +45,8 @@ const {
   keywords = [],
   includeOrgSchema = false,
   customAlternates,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 
 // Auto-detect locale from URL if not provided
@@ -49,19 +55,19 @@ const htmlLangAttr = htmlLang[locale];
 
 // Site title variations by locale
 const siteTitles: Record<Locale, string> = {
-  'pt': 'Modern Face Institute | Dr. Robério Brandão',
+  pt: 'Modern Face Institute | Dr. Robério Brandão',
   en: 'Modern Face Institute | Dr. Robério Brandão',
   es: 'Modern Face Institute | Dr. Robério Brandão',
 };
 
 const homeTitles: Record<Locale, string> = {
-  'pt': 'Início',
+  pt: 'Início',
   en: 'Home',
   es: 'Inicio',
 };
 
 const skipLinkText: Record<Locale, string> = {
-  'pt': 'Ir para o conteúdo principal',
+  pt: 'Ir para o conteúdo principal',
   en: 'Skip to main content',
   es: 'Ir al contenido principal',
 };
@@ -138,10 +144,11 @@ const isHomepage =
     <!--
       Font Loading Strategy for Core Web Vitals:
       1. dns-prefetch + preconnect = fastest connection setup
-      2. Critical fonts: preload + immediate stylesheet (Inter 400-600, Playfair 400-500)
-      3. Non-critical: async load after render (extra weights, Material Symbols)
+      2. Critical fonts: preload + immediate stylesheet (Inter 300-500, Playfair 300-400)
+      3. Non-critical: async load after render (Material Symbols)
       4. All fonts use display=swap to prevent FOIT (Flash of Invisible Text)
       5. Subset latin-ext reduces font files by ~60%
+      6. Editorial Luxury: Only light weights (300, 400, 500) - no heavy bolding
     -->
 
     <!-- DNS prefetch as fallback for older browsers -->
@@ -167,10 +174,10 @@ const isHomepage =
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Critical Fonts: Inter + Playfair Display (subset latin-ext, display=swap) -->
-    <!-- Using fetchpriority="high" for critical fonts, removing duplicate preload -->
+    <!-- Critical Fonts: Inter + Playfair Display (Editorial Luxury weights) -->
+    <!-- Inter: 300, 400, 500 | Playfair: 300, 400 (no heavy weights) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&subset=latin-ext&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,400&subset=latin-ext&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
@@ -178,22 +185,7 @@ const isHomepage =
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&subset=latin-ext&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-
-    <!-- Non-critical font weights (loaded async after paint) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:wght@600;700&subset=latin-ext&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-      fetchpriority="low"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&family=Playfair+Display:wght@600;700&subset=latin-ext&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,400&subset=latin-ext&display=swap"
         rel="stylesheet"
       />
     </noscript>
@@ -216,7 +208,7 @@ const isHomepage =
     <!-- Core Web Vitals Monitoring -->
     <WebVitals />
   </head>
-  <body class="flex flex-col min-h-screen bg-ivory">
+  <body class="flex flex-col min-h-screen bg-neutral-white">
     <GoogleTagManagerNoScript />
 
     <!-- Skip Link for Accessibility -->
@@ -227,11 +219,11 @@ const isHomepage =
       {skipLinkText[locale]}
     </a>
 
-    <Header locale={locale} />
-    <main id="main-content" class="flex-grow pt-24" role="main">
+    {!hideHeader && <Header locale={locale} />}
+    <main id="main-content" class={`flex-grow ${!hideHeader ? 'pt-24' : ''}`} role="main">
       <slot />
     </main>
-    <Footer locale={locale} />
+    {!hideFooter && <Footer locale={locale} />}
     <SpeedInsights />
   </body>
 </html>

@@ -1,0 +1,110 @@
+---
+interface ScheduleItem {
+  time: string;
+  activity: string;
+  isBreak?: boolean;
+}
+
+interface DaySchedule {
+  day: string;
+  date: string;
+  items: ScheduleItem[];
+}
+
+const schedule: DaySchedule[] = [
+  {
+    day: 'DIA 1',
+    date: 'Sábado, 22 de Março',
+    items: [
+      { time: '09:00', activity: 'Abertura — Dr. Robério apresenta a filosofia da Face Moderna' },
+      { time: '10:00', activity: 'Palestrante #1 — Meus primeiros 10 casos de Endomidface' },
+      {
+        time: '11:30',
+        activity: 'Palestrante #2 — Browlift Evolutivo: o que funciona, o que não funciona',
+      },
+      { time: '12:30', activity: 'Intervalo para almoço', isBreak: true },
+      {
+        time: '14:00',
+        activity: 'Palestrante #3 — Deep Neck: como preservar a glândula com segurança',
+      },
+      { time: '15:30', activity: 'Palestrante #4 — Face completa em uma sessão: casos combinados' },
+      { time: '17:00', activity: 'Q&A Coletivo — Suas perguntas respondidas ao vivo' },
+      { time: '18:00', activity: 'Encerramento do Dia 1', isBreak: true },
+    ],
+  },
+  {
+    day: 'DIA 2',
+    date: 'Domingo, 23 de Março',
+    items: [
+      { time: '09:00', activity: 'Palestrante #5 — Complicações: o que deu errado e como resolvi' },
+      { time: '10:30', activity: 'Palestrante #6 — Seleção de pacientes: meus critérios práticos' },
+      { time: '12:00', activity: 'Intervalo para almoço', isBreak: true },
+      { time: '14:00', activity: 'Palestrante #7 — Follow-up de 1-2 anos: o que realmente durou' },
+      { time: '15:30', activity: 'Palestrante #8 — O impacto na minha clínica: números reais' },
+      { time: '17:00', activity: 'Masterclass de Encerramento — Dr. Robério responde tudo' },
+      { time: '18:30', activity: 'Encerramento + Próximos Passos', isBreak: true },
+    ],
+  },
+];
+---
+
+<div class="space-y-8 sm:space-y-12">
+  {
+    schedule.map((day) => (
+      <div>
+        {/* Day Header */}
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-4 py-2 bg-accent-500 text-white text-xs font-medium uppercase tracking-wider">
+            {day.day}
+          </span>
+          <span class="text-lg font-serif text-primary-900">{day.date}</span>
+        </div>
+
+        {/* Schedule Table */}
+        <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+          <table class="w-full">
+            <tbody>
+              {day.items.map((item) => (
+                <tr
+                  class={`border-b border-gray-100 last:border-b-0 ${item.isBreak ? 'bg-gray-50' : ''}`}
+                >
+                  <td class="px-4 sm:px-6 py-4 w-20 sm:w-28">
+                    <span
+                      class={`inline-flex items-center gap-1.5 text-sm ${item.isBreak ? 'text-gray-400' : 'text-accent-600 font-medium'}`}
+                    >
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        schedule
+                      </span>
+                      {item.time}
+                    </span>
+                  </td>
+                  <td class="px-4 sm:px-6 py-4">
+                    <span
+                      class={`text-sm sm:text-base ${item.isBreak ? 'text-gray-400 italic' : 'text-neutral-graphite'}`}
+                    >
+                      {item.activity}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    ))
+  }
+
+  {/* Note */}
+  <div class="flex items-start gap-3 p-4 bg-accent-500/5 rounded-lg">
+    <span
+      class="material-symbols-outlined text-accent-500 text-xl flex-shrink-0"
+      aria-hidden="true"
+    >
+      lightbulb
+    </span>
+    <p class="text-sm text-neutral-graphite">
+      <strong class="text-primary-900">Não pode assistir ao vivo?</strong> Dependendo do seu lote, você
+      terá acesso ao replay por 7 a 14 dias. Ou adicione o Upgrade VIP para acesso vitalício.
+    </p>
+  </div>
+</div>

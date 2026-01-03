@@ -1,0 +1,435 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import FAQAccordion from '@components/islands/FAQAccordion.tsx';
+import HorizontalCards from '@components/islands/HorizontalCards.tsx';
+import StickyCTABar from '@components/islands/StickyCTABar.tsx';
+
+import CongressHero from '@components/congress/CongressHero.astro';
+import ComparisonTable from '@components/congress/ComparisonTable.astro';
+import ProfileCards from '@components/congress/ProfileCards.astro';
+import SpeakerReveal from '@components/congress/SpeakerReveal.astro';
+import TestimonialCards from '@components/congress/TestimonialCards.astro';
+import PricingBox from '@components/congress/PricingBox.astro';
+import ScheduleTable from '@components/congress/ScheduleTable.astro';
+import GuaranteeSection from '@components/congress/GuaranteeSection.astro';
+import AboutExpert from '@components/congress/AboutExpert.astro';
+
+// SEO & Schema
+const title = 'Modern Face Congress 2025 | Congresso Online de Cirurgia Facial';
+const description =
+  'O primeiro congresso onde os palestrantes são cirurgiões que aplicaram as técnicas — e vão mostrar seus próprios casos. 22 e 23 de Março de 2025. 100% Online.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Modern Face Congress 2025',
+  description: description,
+  startDate: '2025-03-22T09:00:00-03:00',
+  endDate: '2025-03-23T18:30:00-03:00',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'VirtualLocation',
+    url: 'https://drroberiobrandao.com/pt/eventos/congresso-face-moderna-2025',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '197',
+    priceCurrency: 'BRL',
+    availability: 'https://schema.org/InStock',
+    url: 'https://drroberiobrandao.com/pt/eventos/congresso-face-moderna-2025',
+    validFrom: '2025-01-18',
+  },
+  organizer: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+    url: 'https://drroberiobrandao.com/pt/sobre',
+  },
+  performer: {
+    '@type': 'Person',
+    name: 'Dr. Robério Brandão',
+  },
+};
+
+// Content Cards for HorizontalCards component
+const contentCards = [
+  {
+    number: 1,
+    title: 'Endomidface por Visão Direta',
+    description:
+      'A técnica que está mudando a cirurgia do terço médio. Como funciona o conceito "Vídeo Sem Vídeo". Por que elimina a dependência de equipamentos caros. E casos reais de quem aplicou pela primeira vez.',
+  },
+  {
+    number: 2,
+    title: 'A Curva de Aprendizado Real',
+    description:
+      'Esqueça o papo de "é fácil, você aprende rápido". Você vai ouvir a verdade: quantos casos levaram para se sentir confortável, quais foram os primeiros 5 casos, e o que fariam diferente se pudessem voltar no tempo.',
+  },
+  {
+    number: 3,
+    title: 'Complicações e Como Evitá-las',
+    description:
+      'O que pode dar errado. O que quase deu errado. O que deu errado e como resolveram. Essa é a sessão mais valiosa do congresso — porque ninguém mais fala disso.',
+  },
+  {
+    number: 4,
+    title: 'Seleção de Pacientes',
+    description:
+      'Nem todo paciente é candidato. Você vai aprender os critérios práticos que os palestrantes usam para decidir quem operar, quem recusar e quem precisa de uma abordagem diferente.',
+  },
+  {
+    number: 5,
+    title: 'Deep Neck sem Remoção da Glândula',
+    description:
+      'Por que remover a glândula submandibular é arriscado e desnecessário. A técnica de preservação, os resultados comparativos e por que ela é mais segura a longo prazo.',
+  },
+  {
+    number: 6,
+    title: 'Resultados de 6 Meses a 2 Anos',
+    description:
+      'O antes e depois imediato é fácil. O difícil é manter. Você vai ver follow-ups reais: o que durou, o que relaxou, o que surpreendeu. Informação que não existe em lugar nenhum.',
+  },
+  {
+    number: 7,
+    title: 'O Impacto na Clínica e no Bolso',
+    description:
+      'Como a especialização em cirurgia facial profunda mudou a prática dos palestrantes. Ticket médio, volume de cirurgias, posicionamento no mercado. Dados reais, não teoria.',
+  },
+];
+
+// FAQ Items
+const faqItems = [
+  {
+    question: 'O congresso é ao vivo ou gravado?',
+    answer:
+      '100% ao vivo nos dias 22 e 23 de março de 2025. Você poderá fazer perguntas em tempo real durante as sessões de Q&A. Se precisar das gravações para assistir depois, elas ficam disponíveis por 7-14 dias (dependendo do lote) ou você pode adicionar o Upgrade VIP para acesso vitalício.',
+  },
+  {
+    question: 'E se eu não puder assistir ao vivo?',
+    answer:
+      'Você terá acesso ao replay. O tempo de acesso depende do lote: Early Bird e Regular: 7 dias de replay. Último Lote: 14 dias de replay. Upgrade VIP (+R$200): Acesso vitalício.',
+  },
+  {
+    question: 'Quem são os palestrantes?',
+    answer:
+      'São alunos do Dr. Robério Brandão que já aplicaram as técnicas da Face Moderna e têm resultados documentados. Eles não são experts distantes — são colegas que estavam no seu lugar há 6-18 meses. Os nomes serão revelados gradualmente até o evento. Siga nossas redes para acompanhar.',
+  },
+  {
+    question: 'Preciso ser cirurgião plástico para participar?',
+    answer:
+      'O congresso é destinado principalmente a cirurgiões plásticos. Médicos de outras especialidades com interesse em cirurgia facial também são bem-vindos, mas o conteúdo é técnico e focado em procedimentos cirúrgicos do plano profundo.',
+  },
+  {
+    question: 'Qual a diferença entre o ingresso normal e o Upgrade VIP?',
+    answer:
+      'O ingresso normal dá acesso ao evento ao vivo + replay por tempo limitado. O Upgrade VIP (+R$200) adiciona: gravações vitalícias, material em PDF exclusivo e acesso ao grupo VIP no WhatsApp com os palestrantes por 30 dias.',
+  },
+  {
+    question: 'Posso parcelar?',
+    answer:
+      'Sim. Aceitamos até 12x no cartão de crédito. Também aceitamos PIX à vista com o mesmo preço.',
+  },
+  {
+    question: 'Como funciona a garantia?',
+    answer:
+      'Se você não ficar satisfeito, envie um email para contato@brandaofacialinstitute.com em até 7 dias após o evento. Devolvemos 100% do valor, sem perguntas.',
+  },
+  {
+    question: 'O congresso substitui a formação completa em Face Moderna?',
+    answer:
+      'Não. O congresso é uma porta de entrada — uma oportunidade de conhecer o método, ver casos reais e decidir se faz sentido para você. A formação completa (com mentoria, acompanhamento e certificação) é um investimento maior e mais profundo.',
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  lang="pt-BR"
+  hideHeader={true}
+  hideFooter={true}
+>
+  <!-- Section 1: Hero -->
+  <CongressHero scarcityPercentage={72} />
+
+  <!-- Section 2: The Problem -->
+  <section class="py-24 sm:py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">O PROBLEMA</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-8">
+        Você já saiu de um congresso impressionado — mas sem saber como replicar aquilo na sua
+        realidade?
+      </h2>
+
+      <div class="prose prose-lg max-w-none text-neutral-graphite leading-relaxed mb-12">
+        <p>
+          Casos perfeitos. Fotos com iluminação profissional. Palestrantes mostrando apenas seus
+          melhores resultados.
+        </p>
+
+        <p>
+          Ninguém fala dos primeiros 10 casos. Das complicações. Das noites sem dormir pensando se
+          fez a escolha certa.
+        </p>
+
+        <p>
+          E quando você pergunta sobre a curva de aprendizado, a resposta é vaga: <em
+            >"Com o tempo você pega o jeito."</em
+          >
+        </p>
+
+        <p class="font-medium text-primary-900">Isso não ajuda.</p>
+
+        <p>
+          O que ajuda é ver um colega — que estava exatamente na sua posição há 12 meses — mostrar:
+        </p>
+
+        <ul class="space-y-2 my-6">
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-500 text-lg" aria-hidden="true"
+              >arrow_forward</span
+            >
+            O primeiro caso dele
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-500 text-lg" aria-hidden="true"
+              >arrow_forward</span
+            >
+            O erro que quase cometeu
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-500 text-lg" aria-hidden="true"
+              >arrow_forward</span
+            >
+            Como adaptou a técnica para sua realidade
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-500 text-lg" aria-hidden="true"
+              >arrow_forward</span
+            >
+            E os resultados que está tendo agora
+          </li>
+        </ul>
+
+        <p class="font-medium text-primary-900 text-xl">É isso que você vai ver nesse congresso.</p>
+      </div>
+
+      <ComparisonTable />
+    </div>
+  </section>
+
+  <!-- Section 3: For Who -->
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">PARA QUEM É</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12">
+        Esse congresso é para você se...
+      </h2>
+
+      <ProfileCards />
+    </div>
+  </section>
+
+  <!-- Section 4: Content -->
+  <section class="py-24 sm:py-32 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">O QUE VOCÊ VAI APRENDER</p>
+
+      <h2
+        class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12 max-w-2xl"
+      >
+        7 blocos de conteúdo prático e aplicável
+      </h2>
+
+      <HorizontalCards client:visible cards={contentCards} />
+    </div>
+  </section>
+
+  <!-- Section 5: Schedule -->
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">CRONOGRAMA</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12">
+        2 dias de imersão — Sábado e Domingo
+      </h2>
+
+      <ScheduleTable />
+    </div>
+  </section>
+
+  <!-- Section 6: Speakers -->
+  <section class="py-24 sm:py-32 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">QUEM VAI PALESTRAR</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-6">
+        8 cirurgiões plásticos. Casos reais. Resultados documentados.
+      </h2>
+
+      <p class="text-neutral-graphite text-lg leading-relaxed mb-4 max-w-3xl">
+        Eles não são experts teóricos que operam há 30 anos.
+      </p>
+
+      <p class="text-neutral-graphite text-lg leading-relaxed mb-8 max-w-3xl">
+        São colegas que estavam no seu lugar há 6-18 meses. Que tinham as mesmas dúvidas que você
+        tem hoje. Que tiveram coragem de aplicar as técnicas da Face Moderna.
+      </p>
+
+      <p class="text-primary-900 font-medium text-lg mb-12 max-w-3xl">
+        E agora vão abrir seus casos — sem filtro, sem edição — para mostrar exatamente o que
+        aprenderam.
+      </p>
+
+      <p class="text-accent-600 text-sm uppercase tracking-wider mb-8">
+        Os nomes serão revelados aos poucos. Acompanhe nossas redes para descobrir quem são.
+      </p>
+
+      <SpeakerReveal />
+    </div>
+  </section>
+
+  <!-- Section 7: Testimonials -->
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">RESULTADOS REAIS</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12">
+        O que alunos da Face Moderna estão conseguindo
+      </h2>
+
+      <TestimonialCards />
+    </div>
+  </section>
+
+  <!-- Section 8: Pricing -->
+  <section id="pricing" class="py-24 sm:py-32 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4 text-center">INVESTIMENTO</p>
+
+      <h2
+        class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12 text-center"
+      >
+        Quanto custa ter acesso a tudo isso?
+      </h2>
+
+      <PricingBox />
+    </div>
+  </section>
+
+  <!-- Section 9: About Expert -->
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4 text-center">QUEM ESTÁ POR TRÁS</p>
+
+      <AboutExpert />
+    </div>
+  </section>
+
+  <!-- Section 10: Guarantee -->
+  <section class="py-24 sm:py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">SEM RISCO</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12">
+        Sua satisfação garantida
+      </h2>
+
+      <GuaranteeSection />
+    </div>
+  </section>
+
+  <!-- Section 11: FAQ -->
+  <section class="py-24 sm:py-32 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-eyebrow text-accent-600 mb-4">DÚVIDAS FREQUENTES</p>
+
+      <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary-900 leading-tight mb-12">
+        Ainda tem alguma pergunta?
+      </h2>
+
+      <FAQAccordion client:load items={faqItems} />
+    </div>
+  </section>
+
+  <!-- Section 12: Final CTA -->
+  <section id="registration" class="py-20 sm:py-32 bg-primary-900 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-accent-500/5 blur-3xl rounded-full"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-white leading-tight mb-8">
+        Pronto para ver cirurgia facial de um jeito diferente?
+      </h2>
+
+      <a
+        href="#registration"
+        class="inline-flex items-center gap-3 bg-accent-500 hover:bg-accent-600 text-white px-10 py-5 text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 mb-8"
+      >
+        Garantir Meu Ingresso por R$ 197
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-gray-400 text-sm">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent-400" aria-hidden="true"
+            >local_fire_department</span
+          >
+          Lote Early Bird: 72% vendido
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent-400" aria-hidden="true">schedule</span>
+          Próximo lote: R$ 297
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-primary-900 border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-accent-500 text-sm font-medium uppercase tracking-wider mb-2">
+        Modern Face® Online Congress 2025
+      </p>
+      <p class="text-gray-500 text-xs mb-4">© 2025 Modern Face® | Todos os direitos reservados</p>
+      <div class="flex items-center justify-center gap-4 text-xs text-gray-500">
+        <a href="/pt/termos" class="hover:text-gray-400 transition-colors">Termos de Uso</a>
+        <span>·</span>
+        <a href="/pt/privacidade" class="hover:text-gray-400 transition-colors"
+          >Política de Privacidade</a
+        >
+        <span>·</span>
+        <a href="/pt/contato" class="hover:text-gray-400 transition-colors">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA Bar -->
+  <StickyCTABar
+    client:load
+    originalPrice="R$ 297"
+    currentPrice="R$ 197"
+    ctaText="Garantir Ingresso"
+    ctaHref="#registration"
+    showAfterScroll={600}
+    hideAtSectionId="pricing"
+  />
+</BaseLayout>
+
+<style is:global>
+  /* Remove default prose margins */
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Smooth scroll for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

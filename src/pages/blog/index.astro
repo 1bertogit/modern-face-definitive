@@ -5,7 +5,7 @@
  */
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import BlogGrid from '@components/blog/BlogGrid.astro';
+import BlogFilteredGrid from '@components/islands/BlogFilteredGrid';
 import BlogSidebar from '@components/blog/BlogSidebar.astro';
 import { getArticlesForLocale, getCategories, getPopularArticles } from '@lib/blog-utils';
 
@@ -16,25 +16,12 @@ const breadcrumbs = [
   { name: 'Blog', url: '/blog' },
 ];
 
-// Ler parâmetro de categoria da URL
-const selectedCategory = Astro.url.searchParams.get('categoria') || null;
-
-// Use Content Collections for blog data
-const allArticles = await getArticlesForLocale(locale);
-
-// Filtrar artigos por categoria se houver parâmetro
-const articles = selectedCategory
-  ? allArticles.filter((article) => {
-      // Converter categoria do artigo para slug para comparação
-      const articleCategorySlug = article.category.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-      return articleCategorySlug === selectedCategory.toLowerCase();
-    })
-  : allArticles;
-
+// Use Content Collections for blog data (no server-side filtering - handled client-side)
+const articles = await getArticlesForLocale(locale);
 const categories = await getCategories(locale);
 const popularPosts = await getPopularArticles(locale, 5);
 
-// Prepare search articles
+// Prepare search articles for sidebar
 const searchArticles = articles.map((a) => ({
   slug: a.slug,
   title: a.title,
@@ -55,17 +42,29 @@ const searchArticles = articles.map((a) => ({
   ]}
   lang="en"
 >
-  <!-- Hero Section - Clean & Minimal -->
-  <section class="pt-8 pb-12 md:pt-12 md:pb-16 bg-white border-b border-gray-100">
+  <!-- Hero Section - Premium Dark -->
+  <section
+    class="py-20 bg-gradient-to-b from-primary-900 via-primary-800 to-primary-900 border-b border-primary-700/30"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <Breadcrumb items={breadcrumbs} class="mb-6" />
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
 
       <div class="max-w-2xl">
-        <h1 class="text-4xl md:text-5xl font-serif text-primary-900 mb-4">Blog</h1>
-        <p class="text-lg text-warmGray leading-relaxed">
+        <h1 class="heading-1-white mb-6">Blog</h1>
+        <p class="body-large text-primary-200 leading-relaxed">
           Technical articles on facial surgery, Modern Face philosophy, advanced techniques and
           continuing medical education.
         </p>
+        <div class="flex flex-wrap gap-6 mt-8">
+          <span class="label-eyebrow-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-400 text-lg">article</span>
+            {articles.length} Articles
+          </span>
+          <span class="label-eyebrow-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-400 text-lg">category</span>
+            {categories.length} Categories
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -74,9 +73,15 @@ const searchArticles = articles.map((a) => ({
   <section class="py-12 md:py-16 bg-ivory">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-        <!-- Main Content -->
+        <!-- Main Content - Client-side filtered grid -->
         <main class="flex-1 min-w-0">
-          <BlogGrid articles={articles} showFeatured={true} locale="en" />
+          <BlogFilteredGrid
+            articles={articles}
+            categories={categories}
+            showFeatured={true}
+            locale="en"
+            client:load
+          />
         </main>
 
         <!-- Sidebar -->
@@ -85,7 +90,6 @@ const searchArticles = articles.map((a) => ({
             categories={categories}
             popularPosts={popularPosts}
             articles={searchArticles}
-            currentCategory={selectedCategory || undefined}
             locale="en"
           />
         </aside>
@@ -116,4 +120,3 @@ const searchArticles = articles.map((a) => ({
     </div>
   </section>
 </BaseLayout>
-

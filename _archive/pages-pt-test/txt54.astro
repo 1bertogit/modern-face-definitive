@@ -1,0 +1,262 @@
+---
+// Final Contact - Modern Facial Surgery
+// Convertido automaticamente de HTML para Astro
+// Data: 2026-01-02 20:32
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Final Contact - Modern Facial Surgery" } = Astro.props;
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>{title}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-200 min-h-screen flex flex-col font-display group/design-root overflow-x-hidden">
+  <header class="w-full border-b border-solid border-stone-200 dark:border-stone-800 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="px-4 md:px-10 py-4 max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Modern Facial Surgery</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-9">
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">Program</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-slate-900 dark:text-slate-100 text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary/10 hover:bg-primary/20 text-slate-900 dark:text-white text-sm font-bold transition-colors">
+<span class="truncate">Login</span>
+</button>
+</div>
+<button class="md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-start px-4 py-12 md:py-16 w-full max-w-3xl mx-auto">
+<div class="w-full flex items-center gap-4 mb-10 text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase">
+<span>Dados Pessoais</span>
+<div class="h-px bg-slate-300 dark:bg-stone-700 flex-grow"></div>
+<span>Experiência</span>
+<div class="h-px bg-slate-300 dark:bg-stone-700 flex-grow"></div>
+<span class="text-primary">Contato</span>
+</div>
+<div class="w-full text-center mb-12">
+<h1 class="font-serif text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            Contato
+        </h1>
+<p class="text-slate-600 dark:text-stone-400 text-lg font-light">
+            Última etapa para finalizar sua aplicação.
+        </p>
+</div>
+<form class="w-full space-y-10" onsubmit="event.preventDefault();">
+<div class="space-y-4">
+<label class="block text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug">
+                Qual o melhor horário para nossa equipe entrar em contato?
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="best_time" type="radio" value="morning"/>
+<div class="flex items-center gap-3 p-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm">
+<span class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">Manhã (08h - 12h)</span>
+</div>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="best_time" type="radio" value="afternoon"/>
+<div class="flex items-center gap-3 p-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm">
+<span class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">Tarde (13h - 18h)</span>
+</div>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="best_time" type="radio" value="night"/>
+<div class="flex items-center gap-3 p-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm">
+<span class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">Noite (19h - 21h)</span>
+</div>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="best_time" type="radio" value="any"/>
+<div class="flex items-center gap-3 p-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm">
+<span class="radio-indicator flex items-center justify-center w-5 h-5 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+<span class="text-slate-700 dark:text-slate-200 font-medium">Qualquer horário</span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug">
+                Por qual canal você prefere ser contatado?
+            </label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="channel" type="radio" value="whatsapp"/>
+<div class="flex flex-col items-center justify-center gap-2 p-6 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm text-center h-full">
+<span class="material-symbols-outlined text-3xl text-stone-400 group-hover:text-primary transition-colors">chat</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium mt-1">WhatsApp</span>
+<span class="radio-indicator absolute top-3 right-3 w-4 h-4 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+</div>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="channel" type="radio" value="phone"/>
+<div class="flex flex-col items-center justify-center gap-2 p-6 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm text-center h-full">
+<span class="material-symbols-outlined text-3xl text-stone-400 group-hover:text-primary transition-colors">call</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium mt-1">Ligação</span>
+<span class="radio-indicator absolute top-3 right-3 w-4 h-4 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+</div>
+</label>
+<label class="cursor-pointer group relative">
+<input class="sr-only peer" name="channel" type="radio" value="email"/>
+<div class="flex flex-col items-center justify-center gap-2 p-6 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 hover:border-primary/50 transition-all duration-200 shadow-sm text-center h-full">
+<span class="material-symbols-outlined text-3xl text-stone-400 group-hover:text-primary transition-colors">mail</span>
+<span class="text-slate-700 dark:text-slate-200 font-medium mt-1">E-mail</span>
+<span class="radio-indicator absolute top-3 right-3 w-4 h-4 rounded-full border border-stone-300 dark:border-stone-500 bg-transparent transition-colors"></span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug" for="observations">
+                Há algo específico que você gostaria de perguntar ou comentar?
+            </label>
+<textarea class="w-full bg-white dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700 rounded-lg p-4 text-slate-900 dark:text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-y shadow-sm" id="observations" placeholder="Escreva aqui suas observações, dúvidas ou necessidades especiais..." rows="5"></textarea>
+<p class="text-sm text-slate-500 dark:text-stone-500 text-right">Opcional</p>
+</div>
+<div class="w-full h-px bg-stone-200 dark:bg-stone-800 my-8"></div>
+<div class="flex flex-col items-center gap-4">
+<button class="w-full md:w-auto min-w-[300px] h-14 px-8 bg-primary hover:bg-[#d9a60c] text-[#1c180d] text-lg font-bold tracking-wide rounded-lg transition-all transform hover:-translate-y-0.5 shadow-xl shadow-primary/20 flex items-center justify-center gap-2" type="submit">
+<span>FINALIZAR APLICAÇÃO</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-xs text-slate-400 dark:text-stone-600 max-w-sm text-center mt-2">
+                Ao clicar em finalizar, você concorda com nossos termos de processamento de dados para fins de seleção.
+            </p>
+</div>
+</form>
+</main>
+<footer class="bg-white dark:bg-[#1a170f] border-t border-stone-200 dark:border-stone-800 mt-auto">
+<div class="max-w-7xl mx-auto px-4 md:px-10 py-12 flex flex-col items-center">
+<div class="mb-8 opacity-50">
+<span class="material-symbols-outlined text-4xl text-stone-400 dark:text-stone-600">spa</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8 mb-8 text-center">
+<a class="text-stone-500 dark:text-stone-400 text-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-400 text-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-stone-500 dark:text-stone-400 text-sm hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+<p class="text-stone-400 dark:text-stone-600 text-xs text-center">
+                © 2024 Modern Facial Surgery. All rights reserved. <br/>
+                Dr. Robério Brandão — CRM 12345
+            </p>
+</div>
+</footer>
+</body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --primary: #f2b90d;
+    --background-light: #f8f8f5;
+    --background-dark: #221e10;
+  }
+.material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }input[type="radio"]:checked + div {
+            border-color: #f2b90d;
+            background-color: rgba(242, 185, 13, 0.05);
+        }
+        input[type="radio"]:checked + div .radio-indicator {
+            border-color: #f2b90d;
+            background-color: #f2b90d;
+        }
+        input[type="radio"]:checked + div .radio-indicator::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: white;border-radius: 50%;
+        }.dark input[type="radio"]:checked + div .radio-indicator::after {
+            background: #221e10;
+        }
+
+  /* Custom Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+  
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+  
+  .thin-border {
+    border-width: 0.5px;
+  }
+  
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+  
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+  
+  /* Grain Background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+</style>
+
+<script>
+
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+  
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2b90d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#221e10",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+  };
+</script>

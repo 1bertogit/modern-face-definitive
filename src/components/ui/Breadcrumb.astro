@@ -28,30 +28,44 @@ const { items, class: className = '' } = Astro.props;
     itemtype="https://schema.org/BreadcrumbList"
   >
     {
-      items.map((item, index) => (
-        <li
-          class="flex items-center"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-        >
-          {index > 0 && <span class="mx-2 text-softGray">/</span>}
-          {index === items.length - 1 ? (
-            <span class="text-primary-900 font-medium" itemprop="name">
-              {item.name}
-            </span>
-          ) : (
-            <a
-              href={item.url}
-              class="text-softGray hover:text-primary-600 transition-colors"
-              itemprop="item"
-            >
-              <span itemprop="name">{item.name}</span>
-            </a>
-          )}
-          <meta itemprop="position" content={String(index + 1)} />
-        </li>
-      ))
+      items.map((item, index) => {
+        // Determinar se está em fundo escuro baseado na classe aplicada
+        const isDarkBg = className.includes('text-primary-300') || className.includes('text-white');
+
+        return (
+          <li
+            class="flex items-center"
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+          >
+            {index > 0 && (
+              <span class={isDarkBg ? 'mx-2 text-primary-400' : 'mx-2 text-softGray'}>/</span>
+            )}
+            {index === items.length - 1 ? (
+              <span
+                class={isDarkBg ? 'text-white font-medium' : 'text-primary-900 font-medium'}
+                itemprop="name"
+              >
+                {item.name}
+              </span>
+            ) : (
+              <a
+                href={item.url}
+                class={
+                  isDarkBg
+                    ? 'text-primary-300 hover:text-white transition-colors'
+                    : 'text-softGray hover:text-primary-600 transition-colors'
+                }
+                itemprop="item"
+              >
+                <span itemprop="name">{item.name}</span>
+              </a>
+            )}
+            <meta itemprop="position" content={String(index + 1)} />
+          </li>
+        );
+      })
     }
   </ol>
 </nav>

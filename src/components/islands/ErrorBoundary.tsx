@@ -110,7 +110,7 @@ interface LocalizedProps extends Props {
 }
 
 const errorTranslations = {
-  'pt': {
+  pt: {
     title: 'Algo deu errado',
     description: 'Ocorreu um erro inesperado. Por favor, tente novamente.',
     retry: 'Tentar novamente',

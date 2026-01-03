@@ -1,0 +1,510 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
+
+const keywords = [
+  'certificação cirurgia facial',
+  'certificado Modern Face',
+  'certificação Endomidface',
+  'ex-alunos certificação',
+  'Dr Robério Brandão',
+];
+
+const faqs = [
+  {
+    question: 'Fiz o curso há muito tempo. Ainda posso me certificar?',
+    answer:
+      'Sim. Se você completou o Modern Facial Surgery, está elegível. Não importa quando foi. Seu treinamento é válido.',
+  },
+  {
+    question: 'A técnica mudou muito desde que fiz o curso?',
+    answer:
+      'Houve refinamentos, mas os fundamentos são os mesmos. A certificação é baseada na execução correta dos princípios — que você aprendeu. Se houver algo a atualizar, o feedback do Dr. Robério vai apontar.',
+  },
+  {
+    question: 'Posso usar casos antigos?',
+    answer:
+      'Sim, desde que tenha a documentação adequada (fotos, dados, evolução). Enviamos o checklist do que é necessário.',
+  },
+  {
+    question: 'E se meus casos não forem aprovados?',
+    answer:
+      'O Dr. Robério dá feedback específico sobre o que ajustar. Você pode resubmeter sem custo adicional. O objetivo é que você atinja o padrão, não que seja barrado.',
+  },
+  {
+    question: 'Vou ter acesso às atualizações da técnica?',
+    answer:
+      'O grupo de certificados discute casos e compartilha refinamentos. É uma forma de se manter conectado com a evolução do método.',
+  },
+  {
+    question: 'Perdi contato com a comunidade. Vai ser estranho voltar?',
+    answer:
+      'Não. Outros ex-alunos estão na mesma situação. A certificação é justamente o caminho de volta — sem julgamento, com reconhecimento.',
+  },
+];
+
+const processSteps = [
+  {
+    number: '1',
+    title: 'Você Já Está Elegível',
+    description:
+      'Se completou o Modern Facial Surgery (Programa 1, 2 ou 3), você pode se certificar. Não importa se foi há 1 ano ou há 5. Seu treinamento conta.',
+  },
+  {
+    number: '2',
+    title: 'Documente Seus Casos',
+    description:
+      'Selecione 3 a 5 casos que você já operou. Enviamos um checklist simples: fotos pré/pós padronizadas, dados básicos, evolução. Você provavelmente já tem esse material.',
+  },
+  {
+    number: '3',
+    title: 'Receba Feedback Direto',
+    description:
+      'O Dr. Robério avalia pessoalmente cada submissão. Se algo precisar de ajuste, você recebe orientação específica. Se estiver no padrão, você é aprovado.',
+  },
+  {
+    number: '4',
+    title: 'Volte Para o Círculo',
+    description:
+      'Aprovado, você recebe sua certificação completa E acesso ao grupo exclusivo de cirurgiões certificados. Reconexão imediata com quem está na ponta da técnica.',
+  },
+];
+
+const benefits = [
+  {
+    category: 'Validação',
+    icon: 'verified_user',
+    items: [
+      'Avaliação dos seus casos pelo Dr. Robério pessoalmente',
+      'Feedback técnico se necessário',
+      'Confirmação de que sua execução está no padrão',
+    ],
+  },
+  {
+    category: 'Documentação',
+    icon: 'description',
+    items: [
+      'Certificado físico premium (para seu consultório)',
+      'Certificado digital com QR code verificável',
+      'Selo oficial para Instagram, LinkedIn e site',
+    ],
+  },
+  {
+    category: 'Reconhecimento',
+    icon: 'list',
+    items: [
+      'Seu nome no Diretório Oficial de Cirurgiões Certificados',
+      'Credencial que qualquer pessoa pode verificar',
+      'Diferenciação concreta no mercado',
+    ],
+  },
+  {
+    category: 'Reconexão',
+    icon: 'groups',
+    items: [
+      'Acesso ao grupo exclusivo de certificados',
+      'Contato direto com outros cirurgiões do método',
+      'Atualizações e discussões de casos',
+    ],
+  },
+  {
+    category: 'Validade',
+    icon: 'schedule',
+    items: ['2 anos de certificação', 'Renovação simplificada e com taxa reduzida'],
+  },
+];
+
+const whyNow = [
+  {
+    title: 'Prioridade Real',
+    description:
+      'A primeira turma é exclusiva para ex-alunos. Você não está competindo com novatos. Está sendo reconhecido pelo investimento que já fez.',
+  },
+  {
+    title: 'Janela de Oportunidade',
+    description:
+      'O Dr. Robério avalia pessoalmente cada caso. Isso limita o número de certificações por turma. Ex-alunos que se inscreverem primeiro garantem sua vaga.',
+  },
+  {
+    title: 'Reconexão Imediata',
+    description:
+      'O grupo de certificados já está ativo. Outros ex-alunos como você estão voltando. Quanto antes você entrar, mais cedo retoma o contato com a comunidade.',
+  },
+];
+---
+
+<BaseLayout
+  title="Certificação Oficial | Modern Facial Surgery - Ex-Alunos"
+  description="Você fez o treinamento com o Dr. Robério. Está na hora de tornar isso oficial. Primeira turma aberta para ex-alunos."
+  keywords={keywords}
+  lang="pt-BR"
+  hideHeader={true}
+  hideFooter={true}
+>
+  <SchemaFAQ items={faqs} />
+
+  <!-- Hero -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
+          Você Fez o Treinamento Com o Dr. Robério.
+          <br />
+          <span class="text-accent-400">Está Na Hora de Tornar Isso Oficial.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-primary-300 leading-relaxed mb-12">
+          A primeira turma de certificação está aberta — e ex-alunos têm prioridade.
+        </p>
+        <Button href="#registration" variant="primary" size="lg"> Quero Me Certificar </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 1: O Reconhecimento -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 class="text-4xl md:text-5xl font-serif text-primary-900 mb-8">
+          Se você está lendo isso, provavelmente se identifica com uma dessas situações:
+        </h2>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-warmGray leading-relaxed space-y-6">
+        <p class="text-lg">Você fez o Modern Facial Surgery há algum tempo.</p>
+        <p class="text-lg">Aprendeu a técnica. Voltou para sua cidade. Começou a operar.</p>
+        <p class="text-lg">E a vida aconteceu.</p>
+        <p class="text-lg">
+          O consultório ficou cheio. As demandas aumentaram. O dia a dia engoliu o tempo.
+        </p>
+        <p class="text-lg">
+          Você não voltou para os encontros.
+          <br />
+          Não acompanhou as atualizações.
+          <br />
+          Perdeu o contato com a comunidade.
+        </p>
+
+        <div class="my-12 border-l-4 border-accent-600 pl-8 py-4">
+          <p class="text-xl font-serif italic text-primary-900 mb-2">
+            <em>E talvez tenha ficado aquela sensação:</em>
+          </p>
+          <p class="text-xl font-serif italic text-primary-900 mb-2">
+            <em>"Será que mudou muita coisa?"</em>
+          </p>
+          <p class="text-xl font-serif italic text-primary-900 mb-2">
+            <em>"Será que estou fazendo do jeito mais atual?"</em>
+          </p>
+          <p class="text-xl font-serif italic text-primary-900">
+            <em>"Será que ainda 'conto' como aluno do Dr. Robério?"</em>
+          </p>
+        </div>
+
+        <p class="text-xl font-serif text-primary-900 font-normal">
+          Se você se identificou, precisa saber de uma coisa:
+        </p>
+        <p class="text-3xl font-serif text-primary-900 font-normal mt-6">
+          <strong>Você nunca deixou de fazer parte.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: O Convite -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 class="text-4xl md:text-5xl font-serif text-primary-900 mb-8">
+          A Certificação Oficial Foi Criada Pensando Em Você
+        </h2>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-warmGray leading-relaxed space-y-6">
+        <p class="text-lg">
+          Não é coincidência que a primeira turma de certificação está sendo oferecida com
+          prioridade para ex-alunos.
+        </p>
+        <p class="text-lg">
+          O Dr. Robério sabe que muitos cirurgiões que passaram pelo treinamento estão operando —
+          com competência, com resultados — mas sem nenhum reconhecimento oficial.
+        </p>
+        <p class="text-lg">
+          Sem um documento que comprove.
+          <br />
+          Sem um selo que diferencie.
+          <br />
+          Sem uma conexão ativa com a comunidade.
+        </p>
+        <p class="text-xl font-serif text-primary-900 font-normal mt-8">
+          <strong>A certificação resolve os três.</strong>
+        </p>
+        <p class="text-lg mt-6">
+          É a ponte que reconecta você ao método, à comunidade e ao reconhecimento que você merece
+          pelo investimento que já fez.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 3: O Que É A Certificação -->
+  <section class="py-32 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          O Que É
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-serif text-primary-900">
+          Certificação Oficial Modern Facial Surgery
+        </h3>
+      </div>
+
+      <div class="bg-ivory p-12 rounded-lg border border-gray-200">
+        <p class="text-xl text-warmGray mb-8 leading-relaxed">
+          O único documento que comprova, de forma verificável por qualquer pessoa, que você:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl flex-shrink-0 mt-1">
+              check_circle
+            </span>
+            <p class="text-lg text-primary-900">
+              Completou o treinamento oficial com o Dr. Robério Brandão
+            </p>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl flex-shrink-0 mt-1">
+              check_circle
+            </span>
+            <p class="text-lg text-primary-900">
+              Documenta casos próprios com resultados consistentes
+            </p>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl flex-shrink-0 mt-1">
+              check_circle
+            </span>
+            <p class="text-lg text-primary-900">
+              Foi avaliado pessoalmente pelo criador da técnica
+            </p>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-accent-600 text-2xl flex-shrink-0 mt-1">
+              check_circle
+            </span>
+            <p class="text-lg text-primary-900">
+              Faz parte do grupo oficial de cirurgiões certificados
+            </p>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8 text-center">
+          <p class="text-xl font-serif text-primary-900 mb-2">Não é começar do zero.</p>
+          <p class="text-2xl font-serif text-accent-700 font-normal">
+            <strong>É oficializar o que você já conquistou.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 4: Como Funciona Para Ex-Alunos -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Como Funciona
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-serif text-primary-900">
+          O Processo É Mais Simples Do Que Você Imagina
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          processSteps.map((step) => (
+            <div class="relative">
+              <div class="bg-accent-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-serif font-normal mb-6">
+                {step.number}
+              </div>
+              <h4 class="text-xl font-serif text-primary-900 mb-4">{step.title}</h4>
+              <p class="text-warmGray leading-relaxed">{step.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 5: O Que Você Recebe -->
+  <section class="py-32 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          O Que Você Recebe
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-serif text-primary-900">
+          Tudo Que Está Incluído na Certificação
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class="bg-ivory p-8 rounded-lg border border-gray-100">
+              <div class="flex items-center gap-3 mb-6">
+                <span class="material-symbols-outlined text-accent-600 text-3xl">
+                  {benefit.icon}
+                </span>
+                <h4 class="text-xl font-serif text-primary-900">{benefit.category}</h4>
+              </div>
+              <ul class="space-y-3">
+                {benefit.items.map((item) => (
+                  <li class="flex items-start gap-2 text-warmGray">
+                    <span class="material-symbols-outlined text-accent-600 text-sm flex-shrink-0 mt-1">
+                      arrow_forward
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 6: Por Que Agora -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-white text-4xl md:text-5xl font-serif mb-8">
+          Três Razões Para Não Deixar Passar Esta Turma
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          whyNow.map((item, index) => (
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20">
+              <div class="text-accent-400 text-4xl font-serif mb-4">{index + 1}.</div>
+              <h4 class="text-xl font-serif text-white mb-4">{item.title}</h4>
+              <p class="text-primary-300 leading-relaxed">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 7: Investimento -->
+  <section class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-serif text-primary-900 mb-8">Investimento</h2>
+        <div class="mb-12">
+          <p class="text-5xl font-serif text-primary-900 mb-4">R$ 3.000</p>
+          <p class="text-warmGray text-lg">Taxa de certificação</p>
+        </div>
+      </div>
+
+      <div class="text-center space-y-4 mb-12">
+        <p class="text-warmGray">Parcele no cartão.</p>
+        <p class="text-warmGray">Validade de 2 anos.</p>
+        <p class="text-warmGray">Renovação com taxa reduzida.</p>
+      </div>
+
+      <div class="bg-accent-600/10 border border-accent-600/30 p-6 rounded-lg text-center">
+        <p class="text-accent-700 font-medium text-lg mb-2">
+          <strong>Condição especial para ex-alunos na primeira turma.</strong>
+        </p>
+        <p class="text-warmGray text-sm">(Entre em contato para verificar disponibilidade)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 8: FAQ -->
+  <section class="py-32 bg-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+          Perguntas Frequentes
+        </h2>
+        <h3 class="text-4xl font-serif text-primary-900">Perguntas Que Ex-Alunos Fazem</h3>
+      </div>
+
+      <div class="space-y-6">
+        {
+          faqs.map((faq) => (
+            <div class="bg-white p-8 rounded-lg border border-gray-100">
+              <h4 class="text-lg font-serif text-primary-900 mb-4">{faq.question}</h4>
+              <p class="text-warmGray leading-relaxed">{faq.answer}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 9: Fechamento -->
+  <section class="py-32 bg-primary-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Você já fez o mais difícil.</h2>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-primary-300 leading-relaxed space-y-6 mb-12">
+        <p class="text-lg">Você investiu no treinamento.</p>
+        <p class="text-lg">Aprendeu a técnica.</p>
+        <p class="text-lg">Está operando há anos.</p>
+        <p class="text-xl font-serif text-white font-normal mt-8">
+          <strong>O que falta é o reconhecimento oficial.</strong>
+        </p>
+        <p class="text-lg mt-6">A certificação não é um recomeço.</p>
+        <p class="text-lg">É a conclusão de um ciclo.</p>
+        <p class="text-xl font-serif text-white font-normal mt-6">
+          É transformar "eu fiz o curso do Dr. Robério" em "eu sou certificado pelo Dr. Robério".
+        </p>
+        <div class="mt-12 pt-8 border-t border-white/20">
+          <p class="text-xl font-serif text-white font-normal mb-2">
+            <strong>A primeira turma está aberta.</strong>
+          </p>
+          <p class="text-xl font-serif text-white font-normal mb-2">
+            <strong>Ex-alunos têm prioridade.</strong>
+          </p>
+          <p class="text-xl font-serif text-accent-400 font-normal">
+            <strong>Sua vaga está reservada — mas não para sempre.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <Button href="#registration" variant="primary" size="lg"> Quero Me Certificar </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section id="registration" class="py-32 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="bg-ivory p-12 rounded-lg border border-gray-200">
+        <p class="text-warmGray mb-8 text-lg">Dúvidas? Fale com nossa equipe:</p>
+        <Button href="https://wa.me/5571999999999" variant="primary" size="lg"> WhatsApp </Button>
+        <div class="mt-12 pt-8 border-t border-gray-200 space-y-4 text-left max-w-2xl mx-auto">
+          <p class="text-sm text-warmGray italic leading-relaxed">
+            <strong>P.S.</strong> — Se você se afastou e ficou com aquela sensação de "perdi o timing",
+            essa é a sua chance de resolver isso. A certificação foi pensada para reconhecer quem já passou
+            pelo treinamento — especialmente quem está operando mas nunca teve o reconhecimento oficial.
+            Não é tarde. É o momento certo.
+          </p>
+          <p class="text-sm text-warmGray italic leading-relaxed">
+            <strong>P.P.S.</strong> — O Dr. Robério avalia cada caso pessoalmente. Isso significa vagas
+            limitadas por turma. Ex-alunos que se inscreverem primeiro têm prioridade. Se você está considerando,
+            não deixe para a próxima turma — garanta sua vaga agora.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

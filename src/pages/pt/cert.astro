@@ -1,0 +1,847 @@
+---
+// Certificação Oficial Modern Facial Surgery - Dr. Robério Brandão
+// Landing Page Component
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Certificação Oficial Modern Facial Surgery - Dr. Robério Brandão' } = Astro.props;
+---
+
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>{title}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body
+    class="bg-pure-white text-deep-navy font-sans antialiased overflow-x-hidden selection:bg-accent-gold selection:text-white"
+  >
+    <!-- Header -->
+    <header
+      class="fixed top-0 z-50 w-full bg-deep-navy/95 backdrop-blur-md border-b border-white/10 transition-all duration-300"
+    >
+      <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
+        <div class="flex items-center gap-4">
+          <span class="material-symbols-outlined text-accent-gold text-3xl font-light"
+            >verified</span
+          >
+          <div class="flex flex-col">
+            <span class="text-white text-lg font-serif tracking-wide leading-none"
+              >Dr. Robério Brandão</span
+            >
+            <span class="text-gray-400 text-[10px] font-subtitle uppercase tracking-widest mt-1"
+              >Modern Facial Surgery</span
+            >
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-gray-300 hover:text-accent-gold text-xs font-subtitle uppercase tracking-widest transition-colors duration-300"
+            href="#sobre">A Certificação</a
+          >
+          <a
+            class="text-gray-300 hover:text-accent-gold text-xs font-subtitle uppercase tracking-widest transition-colors duration-300"
+            href="#niveis">Níveis</a
+          >
+          <a
+            class="text-gray-300 hover:text-accent-gold text-xs font-subtitle uppercase tracking-widest transition-colors duration-300"
+            href="#investimento">Investimento</a
+          >
+        </nav>
+        <a
+          class="hidden md:inline-flex items-center justify-center border border-accent-gold text-accent-gold hover:bg-accent-gold hover:text-deep-navy px-6 py-2 text-xs font-subtitle uppercase tracking-widest transition-all duration-300"
+          href="#aplicar"
+        >
+          Aplicar Agora
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen w-full flex items-center bg-deep-navy pt-20 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0 bg-grain opacity-20 pointer-events-none"></div>
+      <div
+        class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#0f2441] to-transparent opacity-50"
+      >
+      </div>
+      <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-accent-gold/10 rounded-full blur-3xl">
+      </div>
+
+      <div
+        class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 py-20 flex flex-col md:flex-row items-center gap-16"
+      >
+        <div class="flex-1 max-w-3xl">
+          <div class="inline-flex items-center gap-3 mb-8 border-l border-accent-gold pl-4">
+            <span class="text-accent-gold font-subtitle text-xs uppercase tracking-widest"
+              >Exclusivo para Cirurgiões</span
+            >
+          </div>
+
+          <h1
+            class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.15] font-light mb-8 text-balance"
+          >
+            O Selo Que Separa Quem <span class="italic text-accent-gold">REALMENTE</span> Domina a Técnica
+            De Quem Apenas "Diz Que Sabe"
+          </h1>
+
+          <div class="border-l-[0.5px] border-gray-700 pl-6 py-2 mb-10">
+            <p class="text-gray-400 font-light text-lg leading-relaxed">
+              Em um mercado saturado de promessas estéticas vazias, como você prova sua competência
+              antes mesmo da primeira consulta? A falta de diferenciação técnica está nivelando
+              grandes cirurgiões com amadores.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-6">
+            <a
+              class="group inline-flex items-center justify-center bg-accent-gold text-deep-navy px-8 py-4 text-sm font-subtitle font-medium uppercase tracking-widest hover:bg-white transition-all duration-500"
+              href="#aplicar"
+            >
+              Quero Me Certificar
+              <span
+                class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </a>
+            <a
+              class="group inline-flex items-center justify-center text-white border-b border-gray-600 hover:border-white pb-1 text-sm font-subtitle uppercase tracking-widest transition-all duration-300"
+              href="#como-funciona"
+            >
+              Entenda o Processo
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificate Card -->
+        <div class="hidden md:block w-full md:w-1/3 relative">
+          <div
+            class="relative aspect-[3/4] bg-gradient-to-br from-gray-800 to-deep-navy border border-gray-700 p-8 shadow-2xl flex flex-col justify-between transform rotate-3 hover:rotate-0 transition-transform duration-700 grayscale-hover"
+          >
+            <div
+              class="absolute top-4 right-4 w-12 h-12 border border-accent-gold rounded-full flex items-center justify-center opacity-50"
+            >
+              <div class="w-8 h-8 border border-accent-gold rounded-full"></div>
+            </div>
+            <div class="mt-auto">
+              <div class="h-px w-1/3 bg-accent-gold mb-4"></div>
+              <p class="text-accent-gold font-serif text-2xl italic">MFS Certified</p>
+              <p class="text-gray-500 text-xs mt-2 font-subtitle uppercase tracking-widest">
+                Official Member
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="bg-soft-grey py-24 border-b border-gray-200" id="sobre">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative">
+            <div
+              class="aspect-[4/3] overflow-hidden bg-white shadow-xl p-2 relative grayscale-hover"
+            >
+              <img
+                alt="Close up of a luxury certificate with a golden seal and QR code being held by hands in surgical gloves"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQAwIoEr8HTShyytTDEdk3J6lSR_GItrSA-6uSOoKR3NEN4ayipds9UiKTVHNF2CmuWpFGunzdFfLh_MLZqudCAaF5Ci8pEywdKsmvUPfMaxqq_wGWVwnV-F8am7JHxWt8te72JG-0QeD0G5iWxK9_W0RHkhetUBlSaNrW1VDpwm2FT0x4-EK8f5XYWNCvevAiLjcFJNqOJ0VDNgvZdegfRP51K5Q3QcmEJUqB3sIeHGA2PIEJLZsOAkisDuhvHC49WtuTz0e0hTG"
+              />
+              <div
+                class="absolute bottom-6 right-6 bg-white/90 backdrop-blur px-4 py-2 border border-gray-100 shadow-lg"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-deep-navy">qr_code_scanner</span>
+                  <span class="text-[10px] font-subtitle uppercase tracking-widest text-deep-navy"
+                    >Verificado Digitalmente</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2
+              class="font-subtitle text-xs text-accent-gold uppercase tracking-widest mb-4 font-bold"
+            >
+              A Solução Definitiva
+            </h2>
+            <h3 class="font-serif text-4xl text-deep-navy mb-6">
+              Certificação Oficial Modern Facial Surgery
+            </h3>
+            <p class="text-gray-600 leading-relaxed mb-6 font-light">
+              Mais do que um reconhecimento acadêmico, esta é uma prova auditada de competência no
+              método <strong class="text-deep-navy font-medium">ENDOMIDFACE®</strong>. Desenvolvemos
+              um sistema de verificação em três camadas para garantir que apenas cirurgiões aptos
+              portem este selo.
+            </p>
+
+            <ul class="space-y-6 mt-8">
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-accent-gold mt-1 text-xl"
+                  >verified_user</span
+                >
+                <div>
+                  <h4 class="font-serif text-lg text-deep-navy">Selo Exclusivo de Autoridade</h4>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Uso liberado em receituários, site e redes sociais, distinguindo sua prática.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-accent-gold mt-1 text-xl"
+                  >folder_managed</span
+                >
+                <div>
+                  <h4 class="font-serif text-lg text-deep-navy">Diretório Oficial de Membros</h4>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Seu nome listado na base oficial, acessível para pacientes que buscam
+                    especialistas.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-accent-gold mt-1 text-xl"
+                  >qr_code_2</span
+                >
+                <div>
+                  <h4 class="font-serif text-lg text-deep-navy">Verificação via QR Code</h4>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Tecnologia antifraude que permite ao paciente confirmar sua certificação em
+                    tempo real.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-pure-white py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <h2 class="font-serif text-3xl md:text-4xl text-deep-navy mb-4">
+            Por Que Isso Muda Tudo?
+          </h2>
+          <div class="h-px w-24 bg-accent-gold mx-auto"></div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 border-y border-gray-100"
+        >
+          <div class="p-10 text-center hover:bg-soft-grey transition-colors duration-500">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-deep-navy/5 text-deep-navy mb-6"
+            >
+              <span class="material-symbols-outlined">sentiment_satisfied</span>
+            </div>
+            <h3
+              class="font-subtitle text-sm font-bold uppercase tracking-widest text-deep-navy mb-3"
+            >
+              Para Seus Pacientes
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-light">
+              Elimina a dúvida na hora da escolha. O selo atua como um gatilho mental imediato de
+              segurança e competência técnica comprovada.
+            </p>
+          </div>
+
+          <div class="p-10 text-center hover:bg-soft-grey transition-colors duration-500">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-deep-navy/5 text-deep-navy mb-6"
+            >
+              <span class="material-symbols-outlined">groups</span>
+            </div>
+            <h3
+              class="font-subtitle text-sm font-bold uppercase tracking-widest text-deep-navy mb-3"
+            >
+              Para Seus Colegas
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-light">
+              Estabelece você como uma referência na sua região. Você deixa de ser "mais um" para se
+              tornar um especialista certificado.
+            </p>
+          </div>
+
+          <div class="p-10 text-center hover:bg-soft-grey transition-colors duration-500">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-deep-navy/5 text-deep-navy mb-6"
+            >
+              <span class="material-symbols-outlined">share</span>
+            </div>
+            <h3
+              class="font-subtitle text-sm font-bold uppercase tracking-widest text-deep-navy mb-3"
+            >
+              Nas Redes Sociais
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed font-light">
+              Cria uma identidade visual premium. O branding da certificação eleva a percepção de
+              valor de todo o seu conteúdo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como Funciona Section -->
+    <section class="bg-deep-navy text-white py-24 relative overflow-hidden" id="como-funciona">
+      <div
+        class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"
+      >
+      </div>
+
+      <div class="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
+        <div class="mb-16">
+          <h2
+            class="font-subtitle text-xs text-accent-gold uppercase tracking-widest mb-4 font-bold"
+          >
+            O Caminho para a Excelência
+          </h2>
+          <h3 class="font-serif text-3xl md:text-4xl text-white">Como Funciona a Certificação</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {
+            [
+              {
+                num: '01',
+                title: 'Elegibilidade',
+                desc: 'Exclusivo para alunos que concluíram o treinamento oficial Modern Facial Surgery.',
+              },
+              {
+                num: '02',
+                title: 'Documentação',
+                desc: 'Envio de casos operados seguindo os protocolos fotográficos padronizados.',
+              },
+              {
+                num: '03',
+                title: 'Avaliação',
+                desc: 'Dr. Robério Brandão e equipe analisam pessoalmente a técnica e os resultados.',
+              },
+              {
+                num: '04',
+                title: 'Certificação',
+                desc: 'Aprovação oficial, envio do kit físico e liberação do selo digital.',
+              },
+            ].map((step) => (
+              <div class="relative group">
+                <div class="absolute top-0 left-0 w-full h-[0.5px] bg-gray-700 group-hover:bg-accent-gold transition-colors duration-500" />
+                <div class="pt-8 pr-4">
+                  <span class="block text-4xl font-serif text-gray-700 group-hover:text-accent-gold transition-colors duration-500 mb-4">
+                    {step.num}
+                  </span>
+                  <h4 class="font-subtitle text-sm font-bold uppercase tracking-widest mb-2">
+                    {step.title}
+                  </h4>
+                  <p class="text-gray-400 text-sm font-light leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Níveis Section -->
+    <section class="bg-soft-grey py-24" id="niveis">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="text-center mb-16">
+          <h2 class="font-serif text-3xl text-deep-navy">Os Três Níveis de Certificação</h2>
+          <p class="text-gray-500 mt-4 font-light">
+            Avançe conforme sua especialização e complexidade dos casos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Level I -->
+          <div
+            class="bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:border-accent-gold/30 transition-all duration-300 group"
+          >
+            <div class="h-1 w-12 bg-gray-300 group-hover:bg-accent-gold transition-colors mb-6">
+            </div>
+            <h3 class="font-serif text-2xl text-deep-navy mb-1">Level I</h3>
+            <p
+              class="font-subtitle text-xs font-bold uppercase tracking-widest text-accent-gold mb-6"
+            >
+              Midface & Brow
+            </p>
+            <p
+              class="text-gray-600 text-sm font-light leading-relaxed border-t border-gray-100 pt-6"
+            >
+              Focado na competência comprovada em rejuvenescimento do terço médio e superior da face
+              através de acessos endoscópicos.
+            </p>
+          </div>
+
+          <!-- Level II (Featured) -->
+          <div
+            class="bg-deep-navy p-8 shadow-2xl relative overflow-hidden group transform md:-translate-y-4"
+          >
+            <div class="absolute inset-0 bg-grain opacity-10"></div>
+            <div class="relative z-10">
+              <div class="h-1 w-12 bg-accent-gold mb-6"></div>
+              <h3 class="font-serif text-2xl text-white mb-1">Level II</h3>
+              <p
+                class="font-subtitle text-xs font-bold uppercase tracking-widest text-accent-gold mb-6"
+              >
+                Face & Neck
+              </p>
+              <p
+                class="text-gray-300 text-sm font-light leading-relaxed border-t border-gray-700 pt-6"
+              >
+                Certificação para cirurgiões que dominam o tratamento do terço inferior e pescoço,
+                integrando técnicas profundas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Level III -->
+          <div
+            class="bg-white border border-gray-200 p-8 shadow-sm hover:shadow-xl hover:border-accent-gold/30 transition-all duration-300 group"
+          >
+            <div class="h-1 w-12 bg-gray-300 group-hover:bg-accent-gold transition-colors mb-6">
+            </div>
+            <h3 class="font-serif text-2xl text-deep-navy mb-1">Level III</h3>
+            <p
+              class="font-subtitle text-xs font-bold uppercase tracking-widest text-accent-gold mb-6"
+            >
+              Full Mastery
+            </p>
+            <p
+              class="text-gray-600 text-sm font-light leading-relaxed border-t border-gray-100 pt-6"
+            >
+              O auge da certificação. Domínio completo da anatomia facial e cervical, com
+              consistência de resultados em casos complexos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kit Section -->
+    <section class="bg-pure-white py-24">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2
+              class="font-subtitle text-xs text-accent-gold uppercase tracking-widest mb-4 font-bold"
+            >
+              O Que Está Incluído
+            </h2>
+            <h3 class="font-serif text-3xl text-deep-navy mb-8">Um Kit de Prestígio e Valor</h3>
+
+            <ul class="space-y-4">
+              {
+                [
+                  {
+                    icon: 'rate_review',
+                    title: 'Avaliação Individualizada',
+                    desc: 'Feedback detalhado sobre seus casos cirúrgicos.',
+                  },
+                  {
+                    icon: 'workspace_premium',
+                    title: 'Certificado Físico Premium',
+                    desc: 'Impresso em papel de alta gramatura, com relevo e foil dourado.',
+                  },
+                  {
+                    icon: 'verified',
+                    title: 'Selo Digital & Badge',
+                    desc: 'Arquivos em alta resolução para seu marketing pessoal.',
+                  },
+                  {
+                    icon: 'import_contacts',
+                    title: 'Inclusão no Diretório Oficial',
+                    desc: 'Página de perfil verificada no site oficial.',
+                  },
+                ].map((item) => (
+                  <li class="flex gap-4 p-4 border border-transparent hover:border-gray-100 hover:bg-soft-grey transition-colors rounded-lg">
+                    <span class="material-symbols-outlined text-deep-navy">{item.icon}</span>
+                    <div>
+                      <h4 class="font-medium text-deep-navy">{item.title}</h4>
+                      <p class="text-sm text-gray-500 font-light">{item.desc}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <div class="relative h-full min-h-[400px]">
+            <div class="absolute inset-0 bg-gray-100 grayscale-hover">
+              <img
+                alt="Mockup of the physical certificate kit in a dark luxurious box with gold details"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjB5o1nmjr196gitr-mBiJWXKOBhRkxq2e1K0RgZ_Fm1omgyA2UN4LQU0IHcl8YyXWyw01_rfZ3Oprp41AsY8lsqhhNYtvxH7N8CjHJpD9ujNDaJuwxQaCHhNsCBodolWLJ7IwWMqKxS46byN_UmiNRGk8b64ViLplyxThQSfVzJkhzqOEj1snYP1wsgj9CHKE4qKA20tbJhUgPH9bhkPM7BKJt3xzsFKq9XbyLZpbcmcgW0IFlBEhbBo5O_CeXguSJz6lBJSDie14"
+              />
+            </div>
+            <div class="absolute -bottom-6 -left-6 bg-deep-navy p-6 text-white max-w-xs shadow-xl">
+              <p class="font-serif italic text-lg">"A excelência deve ser tangível."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Banner -->
+    <section class="bg-deep-navy py-20 border-y border-gray-800">
+      <div class="mx-auto max-w-4xl px-6 lg:px-12 text-center">
+        <h2 class="font-serif text-3xl text-white mb-8">O Retorno Sobre o Investimento</h2>
+        <p class="text-gray-300 text-lg font-light leading-relaxed mb-8">
+          Quanto vale a confiança instantânea do seu paciente? Um único procedimento agendado pela
+          autoridade que este selo confere já supera o valor do investimento. Não é um custo, é a
+          consolidação da sua carreira no topo do mercado.
+        </p>
+        <div class="inline-block border border-accent-gold/50 px-6 py-2 rounded-full">
+          <p class="text-accent-gold text-sm font-subtitle uppercase tracking-widest">
+            Validade de 2 Anos
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investimento Section -->
+    <section class="bg-soft-grey py-24" id="investimento">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row gap-12 items-center justify-center">
+          <div
+            class="w-full max-w-md bg-white p-10 shadow-2xl border-t-4 border-accent-gold relative"
+          >
+            <div
+              class="absolute top-0 right-0 bg-accent-gold text-deep-navy text-[10px] font-bold px-3 py-1 uppercase tracking-widest"
+            >
+              Taxa Única
+            </div>
+            <h3 class="text-deep-navy font-serif text-2xl mb-2">Processo de Certificação</h3>
+            <p class="text-gray-500 text-sm mb-8 font-light">
+              Análise documental + Kit Físico + Inclusão no Diretório
+            </p>
+
+            <div class="flex items-baseline gap-2 mb-2">
+              <span class="text-sm text-gray-400">R$</span>
+              <span class="text-5xl font-serif text-deep-navy">3.000</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-8 uppercase tracking-widest">
+              Parcelamento disponível
+            </p>
+
+            <a
+              class="block w-full bg-deep-navy text-white text-center py-4 font-subtitle text-sm uppercase tracking-widest hover:bg-accent-gold hover:text-deep-navy transition-all duration-300 mb-6"
+              href="#aplicar"
+            >
+              Iniciar Processo
+            </a>
+
+            <div class="flex items-center gap-2 justify-center border-t border-gray-100 pt-6">
+              <span class="material-symbols-outlined text-accent-gold text-sm">stars</span>
+              <p class="text-xs text-gray-600">Condição especial para Ex-Alunos (Consulte)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-pure-white py-24">
+      <div class="mx-auto max-w-3xl px-6 lg:px-12">
+        <h2 class="font-serif text-3xl text-deep-navy text-center mb-12">Perguntas Frequentes</h2>
+
+        <div class="space-y-4">
+          <details class="group border-b border-gray-200 pb-4">
+            <summary
+              class="flex cursor-pointer items-center justify-between text-lg font-medium text-deep-navy"
+            >
+              <span>Quais são os critérios de elegibilidade?</span>
+              <span
+                class="ml-6 flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-gray-500 transition group-open:rotate-180"
+              >
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+              </span>
+            </summary>
+            <div class="mt-4 text-gray-500 font-light leading-relaxed">
+              É necessário ter concluído o curso Modern Facial Surgery correspondente ao nível
+              aplicado e apresentar a documentação dos casos cirúrgicos solicitados.
+            </div>
+          </details>
+
+          <details class="group border-b border-gray-200 pb-4">
+            <summary
+              class="flex cursor-pointer items-center justify-between text-lg font-medium text-deep-navy"
+            >
+              <span>Como funciona a aprovação dos casos?</span>
+              <span
+                class="ml-6 flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-gray-500 transition group-open:rotate-180"
+              >
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+              </span>
+            </summary>
+            <div class="mt-4 text-gray-500 font-light leading-relaxed">
+              Você enviará fotos pré e pós-operatórias (seguindo nossos protocolos de privacidade).
+              Dr. Robério avaliará a qualidade técnica, simetria e resultados. O feedback é
+              sigiloso.
+            </div>
+          </details>
+
+          <details class="group border-b border-gray-200 pb-4">
+            <summary
+              class="flex cursor-pointer items-center justify-between text-lg font-medium text-deep-navy"
+            >
+              <span>Qual a validade da certificação?</span>
+              <span
+                class="ml-6 flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-gray-500 transition group-open:rotate-180"
+              >
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+              </span>
+            </summary>
+            <div class="mt-4 text-gray-500 font-light leading-relaxed">
+              A certificação é válida por 2 anos. Após este período, é necessária uma renovação
+              simplificada para garantir que o membro continua atualizado com as evoluções da
+              técnica.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="bg-deep-navy py-24 relative overflow-hidden text-center" id="aplicar">
+      <div class="absolute inset-0 bg-grain opacity-10 pointer-events-none"></div>
+
+      <div class="mx-auto max-w-4xl px-6 lg:px-12 relative z-10">
+        <h2 class="font-serif text-4xl sm:text-5xl text-white mb-8">
+          Dois Caminhos Estão Diante de Você
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-12">
+          <div class="bg-white/5 p-6 border border-white/10 rounded-sm">
+            <h4 class="text-gray-400 font-bold mb-2 uppercase text-xs tracking-widest">Opção 1</h4>
+            <p class="text-gray-300 font-light text-sm">
+              Continuar sendo apenas mais um cirurgião no mercado, competindo por preço e lutando
+              para provar seu valor a cada consulta.
+            </p>
+          </div>
+          <div class="bg-accent-gold/10 p-6 border border-accent-gold/30 rounded-sm">
+            <h4 class="text-accent-gold font-bold mb-2 uppercase text-xs tracking-widest">
+              Opção 2 (Recomendada)
+            </h4>
+            <p class="text-white font-light text-sm">
+              Obter o selo que valida sua expertise, atrair pacientes qualificados e cobrar o valor
+              justo pela sua excelência técnica.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="inline-flex items-center justify-center bg-accent-gold text-deep-navy px-12 py-5 text-base font-subtitle font-bold uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl shadow-accent-gold/20"
+        >
+          Quero Me Certificar
+          <span class="material-symbols-outlined ml-2">arrow_forward</span>
+        </button>
+
+        <div class="mt-16 text-left max-w-2xl mx-auto border-t border-gray-800 pt-8">
+          <p class="text-gray-400 text-sm font-serif italic mb-4">
+            P.S. A exclusividade é um dos pilares da nossa marca. O Diretório Oficial será
+            amplamente divulgado em breve.
+          </p>
+          <p class="text-gray-500 text-xs font-light">
+            P.P.S. Se você já é aluno e tem casos operados, não deixe para depois. O processo de
+            análise é minucioso e as vagas para avaliação mensal são limitadas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-navy border-t border-gray-800 pt-16 pb-8">
+      <div class="mx-auto max-w-7xl px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+          <div class="max-w-xs">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="material-symbols-outlined text-accent-gold text-2xl">verified</span>
+              <span class="text-white text-lg font-serif">Dr. Robério Brandão</span>
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed font-light">
+              Compromisso com a excelência na cirurgia facial. Elevando os padrões através da
+              educação e certificação rigorosa.
+            </p>
+          </div>
+
+          <div class="flex gap-12">
+            <div>
+              <h4 class="text-white font-subtitle text-xs uppercase tracking-widest mb-4">
+                Contato
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-500 font-light">
+                <li>contato@roberiobrandao.com</li>
+                <li>+55 (11) 99999-9999</li>
+                <li>São Paulo, SP</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-white font-subtitle text-xs uppercase tracking-widest mb-4">Legal</h4>
+              <ul class="space-y-2 text-sm text-gray-500 font-light">
+                <li>
+                  <a class="hover:text-accent-gold transition-colors" href="#"
+                    >Política de Privacidade</a
+                  >
+                </li>
+                <li>
+                  <a class="hover:text-accent-gold transition-colors" href="#">Termos de Uso</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-gray-600 text-xs">
+            © 2024 Dr. Robério Brandão. Todos os direitos reservados.
+          </p>
+          <div class="flex gap-4">
+            <a class="text-gray-600 hover:text-white transition-colors" href="#">Instagram</a>
+            <a class="text-gray-600 hover:text-white transition-colors" href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* Tailwind Config via CSS Variables */
+  :root {
+    --deep-navy: #0a192f;
+    --pure-white: #ffffff;
+    --soft-grey: #f5f5f5;
+    --accent-gold: #c5a059;
+    --accent-gold-light: #dcc289;
+  }
+
+  /* Custom utility classes */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grayscale-hover {
+    filter: grayscale(80%);
+    transition: filter 0.5s ease;
+  }
+
+  .grayscale-hover:hover {
+    filter: grayscale(0%);
+  }
+
+  .thin-border {
+    border-width: 0.5px;
+  }
+
+  .thin-border-t {
+    border-top-width: 0.5px;
+  }
+
+  .thin-border-b {
+    border-bottom-width: 0.5px;
+  }
+
+  .thin-border-r {
+    border-right-width: 0.5px;
+  }
+
+  /* Grain background */
+  .bg-grain {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  }
+
+  /* Custom color utilities */
+  .bg-deep-navy {
+    background-color: var(--deep-navy);
+  }
+  .bg-pure-white {
+    background-color: var(--pure-white);
+  }
+  .bg-soft-grey {
+    background-color: var(--soft-grey);
+  }
+  .bg-accent-gold {
+    background-color: var(--accent-gold);
+  }
+
+  .text-deep-navy {
+    color: var(--deep-navy);
+  }
+  .text-accent-gold {
+    color: var(--accent-gold);
+  }
+
+  .border-accent-gold {
+    border-color: var(--accent-gold);
+  }
+
+  /* Font families */
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-subtitle {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Extended letter spacing */
+  .tracking-widest-plus {
+    letter-spacing: 0.2em;
+  }
+</style>
+
+<script>
+  // Tailwind CDN for development (remove in production and use proper Tailwind build)
+  const tailwindScript = document.createElement('script');
+  tailwindScript.src = 'https://cdn.tailwindcss.com?plugins=forms,container-queries';
+  document.head.appendChild(tailwindScript);
+
+  tailwindScript.onload = () => {
+    // @ts-ignore
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'deep-navy': '#0A192F',
+            'pure-white': '#FFFFFF',
+            'soft-grey': '#F5F5F5',
+            'accent-gold': '#C5A059',
+            'accent-gold-light': '#DCC289',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            subtitle: ['Montserrat', 'sans-serif'],
+          },
+          letterSpacing: {
+            'widest-plus': '0.2em',
+          },
+        },
+      },
+    };
+  };
+</script>

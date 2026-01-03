@@ -1,0 +1,91 @@
+---
+/**
+ * SpeakersGrid - Grid responsivo de palestrantes
+ * Cards com foto, nome, especialidade e bio opcional
+ */
+
+import type { Speaker } from '@lib/types/event';
+
+interface Props {
+  speakers: Speaker[];
+  title?: string;
+  subtitle?: string;
+}
+
+const { speakers, title = 'Speakers', subtitle } = Astro.props;
+---
+
+<section class="py-32 bg-ivory">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+        {title}
+      </h2>
+      {subtitle && <h3 class="text-4xl font-serif text-primary-900">{subtitle}</h3>}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        speakers.map((speaker) => (
+          <div class="bg-white p-8 rounded-lg border border-gray-100 text-center">
+            {speaker.image ? (
+              <img
+                src={speaker.image}
+                alt={speaker.name}
+                class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                width="96"
+                height="96"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-24 h-24 rounded-full mx-auto mb-4 bg-primary-100 flex items-center justify-center">
+                <span class="material-symbols-outlined text-4xl text-primary-600">person</span>
+              </div>
+            )}
+            <h4 class="text-xl font-serif font-normal text-primary-900 mb-2">{speaker.name}</h4>
+            <p class="text-sm text-accent-600 mb-2">{speaker.role}</p>
+            {speaker.specialty && <p class="text-xs text-softGray mb-4">{speaker.specialty}</p>}
+            {speaker.bio && <p class="text-sm text-warmGray leading-relaxed mt-4">{speaker.bio}</p>}
+            {speaker.social && (
+              <div class="flex justify-center gap-3 mt-4">
+                {speaker.social.linkedin && (
+                  <a
+                    href={speaker.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary-600 hover:text-accent-600 transition-colors"
+                    aria-label={`${speaker.name} LinkedIn`}
+                  >
+                    <span class="material-symbols-outlined">link</span>
+                  </a>
+                )}
+                {speaker.social.instagram && (
+                  <a
+                    href={speaker.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary-600 hover:text-accent-600 transition-colors"
+                    aria-label={`${speaker.name} Instagram`}
+                  >
+                    <span class="material-symbols-outlined">photo_camera</span>
+                  </a>
+                )}
+                {speaker.social.website && (
+                  <a
+                    href={speaker.social.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary-600 hover:text-accent-600 transition-colors"
+                    aria-label={`${speaker.name} Website`}
+                  >
+                    <span class="material-symbols-outlined">language</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

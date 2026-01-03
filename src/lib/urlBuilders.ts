@@ -11,7 +11,7 @@ import type { Locale } from './i18n';
  * @param locale - Target locale
  * @returns Localized blog post URL
  */
-export function getBlogPostUrl(slug: string, locale:  Locale = 'en'): string {
+export function getBlogPostUrl(slug: string, locale: Locale = 'en'): string {
   if (locale === 'en') return `/blog/${slug}`;
   if (locale === 'pt') return `/pt/blog/${slug}`;
   return `/${locale}/blog/${slug}`;
@@ -34,7 +34,7 @@ export function getBlogIndexUrl(locale: Locale = 'en'): string {
  * @param locale - Target locale
  * @returns Localized blog category URL with query parameter
  */
-export function getBlogCategoryUrl(categorySlug: string, locale:  Locale = 'en'): string {
+export function getBlogCategoryUrl(categorySlug: string, locale: Locale = 'en'): string {
   const baseUrl = getBlogIndexUrl(locale);
   return `${baseUrl}?categoria=${categorySlug}`;
 }

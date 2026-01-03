@@ -6,10 +6,9 @@
  */
 
 import BlogSearch from '@components/islands/BlogSearch';
-import { LocalizedErrorBoundary } from '@components/islands/ErrorBoundary';
 
 export interface Category {
-  name:  string;
+  name: string;
   slug: string;
   count: number;
 }
@@ -17,7 +16,7 @@ export interface Category {
 export interface PopularPost {
   slug: string;
   title: string;
-  readTime:  string;
+  readTime: string;
   category: string;
 }
 
@@ -49,11 +48,11 @@ const {
 
 // Traduções
 const t = {
-  'pt': {
+  pt: {
     search: 'Buscar',
     categories: 'Categorias',
     popular: 'Mais Lidos',
-    cta:  {
+    cta: {
       title: 'Aprenda com Dr. Robério',
       description: 'Mentoria especializada em cirurgia facial com mais de 1.500 casos.',
       button: 'Conhecer Mentoria',
@@ -65,10 +64,10 @@ const t = {
     categories: 'Categories',
     popular: 'Most Read',
     cta: {
-      title:  'Learn with Dr. Robério',
+      title: 'Learn with Dr. Robério',
       description: 'Specialized mentorship in facial surgery with over 1,500 cases.',
       button: 'Explore Mentorship',
-      link:  '/education',
+      link: '/education',
     },
   },
   es: {
@@ -92,7 +91,7 @@ const getUrl = (slug: string) => {
   return `/${locale}/blog/${slug}`;
 };
 
-const getCategoryUrl = (categorySlug:  string) => {
+const getCategoryUrl = (categorySlug: string) => {
   const baseUrl = locale === 'en' ? '/blog' : locale === 'pt' ? '/pt/blog' : `/${locale}/blog`;
   return `${baseUrl}?categoria=${categorySlug}`;
 };
@@ -104,9 +103,7 @@ const getCategoryUrl = (categorySlug:  string) => {
     <h3 class="label-eyebrow mb-4">
       {trans.search}
     </h3>
-    <LocalizedErrorBoundary locale={locale} client:load>
-      <BlogSearch articles={articles} locale={locale} />
-    </LocalizedErrorBoundary>
+    <BlogSearch articles={articles} locale={locale} client:load />
   </div>
 
   <!-- Categories Section -->
@@ -131,10 +128,10 @@ const getCategoryUrl = (categorySlug:  string) => {
               <span>{category.name}</span>
               <span
                 class:list={[
-                  'text-[10px] px-2 py-0.5 rounded-full',
+                  'text-[10px] px-2 py-0.5 rounded-full font-medium',
                   currentCategory === category.slug
                     ? 'bg-accent-100 text-accent-700'
-                    : 'bg-primary-50 text-softGray',
+                    : 'bg-primary-100 text-primary-600',
                 ]}
               >
                 {category.count}

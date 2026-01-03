@@ -5,7 +5,7 @@ import { getLocaleFromUrl } from '@lib/i18n';
 const locale = getLocaleFromUrl(Astro.url);
 
 const content = {
-  'pt': {
+  pt: {
     title: 'Página não encontrada',
     heading: '404',
     subheading: 'Ops! Página não encontrada',
@@ -40,7 +40,7 @@ const content = {
 const t = content[locale];
 
 const links = {
-  'pt': { home: '/pt', techniques: '/pt/tecnicas', contact: '/pt/contato' },
+  pt: { home: '/pt', techniques: '/pt/tecnicas', contact: '/pt/contato' },
   en: { home: '/', techniques: '/techniques', contact: '/contact' },
   es: { home: '/es', techniques: '/es/tecnicas', contact: '/es/contacto' },
 };

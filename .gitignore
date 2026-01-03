@@ -39,3 +39,9 @@ coverage
 # Temporary files
 *.tmp
 *.temp
+venv/
+
+# Development tools
+_bmad/
+_bmad-output/
+firebase-debug.log

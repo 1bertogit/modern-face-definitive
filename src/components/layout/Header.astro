@@ -13,21 +13,21 @@ const currentPath = Astro.url.pathname;
 
 // Logo subtitle translations
 const logoSubtitle: Record<Locale, string> = {
-  'pt': 'Instituto da Face Moderna',
+  pt: 'Instituto da Face Moderna',
   en: 'Modern Face Institute',
   es: 'Instituto de Face Moderna',
 };
 
 // CTA text translations
 const ctaText: Record<Locale, string> = {
-  'pt': 'Ver Programas',
+  pt: 'Ver Programas',
   en: 'View Programs',
   es: 'Ver Programas',
 };
 
 // CTA path
 const ctaPath: Record<Locale, string> = {
-  'pt': '/pt/educacao',
+  pt: '/pt/educacao',
   en: '/education',
   es: '/es/educacion',
 };
@@ -47,14 +47,18 @@ const languageSwitcher = locales.map((loc) => ({
   <div class="mx-auto lg:px-8 max-w-7xl px-4 sm:px-6">
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
-      <a 
-        href={locale === 'pt' ? '/pt' : locale === 'en' ? '/' : `/${locale}`} 
+      <a
+        href={locale === 'pt' ? '/pt' : locale === 'en' ? '/' : `/${locale}`}
         class="flex flex-col group"
       >
-        <span class="text-primary-900 font-serif font-normal text-base tracking-[0.05em] whitespace-nowrap">
+        <span
+          class="text-primary-900 font-serif font-normal text-base tracking-[0.05em] whitespace-nowrap"
+        >
           DR. ROBÉRIO BRANDÃO
         </span>
-        <span class="transition-colors uppercase font-normal group-hover:text-primary-800 mt-0.5 text-[0.55rem] text-accent-700 tracking-[0.25em]">
+        <span
+          class="transition-colors uppercase font-normal group-hover:text-primary-800 mt-0.5 text-[0.55rem] text-accent-700 tracking-[0.25em]"
+        >
           {logoSubtitle[locale]}
         </span>
       </a>
@@ -91,9 +95,7 @@ const languageSwitcher = locales.map((loc) => ({
                         href={child.path}
                         class:list={[
                           'transition-colors text-xs py-2 hover:text-primary-900 text-warmGray block hover:bg-ivory px-4',
-                          currentPath === child.path
-                            ? 'bg-ivory text-accent-700 font-medium'
-                            : '',
+                          currentPath === child.path ? 'bg-ivory text-accent-700 font-medium' : '',
                         ]}
                       >
                         {child.label}

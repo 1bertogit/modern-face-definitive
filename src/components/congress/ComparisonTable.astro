@@ -1,0 +1,81 @@
+---
+interface ComparisonItem {
+  traditional: string;
+  modern: string;
+}
+
+const comparisons: ComparisonItem[] = [
+  {
+    traditional: 'Casos selecionados e editados para parecerem perfeitos',
+    modern: 'Casos reais, sem edição — incluindo os imperfeitos',
+  },
+  {
+    traditional: 'Palestrantes que operam há 30 anos — distantes da sua realidade',
+    modern: 'Cirurgiões que aplicaram a técnica há 6-18 meses — perto da sua realidade',
+  },
+  {
+    traditional: 'Zero transparência sobre erros e complicações',
+    modern: 'Transparência total: erros, sustos e como resolveram',
+  },
+  {
+    traditional: 'Técnicas que exigem equipamentos de R$ 150.000',
+    modern: 'Técnica "Vídeo Sem Vídeo" — sem dependência de torre endoscópica',
+  },
+  {
+    traditional: 'Sem follow-up real — você nunca sabe o que aconteceu depois',
+    modern: 'Follow-up de 6 meses a 2 anos — você vê o que realmente durou',
+  },
+];
+---
+
+<div class="grid md:grid-cols-2 gap-8 md:gap-12">
+  <!-- Traditional Congresses -->
+  <div class="bg-gray-50 rounded-lg p-6 sm:p-8">
+    <h3 class="text-lg sm:text-xl font-serif text-primary-900 mb-6 flex items-center gap-2">
+      <span class="material-symbols-outlined text-gray-400" aria-hidden="true">cancel</span>
+      Congressos Tradicionais
+    </h3>
+    <ul class="space-y-4">
+      {
+        comparisons.map((item) => (
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-red-500 text-lg flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            >
+              close
+            </span>
+            <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">
+              {item.traditional}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Modern Face Congress -->
+  <div class="bg-accent-500/5 border border-accent-500/20 rounded-lg p-6 sm:p-8">
+    <h3 class="text-lg sm:text-xl font-serif text-primary-900 mb-6 flex items-center gap-2">
+      <span class="material-symbols-outlined text-accent-500" aria-hidden="true">check_circle</span>
+      Modern Face® Congress
+    </h3>
+    <ul class="space-y-4">
+      {
+        comparisons.map((item) => (
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-accent-600 text-lg flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            >
+              check
+            </span>
+            <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">
+              {item.modern}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

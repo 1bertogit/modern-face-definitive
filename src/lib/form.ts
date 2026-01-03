@@ -55,7 +55,7 @@ export const WHATSAPP_CONFIG = {
     number: '5584920013480',
     url: 'https://api.whatsapp.com/send?phone=5584920013480',
     defaultMessage: {
-      'pt': 'Olá! Gostaria de mais informações sobre consultas.',
+      pt: 'Olá! Gostaria de mais informações sobre consultas.',
       en: 'Hello! I would like more information about consultations.',
       es: '¡Hola! Me gustaría más información sobre consultas.',
     },
@@ -65,7 +65,7 @@ export const WHATSAPP_CONFIG = {
   courses: {
     url: 'https://link.drroberiobrandao.com/personal-website',
     defaultMessage: {
-      'pt': 'Olá! Gostaria de informações sobre os cursos de formação.',
+      pt: 'Olá! Gostaria de informações sobre os cursos de formação.',
       en: 'Hello! I would like information about training courses.',
       es: '¡Hola! Me gustaría información sobre los cursos de formación.',
     },
@@ -186,17 +186,19 @@ const logger = {
 /**
  * Sanitize input to prevent XSS attacks
  * Removes potentially dangerous HTML/script content
+ * Optimized to use fewer regex passes
  */
 export function sanitizeInput(input: string): string {
-  return input
+  // Entity decode map for efficient lookup
+  const entityMap: Record<string, string> = { lt: '<', gt: '>', amp: '&' };
+
+  // Single pass for HTML entities and dangerous patterns
+  const sanitized = input
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/<[^>]*>/g, '')
-    .replace(/javascript:/gi, '')
-    .replace(/on\w+\s*=/gi, '')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .trim();
+    .replace(/<[^>]*>|javascript:|on\w+\s*=/gi, '')
+    .replace(/&(lt|gt|amp);/g, (match, entity) => entityMap[entity] || match);
+
+  return sanitized.trim();
 }
 
 /**
@@ -430,32 +432,32 @@ export async function submitForm(
 export function getErrorMessage(error: FormError, locale: 'pt' | 'en' | 'es' = 'pt'): string {
   const messages: Record<FormErrorType, Record<string, string>> = {
     VALIDATION_ERROR: {
-      'pt': error.message,
+      pt: error.message,
       en: error.message,
       es: error.message,
     },
     NETWORK_ERROR: {
-      'pt': 'Erro de conexão. Verifique sua internet e tente novamente.',
+      pt: 'Erro de conexão. Verifique sua internet e tente novamente.',
       en: 'Connection error. Check your internet and try again.',
       es: 'Error de conexión. Verifique su internet e intente nuevamente.',
     },
     SERVER_ERROR: {
-      'pt': 'Servidor indisponível. Tente novamente em alguns minutos.',
+      pt: 'Servidor indisponível. Tente novamente em alguns minutos.',
       en: 'Server unavailable. Try again in a few minutes.',
       es: 'Servidor no disponible. Intente nuevamente en unos minutos.',
     },
     CONFIGURATION_ERROR: {
-      'pt': 'Formulário não configurado. Use o WhatsApp para contato.',
+      pt: 'Formulário não configurado. Use o WhatsApp para contato.',
       en: 'Form not configured. Use WhatsApp to contact us.',
       es: 'Formulario no configurado. Use WhatsApp para contactarnos.',
     },
     RATE_LIMIT_ERROR: {
-      'pt': 'Muitas tentativas. Aguarde alguns minutos.',
+      pt: 'Muitas tentativas. Aguarde alguns minutos.',
       en: 'Too many attempts. Wait a few minutes.',
       es: 'Demasiados intentos. Espere unos minutos.',
     },
     UNKNOWN_ERROR: {
-      'pt': 'Erro inesperado. Tente novamente ou use o WhatsApp.',
+      pt: 'Erro inesperado. Tente novamente ou use o WhatsApp.',
       en: 'Unexpected error. Try again or use WhatsApp.',
       es: 'Error inesperado. Intente nuevamente o use WhatsApp.',
     },

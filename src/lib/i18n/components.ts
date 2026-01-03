@@ -47,7 +47,7 @@ export const glossaryTranslations: Record<
     };
   }
 > = {
-  'pt': {
+  pt: {
     search: {
       placeholder: 'Busque por um termo (ex: SMAS, Endomidface, Platisma)...',
       clearSearch: 'Limpar busca',
@@ -190,7 +190,7 @@ export const timelineTranslations: Record<
     };
   }
 > = {
-  'pt': {
+  pt: {
     filters: {
       title: 'Filtros',
       search: 'Buscar (ex.: SMAS, Hamra, midface)',
@@ -299,7 +299,7 @@ export const commonTranslations: Record<
     loading: string;
   }
 > = {
-  'pt': {
+  pt: {
     seeMore: 'Ver mais',
     learnMore: 'Saiba mais',
     readMore: 'Ler mais',

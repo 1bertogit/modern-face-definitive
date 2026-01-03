@@ -58,7 +58,7 @@ export interface ContactContent {
 }
 
 export const contactContent: Record<Locale, ContactContent> = {
-  'pt': {
+  pt: {
     meta: {
       title: 'Contato | Modern Face Institute',
       description:

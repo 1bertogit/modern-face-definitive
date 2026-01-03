@@ -1,0 +1,96 @@
+---
+/**
+ * SchemaEvent - Schema.org Event type para congressos e eventos online
+ * Melhora visibilidade em buscas por eventos médicos
+ */
+
+interface Props {
+  name: string;
+  description: string;
+  startDate: string; // ISO 8601
+  endDate: string; // ISO 8601
+  price?: number;
+  currency?: string;
+  platform?: string; // Zoom, YouTube, etc
+  platformUrl?: string;
+  url?: string;
+  image?: string;
+  organizer?: string;
+  eventStatus?: 'EventScheduled' | 'EventCancelled' | 'EventPostponed' | 'EventMovedOnline';
+}
+
+const {
+  name,
+  description,
+  startDate,
+  endDate,
+  price,
+  currency = 'USD',
+  platform,
+  platformUrl,
+  url,
+  image,
+  organizer = 'Dr. Robério Brandão',
+  eventStatus = 'EventScheduled',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+const pageUrl = url || Astro.url.pathname;
+const fullUrl = pageUrl.startsWith('http') ? pageUrl : `${siteUrl}${pageUrl}`;
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: name,
+  description: description,
+  url: fullUrl,
+  startDate: startDate,
+  endDate: endDate,
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+  eventStatus: `https://schema.org/${eventStatus}`,
+  location: {
+    '@type': 'VirtualLocation',
+    url: platformUrl || fullUrl,
+    ...(platform && { name: platform }),
+  },
+  organizer: {
+    '@type': 'Person',
+    '@id': `${siteUrl}/#person-dr-roberio`,
+    name: organizer,
+  },
+  ...(image && {
+    image: image.startsWith('http') ? image : `${siteUrl}${image}`,
+  }),
+  ...(price !== undefined && {
+    offers: {
+      '@type': 'Offer',
+      price: price,
+      priceCurrency: currency,
+      availability: 'https://schema.org/InStock',
+      url: fullUrl,
+      validFrom: new Date().toISOString().split('T')[0],
+    },
+  }),
+  about: [
+    {
+      '@type': 'Thing',
+      name: 'Facial Surgery',
+    },
+    {
+      '@type': 'Thing',
+      name: 'ENDOMIDFACE',
+    },
+    {
+      '@type': 'Thing',
+      name: 'Modern Face Philosophy',
+    },
+  ],
+  audience: {
+    '@type': 'Audience',
+    audienceType: 'Plastic Surgeons, Facial Surgeons, ENT Surgeons',
+  },
+  inLanguage: ['en', 'pt', 'es'],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />

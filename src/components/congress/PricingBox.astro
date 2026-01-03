@@ -1,0 +1,211 @@
+---
+interface LotInfo {
+  name: string;
+  period: string;
+  price: string;
+  status: 'sold_out' | 'current' | 'upcoming';
+}
+
+const lots: LotInfo[] = [
+  { name: 'Super Early Bird', period: '15-17 Jan', price: 'R$ 147', status: 'sold_out' },
+  { name: 'Early Bird', period: '18-31 Jan', price: 'R$ 197', status: 'current' },
+  { name: 'Regular', period: '01-28 Fev', price: 'R$ 297', status: 'upcoming' },
+  { name: 'Último Lote', period: '01-21 Mar', price: 'R$ 397', status: 'upcoming' },
+];
+
+const benefits = [
+  '100% online — assista de qualquer lugar',
+  'Certificado de participação incluso',
+  'Q&A ao vivo com palestrantes',
+  'Garantia incondicional de 7 dias',
+  'Replay por 7 dias (ou vitalício com Upgrade VIP)',
+];
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Anchoring -->
+  <div class="text-center mb-12">
+    <p class="text-neutral-graphite text-base sm:text-lg leading-relaxed mb-4">
+      Vamos colocar em perspectiva:
+    </p>
+    <p class="text-neutral-graphite text-base sm:text-lg leading-relaxed mb-4">
+      Um congresso presencial de cirurgia plástica custa entre <strong class="text-primary-900"
+        >R$ 1.500 e R$ 3.000</strong
+      > — só a inscrição.
+    </p>
+    <p class="text-neutral-graphite text-base sm:text-lg leading-relaxed mb-8">
+      Adicione passagem aérea, hotel por 3-4 noites, alimentação, transporte. Facilmente você gasta <strong
+        class="text-primary-900">R$ 5.000 a R$ 8.000</strong
+      > para participar de um evento.
+    </p>
+    <p class="text-accent-600 text-lg sm:text-xl font-medium">
+      No Modern Face® Congress, você tem tudo isso por uma fração desse valor.
+    </p>
+  </div>
+
+  <!-- Main Pricing Box -->
+  <div class="bg-white rounded-lg border border-accent-500 shadow-sm p-6 sm:p-10 mb-8">
+    <!-- Badge -->
+    <div class="flex items-center gap-2 mb-6">
+      <span class="material-symbols-outlined text-accent-500" aria-hidden="true"
+        >local_fire_department</span
+      >
+      <span class="text-sm font-medium uppercase tracking-wider text-accent-600"
+        >Lote Atual: Early Bird</span
+      >
+    </div>
+
+    <!-- Validity -->
+    <p class="text-sm text-neutral-graphite mb-4">
+      Válido até 31 de Janeiro — ou enquanto durarem as vagas
+    </p>
+
+    <!-- Price -->
+    <div class="flex items-baseline gap-4 mb-8">
+      <span class="text-2xl text-gray-400 line-through">De R$ 397</span>
+      <span class="text-5xl sm:text-6xl font-serif text-primary-900">R$ 197</span>
+    </div>
+
+    <p class="text-sm text-neutral-graphite mb-8">
+      ou <strong>12x de R$ 19,58</strong> no cartão
+    </p>
+
+    <!-- CTA -->
+    <a
+      href="#registration"
+      class="flex items-center justify-center gap-3 w-full bg-accent-500 hover:bg-accent-600 text-white py-5 text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 mb-6"
+    >
+      Garantir Meu Ingresso
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+    </a>
+
+    <!-- Benefits -->
+    <ul class="space-y-3">
+      {
+        benefits.map((benefit) => (
+          <li class="flex items-center gap-3 text-sm text-neutral-graphite">
+            <span class="material-symbols-outlined text-accent-600 text-lg" aria-hidden="true">
+              check
+            </span>
+            {benefit}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Lot Progression -->
+  <div class="bg-ivory rounded-lg p-6 sm:p-8 mb-8">
+    <h3 class="font-serif text-lg text-primary-900 mb-6">Progressão de Lotes</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="text-left py-3 font-medium text-neutral-graphite">Lote</th>
+            <th class="text-left py-3 font-medium text-neutral-graphite">Período</th>
+            <th class="text-left py-3 font-medium text-neutral-graphite">Preço</th>
+            <th class="text-left py-3 font-medium text-neutral-graphite">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            lots.map((lot) => (
+              <tr
+                class={`border-b border-gray-100 ${lot.status === 'current' ? 'bg-accent-500/5' : ''}`}
+              >
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-primary-900'}`}
+                >
+                  {lot.status === 'current' && <strong>{lot.name}</strong>}
+                  {lot.status !== 'current' && lot.name}
+                </td>
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-neutral-graphite'}`}
+                >
+                  {lot.period}
+                </td>
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400 line-through' : lot.status === 'current' ? 'text-accent-600 font-semibold' : 'text-neutral-graphite'}`}
+                >
+                  {lot.price}
+                </td>
+                <td class="py-3">
+                  {lot.status === 'sold_out' && (
+                    <span class="text-red-500 text-xs flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        block
+                      </span>
+                      Esgotado
+                    </span>
+                  )}
+                  {lot.status === 'current' && (
+                    <span class="text-accent-600 text-xs flex items-center gap-1 font-medium">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        check_circle
+                      </span>
+                      Você está aqui
+                    </span>
+                  )}
+                  {lot.status === 'upcoming' && (
+                    <span class="text-gray-400 text-xs flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        lock
+                      </span>
+                      Em breve
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-sm text-accent-600 font-medium">
+      Cada lote que passa, o preço aumenta R$ 100.
+    </p>
+  </div>
+
+  <!-- VIP Upgrade Box -->
+  <div class="bg-primary-900 rounded-lg p-6 sm:p-8 text-white">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="material-symbols-outlined text-accent-400" aria-hidden="true">star</span>
+      <span class="text-sm font-medium uppercase tracking-wider text-accent-400"
+        >Upgrade VIP — Acesso Vitalício</span
+      >
+    </div>
+
+    <p class="text-gray-300 mb-6">
+      Quer garantir que nunca vai perder esse conteúdo? Adicione <strong class="text-white"
+        >R$ 200</strong
+      > ao seu ingresso e tenha:
+    </p>
+
+    <ul class="space-y-3 mb-6">
+      <li class="flex items-center gap-3 text-sm text-gray-300">
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
+        <strong class="text-white">Gravações vitalícias</strong> — assista e reassista quando quiser,
+        para sempre
+      </li>
+      <li class="flex items-center gap-3 text-sm text-gray-300">
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
+        <strong class="text-white">Material em PDF</strong> — resumos exclusivos de cada palestra
+      </li>
+      <li class="flex items-center gap-3 text-sm text-gray-300">
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
+        <strong class="text-white">Grupo VIP no WhatsApp</strong> — acesso direto aos palestrantes por
+        30 dias
+      </li>
+    </ul>
+
+    <p class="text-xs text-gray-400 italic">
+      O upgrade fica disponível no checkout após a compra do ingresso.
+    </p>
+  </div>
+</div>

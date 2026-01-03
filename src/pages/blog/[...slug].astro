@@ -2,6 +2,7 @@
 /**
  * Dynamic Blog Post Route (EN)
  * Uses Content Collections to render MDX blog posts
+ * Enhanced with reading progress, TOC, and share buttons
  */
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -9,7 +10,16 @@ import Breadcrumb from '@components/ui/Breadcrumb.astro';
 import SchemaArticle from '@components/seo/SchemaArticle.astro';
 import SchemaFAQ from '@components/seo/SchemaFAQ.astro';
 import SchemaPerson from '@components/seo/SchemaPerson.astro';
+import ReadingProgress from '@components/blog/ReadingProgress';
+import TableOfContents from '@components/blog/TableOfContents';
+import ShareButtons from '@components/blog/ShareButtons.astro';
 import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
+
+// Get canonical URL for share buttons
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://facemoderna.com.br'
+).toString();
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'en');
@@ -79,6 +89,9 @@ const breadcrumbs = [
   {data.faq && <SchemaFAQ items={data.faq} />}
   <SchemaPerson />
 
+  <!-- Reading Progress Bar -->
+  <ReadingProgress client:load />
+
   <!-- Hero -->
   <section class="py-16 bg-gradient-to-b from-primary-900 to-primary-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
@@ -97,41 +110,76 @@ const breadcrumbs = [
         {data.description}
       </p>
 
-      <div class="flex items-center gap-4 text-primary-300 text-sm">
-        <div class="flex items-center gap-2">
-          <div class="w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center">
-            <span class="material-symbols-outlined text-white">person</span>
-          </div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-primary-300">
+        <div class="flex items-center gap-3">
+          <img
+            src="/images/blog_roberio_autor.jpg"
+            alt={data.author}
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy"
+          />
           <div>
-            <p class="text-white font-medium">{data.author}</p>
-            <p class="text-primary-400">{t.creator}</p>
+            <p class="text-white font-medium text-base leading-tight">{data.author}</p>
+            <p class="text-primary-400 text-sm leading-tight">{t.creator}</p>
           </div>
         </div>
-        <span class="text-primary-600">&bull;</span>
-        <span>
-          {t.updated}{' '}
-          {
-            data.date.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })
-          }
-        </span>
+        <div class="flex items-center gap-2 text-primary-400">
+          <span class="w-1 h-1 rounded-full bg-primary-500"></span>
+          <span class="text-sm">
+            {t.updated}{' '}
+            {
+              data.date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Content -->
-  <article class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div
-        class="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-900 prose-a:text-accent-600 hover:prose-a:text-accent-700 prose-blockquote:border-accent-500 prose-blockquote:text-primary-800"
-      >
-        <Content />
+  <!-- Content with Sidebar -->
+  <div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <!-- Main Article Content -->
+        <article class="flex-1 min-w-0 max-w-4xl">
+          <div
+            class="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-900 prose-a:text-accent-600 hover:prose-a:text-accent-700 prose-blockquote:border-accent-500 prose-blockquote:text-primary-800"
+          >
+            <Content />
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="w-full lg:w-72 flex-shrink-0 space-y-6 lg:sticky lg:top-20 lg:self-start">
+          <!-- Table of Contents -->
+          <TableOfContents locale="en" client:load />
+
+          <!-- Share Buttons -->
+          <ShareButtons title={data.title} url={canonicalUrl} locale="en" />
+
+          <!-- Author Card -->
+          <div class="bg-white rounded-xl p-5 border border-gray-100">
+            <div class="flex items-center gap-4">
+              <img
+                src="/images/blog_roberio_autor.jpg"
+                alt={data.author}
+                class="w-14 h-14 rounded-full object-cover flex-shrink-0"
+                loading="lazy"
+              />
+              <div>
+                <p class="text-primary-900 font-medium text-base">{data.author}</p>
+                <p class="text-primary-400 text-sm">{t.creator}</p>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
-  </article>
+  </div>
 
   <!-- FAQ Section -->
   {
@@ -144,13 +192,13 @@ const breadcrumbs = [
               <div class="border border-gray-200 rounded-xl overflow-hidden">
                 <details class="group">
                   <summary class="flex items-center justify-between p-6 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
-                    <h3 class="font-bold text-primary-900 pr-4">{item.question}</h3>
+                    <h3 class="text-base font-medium text-primary-900 pr-4">{item.question}</h3>
                     <span class="material-symbols-outlined text-warmGray group-open:rotate-180 transition-transform flex-shrink-0">
                       expand_more
                     </span>
                   </summary>
                   <div class="p-6 bg-white">
-                    <p class="text-warmGray">{item.answer}</p>
+                    <p class="text-base text-warmGray leading-relaxed">{item.answer}</p>
                   </div>
                 </details>
               </div>
@@ -198,7 +246,7 @@ const breadcrumbs = [
                   class="group block p-6 bg-white rounded-xl hover:shadow-lg transition-all"
                 >
                   <p class="text-sm text-accent-600 mb-2">{article.category}</p>
-                  <h3 class="font-bold text-lg text-primary-900 group-hover:text-accent-600 mb-2">
+                  <h3 class="font-serif text-lg text-primary-900 group-hover:text-accent-600 mb-2 transition-colors duration-300">
                     {article.title}
                   </h3>
                   <p class="text-warmGray text-sm line-clamp-2">{article.description}</p>

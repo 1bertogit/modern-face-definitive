@@ -160,7 +160,7 @@ describe('LocalizedErrorBoundary', () => {
   describe('localization', () => {
     it('renders Portuguese error message for pt locale', () => {
       render(
-        <LocalizedErrorBoundary locale = 'pt'>
+        <LocalizedErrorBoundary locale="pt">
           <ThrowError shouldThrow={true} />
         </LocalizedErrorBoundary>
       );
