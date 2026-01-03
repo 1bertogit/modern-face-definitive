@@ -5,7 +5,7 @@
  */
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Breadcrumb from '@components/ui/Breadcrumb.astro';
-import BlogGrid from '@components/blog/BlogGrid.astro';
+import BlogFilteredGrid from '@components/islands/BlogFilteredGrid';
 import BlogSidebar from '@components/blog/BlogSidebar.astro';
 import { getArticlesForLocale, getCategories, getPopularArticles } from '@lib/blog-utils';
 
@@ -16,25 +16,12 @@ const breadcrumbs = [
   { name: 'Blog', url: '/pt/blog' },
 ];
 
-// Ler parâmetro de categoria da URL
-const selectedCategory = Astro.url.searchParams.get('categoria') || null;
-
-// Use Content Collections for blog data
-const allArticles = await getArticlesForLocale(locale);
-
-// Filtrar artigos por categoria se houver parâmetro
-const articles = selectedCategory
-  ? allArticles.filter((article) => {
-      // Converter categoria do artigo para slug para comparação
-      const articleCategorySlug = article.category.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-      return articleCategorySlug === selectedCategory.toLowerCase();
-    })
-  : allArticles;
-
+// Use Content Collections for blog data (no server-side filtering - handled client-side)
+const articles = await getArticlesForLocale(locale);
 const categories = await getCategories(locale);
 const popularPosts = await getPopularArticles(locale, 5);
 
-// Prepare search articles
+// Prepare search articles for sidebar
 const searchArticles = articles.map((a) => ({
   slug: a.slug,
   title: a.title,
@@ -55,17 +42,27 @@ const searchArticles = articles.map((a) => ({
   ]}
   lang="pt"
 >
-  <!-- Hero Section - Editorial Luxury -->
-  <section class="section-xl bg-neutral-greySoft border-b border-primary-900/5">
+  <!-- Hero Section - Premium Dark -->
+  <section class="py-20 bg-gradient-to-b from-primary-900 via-primary-800 to-primary-900 border-b border-primary-700/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <Breadcrumb items={breadcrumbs} class="mb-8" />
+      <Breadcrumb items={breadcrumbs} class="text-primary-300 mb-8" />
 
       <div class="max-w-2xl">
-        <h1 class="heading-1 mb-6">Blog</h1>
-        <p class="body-large text-neutral-graphite leading-relaxed">
+        <h1 class="heading-1-white mb-6">Blog</h1>
+        <p class="body-large text-primary-200 leading-relaxed">
           Artigos técnicos sobre cirurgia facial, filosofia Face Moderna, técnicas avançadas e
           educação médica continuada.
         </p>
+        <div class="flex flex-wrap gap-6 mt-8">
+          <span class="label-eyebrow-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-400 text-lg">article</span>
+            {articles.length} Artigos
+          </span>
+          <span class="label-eyebrow-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent-400 text-lg">category</span>
+            {categories.length} Categorias
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -74,9 +71,15 @@ const searchArticles = articles.map((a) => ({
   <section class="py-12 md:py-16 bg-ivory">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-        <!-- Main Content -->
+        <!-- Main Content - Client-side filtered grid -->
         <main class="flex-1 min-w-0">
-          <BlogGrid articles={articles} showFeatured={true} locale="pt" />
+          <BlogFilteredGrid
+            articles={articles}
+            categories={categories}
+            showFeatured={true}
+            locale="pt"
+            client:load
+          />
         </main>
 
         <!-- Sidebar -->
@@ -85,7 +88,6 @@ const searchArticles = articles.map((a) => ({
             categories={categories}
             popularPosts={popularPosts}
             articles={searchArticles}
-            currentCategory={selectedCategory || undefined}
             locale="pt"
           />
         </aside>
