@@ -25,6 +25,8 @@ export default defineConfig({
           'es': 'es',
         },
       },
+      // Custom sitemap-index.xml will override the auto-generated one
+      createLinkInHead: false, // Don't add <link> in HTML head
     }),
     compress({
       CSS: true,
