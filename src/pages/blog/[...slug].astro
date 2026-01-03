@@ -16,7 +16,10 @@ import ShareButtons from '@components/blog/ShareButtons.astro';
 import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
 
 // Get canonical URL for share buttons
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://facemoderna.com.br').toString();
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://facemoderna.com.br'
+).toString();
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'en');

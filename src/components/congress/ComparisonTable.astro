@@ -36,14 +36,21 @@ const comparisons: ComparisonItem[] = [
       Congressos Tradicionais
     </h3>
     <ul class="space-y-4">
-      {comparisons.map((item) => (
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-red-500 text-lg flex-shrink-0 mt-0.5" aria-hidden="true">
-            close
-          </span>
-          <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">{item.traditional}</span>
-        </li>
-      ))}
+      {
+        comparisons.map((item) => (
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-red-500 text-lg flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            >
+              close
+            </span>
+            <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">
+              {item.traditional}
+            </span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 
@@ -54,14 +61,21 @@ const comparisons: ComparisonItem[] = [
       Modern Face® Congress
     </h3>
     <ul class="space-y-4">
-      {comparisons.map((item) => (
-        <li class="flex items-start gap-3">
-          <span class="material-symbols-outlined text-accent-600 text-lg flex-shrink-0 mt-0.5" aria-hidden="true">
-            check
-          </span>
-          <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">{item.modern}</span>
-        </li>
-      ))}
+      {
+        comparisons.map((item) => (
+          <li class="flex items-start gap-3">
+            <span
+              class="material-symbols-outlined text-accent-600 text-lg flex-shrink-0 mt-0.5"
+              aria-hidden="true"
+            >
+              check
+            </span>
+            <span class="text-neutral-graphite text-sm sm:text-base leading-relaxed">
+              {item.modern}
+            </span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>

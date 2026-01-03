@@ -45,7 +45,7 @@ const images = {
 };
 
 export const glossaryContent: Record<Locale, GlossaryContent> = {
-  'pt': {
+  pt: {
     meta: {
       title: 'Glossário Face Moderna®',
       description:

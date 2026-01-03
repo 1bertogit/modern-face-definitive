@@ -76,4 +76,3 @@ export default function EventCountdown({ targetDate, className = '' }: EventCoun
     </div>
   );
 }
-

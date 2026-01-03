@@ -134,9 +134,7 @@ describe('MobileMenu', () => {
   });
 
   it('uses correct aria labels for different locales', () => {
-    const { rerender } = render(
-      <MobileMenu navLinks={mockNavLinks} currentPath="/" locale = 'pt' />
-    );
+    const { rerender } = render(<MobileMenu navLinks={mockNavLinks} currentPath="/" locale="pt" />);
 
     expect(screen.getByRole('button', { name: /abrir menu/i })).toBeInTheDocument();
 

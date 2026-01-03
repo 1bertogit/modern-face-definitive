@@ -23,7 +23,7 @@ interface Props {
 const {
   title,
   description,
-  image = "/images/og-default.webp",
+  image = '/images/og-default.webp',
   noIndex = false,
   canonicalURL,
   lang = 'en', // English as default
@@ -33,25 +33,23 @@ const {
   dateModified,
 } = Astro.props;
 
-const siteURL = Astro.site?.toString().replace(/\/$/, '') || "https://drroberiobrandao.com";
+const siteURL = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
 const currentURL = canonicalURL || new URL(Astro.url.pathname, siteURL).toString();
-const imageURL = image.startsWith("http")
-  ? image
-  : new URL(image, siteURL).toString();
+const imageURL = image.startsWith('http') ? image : new URL(image, siteURL).toString();
 
 // Get the OG locale format for the current language
 const ogLocale = ogLocales[lang];
 
 // Generate alternate og:locale tags for other languages
 const alternateOgLocales = alternates
-  .filter(alt => alt.locale !== lang)
-  .map(alt => ogLocales[alt.locale]);
+  .filter((alt) => alt.locale !== lang)
+  .map((alt) => ogLocales[alt.locale]);
 
 // Site name by locale
 const siteNames: Record<Locale, string> = {
-  'en': 'Dr. Robério Brandão | Modern Face Institute',
-  'pt': 'Dr. Robério Brandão | Modern Face Institute',
-  'es': 'Dr. Robério Brandão | Modern Face Institute'
+  en: 'Dr. Robério Brandão | Modern Face Institute',
+  pt: 'Dr. Robério Brandão | Modern Face Institute',
+  es: 'Dr. Robério Brandão | Modern Face Institute',
 };
 ---
 
@@ -60,7 +58,14 @@ const siteNames: Record<Locale, string> = {
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 {noIndex && <meta name="robots" content="noindex, nofollow" />}
-{!noIndex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+{
+  !noIndex && (
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+  )
+}
 
 <!-- Keywords (if provided) -->
 {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
@@ -69,12 +74,16 @@ const siteNames: Record<Locale, string> = {
 <link rel="canonical" href={currentURL} />
 
 <!-- Hreflang Tags for International SEO -->
-{alternates.map((alt) => (
-  <link rel="alternate" hreflang={alt.hreflang} href={alt.url} />
-))}
-{alternates.length > 0 && (
-  <link rel="alternate" hreflang="x-default" href={alternates.find(a => a.locale === 'en')?.url || currentURL} />
-)}
+{alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.url} />)}
+{
+  alternates.length > 0 && (
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={alternates.find((a) => a.locale === 'en')?.url || currentURL}
+    />
+  )
+}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -85,9 +94,7 @@ const siteNames: Record<Locale, string> = {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content={ogLocale} />
-{alternateOgLocales.map((altLocale) => (
-  <meta property="og:locale:alternate" content={altLocale} />
-))}
+{alternateOgLocales.map((altLocale) => <meta property="og:locale:alternate" content={altLocale} />)}
 <meta property="og:site_name" content={siteNames[lang]} />
 
 <!-- Twitter -->

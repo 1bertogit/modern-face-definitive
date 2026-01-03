@@ -6,34 +6,90 @@ const lastmod = new Date().toISOString().split('T')[0];
 // Spanish-specific pages (with EN/PT equivalents)
 const esPages = [
   { url: '/es', en: '/', pt: '/pt', priority: 1.0, changefreq: 'weekly' },
-  { url: '/es/face-moderna', en: '/modern-face', pt: '/pt/face-moderna', priority: 0.9, changefreq: 'monthly' },
-  { url: '/es/face-moderna/que-es', en: '/modern-face/what-is-it', pt: '/pt/face-moderna/o-que-e', priority: 0.8, changefreq: 'monthly' },
-  { url: '/es/face-moderna/filosofia', en: '/modern-face/philosophy', pt: '/pt/face-moderna/filosofia', priority: 0.8, changefreq: 'monthly' },
-  { url: '/es/face-moderna/principios', en: '/modern-face/principles', pt: '/pt/face-moderna/principios', priority: 0.8, changefreq: 'monthly' },
-  { url: '/es/face-moderna/por-que-vision-directa', en: '/modern-face/why-direct-vision', pt: '/pt/face-moderna/por-que-visao-direta', priority: 0.8, changefreq: 'monthly' },
+  {
+    url: '/es/face-moderna',
+    en: '/modern-face',
+    pt: '/pt/face-moderna',
+    priority: 0.9,
+    changefreq: 'monthly',
+  },
+  {
+    url: '/es/face-moderna/que-es',
+    en: '/modern-face/what-is-it',
+    pt: '/pt/face-moderna/o-que-e',
+    priority: 0.8,
+    changefreq: 'monthly',
+  },
+  {
+    url: '/es/face-moderna/filosofia',
+    en: '/modern-face/philosophy',
+    pt: '/pt/face-moderna/filosofia',
+    priority: 0.8,
+    changefreq: 'monthly',
+  },
+  {
+    url: '/es/face-moderna/principios',
+    en: '/modern-face/principles',
+    pt: '/pt/face-moderna/principios',
+    priority: 0.8,
+    changefreq: 'monthly',
+  },
+  {
+    url: '/es/face-moderna/por-que-vision-directa',
+    en: '/modern-face/why-direct-vision',
+    pt: '/pt/face-moderna/por-que-visao-direta',
+    priority: 0.8,
+    changefreq: 'monthly',
+  },
   { url: '/es/sobre', en: '/about', pt: '/pt/sobre', priority: 0.8, changefreq: 'monthly' },
-  { url: '/es/sobre/dr-roberio-brandao', en: '/about/dr-roberio-brandao', pt: '/pt/sobre/dr-roberio-brandao', priority: 0.9, changefreq: 'monthly' },
+  {
+    url: '/es/sobre/dr-roberio-brandao',
+    en: '/about/dr-roberio-brandao',
+    pt: '/pt/sobre/dr-roberio-brandao',
+    priority: 0.9,
+    changefreq: 'monthly',
+  },
   { url: '/es/contacto', en: '/contact', pt: '/pt/contato', priority: 0.7, changefreq: 'monthly' },
   { url: '/es/faq', en: '/faq', pt: '/pt/faq', priority: 0.7, changefreq: 'monthly' },
-  { url: '/es/glosario', en: '/glossary', pt: '/pt/glossario', priority: 0.6, changefreq: 'monthly' },
+  {
+    url: '/es/glosario',
+    en: '/glossary',
+    pt: '/pt/glossario',
+    priority: 0.6,
+    changefreq: 'monthly',
+  },
   { url: '/es/eventos', en: '/events', pt: '/pt/eventos', priority: 0.8, changefreq: 'weekly' },
-  { url: '/es/privacidad', en: '/privacy', pt: '/pt/privacidade', priority: 0.3, changefreq: 'yearly' },
+  {
+    url: '/es/privacidad',
+    en: '/privacy',
+    pt: '/pt/privacidade',
+    priority: 0.3,
+    changefreq: 'yearly',
+  },
   { url: '/es/terminos', en: '/terms', pt: '/pt/termos', priority: 0.3, changefreq: 'yearly' },
 ];
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {esPages.map((page) => (
-    <url>
-      <loc>{siteUrl}{page.url}</loc>
-      <lastmod>{lastmod}</lastmod>
-      <changefreq>{page.changefreq}</changefreq>
-      <priority>{page.priority}</priority>
-      <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.en}`} />
-      <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.pt}`} />
-      <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.url}`} />
-      <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.en}`} />
-    </url>
-  ))}
+
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  {
+    esPages.map((page) => (
+      <url>
+        <loc>
+          {siteUrl}
+          {page.url}
+        </loc>
+        <lastmod>{lastmod}</lastmod>
+        <changefreq>{page.changefreq}</changefreq>
+        <priority>{page.priority}</priority>
+        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${page.en}`} />
+        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${page.pt}`} />
+        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${page.url}`} />
+        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${page.en}`} />
+      </url>
+    ))
+  }
 </urlset>

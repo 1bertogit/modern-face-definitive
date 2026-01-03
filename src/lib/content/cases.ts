@@ -54,7 +54,7 @@ export interface CasesContent {
 }
 
 export const casesContent: Record<Locale, CasesContent> = {
-  'pt': {
+  pt: {
     meta: {
       title: 'Casos Clínicos | Resultados Face Moderna®',
       description:
@@ -254,6 +254,6 @@ export function getCasesSchema(locale: Locale) {
     '@type': 'CollectionPage',
     name: content.meta.title,
     description: content.meta.description,
-    inLanguage: locale === 'pt' ? 'pt': locale,
+    inLanguage: locale === 'pt' ? 'pt' : locale,
   };
 }

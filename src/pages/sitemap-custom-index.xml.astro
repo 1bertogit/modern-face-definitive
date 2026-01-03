@@ -15,12 +15,18 @@ const sitemaps = [
   { loc: '/sitemap-es.xml', name: 'Spanish Pages' },
 ];
 ---
-<?xml version="1.0" encoding="UTF-8"?>
+
+<!--?xml version="1.0" encoding="UTF-8"?-->
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {sitemaps.map((sitemap) => (
-    <sitemap>
-      <loc>{siteUrl}{sitemap.loc}</loc>
-      <lastmod>{lastmod}</lastmod>
-    </sitemap>
-  ))}
+  {
+    sitemaps.map((sitemap) => (
+      <sitemap>
+        <loc>
+          {siteUrl}
+          {sitemap.loc}
+        </loc>
+        <lastmod>{lastmod}</lastmod>
+      </sitemap>
+    ))
+  }
 </sitemapindex>

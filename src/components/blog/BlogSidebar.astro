@@ -8,7 +8,7 @@
 import BlogSearch from '@components/islands/BlogSearch';
 
 export interface Category {
-  name:  string;
+  name: string;
   slug: string;
   count: number;
 }
@@ -16,7 +16,7 @@ export interface Category {
 export interface PopularPost {
   slug: string;
   title: string;
-  readTime:  string;
+  readTime: string;
   category: string;
 }
 
@@ -48,11 +48,11 @@ const {
 
 // Traduções
 const t = {
-  'pt': {
+  pt: {
     search: 'Buscar',
     categories: 'Categorias',
     popular: 'Mais Lidos',
-    cta:  {
+    cta: {
       title: 'Aprenda com Dr. Robério',
       description: 'Mentoria especializada em cirurgia facial com mais de 1.500 casos.',
       button: 'Conhecer Mentoria',
@@ -64,10 +64,10 @@ const t = {
     categories: 'Categories',
     popular: 'Most Read',
     cta: {
-      title:  'Learn with Dr. Robério',
+      title: 'Learn with Dr. Robério',
       description: 'Specialized mentorship in facial surgery with over 1,500 cases.',
       button: 'Explore Mentorship',
-      link:  '/education',
+      link: '/education',
     },
   },
   es: {
@@ -91,7 +91,7 @@ const getUrl = (slug: string) => {
   return `/${locale}/blog/${slug}`;
 };
 
-const getCategoryUrl = (categorySlug:  string) => {
+const getCategoryUrl = (categorySlug: string) => {
   const baseUrl = locale === 'en' ? '/blog' : locale === 'pt' ? '/pt/blog' : `/${locale}/blog`;
   return `${baseUrl}?categoria=${categorySlug}`;
 };

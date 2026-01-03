@@ -16,20 +16,23 @@ const blogPostsCache = new Map<Locale, CollectionEntry<'blog'>[]>();
 /**
  * Blog labels for i18n
  */
-const blogLabels: Record<Locale, {
-  home: string;
-  blog: string;
-  readTime: string;
-  creator: string;
-  updated: string;
-  faqTitle: string;
-  ctaTitle: string;
-  ctaSubtitle: string;
-  ctaButton: string;
-  ctaContact: string;
-  related: string;
-}> = {
-  'en': {
+const blogLabels: Record<
+  Locale,
+  {
+    home: string;
+    blog: string;
+    readTime: string;
+    creator: string;
+    updated: string;
+    faqTitle: string;
+    ctaTitle: string;
+    ctaSubtitle: string;
+    ctaButton: string;
+    ctaContact: string;
+    related: string;
+  }
+> = {
+  en: {
     home: 'Home',
     blog: 'Blog',
     readTime: 'read',
@@ -42,7 +45,7 @@ const blogLabels: Record<Locale, {
     ctaContact: 'Contact Us',
     related: 'Related Articles',
   },
-  'pt': {
+  pt: {
     home: 'Início',
     blog: 'Blog',
     readTime: 'de leitura',
@@ -55,7 +58,7 @@ const blogLabels: Record<Locale, {
     ctaContact: 'Entre em Contato',
     related: 'Artigos Relacionados',
   },
-  'es': {
+  es: {
     home: 'Inicio',
     blog: 'Blog',
     readTime: 'de lectura',
@@ -63,7 +66,8 @@ const blogLabels: Record<Locale, {
     updated: 'Actualizado',
     faqTitle: 'Preguntas Frecuentes',
     ctaTitle: '¿Quieres Dominar Estas Técnicas?',
-    ctaSubtitle: 'Aprende directamente con el Dr. Robério Brandão en nuestros programas de formación.',
+    ctaSubtitle:
+      'Aprende directamente con el Dr. Robério Brandão en nuestros programas de formación.',
     ctaButton: 'Explorar Formación',
     ctaContact: 'Contáctenos',
     related: 'Artículos Relacionados',
@@ -118,9 +122,7 @@ export function postToArticle(post: CollectionEntry<'blog'>): Article {
     readTime: post.data.readTime || '5 min',
     date: dateStr,
     author: post.data.author,
-    image: typeof post.data.image === 'string' 
-      ? post.data.image 
-      : post.data.image?.src,
+    image: typeof post.data.image === 'string' ? post.data.image : post.data.image?.src,
     featured: post.data.featured || false,
   };
 }
@@ -215,9 +217,7 @@ export async function getRelatedPosts(
  * Get blog posts by locale
  * Results are cached for performance
  */
-export async function getBlogPostsByLocale(
-  locale: Locale
-): Promise<CollectionEntry<'blog'>[]> {
+export async function getBlogPostsByLocale(locale: Locale): Promise<CollectionEntry<'blog'>[]> {
   // Check cache first
   const cached = blogPostsCache.get(locale);
   if (cached) {
@@ -225,10 +225,7 @@ export async function getBlogPostsByLocale(
   }
 
   // Fetch and cache
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.locale === locale && !data.draft
-  );
+  const posts = await getCollection('blog', ({ data }) => data.locale === locale && !data.draft);
 
   const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   blogPostsCache.set(locale, sorted);
@@ -245,10 +242,8 @@ export async function getFeaturedPosts(
   limit: number = 3
 ): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getBlogPostsByLocale(locale);
-  
-  return posts
-    .filter((post) => post.data.featured)
-    .slice(0, limit);
+
+  return posts.filter((post) => post.data.featured).slice(0, limit);
 }
 
 /**
@@ -260,7 +255,7 @@ export async function getPostsByCategory(
   category: string
 ): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getBlogPostsByLocale(locale);
-  
+
   return posts.filter((post) => post.data.category === category);
 }
 
@@ -283,7 +278,10 @@ export async function getCategories(
 
   // Converter para slug: lowercase, substituir espaços por hífen
   const slugify = (text: string): string => {
-    return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    return text
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]/g, '');
   };
 
   return Array.from(categoryMap.entries())
@@ -326,10 +324,7 @@ export async function getArticlesForLocale(locale: Locale): Promise<Article[]> {
 /**
  * Get popular articles (returns Article[] format)
  */
-export async function getPopularArticles(
-  locale: Locale,
-  limit: number = 5
-): Promise<Article[]> {
+export async function getPopularArticles(locale: Locale, limit: number = 5): Promise<Article[]> {
   const posts = await getPopularPosts(locale, limit);
   return posts.map(postToArticle);
 }

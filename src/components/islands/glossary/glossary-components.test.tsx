@@ -16,7 +16,9 @@ describe('EmptyState', () => {
     render(<EmptyState onClearFilters={() => {}} />);
 
     expect(screen.getByText('Nenhum termo encontrado')).toBeInTheDocument();
-    expect(screen.getByText('Tente buscar por outro termo ou limpe os filtros.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Tente buscar por outro termo ou limpe os filtros.')
+    ).toBeInTheDocument();
     expect(screen.getByText('Limpar filtros')).toBeInTheDocument();
   });
 
@@ -235,7 +237,9 @@ describe('GeneralTermCard', () => {
   it('should render description', () => {
     render(<GeneralTermCard item={mockItem} />);
 
-    expect(screen.getByText('Sistema Músculo-Aponeurótico Superficial da face.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Sistema Músculo-Aponeurótico Superficial da face.')
+    ).toBeInTheDocument();
   });
 
   it('should render link with correct href and text', () => {
@@ -265,6 +269,9 @@ describe('GeneralTermCard', () => {
     expect(screen.getByRole('heading', { name: 'Deep Plane' })).toBeInTheDocument();
     expect(screen.getByText('D')).toBeInTheDocument();
     expect(screen.getByText('Técnica de facelift profundo.')).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Learn more/i })).toHaveAttribute('href', '/glossary/deep-plane');
+    expect(screen.getByRole('link', { name: /Learn more/i })).toHaveAttribute(
+      'href',
+      '/glossary/deep-plane'
+    );
   });
 });

@@ -25,7 +25,7 @@ interface Props {
 }
 
 const translations = {
-  'pt': {
+  pt: {
     placeholder: 'Buscar artigos...',
     noResults: 'Nenhum resultado encontrado',
     resultsCount: (count: number) =>

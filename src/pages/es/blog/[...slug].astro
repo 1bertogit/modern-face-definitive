@@ -16,7 +16,10 @@ import ShareButtons from '@components/blog/ShareButtons.astro';
 import { getBlogAlternates, getRelatedPosts, getBlogLabels, postToArticle } from '@lib/blog-utils';
 
 // Get canonical URL for share buttons
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site || 'https://facemoderna.com.br').toString();
+const canonicalUrl = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://facemoderna.com.br'
+).toString();
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft && data.locale === 'es');
@@ -25,7 +28,7 @@ export async function getStaticPaths() {
     // Remove locale prefix from slug (e.g., "es/slug" -> "slug")
     const slugParts = post.slug.split('/');
     const slug = slugParts.length > 1 ? slugParts.slice(1).join('/') : post.slug;
-    
+
     return {
       params: { slug },
       props: { post },
@@ -40,7 +43,12 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await post.render();
 const { data } = post;
-const allowedArticleTypes = ['Article', 'MedicalWebPage', 'TechArticle', 'ScholarlyArticle'] as const;
+const allowedArticleTypes = [
+  'Article',
+  'MedicalWebPage',
+  'TechArticle',
+  'ScholarlyArticle',
+] as const;
 const articleType: (typeof allowedArticleTypes)[number] = allowedArticleTypes.includes(
   data.articleType as (typeof allowedArticleTypes)[number]
 )

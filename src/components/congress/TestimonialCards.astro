@@ -43,31 +43,33 @@ function highlightText(quote: string, highlight: string): string {
 ---
 
 <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-  {testimonials.map((testimonial) => (
-    <article class="bg-white rounded-lg border border-gray-100 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300">
-      <!-- Quote Icon -->
-      <span class="material-symbols-outlined text-accent-500/30 text-4xl mb-4" aria-hidden="true">
-        format_quote
-      </span>
+  {
+    testimonials.map((testimonial) => (
+      <article class="bg-white rounded-lg border border-gray-100 p-6 sm:p-8 hover:shadow-sm transition-shadow duration-300">
+        {/* Quote Icon */}
+        <span class="material-symbols-outlined text-accent-500/30 text-4xl mb-4" aria-hidden="true">
+          format_quote
+        </span>
 
-      <!-- Quote Text -->
-      <blockquote class="mb-6">
-        <p
-          class="text-neutral-graphite text-sm sm:text-base leading-relaxed italic"
-          set:html={highlightText(testimonial.quote, testimonial.highlight)}
-        />
-      </blockquote>
+        {/* Quote Text */}
+        <blockquote class="mb-6">
+          <p
+            class="text-neutral-graphite text-sm sm:text-base leading-relaxed italic"
+            set:html={highlightText(testimonial.quote, testimonial.highlight)}
+          />
+        </blockquote>
 
-      <!-- Author -->
-      <div class="border-t border-gray-100 pt-4">
-        <p class="font-serif text-primary-900 font-medium">{testimonial.author}</p>
-        <p class="text-xs text-accent-600 mt-1">{testimonial.result}</p>
-      </div>
-    </article>
-  ))}
+        {/* Author */}
+        <div class="border-t border-gray-100 pt-4">
+          <p class="font-serif text-primary-900 font-medium">{testimonial.author}</p>
+          <p class="text-xs text-accent-600 mt-1">{testimonial.result}</p>
+        </div>
+      </article>
+    ))
+  }
 </div>
 
-<!-- Note -->
+{/* Note */}
 <p class="mt-8 text-center text-sm text-neutral-graphite italic">
   Esses depoimentos são de alunos que fizeram a formação completa da Face Moderna. No congresso,
   alguns deles vão subir ao palco (virtual) e mostrar seus casos em detalhes.

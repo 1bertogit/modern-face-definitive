@@ -56,9 +56,7 @@ export default function ScarcityBar({
           />
         </div>
 
-        {subLabel && (
-          <p className="mt-3 text-xs text-gray-500">{subLabel}</p>
-        )}
+        {subLabel && <p className="mt-3 text-xs text-gray-500">{subLabel}</p>}
       </div>
     );
   }
@@ -69,9 +67,7 @@ export default function ScarcityBar({
         <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
           {label}
         </span>
-        <span className="text-sm font-medium text-accent-400">
-          {currentPercentage}% vendido
-        </span>
+        <span className="text-sm font-medium text-accent-400">{currentPercentage}% vendido</span>
       </div>
 
       <div className="relative h-[2px] bg-white/10">
@@ -81,9 +77,7 @@ export default function ScarcityBar({
         />
       </div>
 
-      {subLabel && (
-        <p className="mt-4 text-xs text-gray-500">{subLabel}</p>
-      )}
+      {subLabel && <p className="mt-4 text-xs text-gray-500">{subLabel}</p>}
     </div>
   );
 }

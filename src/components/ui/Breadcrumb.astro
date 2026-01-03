@@ -31,7 +31,7 @@ const { items, class: className = '' } = Astro.props;
       items.map((item, index) => {
         // Determinar se está em fundo escuro baseado na classe aplicada
         const isDarkBg = className.includes('text-primary-300') || className.includes('text-white');
-        
+
         return (
           <li
             class="flex items-center"

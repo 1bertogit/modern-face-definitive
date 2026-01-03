@@ -32,7 +32,7 @@ interface Props {
 }
 
 const translations = {
-  'pt': {
+  pt: {
     allCategories: 'Todas as Categorias',
     noResults: 'Nenhum artigo encontrado nesta categoria.',
     showingArticles: (count: number, total: number) =>
@@ -87,21 +87,18 @@ export default function BlogFilteredGrid({
   }, []);
 
   // Update URL when category changes (without page reload)
-  const handleCategoryChange = useCallback(
-    (categorySlug: string | null) => {
-      setSelectedCategory(categorySlug);
+  const handleCategoryChange = useCallback((categorySlug: string | null) => {
+    setSelectedCategory(categorySlug);
 
-      // Update URL without reload
-      const url = new URL(window.location.href);
-      if (categorySlug) {
-        url.searchParams.set('categoria', categorySlug);
-      } else {
-        url.searchParams.delete('categoria');
-      }
-      window.history.pushState({}, '', url.toString());
-    },
-    []
-  );
+    // Update URL without reload
+    const url = new URL(window.location.href);
+    if (categorySlug) {
+      url.searchParams.set('categoria', categorySlug);
+    } else {
+      url.searchParams.delete('categoria');
+    }
+    window.history.pushState({}, '', url.toString());
+  }, []);
 
   // Filter articles based on selected category
   const filteredArticles = useMemo(() => {
@@ -156,9 +153,11 @@ export default function BlogFilteredGrid({
               className="group flex items-center gap-2 text-[11px] uppercase tracking-wider text-warmGray
                          hover:text-primary-900 transition-colors duration-300"
             >
-              <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center
+              <span
+                className="w-4 h-4 rounded-full border border-current flex items-center justify-center
                              group-hover:bg-primary-900 group-hover:border-primary-900 group-hover:text-white
-                             transition-all duration-300">
+                             transition-all duration-300"
+              >
                 <span className="text-[10px] leading-none">×</span>
               </span>
               <span className="hidden sm:inline">Clear</span>
@@ -191,7 +190,7 @@ export default function BlogFilteredGrid({
             <span className="hidden sm:flex items-center px-2 text-gray-200">|</span>
 
             {/* Category Buttons */}
-            {categories.map((category, index) => (
+            {categories.map((category, _index) => (
               <button
                 key={category.slug}
                 onClick={() => handleCategoryChange(category.slug)}
@@ -246,7 +245,7 @@ export default function BlogFilteredGrid({
         </p>
         {selectedCategory && (
           <span className="inline-flex items-center gap-2 px-3 py-1 bg-accent-50 rounded text-[11px] text-accent-700 font-medium uppercase tracking-wider">
-            {categories.find(c => c.slug === selectedCategory)?.name}
+            {categories.find((c) => c.slug === selectedCategory)?.name}
           </span>
         )}
       </div>
@@ -315,9 +314,7 @@ export default function BlogFilteredGrid({
                   <h3 className="text-lg font-serif text-primary-900 group-hover:text-accent-600 transition-colors duration-300 mt-2 mb-3 line-clamp-2">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-warmGray line-clamp-2 mb-4">
-                    {article.description}
-                  </p>
+                  <p className="text-sm text-warmGray line-clamp-2 mb-4">{article.description}</p>
                   <div className="flex items-center justify-between text-xs text-warmGray">
                     <span>{article.readTime}</span>
                     <span className="flex items-center gap-1 text-accent-600 group-hover:gap-2 transition-all duration-300">

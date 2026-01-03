@@ -22,7 +22,9 @@ const stats: Stat[] = [
 
   <div class="prose prose-lg max-w-none text-neutral-graphite leading-relaxed mb-12">
     <p>
-      Cirurgião plástico com quase <strong class="text-primary-900">20 anos dedicados exclusivamente</strong>
+      Cirurgião plástico com quase <strong class="text-primary-900"
+        >20 anos dedicados exclusivamente</strong
+      >
       à cirurgia facial.
     </p>
 
@@ -33,14 +35,16 @@ const stats: Stat[] = [
 
     <p>
       Desenvolveu o conceito <strong class="text-primary-900">"Vídeo Sem Vídeo"</strong> — uma técnica
-      que permite operar o plano profundo com visão direta, sem depender de torres endoscópicas de
-      R$ 150.000.
+      que permite operar o plano profundo com visão direta, sem depender de torres endoscópicas de R$
+      150.000.
     </p>
 
     <p>
-      Criou uma rota cirúrgica que <strong class="text-primary-900">contorna a zona de fibrose</strong>
-      presente em 90% das faces injetadas com bioestimuladores — o problema que todo cirurgião
-      enfrenta hoje, mas poucos sabem como resolver.
+      Criou uma rota cirúrgica que <strong class="text-primary-900"
+        >contorna a zona de fibrose</strong
+      >
+      presente em 90% das faces injetadas com bioestimuladores — o problema que todo cirurgião enfrenta
+      hoje, mas poucos sabem como resolver.
     </p>
 
     <p>
@@ -54,12 +58,16 @@ const stats: Stat[] = [
 
   <!-- Stats Grid -->
   <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-    {stats.map((stat) => (
-      <div class="text-center p-4 sm:p-6 bg-accent-500/5 rounded-lg">
-        <p class="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">{stat.number}</p>
-        <p class="text-xs sm:text-sm text-neutral-graphite uppercase tracking-wider">{stat.label}</p>
-      </div>
-    ))}
+    {
+      stats.map((stat) => (
+        <div class="text-center p-4 sm:p-6 bg-accent-500/5 rounded-lg">
+          <p class="font-serif text-3xl sm:text-4xl text-primary-900 mb-2">{stat.number}</p>
+          <p class="text-xs sm:text-sm text-neutral-graphite uppercase tracking-wider">
+            {stat.label}
+          </p>
+        </div>
+      ))
+    }
   </div>
 </div>
 

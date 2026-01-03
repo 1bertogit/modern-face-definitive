@@ -18,38 +18,44 @@ const speakers: Speaker[] = [
 ---
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-  {speakers.map((speaker) => (
-    <article class="bg-white rounded-lg border border-gray-100 p-4 sm:p-6 text-center hover:shadow-sm transition-shadow duration-300 group">
-      <!-- Mystery Avatar -->
-      <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-primary-900/5 rounded-full flex items-center justify-center group-hover:bg-accent-500/10 transition-colors duration-300">
-        <span class="text-3xl sm:text-4xl font-serif text-primary-900/30 group-hover:text-accent-500 transition-colors duration-300">
-          ?
-        </span>
-      </div>
+  {
+    speakers.map((speaker) => (
+      <article class="bg-white rounded-lg border border-gray-100 p-4 sm:p-6 text-center hover:shadow-sm transition-shadow duration-300 group">
+        {/* Mystery Avatar */}
+        <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-primary-900/5 rounded-full flex items-center justify-center group-hover:bg-accent-500/10 transition-colors duration-300">
+          <span class="text-3xl sm:text-4xl font-serif text-primary-900/30 group-hover:text-accent-500 transition-colors duration-300">
+            ?
+          </span>
+        </div>
 
-      <!-- Speaker Number -->
-      <div class="text-xs font-medium text-accent-600 uppercase tracking-wider mb-2">
-        Palestrante #{speaker.number}
-      </div>
+        {/* Speaker Number */}
+        <div class="text-xs font-medium text-accent-600 uppercase tracking-wider mb-2">
+          Palestrante #{speaker.number}
+        </div>
 
-      <!-- Theme -->
-      <h3 class="font-serif text-sm sm:text-base text-primary-900 mb-3 line-clamp-2">
-        {speaker.theme}
-      </h3>
+        {/* Theme */}
+        <h3 class="font-serif text-sm sm:text-base text-primary-900 mb-3 line-clamp-2">
+          {speaker.theme}
+        </h3>
 
-      <!-- Reveal Date -->
-      <div class="flex items-center justify-center gap-1.5 text-xs text-gray-500">
-        <span class="material-symbols-outlined text-sm" aria-hidden="true">notifications</span>
-        {speaker.revealDate}
-      </div>
-    </article>
-  ))}
+        {/* Reveal Date */}
+        <div class="flex items-center justify-center gap-1.5 text-xs text-gray-500">
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">
+            notifications
+          </span>
+          {speaker.revealDate}
+        </div>
+      </article>
+    ))
+  }
 </div>
 
-<!-- CTA to follow -->
+{/* CTA to follow */}
 <div class="mt-8 text-center">
   <p class="text-neutral-graphite text-sm sm:text-base mb-4">
-    <span class="material-symbols-outlined text-accent-500 align-middle mr-1" aria-hidden="true">campaign</span>
+    <span class="material-symbols-outlined text-accent-500 align-middle mr-1" aria-hidden="true"
+      >campaign</span
+    >
     Siga <strong>@brandaofacialinstitute</strong> para ser avisado de cada revelação
   </p>
 </div>

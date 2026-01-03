@@ -38,7 +38,7 @@ interface HomeContent {
 }
 
 export const homeContent: Record<Locale, HomeContent> = {
-  'pt': {
+  pt: {
     hero: {
       badge: 'Face Moderna® por Dr. Robério Brandão',
       title: 'Domine em 30 Casos,',
@@ -197,20 +197,19 @@ export const homeContent: Record<Locale, HomeContent> = {
  */
 export function getHomeSchema(locale: Locale) {
   const descriptions: Record<Locale, string> = {
-    'pt':
-      'Criador da Face Moderna® e Endomidface por Visão Direta. 18+ anos, 1500+ cirurgias, 0% lesão nervosa permanente.',
+    pt: 'Criador da Face Moderna® e Endomidface por Visão Direta. 18+ anos, 1500+ cirurgias, 0% lesão nervosa permanente.',
     en: 'Creator of Face Moderna® and Endomidface by Direct Vision. 18+ years, 1500+ surgeries, 0% permanent nerve damage.',
     es: 'Creador de Face Moderna® y Endomidface por Visión Directa. 18+ años, 1500+ cirugías, 0% lesión nerviosa permanente.',
   };
 
   const alternateName: Record<Locale, string> = {
-    'pt': 'Criador da Face Moderna',
+    pt: 'Criador da Face Moderna',
     en: 'Creator of Face Moderna',
     es: 'Creador de Face Moderna',
   };
 
   const jobTitle: Record<Locale, string> = {
-    'pt': 'Cirurgião Plástico',
+    pt: 'Cirurgião Plástico',
     en: 'Plastic Surgeon',
     es: 'Cirujano Plástico',
   };
@@ -247,7 +246,7 @@ export function getHomeSchema(locale: Locale) {
  */
 export function getHomePaths(locale: Locale) {
   const paths: Record<Locale, { training: string; method: string }> = {
-    'pt': { training: '/pt/formacao', method: '/pt/face-moderna' },
+    pt: { training: '/pt/formacao', method: '/pt/face-moderna' },
     en: { training: '/training/endomidface-course', method: '/modern-face' },
     es: { training: '/es/formacion/curso-endomidface', method: '/es/face-moderna' },
   };

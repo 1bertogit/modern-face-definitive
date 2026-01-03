@@ -1,6 +1,4 @@
 ---
-import ScarcityBar from '@components/islands/ScarcityBar.tsx';
-
 interface LotInfo {
   name: string;
   period: string;
@@ -31,10 +29,14 @@ const benefits = [
       Vamos colocar em perspectiva:
     </p>
     <p class="text-neutral-graphite text-base sm:text-lg leading-relaxed mb-4">
-      Um congresso presencial de cirurgia plástica custa entre <strong class="text-primary-900">R$ 1.500 e R$ 3.000</strong> — só a inscrição.
+      Um congresso presencial de cirurgia plástica custa entre <strong class="text-primary-900"
+        >R$ 1.500 e R$ 3.000</strong
+      > — só a inscrição.
     </p>
     <p class="text-neutral-graphite text-base sm:text-lg leading-relaxed mb-8">
-      Adicione passagem aérea, hotel por 3-4 noites, alimentação, transporte. Facilmente você gasta <strong class="text-primary-900">R$ 5.000 a R$ 8.000</strong> para participar de um evento.
+      Adicione passagem aérea, hotel por 3-4 noites, alimentação, transporte. Facilmente você gasta <strong
+        class="text-primary-900">R$ 5.000 a R$ 8.000</strong
+      > para participar de um evento.
     </p>
     <p class="text-accent-600 text-lg sm:text-xl font-medium">
       No Modern Face® Congress, você tem tudo isso por uma fração desse valor.
@@ -45,12 +47,18 @@ const benefits = [
   <div class="bg-white rounded-lg border border-accent-500 shadow-sm p-6 sm:p-10 mb-8">
     <!-- Badge -->
     <div class="flex items-center gap-2 mb-6">
-      <span class="material-symbols-outlined text-accent-500" aria-hidden="true">local_fire_department</span>
-      <span class="text-sm font-medium uppercase tracking-wider text-accent-600">Lote Atual: Early Bird</span>
+      <span class="material-symbols-outlined text-accent-500" aria-hidden="true"
+        >local_fire_department</span
+      >
+      <span class="text-sm font-medium uppercase tracking-wider text-accent-600"
+        >Lote Atual: Early Bird</span
+      >
     </div>
 
     <!-- Validity -->
-    <p class="text-sm text-neutral-graphite mb-4">Válido até 31 de Janeiro — ou enquanto durarem as vagas</p>
+    <p class="text-sm text-neutral-graphite mb-4">
+      Válido até 31 de Janeiro — ou enquanto durarem as vagas
+    </p>
 
     <!-- Price -->
     <div class="flex items-baseline gap-4 mb-8">
@@ -73,12 +81,16 @@ const benefits = [
 
     <!-- Benefits -->
     <ul class="space-y-3">
-      {benefits.map((benefit) => (
-        <li class="flex items-center gap-3 text-sm text-neutral-graphite">
-          <span class="material-symbols-outlined text-accent-600 text-lg" aria-hidden="true">check</span>
-          {benefit}
-        </li>
-      ))}
+      {
+        benefits.map((benefit) => (
+          <li class="flex items-center gap-3 text-sm text-neutral-graphite">
+            <span class="material-symbols-outlined text-accent-600 text-lg" aria-hidden="true">
+              check
+            </span>
+            {benefit}
+          </li>
+        ))
+      }
     </ul>
   </div>
 
@@ -96,40 +108,56 @@ const benefits = [
           </tr>
         </thead>
         <tbody>
-          {lots.map((lot) => (
-            <tr class={`border-b border-gray-100 ${lot.status === 'current' ? 'bg-accent-500/5' : ''}`}>
-              <td class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-primary-900'}`}>
-                {lot.status === 'current' && <strong>{lot.name}</strong>}
-                {lot.status !== 'current' && lot.name}
-              </td>
-              <td class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-neutral-graphite'}`}>
-                {lot.period}
-              </td>
-              <td class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400 line-through' : lot.status === 'current' ? 'text-accent-600 font-semibold' : 'text-neutral-graphite'}`}>
-                {lot.price}
-              </td>
-              <td class="py-3">
-                {lot.status === 'sold_out' && (
-                  <span class="text-red-500 text-xs flex items-center gap-1">
-                    <span class="material-symbols-outlined text-sm" aria-hidden="true">block</span>
-                    Esgotado
-                  </span>
-                )}
-                {lot.status === 'current' && (
-                  <span class="text-accent-600 text-xs flex items-center gap-1 font-medium">
-                    <span class="material-symbols-outlined text-sm" aria-hidden="true">check_circle</span>
-                    Você está aqui
-                  </span>
-                )}
-                {lot.status === 'upcoming' && (
-                  <span class="text-gray-400 text-xs flex items-center gap-1">
-                    <span class="material-symbols-outlined text-sm" aria-hidden="true">lock</span>
-                    Em breve
-                  </span>
-                )}
-              </td>
-            </tr>
-          ))}
+          {
+            lots.map((lot) => (
+              <tr
+                class={`border-b border-gray-100 ${lot.status === 'current' ? 'bg-accent-500/5' : ''}`}
+              >
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-primary-900'}`}
+                >
+                  {lot.status === 'current' && <strong>{lot.name}</strong>}
+                  {lot.status !== 'current' && lot.name}
+                </td>
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400' : 'text-neutral-graphite'}`}
+                >
+                  {lot.period}
+                </td>
+                <td
+                  class={`py-3 ${lot.status === 'sold_out' ? 'text-gray-400 line-through' : lot.status === 'current' ? 'text-accent-600 font-semibold' : 'text-neutral-graphite'}`}
+                >
+                  {lot.price}
+                </td>
+                <td class="py-3">
+                  {lot.status === 'sold_out' && (
+                    <span class="text-red-500 text-xs flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        block
+                      </span>
+                      Esgotado
+                    </span>
+                  )}
+                  {lot.status === 'current' && (
+                    <span class="text-accent-600 text-xs flex items-center gap-1 font-medium">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        check_circle
+                      </span>
+                      Você está aqui
+                    </span>
+                  )}
+                  {lot.status === 'upcoming' && (
+                    <span class="text-gray-400 text-xs flex items-center gap-1">
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        lock
+                      </span>
+                      Em breve
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
@@ -142,25 +170,37 @@ const benefits = [
   <div class="bg-primary-900 rounded-lg p-6 sm:p-8 text-white">
     <div class="flex items-center gap-2 mb-4">
       <span class="material-symbols-outlined text-accent-400" aria-hidden="true">star</span>
-      <span class="text-sm font-medium uppercase tracking-wider text-accent-400">Upgrade VIP — Acesso Vitalício</span>
+      <span class="text-sm font-medium uppercase tracking-wider text-accent-400"
+        >Upgrade VIP — Acesso Vitalício</span
+      >
     </div>
 
     <p class="text-gray-300 mb-6">
-      Quer garantir que nunca vai perder esse conteúdo? Adicione <strong class="text-white">R$ 200</strong> ao seu ingresso e tenha:
+      Quer garantir que nunca vai perder esse conteúdo? Adicione <strong class="text-white"
+        >R$ 200</strong
+      > ao seu ingresso e tenha:
     </p>
 
     <ul class="space-y-3 mb-6">
       <li class="flex items-center gap-3 text-sm text-gray-300">
-        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true">check</span>
-        <strong class="text-white">Gravações vitalícias</strong> — assista e reassista quando quiser, para sempre
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
+        <strong class="text-white">Gravações vitalícias</strong> — assista e reassista quando quiser,
+        para sempre
       </li>
       <li class="flex items-center gap-3 text-sm text-gray-300">
-        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true">check</span>
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
         <strong class="text-white">Material em PDF</strong> — resumos exclusivos de cada palestra
       </li>
       <li class="flex items-center gap-3 text-sm text-gray-300">
-        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true">check</span>
-        <strong class="text-white">Grupo VIP no WhatsApp</strong> — acesso direto aos palestrantes por 30 dias
+        <span class="material-symbols-outlined text-accent-400 text-lg" aria-hidden="true"
+          >check</span
+        >
+        <strong class="text-white">Grupo VIP no WhatsApp</strong> — acesso direto aos palestrantes por
+        30 dias
       </li>
     </ul>
 

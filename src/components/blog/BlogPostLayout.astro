@@ -69,7 +69,7 @@ const {
 
 // Traduções
 const t = {
-  'pt': {
+  pt: {
     home: 'Início',
     blog: 'Blog',
     related: 'Artigos Relacionados',
@@ -112,7 +112,12 @@ const trans = t[locale] || t['pt'];
 // URLs
 const homeUrl = locale === 'pt' ? '/pt' : locale === 'en' ? '/' : `/${locale}`;
 const blogUrl = locale === 'pt' ? '/pt/blog' : locale === 'en' ? '/blog' : `/${locale}/blog`;
-const articleUrl = locale === 'pt' ? `/pt/blog/${slug}` : locale === 'en' ? `/blog/${slug}` : `/${locale}/blog/${slug}`;
+const articleUrl =
+  locale === 'pt'
+    ? `/pt/blog/${slug}`
+    : locale === 'en'
+      ? `/blog/${slug}`
+      : `/${locale}/blog/${slug}`;
 
 // Breadcrumbs
 const breadcrumbs = [
@@ -130,7 +135,7 @@ const formatDate = (dateStr: string) => {
     day: 'numeric',
   };
   const localeMap = {
-    'pt': 'pt-BR',
+    pt: 'pt-BR',
     en: 'en-US',
     es: 'es-ES',
   };
@@ -141,7 +146,7 @@ const formattedDate = formatDate(date);
 
 // Lang para HTML
 const langMap = {
-  'pt': 'pt-BR',
+  pt: 'pt-BR',
   en: 'en',
   es: 'es',
 } as const;

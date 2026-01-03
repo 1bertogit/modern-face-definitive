@@ -10,7 +10,10 @@ const { scarcityPercentage = 72 } = Astro.props;
 
 <section class="relative min-h-screen bg-primary-900 overflow-hidden">
   <!-- Subtle gradient overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-900 to-primary-900/95"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-900 to-primary-900/95"
+  >
+  </div>
   <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-accent-500/5 blur-3xl rounded-full"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-16">
@@ -23,7 +26,9 @@ const { scarcityPercentage = 72 } = Astro.props;
 
     <!-- Live Badge -->
     <div class="flex items-center gap-3 mb-8">
-      <span class="flex items-center gap-2 bg-red-600/20 text-red-400 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider">
+      <span
+        class="flex items-center gap-2 bg-red-600/20 text-red-400 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider"
+      >
         <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
         LIVE
       </span>
@@ -33,7 +38,9 @@ const { scarcityPercentage = 72 } = Astro.props;
     </div>
 
     <!-- Headline -->
-    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-8 max-w-4xl">
+    <h1
+      class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-8 max-w-4xl"
+    >
       O primeiro congresso onde os palestrantes são cirurgiões que aplicaram as técnicas —
       <span class="text-accent-400">e vão mostrar seus próprios casos</span>
     </h1>
@@ -43,7 +50,9 @@ const { scarcityPercentage = 72 } = Astro.props;
       Sem edição. Sem casos selecionados a dedo. Sem palestrantes distantes da sua realidade.
     </p>
     <p class="text-base sm:text-lg text-gray-500 leading-relaxed mb-12 max-w-3xl">
-      Apenas colegas que estavam no seu lugar há pouco tempo, mostrando exatamente <strong class="text-gray-300">o que funcionou, o que não funcionou</strong> e o que fariam diferente hoje.
+      Apenas colegas que estavam no seu lugar há pouco tempo, mostrando exatamente <strong
+        class="text-gray-300">o que funcionou, o que não funcionou</strong
+      > e o que fariam diferente hoje.
     </p>
 
     <!-- CTA -->
@@ -60,15 +69,20 @@ const { scarcityPercentage = 72 } = Astro.props;
     <!-- Trust badges (monochromatic for editorial restraint) -->
     <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-gray-400 text-sm mb-16">
       <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true">verified</span>
+        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true"
+          >verified</span
+        >
         Garantia de 7 dias
       </span>
       <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true">workspace_premium</span>
+        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true"
+          >workspace_premium</span
+        >
         Certificado incluso
       </span>
       <span class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true">forum</span>
+        <span class="material-symbols-outlined text-gray-400 text-lg" aria-hidden="true">forum</span
+        >
         Q&A ao vivo
       </span>
     </div>
@@ -87,7 +101,12 @@ const { scarcityPercentage = 72 } = Astro.props;
 
 <style>
   @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 </style>

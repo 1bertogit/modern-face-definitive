@@ -18,9 +18,15 @@ const schedule: DaySchedule[] = [
     items: [
       { time: '09:00', activity: 'Abertura — Dr. Robério apresenta a filosofia da Face Moderna' },
       { time: '10:00', activity: 'Palestrante #1 — Meus primeiros 10 casos de Endomidface' },
-      { time: '11:30', activity: 'Palestrante #2 — Browlift Evolutivo: o que funciona, o que não funciona' },
+      {
+        time: '11:30',
+        activity: 'Palestrante #2 — Browlift Evolutivo: o que funciona, o que não funciona',
+      },
       { time: '12:30', activity: 'Intervalo para almoço', isBreak: true },
-      { time: '14:00', activity: 'Palestrante #3 — Deep Neck: como preservar a glândula com segurança' },
+      {
+        time: '14:00',
+        activity: 'Palestrante #3 — Deep Neck: como preservar a glândula com segurança',
+      },
       { time: '15:30', activity: 'Palestrante #4 — Face completa em uma sessão: casos combinados' },
       { time: '17:00', activity: 'Q&A Coletivo — Suas perguntas respondidas ao vivo' },
       { time: '18:00', activity: 'Encerramento do Dia 1', isBreak: true },
@@ -43,50 +49,57 @@ const schedule: DaySchedule[] = [
 ---
 
 <div class="space-y-8 sm:space-y-12">
-  {schedule.map((day) => (
-    <div>
-      <!-- Day Header -->
-      <div class="flex items-center gap-4 mb-6">
-        <span class="px-4 py-2 bg-accent-500 text-white text-xs font-medium uppercase tracking-wider">
-          {day.day}
-        </span>
-        <span class="text-lg font-serif text-primary-900">{day.date}</span>
-      </div>
+  {
+    schedule.map((day) => (
+      <div>
+        {/* Day Header */}
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-4 py-2 bg-accent-500 text-white text-xs font-medium uppercase tracking-wider">
+            {day.day}
+          </span>
+          <span class="text-lg font-serif text-primary-900">{day.date}</span>
+        </div>
 
-      <!-- Schedule Table -->
-      <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
-        <table class="w-full">
-          <tbody>
-            {day.items.map((item, index) => (
-              <tr
-                class={`border-b border-gray-100 last:border-b-0 ${item.isBreak ? 'bg-gray-50' : ''}`}
-              >
-                <td class="px-4 sm:px-6 py-4 w-20 sm:w-28">
-                  <span
-                    class={`inline-flex items-center gap-1.5 text-sm ${item.isBreak ? 'text-gray-400' : 'text-accent-600 font-medium'}`}
-                  >
-                    <span class="material-symbols-outlined text-sm" aria-hidden="true">
-                      schedule
+        {/* Schedule Table */}
+        <div class="bg-white rounded-lg border border-gray-100 overflow-hidden">
+          <table class="w-full">
+            <tbody>
+              {day.items.map((item) => (
+                <tr
+                  class={`border-b border-gray-100 last:border-b-0 ${item.isBreak ? 'bg-gray-50' : ''}`}
+                >
+                  <td class="px-4 sm:px-6 py-4 w-20 sm:w-28">
+                    <span
+                      class={`inline-flex items-center gap-1.5 text-sm ${item.isBreak ? 'text-gray-400' : 'text-accent-600 font-medium'}`}
+                    >
+                      <span class="material-symbols-outlined text-sm" aria-hidden="true">
+                        schedule
+                      </span>
+                      {item.time}
                     </span>
-                    {item.time}
-                  </span>
-                </td>
-                <td class="px-4 sm:px-6 py-4">
-                  <span class={`text-sm sm:text-base ${item.isBreak ? 'text-gray-400 italic' : 'text-neutral-graphite'}`}>
-                    {item.activity}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  </td>
+                  <td class="px-4 sm:px-6 py-4">
+                    <span
+                      class={`text-sm sm:text-base ${item.isBreak ? 'text-gray-400 italic' : 'text-neutral-graphite'}`}
+                    >
+                      {item.activity}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-  ))}
+    ))
+  }
 
-  <!-- Note -->
+  {/* Note */}
   <div class="flex items-start gap-3 p-4 bg-accent-500/5 rounded-lg">
-    <span class="material-symbols-outlined text-accent-500 text-xl flex-shrink-0" aria-hidden="true">
+    <span
+      class="material-symbols-outlined text-accent-500 text-xl flex-shrink-0"
+      aria-hidden="true"
+    >
       lightbulb
     </span>
     <p class="text-sm text-neutral-graphite">

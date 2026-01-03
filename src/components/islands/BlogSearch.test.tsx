@@ -47,7 +47,7 @@ describe('BlogSearch', () => {
     });
 
     it('should render with correct placeholder for pt', () => {
-      render(<BlogSearch articles={mockArticles} locale = 'pt' />);
+      render(<BlogSearch articles={mockArticles} locale="pt" />);
 
       const input = screen.getByPlaceholderText('Buscar artigos...');
       expect(input).toBeInTheDocument();
@@ -193,7 +193,7 @@ describe('BlogSearch', () => {
   describe('results count', () => {
     it('should show correct count for single result in pt', async () => {
       const user = userEvent.setup();
-      render(<BlogSearch articles={mockArticles} locale = 'pt' />);
+      render(<BlogSearch articles={mockArticles} locale="pt" />);
 
       const input = screen.getByRole('searchbox');
       await user.type(input, 'Endomidface');
@@ -205,7 +205,7 @@ describe('BlogSearch', () => {
 
     it('should show correct count for multiple results in pt', async () => {
       const user = userEvent.setup();
-      render(<BlogSearch articles={mockArticles} locale = 'pt' />);
+      render(<BlogSearch articles={mockArticles} locale="pt" />);
 
       const input = screen.getByRole('searchbox');
       await user.type(input, 'Técnicas');
@@ -333,7 +333,7 @@ describe('BlogSearch', () => {
   describe('URL generation', () => {
     it('should generate correct URLs for pt locale', async () => {
       const user = userEvent.setup();
-      render(<BlogSearch articles={mockArticles} locale = 'pt' />);
+      render(<BlogSearch articles={mockArticles} locale="pt" />);
 
       const input = screen.getByRole('searchbox');
       await user.type(input, 'Endomidface');

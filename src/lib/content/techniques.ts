@@ -35,7 +35,7 @@ interface TechniquesContent {
 }
 
 export const techniquesContent: Record<Locale, TechniquesContent> = {
-  'pt': {
+  pt: {
     hero: {
       label: 'Técnicas',
       title: 'Excelência em Cada Procedimento',

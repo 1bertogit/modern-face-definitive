@@ -22,7 +22,7 @@ interface MobileMenuProps {
 
 // Aria labels by locale
 const ariaLabels: Record<string, { open: string; close: string }> = {
-  'pt': { open: 'Abrir menu', close: 'Fechar menu' },
+  pt: { open: 'Abrir menu', close: 'Fechar menu' },
   en: { open: 'Open menu', close: 'Close menu' },
   es: { open: 'Abrir menú', close: 'Cerrar menú' },
 };

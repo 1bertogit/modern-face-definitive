@@ -10,27 +10,27 @@ export const locales: Locale[] = ['en', 'pt', 'es'];
 export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
-  'pt': 'Português',
+  pt: 'Português',
   en: 'English',
   es: 'Español',
 };
 
 export const localeFlags: Record<Locale, string> = {
-  'pt': '🇧🇷',
+  pt: '🇧🇷',
   en: '🇺🇸',
   es: '🇪🇸',
 };
 
 /** OpenGraph locale format mapping */
 export const ogLocales: Record<Locale, string> = {
-  'pt': 'pt_BR',
+  pt: 'pt_BR',
   en: 'en_US',
   es: 'es_ES',
 };
 
 /** HTML lang attribute mapping */
 export const htmlLang: Record<Locale, string> = {
-  'pt': 'pt-BR',
+  pt: 'pt-BR',
   en: 'en',
   es: 'es',
 };

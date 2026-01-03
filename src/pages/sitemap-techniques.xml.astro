@@ -49,44 +49,58 @@ const techniques = [
   },
 ];
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {techniques.map((tech) => (
-    <>
-      {/* English version */}
-      <url>
-        <loc>{siteUrl}{tech.en}</loc>
-        <lastmod>{lastmod}</lastmod>
-        <changefreq>{tech.changefreq}</changefreq>
-        <priority>{tech.priority}</priority>
-        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
-        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
-        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
-        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
-      </url>
-      {/* Portuguese version */}
-      <url>
-        <loc>{siteUrl}{tech.pt}</loc>
-        <lastmod>{lastmod}</lastmod>
-        <changefreq>{tech.changefreq}</changefreq>
-        <priority>{tech.priority}</priority>
-        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
-        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
-        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
-        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
-      </url>
-      {/* Spanish version */}
-      <url>
-        <loc>{siteUrl}{tech.es}</loc>
-        <lastmod>{lastmod}</lastmod>
-        <changefreq>{tech.changefreq}</changefreq>
-        <priority>{tech.priority}</priority>
-        <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
-        <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
-        <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
-        <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
-      </url>
-    </>
-  ))}
+
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  {
+    techniques.map((tech) => (
+      <>
+        {/* English version */}
+        <url>
+          <loc>
+            {siteUrl}
+            {tech.en}
+          </loc>
+          <lastmod>{lastmod}</lastmod>
+          <changefreq>{tech.changefreq}</changefreq>
+          <priority>{tech.priority}</priority>
+          <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
+          <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
+          <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
+        </url>
+        {/* Portuguese version */}
+        <url>
+          <loc>
+            {siteUrl}
+            {tech.pt}
+          </loc>
+          <lastmod>{lastmod}</lastmod>
+          <changefreq>{tech.changefreq}</changefreq>
+          <priority>{tech.priority}</priority>
+          <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
+          <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
+          <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
+        </url>
+        {/* Spanish version */}
+        <url>
+          <loc>
+            {siteUrl}
+            {tech.es}
+          </loc>
+          <lastmod>{lastmod}</lastmod>
+          <changefreq>{tech.changefreq}</changefreq>
+          <priority>{tech.priority}</priority>
+          <xhtml:link rel="alternate" hreflang="en" href={`${siteUrl}${tech.en}`} />
+          <xhtml:link rel="alternate" hreflang="pt-BR" href={`${siteUrl}${tech.pt}`} />
+          <xhtml:link rel="alternate" hreflang="es" href={`${siteUrl}${tech.es}`} />
+          <xhtml:link rel="alternate" hreflang="x-default" href={`${siteUrl}${tech.en}`} />
+        </url>
+      </>
+    ))
+  }
 </urlset>

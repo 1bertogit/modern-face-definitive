@@ -66,4 +66,3 @@ export interface EventData {
   keywords?: string[];
   status?: 'upcoming' | 'live' | 'past';
 }
-

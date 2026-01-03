@@ -8,10 +8,9 @@ import EventCountdown from '@components/ui/EventCountdown.tsx';
 import EventSchedule from '@components/ui/EventSchedule.astro';
 import SpeakersGrid from '@components/ui/SpeakersGrid.astro';
 import RecordingsSection from '@components/ui/RecordingsSection.astro';
-import { getAllEvents, getEventBySlug, getEventSchema, getEventPaths } from '@lib/content/events';
+import { getAllEvents, getEventSchema } from '@lib/content/events';
 import type { EventData } from '@lib/types/event';
 import type { Locale } from '@lib/i18n';
-import { getAlternateUrls } from '@lib/i18n';
 
 export async function getStaticPaths() {
   const locale: Locale = 'pt';
@@ -38,7 +37,11 @@ const breadcrumbs = [
 ];
 
 const schema = getEventSchema(event, locale);
-const keywords = event.keywords || ['congresso online', 'evento cirurgia facial', 'Dr Robério Brandão'];
+const keywords = event.keywords || [
+  'congresso online',
+  'evento cirurgia facial',
+  'Dr Robério Brandão',
+];
 
 // Check if event is upcoming (for countdown)
 const now = new Date();
@@ -48,17 +51,12 @@ const isPast = eventStart < now;
 
 // Format dates
 const startDate = new Date(event.startDate);
-const endDate = new Date(event.endDate);
 const formattedDate = startDate.toLocaleDateString('pt-BR', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
 });
-const formattedTime = event.startTime
-  ? `${event.startTime} - ${event.endTime || ''}`
-  : 'A definir';
-
-const alternates = getAlternateUrls(Astro.url.pathname, 'https://drroberiobrandao.com');
+const formattedTime = event.startTime ? `${event.startTime} - ${event.endTime || ''}` : 'A definir';
 ---
 
 <BaseLayout
@@ -102,9 +100,7 @@ const alternates = getAlternateUrls(Astro.url.pathname, 'https://drroberiobranda
 
           <div class="flex flex-wrap gap-8 py-6 border-y border-gray-200 mb-8">
             <div class="text-center">
-              <p class="text-sm text-softGray uppercase tracking-[0.2em] font-light mb-2">
-                Data
-              </p>
+              <p class="text-sm text-softGray uppercase tracking-[0.2em] font-light mb-2">Data</p>
               <p class="text-xl font-normal text-primary-900 font-serif">{formattedDate}</p>
             </div>
             <div class="text-center">
@@ -113,28 +109,32 @@ const alternates = getAlternateUrls(Astro.url.pathname, 'https://drroberiobranda
               </p>
               <p class="text-xl font-normal text-primary-900 font-serif">{formattedTime}</p>
             </div>
-            {event.price !== undefined && (
-              <div class="text-center">
-                <p class="text-sm text-softGray uppercase tracking-[0.2em] font-light mb-2">
-                  Investimento
-                </p>
-                <p class="text-xl font-normal text-primary-900 font-serif">
-                  ${event.price}
-                  {event.originalPrice && (
-                    <span class="text-sm text-softGray line-through ml-2">
-                      ${event.originalPrice}
-                    </span>
-                  )}
-                </p>
-              </div>
-            )}
+            {
+              event.price !== undefined && (
+                <div class="text-center">
+                  <p class="text-sm text-softGray uppercase tracking-[0.2em] font-light mb-2">
+                    Investimento
+                  </p>
+                  <p class="text-xl font-normal text-primary-900 font-serif">
+                    ${event.price}
+                    {event.originalPrice && (
+                      <span class="text-sm text-softGray line-through ml-2">
+                        ${event.originalPrice}
+                      </span>
+                    )}
+                  </p>
+                </div>
+              )
+            }
           </div>
 
-          {isUpcoming && (
-            <div class="mb-8">
-              <EventCountdown targetDate={event.startDate} client:load />
-            </div>
-          )}
+          {
+            isUpcoming && (
+              <div class="mb-8">
+                <EventCountdown targetDate={event.startDate} client:load />
+              </div>
+            )
+          }
 
           <Button href="#registration" variant="primary" size="lg">
             {isPast ? 'Ver Gravações' : 'Inscrever-se Agora'}
@@ -142,27 +142,31 @@ const alternates = getAlternateUrls(Astro.url.pathname, 'https://drroberiobranda
         </div>
 
         <div class="relative">
-          {event.image ? (
-            <img
-              src={event.image}
-              alt={event.title}
-              class="rounded-lg"
-              width="800"
-              height="600"
-              loading="eager"
-              fetchpriority="high"
-            />
-          ) : (
-            <div class="bg-primary-900 rounded-lg p-16 text-center">
-              <span class="material-symbols-outlined text-8xl text-white">event</span>
-            </div>
-          )}
-          {isUpcoming && (
-            <div class="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 hidden lg:block">
-              <p class="text-2xl font-serif font-normal">Próximo</p>
-              <p class="text-sm font-light">{formattedDate}</p>
-            </div>
-          )}
+          {
+            event.image ? (
+              <img
+                src={event.image}
+                alt={event.title}
+                class="rounded-lg"
+                width="800"
+                height="600"
+                loading="eager"
+                fetchpriority="high"
+              />
+            ) : (
+              <div class="bg-primary-900 rounded-lg p-16 text-center">
+                <span class="material-symbols-outlined text-8xl text-white">event</span>
+              </div>
+            )
+          }
+          {
+            isUpcoming && (
+              <div class="absolute -bottom-6 -right-6 bg-accent-600 text-white p-6 hidden lg:block">
+                <p class="text-2xl font-serif font-normal">Próximo</p>
+                <p class="text-sm font-light">{formattedDate}</p>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
@@ -188,87 +192,98 @@ const alternates = getAlternateUrls(Astro.url.pathname, 'https://drroberiobranda
   </section>
 
   <!-- Schedule -->
-  {event.schedule && event.schedule.length > 0 && (
-    <EventSchedule schedule={event.schedule} title="Programação" subtitle="Programa do Evento" />
-  )}
+  {
+    event.schedule && event.schedule.length > 0 && (
+      <EventSchedule schedule={event.schedule} title="Programação" subtitle="Programa do Evento" />
+    )
+  }
 
   <!-- Speakers -->
-  {event.speakers && event.speakers.length > 0 && (
-    <SpeakersGrid speakers={event.speakers} title="Palestrantes" subtitle="Painel de Especialistas" />
-  )}
+  {
+    event.speakers && event.speakers.length > 0 && (
+      <SpeakersGrid
+        speakers={event.speakers}
+        title="Palestrantes"
+        subtitle="Painel de Especialistas"
+      />
+    )
+  }
 
   <!-- FAQ -->
-  {event.faqs && event.faqs.length > 0 && (
-    <section class="py-32 bg-white">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
-            Perguntas Frequentes
-          </h2>
-          <h3 class="text-4xl font-serif text-primary-900">Perguntas Sobre o Evento</h3>
-        </div>
+  {
+    event.faqs && event.faqs.length > 0 && (
+      <section class="py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
+              Perguntas Frequentes
+            </h2>
+            <h3 class="text-4xl font-serif text-primary-900">Perguntas Sobre o Evento</h3>
+          </div>
 
-        <div class="space-y-6">
-          {
-            event.faqs.map((faq) => (
+          <div class="space-y-6">
+            {event.faqs.map((faq) => (
               <div class="bg-ivory p-8 rounded-lg border border-gray-100">
                 <h4 class="text-lg font-serif text-primary-900 mb-4">{faq.question}</h4>
                 <p class="text-warmGray leading-relaxed">{faq.answer}</p>
               </div>
-            ))
-          }
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
 
   <!-- Recordings (only for past events) -->
-  {isPast && event.recordings && event.recordings.length > 0 && (
-    <div id="recordings">
-      <RecordingsSection recordings={event.recordings} title="Gravações" />
-    </div>
-  )}
+  {
+    isPast && event.recordings && event.recordings.length > 0 && (
+      <div id="recordings">
+        <RecordingsSection recordings={event.recordings} title="Gravações" />
+      </div>
+    )
+  }
 
   <!-- CTA -->
   <section id="registration" class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      {isUpcoming ? (
-        <>
-          <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">{event.title}</h2>
-          <p class="text-lg text-primary-400 mb-6 max-w-xl mx-auto">
-            Participe deste congresso online exclusivo com os últimos avanços em cirurgia facial.
-          </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            {event.platformUrl ? (
-              <Button href={event.platformUrl} variant="primary" size="lg">
-                Inscrever-se Agora
+      {
+        isUpcoming ? (
+          <>
+            <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">{event.title}</h2>
+            <p class="text-lg text-primary-400 mb-6 max-w-xl mx-auto">
+              Participe deste congresso online exclusivo com os últimos avanços em cirurgia facial.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              {event.platformUrl ? (
+                <Button href={event.platformUrl} variant="primary" size="lg">
+                  Inscrever-se Agora
+                </Button>
+              ) : (
+                <Button href="https://wa.me/5571999999999" variant="primary" size="lg">
+                  Entre em Contato
+                </Button>
+              )}
+              <Button href="/pt/eventos" variant="outline" size="lg">
+                Ver Todos os Eventos
+              </Button>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Gravações do Evento</h2>
+            <p class="text-lg text-primary-400 mb-6 max-w-xl mx-auto">
+              Acesse todas as sessões gravadas deste evento.
+            </p>
+            {event.recordings && event.recordings.length > 0 ? (
+              <Button href="#recordings" variant="primary" size="lg">
+                Ver Gravações
               </Button>
             ) : (
-              <Button href="https://wa.me/5571999999999" variant="primary" size="lg">
-                Entre em Contato
-              </Button>
+              <p class="text-primary-300">As gravações estarão disponíveis em breve.</p>
             )}
-            <Button href="/pt/eventos" variant="outline" size="lg">
-              Ver Todos os Eventos
-            </Button>
-          </div>
-        </>
-      ) : (
-        <>
-          <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Gravações do Evento</h2>
-          <p class="text-lg text-primary-400 mb-6 max-w-xl mx-auto">
-            Acesse todas as sessões gravadas deste evento.
-          </p>
-          {event.recordings && event.recordings.length > 0 ? (
-            <Button href="#recordings" variant="primary" size="lg">
-              Ver Gravações
-            </Button>
-          ) : (
-            <p class="text-primary-300">As gravações estarão disponíveis em breve.</p>
-          )}
-        </>
-      )}
+          </>
+        )
+      }
     </div>
   </section>
 </BaseLayout>
-

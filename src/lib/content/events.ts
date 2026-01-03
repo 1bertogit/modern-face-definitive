@@ -25,7 +25,9 @@ export function getEventSchema(event: EventData, locale: Locale) {
       name: event.organizer || 'Dr. Robério Brandão',
     },
     ...(event.image && {
-      image: event.image.startsWith('http') ? event.image : `https://drroberiobrandao.com${event.image}`,
+      image: event.image.startsWith('http')
+        ? event.image
+        : `https://drroberiobrandao.com${event.image}`,
     }),
     ...(event.price !== undefined && {
       offers: {
@@ -222,4 +224,3 @@ export function getPastEvents(locale: Locale): EventData[] {
     return eventDate < now || event.status === 'past';
   });
 }
-
