@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaHowTo from '@components/seo/SchemaHowTo.astro';
 
 const keywords = [
   'Endomidface passo a passo',
@@ -137,6 +138,16 @@ const etapas = [
   keywords={keywords}
   lang="pt"
 >
+  <SchemaHowTo
+    name="Endomidface por Visão Direta - Protocolo Passo a Passo"
+    description="Protocolo cirúrgico completo do Endomidface por Visão Direta em 9 etapas sequenciais. Aprenda a abordagem sistemática para rejuvenescimento do terço médio com segurança máxima."
+    totalTime="PT90M"
+    steps={etapas.map((etapa, index) => ({
+      position: index + 1,
+      name: etapa.titulo,
+      text: etapa.descricao,
+    }))}
+  />
   <!-- Breadcrumb + Hero -->
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">

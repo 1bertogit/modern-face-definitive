@@ -73,7 +73,8 @@ const breadcrumbs = [
 
 <BaseLayout
   title={`${data.title} | Dr. Roberio Brandao`}
-  description={data.description}
+  description={data.description ||
+    `Read about ${data.title} on the Modern Face Institute blog. Expert insights on facial surgery techniques and training.`}
   keywords={data.keywords || []}
   lang="en"
   customAlternates={alternates}
@@ -113,7 +114,7 @@ const breadcrumbs = [
       <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-primary-300">
         <div class="flex items-center gap-3">
           <img
-            src="/images/blog_roberio_autor.jpg"
+            src="/images/blog_roberio_autor.webp"
             alt={data.author}
             class="w-10 h-10 rounded-full object-cover flex-shrink-0"
             loading="lazy"
@@ -165,7 +166,7 @@ const breadcrumbs = [
           <div class="bg-white rounded-xl p-5 border border-gray-100">
             <div class="flex items-center gap-4">
               <img
-                src="/images/blog_roberio_autor.jpg"
+                src="/images/blog_roberio_autor.webp"
                 alt={data.author}
                 class="w-14 h-14 rounded-full object-cover flex-shrink-0"
                 loading="lazy"

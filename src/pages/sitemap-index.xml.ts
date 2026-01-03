@@ -22,10 +22,14 @@ export const GET: APIRoute = async () => {
   // Generate XML content
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemaps.map((sitemap) => `  <sitemap>
+${sitemaps
+  .map(
+    (sitemap) => `  <sitemap>
     <loc>${siteUrl}${sitemap.loc}</loc>
     <lastmod>${lastmod}</lastmod>
-  </sitemap>`).join('\n')}
+  </sitemap>`
+  )
+  .join('\n')}
 </sitemapindex>`;
 
   return new Response(xmlContent, {
@@ -34,4 +38,3 @@ ${sitemaps.map((sitemap) => `  <sitemap>
     },
   });
 };
-

@@ -61,7 +61,8 @@ const formattedTime = event.startTime ? `${event.startTime} - ${event.endTime ||
 
 <BaseLayout
   title={`${event.title} | Dr. Robério Brandão`}
-  description={event.description}
+  description={event.description ||
+    `Join ${event.title}, an online congress on facial surgery featuring Dr. Robério Brandão and expert speakers.`}
   keywords={keywords}
   schema={schema}
   lang="en"

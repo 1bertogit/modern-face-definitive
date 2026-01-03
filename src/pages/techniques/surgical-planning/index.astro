@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaHowTo from '@components/seo/SchemaHowTo.astro';
 
 const keywords = [
   'facial surgery planning',
@@ -62,6 +63,16 @@ const materials = [
   keywords={keywords}
   lang="en"
 >
+  <SchemaHowTo
+    name="Surgical Planning for Facial Surgery - 6 Step Protocol"
+    description="Systematic surgical planning protocol for facial surgery. Learn the 6-step methodology from initial assessment to pre-operative checklist for safe and successful outcomes."
+    steps={steps.map((step, index) => ({
+      position: index + 1,
+      name: step.title,
+      text: step.desc,
+      url: step.href,
+    }))}
+  />
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
       <nav class="mb-8">

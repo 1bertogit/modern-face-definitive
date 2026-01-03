@@ -1,0 +1,80 @@
+---
+/**
+ * SchemaHowTo - Schema para guias passo a passo
+ * Melhora rich snippets no Google para conteúdo instrucional
+ */
+
+interface HowToStep {
+  name: string;
+  text: string;
+  image?: string;
+  url?: string;
+  position: number;
+}
+
+interface Props {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+  image?: string;
+  totalTime?: string;
+  estimatedCost?: {
+    currency: string;
+    value: string;
+  };
+}
+
+const { name, description, steps, image, totalTime, estimatedCost } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://drroberiobrandao.com';
+const pageUrl = `${siteUrl}${Astro.url.pathname}`;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: name,
+  description: description,
+  url: pageUrl,
+  image: image
+    ? image.startsWith('http')
+      ? image
+      : `${siteUrl}${image}`
+    : `${siteUrl}/images/og-default.webp`,
+  ...(totalTime && {
+    totalTime: totalTime,
+  }),
+  ...(estimatedCost && {
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: estimatedCost.currency,
+      value: estimatedCost.value,
+    },
+  }),
+  step: steps.map((step) => ({
+    '@type': 'HowToStep',
+    position: step.position,
+    name: step.name,
+    text: step.text,
+    ...(step.image && {
+      image: step.image.startsWith('http') ? step.image : `${siteUrl}${step.image}`,
+    }),
+    ...(step.url && {
+      url: step.url.startsWith('http') ? step.url : `${siteUrl}${step.url}`,
+    }),
+  })),
+  tool: [
+    {
+      '@type': 'HowToTool',
+      name: 'Surgical Instruments',
+    },
+  ],
+  supply: [
+    {
+      '@type': 'HowToSupply',
+      name: 'Medical Supplies',
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />

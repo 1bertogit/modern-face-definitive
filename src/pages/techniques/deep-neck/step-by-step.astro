@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import SchemaHowTo from '@components/seo/SchemaHowTo.astro';
 
 const keywords = [
   'Deep Neck surgical protocol',
@@ -50,6 +51,16 @@ const steps = [
   keywords={keywords}
   lang="en"
 >
+  <SchemaHowTo
+    name="Deep Neck Face Moderna - Step by Step Protocol"
+    description="Complete surgical protocol for Deep Neck technique without submandibular gland removal. Learn the systematic approach to cervical rejuvenation in 10 sequential steps."
+    totalTime="PT90M"
+    steps={steps.map((s, index) => ({
+      position: index + 1,
+      name: s.t,
+      text: s.d,
+    }))}
+  />
   <section class="py-32 bg-primary-900">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <p class="text-[10px] font-medium text-accent-600 uppercase tracking-[0.2em] mb-4">
