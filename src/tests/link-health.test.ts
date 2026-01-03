@@ -82,7 +82,6 @@ describe('Link Health', () => {
       expect(distStat.isDirectory()).toBe(true);
     } catch {
       // Skip test if dist doesn't exist (not built yet)
-      console.log('⚠️  Dist directory not found. Run "npm run build" first.');
       expect(true).toBe(true);
     }
   });
@@ -103,7 +102,7 @@ describe('Link Health', () => {
         expect(pageStat.isFile()).toBe(true);
       } catch {
         // If dist doesn't exist, skip
-        console.log(`⚠️  ${page} not found. This is expected if the site hasn't been built yet.`);
+        // This is expected if the site hasn't been built yet
       }
     }
   });
@@ -113,7 +112,7 @@ describe('Link Health', () => {
     const htmlFiles = await collectHtmlFiles(DIST_DIR);
 
     if (htmlFiles.length === 0) {
-      console.log('⚠️  No HTML files found. Run "npm run build" first.');
+      // Skip test if no HTML files found (site not built)
       expect(true).toBe(true);
       return;
     }
@@ -139,9 +138,9 @@ describe('Link Health', () => {
 
     // Report broken links
     if (brokenLinks.length > 0) {
-      console.log('\n❌ Broken internal links found:');
-      brokenLinks.forEach((link) => console.log(`  - ${link}`));
-      console.log('');
+      console.error('\n❌ Broken internal links found:');
+      brokenLinks.forEach((link) => console.error(`  - ${link}`));
+      console.error('');
     }
 
     expect(brokenLinks).toEqual([]);
@@ -158,7 +157,7 @@ describe('Link Health', () => {
       expect(content).toMatch(/not found|não encontrada|no encontrada/i);
       expect(content).toContain('home');
     } catch {
-      console.log('⚠️  404 page not found. This is expected if the site hasn\'t been built yet.');
+      // Skip test if 404 page not found (site not built)
     }
   });
 });
