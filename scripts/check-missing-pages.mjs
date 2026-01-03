@@ -1,60 +1,17 @@
 #!/usr/bin/env node
 /**
  * Script para identificar páginas faltantes em cada idioma
- * Compara estrutura de páginas EN, PT e ES
+ * Compara arquivos .astro diretamente
  */
 
 import { readdir, stat } from 'fs/promises';
-import { join, relative, dirname } from 'path';
+import { join } from 'path';
 import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const pagesDir = join(__dirname, '..', 'src', 'pages');
-
-// Mapeamento de traduções de paths
-const pathTranslations = {
-  'en': {
-    'about': 'sobre',
-    'anatomy': 'anatomia',
-    'applied-anatomy': 'anatomia-aplicada',
-    'blog': 'blog',
-    'cases': 'casos',
-    'clinical-technology': 'tecnologia-clinica',
-    'contact': 'contato',
-    'education': 'educacao',
-    'faq': 'faq',
-    'glossary': 'glossario',
-    'library': 'biblioteca',
-    'modern-face': 'face-moderna',
-    'philosophy': 'filosofia',
-    'privacy': 'privacidade',
-    'surgical-planning': 'planificacion-quirurgica',
-    'techniques': 'tecnicas',
-    'terms': 'termos',
-    'training': 'formacao',
-  },
-  'es': {
-    'about': 'sobre',
-    'anatomy': 'anatomia',
-    'applied-anatomy': 'anatomia-aplicada',
-    'blog': 'blog',
-    'cases': 'casos',
-    'clinical-technology': 'tecnologia-clinica',
-    'contact': 'contacto',
-    'education': 'educacion',
-    'faq': 'faq',
-    'glossary': 'glosario',
-    'library': 'biblioteca',
-    'modern-face': 'face-moderna',
-    'philosophy': 'filosofia',
-    'privacy': 'privacidad',
-    'surgical-planning': 'planificacion-quirurgica',
-    'techniques': 'tecnicas',
-    'terms': 'terminos',
-    'training': 'formacion',
-  }
-};
 
 // Ignorar arquivos de sistema
 const ignoreFiles = new Set([
@@ -69,33 +26,32 @@ const ignoreFiles = new Set([
   'sitemap-techniques.xml.astro',
 ]);
 
-async function getAllPages(dir, prefix = '') {
-  const pages = new Set();
+async function getAllAstroFiles(dir, basePath = '') {
+  const files = new Set();
   const entries = await readdir(dir, { withFileTypes: true });
   
   for (const entry of entries) {
-    const fullPath = join(dir, entry.name);
-    const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
-    
     if (ignoreFiles.has(entry.name)) continue;
     
+    const relativePath = basePath ? `${basePath}/${entry.name}` : entry.name;
+    const fullPath = join(dir, entry.name);
+    
     if (entry.isDirectory()) {
-      if (entry.name === 'pt' || entry.name === 'es') {
-        // Pular diretórios de locale
-        continue;
-      }
-      const subPages = await getAllPages(fullPath, relativePath);
-      subPages.forEach(p => pages.add(p));
+      // Pular diretórios de locale
+      if (entry.name === 'pt' || entry.name === 'es') continue;
+      
+      const subFiles = await getAllAstroFiles(fullPath, relativePath);
+      subFiles.forEach(f => files.add(f));
     } else if (entry.name.endsWith('.astro')) {
-      const pagePath = relativePath.replace(/\.astro$/, '');
-      pages.add(pagePath);
+      const pathWithoutExt = relativePath.replace(/\.astro$/, '');
+      files.add(pathWithoutExt);
     }
   }
   
-  return pages;
+  return files;
 }
 
-async function getLocalePages(dir, locale) {
+async function getLocaleFiles(dir, locale) {
   const localeDir = join(dir, locale);
   try {
     await stat(localeDir);
@@ -103,86 +59,141 @@ async function getLocalePages(dir, locale) {
     return new Set();
   }
   
-  return await getAllPages(localeDir, locale);
+  return await getAllAstroFiles(localeDir, locale);
 }
 
-function translatePath(path, locale) {
-  if (locale === 'en') return path;
+// Mapeamento básico de traduções de paths
+function normalizePathForComparison(path, locale) {
+  // Remove locale prefix se existir
+  let normalized = path.replace(/^(pt|es)\//, '');
   
-  const translations = pathTranslations[locale];
-  if (!translations) return path;
+  // Mapeamentos conhecidos
+  const mappings = {
+    'pt': {
+      'sobre': 'about',
+      'anatomia': 'anatomy',
+      'anatomia-aplicada': 'applied-anatomy',
+      'casos': 'cases',
+      'contato': 'contact',
+      'educacao': 'education',
+      'glossario': 'glossary',
+      'biblioteca': 'library',
+      'face-moderna': 'modern-face',
+      'privacidade': 'privacy',
+      'tecnicas': 'techniques',
+      'tecnologia-clinica': 'clinical-technology',
+      'termos': 'terms',
+      'formacao': 'training',
+      'planificacion-quirurgica': 'surgical-planning',
+      'alunos': 'students',
+      'cirurgicos': 'surgical',
+      'estudos-clinicos': 'clinical-studies',
+      'ebooks': 'ebooks',
+      'guias-praticos': 'practical-guides',
+      'infograficos': 'infographics',
+      'publicacoes': 'publications',
+      'programas-nucleo': 'core-programs',
+      'cursos-satelites': 'satellite-courses',
+      'formacao-avancada': 'advanced-training',
+    },
+    'es': {
+      'sobre': 'about',
+      'anatomia': 'anatomy',
+      'anatomia-aplicada': 'applied-anatomy',
+      'casos': 'cases',
+      'contacto': 'contact',
+      'educacion': 'education',
+      'glosario': 'glossary',
+      'biblioteca': 'library',
+      'face-moderna': 'modern-face',
+      'privacidad': 'privacy',
+      'tecnicas': 'techniques',
+      'tecnologia-clinica': 'clinical-technology',
+      'terminos': 'terms',
+      'formacion': 'training',
+      'planificacion-quirurgica': 'surgical-planning',
+      'alumnos': 'students',
+      'quirurgicos': 'surgical',
+      'estudios-clinicos': 'clinical-studies',
+      'ebooks': 'ebooks',
+      'guias-practicos': 'practical-guides',
+      'infograficos': 'infographics',
+      'publicaciones': 'publications',
+      'programas-nucleo': 'core-programs',
+      'cursos-satelites': 'satellite-courses',
+      'formacion-avanzada': 'advanced-training',
+    }
+  };
   
-  let translated = path;
-  for (const [en, translatedPath] of Object.entries(translations)) {
-    translated = translated.replace(new RegExp(`^${en}/`), `${translatedPath}/`);
-    translated = translated.replace(new RegExp(`/${en}/`), `/${translatedPath}/`);
-    translated = translated.replace(new RegExp(`^${en}$`), translatedPath);
+  if (locale === 'en') return normalized;
+  
+  const mapping = mappings[locale] || {};
+  let result = normalized;
+  
+  // Aplicar mapeamentos
+  for (const [pt, en] of Object.entries(mapping)) {
+    result = result.replace(new RegExp(`^${pt}/`), `${en}/`);
+    result = result.replace(new RegExp(`/${pt}/`), `/${en}/`);
+    result = result.replace(new RegExp(`^${pt}$`), en);
   }
   
-  return translated;
+  return result;
 }
 
 async function main() {
   console.log('🔍 Analisando páginas faltantes...\n');
   
-  const enPages = await getAllPages(pagesDir);
-  const ptPages = await getLocalePages(pagesDir, 'pt');
-  const esPages = await getLocalePages(pagesDir, 'es');
+  const enFiles = await getAllAstroFiles(pagesDir);
+  const ptFiles = await getLocaleFiles(pagesDir, 'pt');
+  const esFiles = await getLocaleFiles(pagesDir, 'es');
   
   console.log(`📊 Estatísticas:`);
-  console.log(`   EN: ${enPages.size} páginas`);
-  console.log(`   PT: ${ptPages.size} páginas`);
-  console.log(`   ES: ${esPages.size} páginas\n`);
+  console.log(`   EN: ${enFiles.size} páginas`);
+  console.log(`   PT: ${ptFiles.size} páginas`);
+  console.log(`   ES: ${esFiles.size} páginas\n`);
+  
+  // Normalizar paths PT e ES para comparação
+  const ptNormalized = new Map();
+  for (const ptFile of ptFiles) {
+    const normalized = normalizePathForComparison(ptFile, 'pt');
+    ptNormalized.set(normalized, ptFile);
+  }
+  
+  const esNormalized = new Map();
+  for (const esFile of esFiles) {
+    const normalized = normalizePathForComparison(esFile, 'es');
+    esNormalized.set(normalized, esFile);
+  }
   
   // Encontrar páginas EN que não têm equivalente em PT
   const missingInPT = [];
-  for (const enPage of enPages) {
-    const expectedPT = translatePath(enPage, 'pt');
-    if (!ptPages.has(expectedPT) && !ptPages.has(enPage)) {
-      missingInPT.push({ en: enPage, expectedPT });
+  for (const enFile of enFiles) {
+    if (!ptNormalized.has(enFile)) {
+      missingInPT.push(enFile);
     }
   }
   
   // Encontrar páginas EN que não têm equivalente em ES
   const missingInES = [];
-  for (const enPage of enPages) {
-    const expectedES = translatePath(enPage, 'es');
-    if (!esPages.has(expectedES) && !esPages.has(enPage)) {
-      missingInES.push({ en: enPage, expectedES });
+  for (const enFile of enFiles) {
+    if (!esNormalized.has(enFile)) {
+      missingInES.push(enFile);
     }
   }
   
   // Encontrar páginas PT que não têm equivalente em EN
   const missingInENFromPT = [];
-  for (const ptPage of ptPages) {
-    // Verificar se existe equivalente em EN
-    let found = false;
-    for (const enPage of enPages) {
-      const expectedPT = translatePath(enPage, 'pt');
-      if (expectedPT === ptPage || enPage === ptPage) {
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      missingInENFromPT.push(ptPage);
+  for (const [normalized, original] of ptNormalized.entries()) {
+    if (!enFiles.has(normalized)) {
+      missingInENFromPT.push(original);
     }
   }
   
   // Encontrar páginas ES que não têm equivalente em EN
   const missingInENFromES = [];
-  for (const esPage of esPages) {
-    // Verificar se existe equivalente em EN
-    let found = false;
-    for (const enPage of enPages) {
-      const expectedES = translatePath(enPage, 'es');
-      if (expectedES === esPage || enPage === esPage) {
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      missingInENFromES.push(esPage);
+  for (const [normalized, original] of esNormalized.entries()) {
+    if (!enFiles.has(normalized)) {
+      missingInENFromES.push(original);
     }
   }
   
@@ -193,26 +204,18 @@ async function main() {
   
   if (missingInPT.length > 0) {
     console.log(`\n❌ FALTAM EM PT (${missingInPT.length} páginas):`);
-    missingInPT.slice(0, 50).forEach(({ en, expectedPT }) => {
-      console.log(`   EN: /${en}`);
-      console.log(`   PT: /pt/${expectedPT}`);
+    missingInPT.forEach(page => {
+      console.log(`   /${page}`);
     });
-    if (missingInPT.length > 50) {
-      console.log(`   ... e mais ${missingInPT.length - 50} páginas`);
-    }
   } else {
     console.log('\n✅ Todas as páginas EN têm equivalente em PT');
   }
   
   if (missingInES.length > 0) {
     console.log(`\n❌ FALTAM EM ES (${missingInES.length} páginas):`);
-    missingInES.slice(0, 50).forEach(({ en, expectedES }) => {
-      console.log(`   EN: /${en}`);
-      console.log(`   ES: /es/${expectedES}`);
+    missingInES.forEach(page => {
+      console.log(`   /${page}`);
     });
-    if (missingInES.length > 50) {
-      console.log(`   ... e mais ${missingInES.length - 50} páginas`);
-    }
   } else {
     console.log('\n✅ Todas as páginas EN têm equivalente em ES');
   }

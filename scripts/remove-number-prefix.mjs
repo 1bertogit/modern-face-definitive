@@ -10,12 +10,14 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const blogPtPath = join(__dirname, '../src/content/blog/pt');
+// Pode processar PT ou EN baseado em argumento
+const locale = process.argv[2] || 'pt';
+const blogPath = join(__dirname, `../src/content/blog/${locale}`);
 
 async function removeNumberPrefix() {
   try {
-    console.log('🔍 Listando arquivos...\n');
-    const files = await readdir(blogPtPath);
+    console.log(`🔍 Listando arquivos em blog/${locale}...\n`);
+    const files = await readdir(blogPath);
     const mdxFiles = files.filter((f) => f.endsWith('.mdx') && /^\d+-/.test(f));
 
     if (mdxFiles.length === 0) {
@@ -32,8 +34,8 @@ async function removeNumberPrefix() {
       const newName = file.replace(/^\d+-/, '');
       
       if (newName !== file) {
-        const oldPath = join(blogPtPath, file);
-        const newPath = join(blogPtPath, newName);
+        const oldPath = join(blogPath, file);
+        const newPath = join(blogPath, newName);
         
         renameOperations.push({
           old: file,

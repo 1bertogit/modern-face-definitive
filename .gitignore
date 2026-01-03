@@ -40,3 +40,8 @@ coverage
 *.tmp
 *.temp
 venv/
+
+# Development tools
+_bmad/
+_bmad-output/
+firebase-debug.log
