@@ -6,7 +6,6 @@
  */
 
 import BlogSearch from '@components/islands/BlogSearch';
-import { LocalizedErrorBoundary } from '@components/islands/ErrorBoundary';
 
 export interface Category {
   name:  string;
@@ -104,9 +103,7 @@ const getCategoryUrl = (categorySlug:  string) => {
     <h3 class="label-eyebrow mb-4">
       {trans.search}
     </h3>
-    <LocalizedErrorBoundary locale={locale} client:load>
-      <BlogSearch articles={articles} locale={locale} />
-    </LocalizedErrorBoundary>
+    <BlogSearch articles={articles} locale={locale} client:load />
   </div>
 
   <!-- Categories Section -->
@@ -131,10 +128,10 @@ const getCategoryUrl = (categorySlug:  string) => {
               <span>{category.name}</span>
               <span
                 class:list={[
-                  'text-[10px] px-2 py-0.5 rounded-full',
+                  'text-[10px] px-2 py-0.5 rounded-full font-medium',
                   currentCategory === category.slug
                     ? 'bg-accent-100 text-accent-700'
-                    : 'bg-primary-50 text-softGray',
+                    : 'bg-primary-100 text-primary-600',
                 ]}
               >
                 {category.count}
